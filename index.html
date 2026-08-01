@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0d12" />
+  <title>ENLEARN · TCF Oral B2</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- 只放大 ENLEARN 标题：不影响其它地方 -->
+  <style>
+    .brandBig{
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div>
+        <div class="brandTitle brandBig">ENLEARN</div>
+        <div class="brandSub"></div>
+      </div>
+    </div>
+
+    <!-- 选择 + 范围 + 进度 -->
+    <div class="card">
+      <div class="grid">
+        <div class="row">
+          <div class="label">题库</div>
+          <div class="field">
+            <select id="deckSelect" class="select"></select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">模式</div>
+          <div class="field">
+            <select id="modeSelect" class="select">
+              <option value="ordered">正序</option>
+              <option value="random">乱序</option>
+              <option value="smart">智能</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label">范围</div>
+          <div class="field" style="display:flex; gap:10px; align-items:center;">
+            <input id="rangeStart" class="select" type="number" placeholder="Start (1)" style="width:45%;" />
+            <span style="opacity:.6;">—</span>
+            <input id="rangeEnd" class="select" type="number" placeholder="End (Max)" style="width:45%;" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="label"></div>
+          <div class="field">
+            <button class="btn" id="btnApplyRange" style="width:100%;">开始计时</button>
+          </div>
+        </div>
+
+        <div class="progress" id="progressText">—</div>
+      </div>
+    </div>
+
+    <!-- 问答区 -->
+    <div class="card">
+      <div class="sectionTitle">问题</div>
+      <div id="qText" class="qText">请选择题库开始</div>
+
+      <div class="sectionTitle">答案</div>
+      <div id="aText" class="aText">. . .</div>
+
+      <div class="controls">
+        <div class="row row-main">
+          <button class="btn" id="btnPrev">上一题</button>
+          <button class="btn primary" id="btnShow">看答案</button>
+          <button class="btn" id="btnNext">下一题</button>
+        </div>
+
+        <div class="row row-sub">
+          <button class="btn danger" id="btnReset">重置</button>
+          <button class="btn" id="btnPron">发音</button>
+        </div>
+
+        <!-- 已按你要求：删除「导出训练CSV」按钮 -->
+      </div>
+    </div>
+
+    <!-- 曲线 + 训练记录 -->
+    <div class="card">
+      <div class="sectionTitle">曲线</div>
+      <div style="height:220px; margin-top:10px;">
+        <canvas id="historyChart"></canvas>
+      </div>
+
+      <div class="sectionTitle" style="margin-top:18px;">训练记录</div>
+      <div id="sessionHint" style="opacity:.7; line-height:1.5;">
+        每次点「开始计时」会自动开始一次训练。练到范围最后一题并点击「下一题」即自动结束并记录一次数据。连续练十几次，你会看到自己的曲线变化。
+      </div>
+
+      <div id="sessionsList" style="margin-top:10px;"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+
+</body>
+</html>
