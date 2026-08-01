@@ -1,0 +1,27 @@
+:root { color-scheme: dark; font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #090d15; color: #edf2ff; min-height: 100vh; }
+.wrap { width: min(760px, 100%); margin: 0 auto; padding: 22px 14px 64px; }
+.header { display: flex; justify-content: space-between; align-items: center; margin: 4px 4px 18px; }
+.brandTitle { color: #65e6a6; }
+.brandSub { color: #8590a5; font-size: 13px; }
+.card { background: linear-gradient(145deg, #121927, #0e1420); border: 1px solid #263248; border-radius: 18px; padding: 18px; margin-bottom: 15px; box-shadow: 0 12px 30px rgba(0,0,0,.22); }
+.grid { display: grid; gap: 12px; }
+.row { display: flex; gap: 12px; align-items: center; }
+.label { width: 54px; flex: 0 0 54px; color: #9aa7bd; font-size: 14px; }
+.field { flex: 1; }
+.select { width: 100%; border: 1px solid #34435f; border-radius: 11px; background: #0b111c; color: #f3f6ff; padding: 11px 12px; font-size: 15px; }
+.progress { color: #8fa0bb; font-size: 14px; text-align: right; }
+.sectionTitle { color: #8d9bb2; font-size: 13px; letter-spacing: .08em; margin: 4px 0 9px; }
+.qText, .aText { min-height: 78px; border-radius: 13px; padding: 16px; line-height: 1.65; font-size: 18px; }
+.qText { background: #0b121f; color: #dce6f8; }
+.aText { margin-top: 4px; background: #101d1a; color: #8ff0bb; font-size: 20px; }
+.controls { display: grid; gap: 10px; margin-top: 15px; }
+.row-main, .row-sub { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+.row-sub { grid-template-columns: 1fr 1fr; }
+.btn { border: 1px solid #3a4862; border-radius: 11px; background: #182235; color: #f4f7ff; padding: 12px 10px; font-size: 15px; cursor: pointer; }
+.btn:hover { filter: brightness(1.16); }
+.btn.primary { background: #22a86b; border-color: #35c47f; }
+.btn.danger { background: #41202a; border-color: #6a2e3d; }
+#sessionsList { line-height: 1.65; color: #b8c2d5; }
+@media (max-width: 520px) { .wrap { padding: 12px 10px 48px; } .card { padding: 14px; border-radius: 14px; } .qText,.aText { font-size: 17px; } }
