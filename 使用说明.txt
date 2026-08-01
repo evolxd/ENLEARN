@@ -1,0 +1,61 @@
+ENLEARN 导入 TCF Oral B2（176句）使用说明
+=============================================
+
+目标文件夹：
+C:\Users\evolx\Desktop\DIY Program\ENLEARN背诵软件
+
+一、安装
+1. 解压本安装包。
+2. 右键“INSTALL_B2_TO_ENLEARN.ps1”，选择“使用 PowerShell 运行”。
+3. 如果 Windows 阻止运行：
+   - 在安装包文件夹空白处按住 Shift + 鼠标右键
+   - 选择“在终端中打开”
+   - 复制运行：
+     powershell -ExecutionPolicy Bypass -File ".\INSTALL_B2_TO_ENLEARN.ps1"
+4. 脚本会自动：
+   - 备份 app.js
+   - 复制 TCF_Oral_B2_CEO_176.csv
+   - 把新题库登记到 CSV_FILES
+
+二、启动
+最简单方法：右键 START_ENLEARN_B2.ps1 → 使用 PowerShell 运行。
+若被阻止，在终端运行：
+powershell -ExecutionPolicy Bypass -File ".\START_ENLEARN_B2.ps1"
+
+网页地址：
+http://127.0.0.1:8091/
+
+如果你原来有专门的 START/启动 .bat 文件，也可以继续用原来的。
+如果中文和法语可以显示、但点击发音没声音，需要再启动原来的 TTS 服务。
+你的 app.js 会显示实际 TTS 端口；历史版本常见为 5050 或 5051。
+
+三、如何背诵
+1. 题库选择：🔥 TCF Oral B2 CEO (176句)
+2. 模式选择：ordered（顺序）
+3. 第一天范围建议：1 到 12
+4. 点击“开始计时”
+5. 每题先看中文，自己说法语
+6. 想不起来时点“看答案”
+7. 点答案区域，可手动播放法语
+8. 说对后点“下一题”
+9. 一轮结束后，再用 random（随机）复习
+
+四、适合你的训练节奏
+- 新句：每天12句
+- 第一轮：中文 → 自己说法语
+- 第二轮：打开自动发音，跟读3遍
+- 第三轮：random 随机抽查
+- 12句能够在3秒内起句，再进入下一组
+- 176句按每天12句，需要约15天完成第一轮
+
+五、题库结构
+每张卡：
+题目 = [主题编号 主题｜句号] 中文
+答案 = 法语原句
+共37个主题、176句。
+
+六、恢复
+安装脚本会在 ENLEARN 文件夹中生成：
+app.js.before_B2_日期时间
+如果需要恢复，把该备份改名为 app.js 即可。
+
