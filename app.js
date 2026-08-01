@@ -304,21 +304,42 @@ async function pronounce() {
   const text = raw.replace(/[^a-zA-Z0-9\u00C0-\u017F\s']/g, "").replace(/\s+/g, " ").trim();
   if (!text) return;
 
-  if (!("speechSynthesis" in window)) {
-    alert("当前浏览器不支持语音朗读，请使用最新版 Chrome 或 Edge。");
+  const browserFallback = () => {
+    if (!("speechSynthesis" in window)) {
+      alert("当前浏览器不支持语音朗读，请使用最新版 Chrome 或 Edge。");
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "fr-FR";
+    utterance.rate = 0.88;
+    const voices = window.speechSynthesis.getVoices();
+    utterance.voice = voices.find(v => /^fr-CA$/i.test(v.lang))
+      || voices.find(v => /^fr-FR$/i.test(v.lang))
+      || voices.find(v => /^fr/i.test(v.lang))
+      || null;
+    window.speechSynthesis.speak(utterance);
+  };
+
+  if (it.audio_url) {
+    if (audioEl) {
+      audioEl.pause();
+      audioEl.src = "";
+    }
+    audioEl = new Audio(it.audio_url);
+    audioEl.preload = "auto";
+    let usedFallback = false;
+    const fallbackOnce = () => {
+      if (usedFallback) return;
+      usedFallback = true;
+      browserFallback();
+    };
+    audioEl.onerror = fallbackOnce;
+    audioEl.play().catch(fallbackOnce);
     return;
   }
 
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(text);
-  utterance.lang = "fr-FR";
-  utterance.rate = 0.88;
-  const voices = window.speechSynthesis.getVoices();
-  utterance.voice = voices.find(v => /^fr-CA$/i.test(v.lang))
-    || voices.find(v => /^fr-FR$/i.test(v.lang))
-    || voices.find(v => /^fr/i.test(v.lang))
-    || null;
-  window.speechSynthesis.speak(utterance);
+  browserFallback();
 }
 
 // ---------- 曲线（每次 Session 的平均耗时） ----------
@@ -662,7 +683,8 @@ function normalizeItem(obj, idx = 0) {
     answer_fr: String(obj.answer_fr || obj.fr || obj.answer || "").trim(),
     answer: String(obj.answer || "").trim(),
     answer_en: String(obj.answer_en || "").trim(),
-    prompt: String(obj.prompt || "").trim()
+    prompt: String(obj.prompt || "").trim(),
+    audio_url: String(obj.audio_url || obj.audio || "").trim()
   };
 }
 
