@@ -264,8 +264,8 @@ function updateUI(it) {
   `累计 <span style="color:#fff; font-weight:400;">${m}分${s}秒</span> - 完成 <span style="color:#fff; font-weight:400;">${state.asked}</span> 题 - 平均 <span style="color:#fff; font-weight:400;">${avg}s</span>/句` +
   last;
 
-  const q = it ? (it.prompt_zh && it.prompt_en ? `${it.prompt_zh} — ${it.prompt_en}` : (it.prompt_zh || it.prompt_en || it.prompt || "")) : "超出范围 - 请调整范围";
-  const a = it ? (it.answer_fr || it.answer || it.answer_en || "") : "";
+  const q = it ? [it.prompt_fr, it.prompt_zh || it.prompt_en || it.prompt].filter(Boolean).join("\n\n") : "超出范围 - 请调整范围";
+  const a = it ? [it.answer_fr || it.answer || it.answer_en, it.answer_zh].filter(Boolean).join("\n\n") : "";
 
   $("qText").textContent = q || "—";
   $("aText").textContent = state.showingAnswer ? a : ". . .";
@@ -284,6 +284,23 @@ function speakCurrentSafe() {
     }
   } catch (e) {}
   pronounce();
+}
+
+function pronounceQuestion() {
+  const items = getFilteredItems();
+  const it = items.find(x => String(x.id) === String(state.currentId));
+  if (!it?.prompt_audio_url) return;
+  try {
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    if (audioEl) {
+      audioEl.pause();
+      audioEl.src = "";
+    }
+  } catch (e) {}
+  audioEl = new Audio(it.prompt_audio_url);
+  audioEl.preload = "auto";
+  audioEl.onerror = () => console.error("老师问句音频加载失败", it.prompt_audio_url);
+  audioEl.play().catch(error => console.error("老师问句音频播放失败", error));
 }
 
 async function pronounce() {
@@ -608,6 +625,9 @@ function bindEvents() {
     speakCurrentSafe();
   };
 
+  $("qText").onclick = pronounceQuestion;
+  $("btnQuestionPron").onclick = pronounceQuestion;
+
   $("btnExportSessions").onclick = exportSessionsCSV;
 
   $("btnReset").onclick = () => {
@@ -657,12 +677,15 @@ function normalizeItem(obj, idx = 0) {
     id,
     prompt_zh: String(obj.prompt_zh || obj.prompt_cn || obj.zh || obj.cn || "").trim(),
     prompt_en: String(obj.prompt_en || obj.en || "").trim(),
+    prompt_fr: String(obj.prompt_fr || obj.question_fr || "").trim(),
     // 兼容 answer/answer_fr/fr
     answer_fr: String(obj.answer_fr || obj.fr || obj.answer || "").trim(),
     answer: String(obj.answer || "").trim(),
     answer_en: String(obj.answer_en || "").trim(),
+    answer_zh: String(obj.answer_zh || obj.answer_cn || "").trim(),
     prompt: String(obj.prompt || "").trim(),
-    audio_url: String(obj.audio_url || obj.audio || "").trim()
+    audio_url: String(obj.audio_url || obj.audio || "").trim(),
+    prompt_audio_url: String(obj.prompt_audio_url || obj.question_audio_url || "").trim()
   };
 }
 
@@ -676,7 +699,8 @@ async function boot() {
   DECKS = [];
 
   const CSV_FILES = [
-    { id: "tcf_oral_b2", name: "🔥 TCF Oral B2 CEO (176句)", file: "TCF_Oral_B2_CEO_176.csv" }
+    { id: "tcf_oral_b2", name: "🔥 TCF Oral B2 CEO (176句)", file: "TCF_Oral_B2_CEO_176.csv" },
+    { id: "tcf_oral_b2_dialogue", name: "🎤 TCF Oral B2 考官问答 (40组)", file: "TCF_Oral_B2_考官问答_40.csv" }
   ];
 
   for (const f of CSV_FILES) {
