@@ -5,7 +5,6 @@
 
 const $ = (id) => document.getElementById(id);
 
-const TTS_PROXY_PORT = 5050;
 const LS_KEY = "enlearn_pwa_v7_6";
 const CACHE_NAME = "enlearn-tts-cache-v1";
 
@@ -278,6 +277,7 @@ function updateUI(it) {
 // ---------- 发音 ----------
 function speakCurrentSafe() {
   try {
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     if (audioEl) {
       audioEl.pause();
       audioEl.currentTime = 0;
@@ -304,42 +304,20 @@ async function pronounce() {
   const text = raw.replace(/[^a-zA-Z0-9\u00C0-\u017F\s']/g, "").replace(/\s+/g, " ").trim();
   if (!text) return;
 
-  const browserFallback = () => {
-    if (!("speechSynthesis" in window)) {
-      alert("当前浏览器不支持语音朗读，请使用最新版 Chrome 或 Edge。");
-      return;
-    }
-    window.speechSynthesis.cancel();
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "fr-FR";
-    utterance.rate = 0.88;
-    const voices = window.speechSynthesis.getVoices();
-    utterance.voice = voices.find(v => /^fr-CA$/i.test(v.lang))
-      || voices.find(v => /^fr-FR$/i.test(v.lang))
-      || voices.find(v => /^fr/i.test(v.lang))
-      || null;
-    window.speechSynthesis.speak(utterance);
-  };
-
   if (it.audio_url) {
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
     if (audioEl) {
       audioEl.pause();
       audioEl.src = "";
     }
     audioEl = new Audio(it.audio_url);
     audioEl.preload = "auto";
-    let usedFallback = false;
-    const fallbackOnce = () => {
-      if (usedFallback) return;
-      usedFallback = true;
-      browserFallback();
-    };
-    audioEl.onerror = fallbackOnce;
-    audioEl.play().catch(fallbackOnce);
+    audioEl.onerror = () => console.error("ElevenLabs 音频加载失败", it.audio_url);
+    audioEl.play().catch(error => console.error("ElevenLabs 音频播放失败", error));
     return;
   }
 
-  browserFallback();
+  console.warn("这条题目没有 ElevenLabs 音频", it.id);
 }
 
 // ---------- 曲线（每次 Session 的平均耗时） ----------
