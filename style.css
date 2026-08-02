@@ -18,7 +18,7 @@ body { margin: 0; background: #090d15; color: #edf2ff; min-height: 100vh; }
 .aText { margin-top: 4px; background: #101d1a; color: #8ff0bb; font-size: 20px; }
 .controls { display: grid; gap: 10px; margin-top: 15px; }
 .row-main, .row-sub { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
-.row-sub { grid-template-columns: 1fr 1fr; }
+.row-sub { grid-template-columns: repeat(3, 1fr); }
 .btn { border: 1px solid #3a4862; border-radius: 11px; background: #182235; color: #f4f7ff; padding: 12px 10px; font-size: 15px; cursor: pointer; }
 .btn:hover { filter: brightness(1.16); }
 .btn.primary { background: #22a86b; border-color: #35c47f; }
