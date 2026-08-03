@@ -162,7 +162,7 @@ function finalizePrevQuestionIfNeeded(countAsFinished) {
 // ---------- 全局开关行为 ----------
 function updateToggleUIOnly() {
   if ($("btnShow")) $("btnShow").textContent = state.autoShowAnswer ? "隐藏答案" : "看答案";
-  if ($("btnPron")) $("btnPron").textContent = state.autoSpeak ? "不发音" : "发音";
+  if ($("btnPron")) $("btnPron").textContent = state.autoSpeak ? "发音关" : "发音开";
 }
 
 function scheduleAutoSpeakForCurrent(tokenAtSchedule) {
@@ -778,14 +778,30 @@ function bindEvents() {
     input.focus();
   };
 
-  // 快捷键：页面空白处按空格，播放当前答案；在听写/输入框内仍可正常输入空格。
-  document.addEventListener("keydown", (event) => {
-    if (event.code !== "Space" || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
-    const target = event.target;
-    if (target?.matches?.("input, textarea, select") || target?.isContentEditable) return;
+  // 快捷键：在捕获阶段拦截，避免焦点落在“发音开/关”按钮时被浏览器当作点击。
+  const isTypingTarget = (target) => target?.matches?.("input, textarea, select") || target?.isContentEditable;
+  const interceptSpace = (event) => {
+    if (event.code !== "Space" || event.ctrlKey || event.metaKey || event.altKey || isTypingTarget(event.target)) return false;
     event.preventDefault();
+    event.stopImmediatePropagation();
+    return true;
+  };
+  document.addEventListener("keydown", (event) => {
+    if (!interceptSpace(event) || event.repeat) return;
     clearPendingSpeak();
     speakCurrentSafe();
+  }, true);
+  // 同时取消 keyup，彻底阻止浏览器在按钮聚焦时合成一次 click。
+  document.addEventListener("keyup", (event) => { interceptSpace(event); }, true);
+
+  let shortcutHintTimer = null;
+  const shortcutHint = $("spaceShortcutHint");
+  $("btnPron").addEventListener("mouseenter", () => {
+    shortcutHintTimer = setTimeout(() => { if (shortcutHint) shortcutHint.hidden = false; }, 2000);
+  });
+  $("btnPron").addEventListener("mouseleave", () => {
+    clearTimeout(shortcutHintTimer);
+    if (shortcutHint) shortcutHint.hidden = true;
   });
 
   $("btnReset").onclick = () => {
