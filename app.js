@@ -161,7 +161,7 @@ function finalizePrevQuestionIfNeeded(countAsFinished) {
 
 // ---------- 全局开关行为 ----------
 function updateToggleUIOnly() {
-  if ($("btnShow")) $("btnShow").textContent = state.autoShowAnswer ? "隐藏答案" : "看答案";
+  if ($("btnShow")) $("btnShow").textContent = state.showingAnswer ? "隐藏答案" : "看答案";
   if ($("btnPron")) $("btnPron").textContent = state.autoSpeak ? "发音关" : "发音开";
 }
 
@@ -693,18 +693,13 @@ function bindEvents() {
     if (it) startQuestion(it, 0);
   };
 
-  // 看答案按钮 - 现在是全局开关
+  // 看答案按钮：只切换当前题，避免受到自动行为和旧缓存状态影响。
   $("btnShow").onclick = () => {
-    state.autoShowAnswer = !state.autoShowAnswer;
-
     const it = getFilteredItems().find(x => String(x.id) === String(state.currentId));
     if (it) {
-      qToken += 1;
-      const tokenAtSchedule = qToken;
-      questionShownAt = performance.now();
-      state.showingAnswer = !!state.autoShowAnswer;
+      state.autoShowAnswer = false;
+      state.showingAnswer = !state.showingAnswer;
       updateUI(it);
-      applyAutoBehaviors(it, tokenAtSchedule);
     }
 
     saveState();
@@ -872,6 +867,8 @@ function judgeLang(deck) {
 // ---------- 启动 ----------
 async function boot() {
   DECKS = [];
+  // 旧版保存过“自动显示答案”的状态；新版改为由“看答案”按钮控制当前题。
+  state.autoShowAnswer = false;
 
   const CSV_FILES = [
     { id: "tcf_oral_b2", name: "🔥 TCF Oral B2 CEO (176句)", file: "TCF_Oral_B2_CEO_176.csv" },
