@@ -8,6 +8,7 @@ const $ = (id) => document.getElementById(id);
 const LS_KEY = "enlearn_pwa_v7_6";
 const CACHE_NAME = "enlearn-tts-cache-v1";
 const DICTATION_KEY = "enlearn_dictation_v1";
+const DICTATION_ACCENT_CHARS = ["é", "è", "ê", "ë", "à", "â", "î", "ï", "ô", "ù", "û", "ü", "ç", "œ", "É", "À"];
 let dictationDrafts = JSON.parse(localStorage.getItem(DICTATION_KEY) || "{}");
 
 // 自动行为参数
@@ -363,6 +364,31 @@ function updateDictationFromInput() {
   dictationDrafts[dictationStorageId(it)] = input.value;
   saveDictationDrafts();
   $("dictationFeedback").innerHTML = renderDictationFeedback(getAnswerText(it), input.value);
+}
+
+function insertDictationAccent(char) {
+  const input = $("dictationInput");
+  if (!input || input.disabled) return;
+  const start = input.selectionStart ?? input.value.length;
+  const end = input.selectionEnd ?? input.value.length;
+  input.setRangeText(char, start, end, "end");
+  input.focus();
+  updateDictationFromInput();
+}
+
+function setupDictationAccentPalette() {
+  const palette = $("dictationAccentPalette");
+  if (!palette) return;
+  DICTATION_ACCENT_CHARS.forEach(char => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "dictation-accent-btn";
+    button.textContent = char;
+    button.setAttribute("aria-label", `插入 ${char}`);
+    button.addEventListener("mousedown", event => event.preventDefault());
+    button.addEventListener("click", () => insertDictationAccent(char));
+    palette.appendChild(button);
+  });
 }
 
 // ---------- UI ----------
@@ -741,6 +767,7 @@ function bindEvents() {
   if ($("btnExportSessions")) $("btnExportSessions").onclick = exportSessionsCSV;
 
   $("dictationInput").addEventListener("input", updateDictationFromInput);
+  setupDictationAccentPalette();
   $("btnDictationClear").onclick = () => {
     const it = getFilteredItems().find(x => String(x.id) === String(state.currentId));
     const input = $("dictationInput");
