@@ -778,6 +778,16 @@ function bindEvents() {
     input.focus();
   };
 
+  // 快捷键：页面空白处按空格，播放当前答案；在听写/输入框内仍可正常输入空格。
+  document.addEventListener("keydown", (event) => {
+    if (event.code !== "Space" || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+    const target = event.target;
+    if (target?.matches?.("input, textarea, select") || target?.isContentEditable) return;
+    event.preventDefault();
+    clearPendingSpeak();
+    speakCurrentSafe();
+  });
+
   $("btnReset").onclick = () => {
     if (confirm("重置所有记录与缓存？")) {
       if (typeof caches !== "undefined") caches.delete(CACHE_NAME);
