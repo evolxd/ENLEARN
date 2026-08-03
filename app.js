@@ -201,19 +201,7 @@ function scheduleAutoSpeakForCurrent(tokenAtSchedule) {
 }
 
 function applyAutoBehaviors(it, tokenAtSchedule) {
-  // 看答案 - 全局开立即生效
-  state.showingAnswer = !!state.autoShowAnswer;
   updateUI(it);
-
-  // 给 DOM 一点稳定时间
-  if (state.autoShowAnswer) {
-    setTimeout(() => {
-      if (tokenAtSchedule !== qToken) return;
-      const items = getFilteredItems();
-      const cur = items.find(x => String(x.id) === String(state.currentId));
-      if (cur) updateUI(cur);
-    }, AUTO_SHOW_DOM_DELAY_MS);
-  }
 
   // 发音 - 延时 + 连点取消
   scheduleAutoSpeakForCurrent(tokenAtSchedule);
@@ -233,8 +221,7 @@ function startQuestion(it, step = 1) {
   const tokenAtSchedule = qToken;
   questionShownAt = performance.now();
 
-  // 默认把 per-question 答案显示交给全局开关
-  state.showingAnswer = !!state.autoShowAnswer;
+  // 答案显示状态是全局的：切换题目时保持“显示 / 隐藏”的选择。
 
   if (it) {
     state.currentId = it.id;
@@ -444,13 +431,6 @@ async function pronounce() {
   const items = getFilteredItems();
   const it = items.find(x => String(x.id) === String(state.currentId));
   if (!it) return;
-
-  // 发音时 - 如果答案没显示 - 先显示
-  if (!state.showingAnswer) {
-    state.showingAnswer = true;
-    updateUI(it);
-    saveState();
-  }
 
   // 读答案
   const raw = String(it.answer_fr || it.answer || it.answer_en || "");
@@ -697,7 +677,6 @@ function bindEvents() {
   $("btnShow").onclick = () => {
     const it = getFilteredItems().find(x => String(x.id) === String(state.currentId));
     if (it) {
-      state.autoShowAnswer = false;
       state.showingAnswer = !state.showingAnswer;
       updateUI(it);
     }
@@ -867,9 +846,6 @@ function judgeLang(deck) {
 // ---------- 启动 ----------
 async function boot() {
   DECKS = [];
-  // 旧版保存过“自动显示答案”的状态；新版改为由“看答案”按钮控制当前题。
-  state.autoShowAnswer = false;
-
   const CSV_FILES = [
     { id: "tcf_oral_b2", name: "🔥 TCF Oral B2 CEO (176句)", file: "TCF_Oral_B2_CEO_176.csv" },
     { id: "tcf_oral_b2_dialogue", name: "🎤 TCF Oral B2 考官问答 (40组)", file: "TCF_Oral_B2_考官问答_40.csv" }
