@@ -84,7 +84,12 @@
           </div>
           <button class="dictation-clear" id="btnDictationClear" type="button">清空</button>
         </div>
-        <textarea id="dictationInput" class="dictation-input" rows="3" autocomplete="off" spellcheck="false" placeholder="在这里听写这句法语…"></textarea>
+        <div class="dictation-entry">
+          <textarea id="dictationInput" class="dictation-input" rows="3" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" lang="fr" placeholder="在这里听写这句法语…"></textarea>
+          <div id="dictationAccentPalette" class="dictation-accent-palette" aria-label="法语特殊字符">
+            <span class="dictation-accent-title">Caractères spéciaux</span>
+          </div>
+        </div>
         <div id="dictationFeedback" class="dictation-feedback" aria-live="polite"></div>
       </section>
 
@@ -123,7 +128,7 @@
 
   <div id="spaceShortcutHint" class="space-shortcut-hint" role="status" aria-live="polite" hidden>空格＝发音</div>
 
-  <script src="./app.js?v=20260802-space-v2"></script>
+  <script src="./app.js?v=20260803-dictation-accents-desktop"></script>
 
 </body>
 </html>
