@@ -77,6 +77,19 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Oxford Learner's Dictionaries | Part II, Ch.1, 3, 4 |
 | 2026-08-05 | General phonetics literature (stress-timing, coarticulation/assimilation/elision, weak forms, unreleased stops, Mandarin phonology) — placeholder, specific academic citations not yet added | Part II, Ch.2, 5, 6, 7, 8, 9 |
 
+| 2026-08-05 | Zhang, F. "Think or Sink: Chinese Learners' Acquisition of the English Voiceless Interdental Fricative" | Part IV, Ch.1 |
+| 2026-08-05 | "A Study of Pronunciation Problems of English Learners in China" (ResearchGate) | Part IV, Ch.1 |
+| 2026-08-05 | "Production of English Syllable Final /l/ by Mandarin Chinese Speakers" (title/topic only — 403 on full-text fetch) | Part IV, Ch.1 |
+| 2026-08-05 | TALK Schools / Pronunciation Studio (secondary aggregators, general Mandarin-English error patterns) | Part IV, Ch.1 |
+| 2026-08-05 | "The Acquisition of English Word Stress by Mandarin EFL Learners" (ERIC) | Part IV, Ch.2 |
+| 2026-08-05 | "A study of Chinese EFL learners' problems with stress acquisition" (ScienceDirect) | Part IV, Ch.2, Ch.3 |
+| 2026-08-05 | "Acoustic Correlates of English Lexical Stress Produced by Chinese Dialect Speakers Compared to Native English Speakers" (Frontiers/PMC) | Part IV, Ch.2 |
+| 2026-08-05 | "Processing of word-level stress by Mandarin-speaking second language learners of English" (Cambridge Core) | Part IV, Ch.2 |
+| 2026-08-05 | "Production of English connected speech processes... Cantonese ESL learners" — Cantonese, not Mandarin; used as suggestive related evidence only | Part IV, Ch.3, Ch.4 |
+| 2026-08-05 | Feng, H., & Wang, L. (2024). "Acoustic analysis of English tense and lax vowels..." *JASA* 155(5) | Part IV, Ch.5 |
+| 2026-08-05 | "Comparison Between English and Mandarin Vowel Systems and the Challenges for Chinese Learners of English" (ResearchGate) | Part IV, Ch.5 |
+| 2026-08-05 | "Pronunciation Problems of Chinese Learners of English" (ERIC) | Part IV, Ch.5 |
+
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see
 `book/Part01_AI/README.md`). Every `[Pearson]`-tagged claim in Part I was

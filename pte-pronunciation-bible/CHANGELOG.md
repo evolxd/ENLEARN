@@ -8,6 +8,23 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added
 
+- Part IV — Chinese Error Corpus: all 5 chapters written in Draft status,
+  each cataloguing documented Mandarin-L1 error patterns with mechanism,
+  examples, and correction targets, cross-referenced back to Part II
+  definitions rather than re-deriving them:
+  - `01_top-pronunciation-mistakes.md`
+  - `02_top-stress-mistakes.md`
+  - `03_top-rhythm-mistakes.md`
+  - `04_top-linking-mistakes.md`
+  - `05_top-vowel-mistakes.md`
+  Grounded in peer-reviewed/research-literature sources (JASA, ScienceDirect,
+  Frontiers/PMC, Cambridge Core, ERIC, ResearchGate) found and cited
+  directly in this session — a stronger evidence base than Part II's
+  general-phonetics placeholders. Two open items flagged for the Stage 7
+  verification pass: Ch.4's primary source studied Cantonese, not Mandarin,
+  speakers; Ch.5 extends a directly-researched finding to other vowel pairs
+  as a tagged `[Hypothesis]`. See `book/Part04_ErrorCorpus/README.md` and
+  `ROADMAP.md` Stage 3.
 - Part II — Pronunciation Foundations: all 9 chapters written in Draft
   status (same bilingual format as Part I), each with the full six-section
   template and evidence tags:

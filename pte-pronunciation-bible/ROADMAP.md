@@ -51,11 +51,15 @@ publication.
 
 Depends on Stage 2 terminology (needs Part II definitions in place first).
 
-- [ ] Top pronunciation mistakes
-- [ ] Top stress mistakes
-- [ ] Top rhythm mistakes
-- [ ] Top linking mistakes
-- [ ] Top vowel mistakes
+- [x] Top pronunciation mistakes (Draft)
+- [x] Top stress mistakes (Draft)
+- [x] Top rhythm mistakes (Draft)
+- [x] Top linking mistakes (Draft)
+- [x] Top vowel mistakes (Draft)
+- [ ] Ch.4: source a Mandarin-specific (not Cantonese) connected-speech
+      study to replace/supplement the current citation
+- [ ] Ch.5: source direct research on tense/lax pairs beyond /iː/–/ɪ/
+      to convert the `[Hypothesis]`-tagged extension into `[Linguistics]`
 
 ## Stage 4 — Part V: Question Strategy
 
