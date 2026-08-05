@@ -1,9 +1,9 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: **360 of 300–500 words drafted.** The 300-word floor was reached
-at Batch 8; per user direction ("继续下一个60个"), the lexicon is
-continuing toward the 500-word ceiling. Batch 9 (words 301–360) is
-complete.
+Status: **420 of 300–500 words drafted.** The 300-word floor was reached
+at Batch 8; per user direction, the lexicon is continuing toward the
+500-word ceiling. Batch 10 (words 361–420) is complete — 80 words
+remain to the 500-word ceiling.
 
 **Batch size changed to 60 words per pass, per user direction (this
 session)**, effective Batch 7 onward. Batches 1–6 remain 30 words each,
@@ -171,8 +171,49 @@ Running cross-batch threads to keep extending in future batches:
   "x" = /gz/ vs. /ks/ ambiguity, and *accommodation*'s doubled-letter
   ("cc", "mm") spelling — both noted as related but distinct from the
   true silent-letter thread above.
+- **Science/research methodology + family/relationships/health cluster**
+  (Batch 10, 60 words): *experiment, laboratory, observe, observation,
+  sample, survey, questionnaire, verify, verification, replicate,
+  empirical, quantitative, qualitative, statistic, statistics,
+  scientist, discovery, discover, invention, invent, breakthrough,
+  prototype, simulate, simulation, calculate, calculation, measurement,
+  measure, assess, assessment* / *household, family, relative, sibling,
+  parent, spouse, marriage, divorce, childhood, elderly, guardian,
+  upbringing, ancestor, descendant, diet, appetite, allergy, therapy,
+  therapist, hospital, clinic, patient, physician, surgeon,
+  prescription, medication, recovery, rehabilitation, wellness,
+  hygiene*.
+- **Four more "-tion" shift-from-base-word pairs**: *observe*→
+  *observation*, *verify*→*verification*, *simulate*→*simulation*,
+  *calculate*→*calculation* (Batch 10) — the fourth through seventh
+  concrete data points for this pair type, after *organize*/
+  *organization* (Batch 6), *publish*/*publication* (Batch 8), and
+  *regulate*/*regulation* (Batch 9).
+- **New noun/verb stress-shift pair**: *survey* (Batch 10) — noun stress
+  on syllable 1, verb stress on syllable 2, joining Part II Ch.4's
+  *record*/*present* and this lexicon's *increase*/*decrease*, *impact*,
+  *contrast*.
+- **Second and third /ʒ/ examples**: *measurement* and *measure*
+  (Batch 10) join *leisure* (Batch 9) for this phoneme, still flagged
+  with the same `[Hypothesis]` caution.
+- **Third French-origin final-stress loanword**: *questionnaire*
+  (Batch 10), joining *entrepreneur* (Batch 8) and *souvenir* (Batch 9).
+- **New pattern — velar nasal /ŋ/ reduced to /n/**: *sibling* and
+  *upbringing* (Batch 10) are this lexicon's first entries to flag the
+  word-final "-ing" velar nasal as a discrete `[Hypothesis]` risk,
+  distinct from the "-ing" ending generally.
+- **New pattern — "-cian" extends the "-tion" rule**: *physician*
+  (Batch 10) places stress immediately before "-cian," the same
+  position the "-tion" rule predicts for a related suffix spelling.
+- **Fourth reduction-thread example**: *family* (Batch 10), joining
+  *temperature* (Batch 7), *literature* (Batch 9), *laboratory*
+  (Batch 10 — a third example in the same batch).
+- **Longest "-tion" word so far**: *rehabilitation* (Batch 10, six
+  syllables) — an extreme case of the equal-stress risk.
+- **Second "-ical" family example**: *empirical* (Batch 10), joining
+  *historical* (Batch 7).
 
-Target: 300–500 words. **360 words complete as of Batch 9**, continuing
+Target: 300–500 words. **420 words complete as of Batch 10**, continuing
 toward the 500-word ceiling. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
 `database/*.csv` file. This is the highest per-unit verification cost in
@@ -217,5 +258,6 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 7 | 181–240 (60 words) | Draft (`words_181-210.md` + `words_211-240.md`) |
 | 8 | 241–300 (60 words) | Draft (`words_241-270.md` + `words_271-300.md`) — **300-word floor reached** |
 | 9 | 301–360 (60 words) | Draft (`words_301-330.md` + `words_331-360.md`) |
+| 10 | 361–420 (60 words) | Draft (`words_361-390.md` + `words_391-420.md`) |
 
 (Batch size is 60 words from Batch 7 onward.)

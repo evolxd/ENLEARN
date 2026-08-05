@@ -8,6 +8,32 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 10 drafted, 60 more words
+  (`book/Part03_Lexicon/words_361-390.md` + `words_391-420.md`, words
+  361–420) — **420 of the 300–500 target complete, 80 words remain**.
+  Matching rows appended to all five `database/*.csv` files (re-verified
+  as well-formed CSV, 420 word rows total, no duplicates). Scientific
+  research methodology theme (experiment, laboratory, observe,
+  observation, survey, questionnaire, verify, verification, empirical,
+  quantitative, qualitative, statistics, discover, discovery, invention,
+  breakthrough, simulate, simulation, calculate, calculation,
+  measurement, measure, assess, assessment) plus family/relationships
+  (household, family, relative, sibling, parent, spouse, marriage,
+  divorce, childhood, elderly, guardian, upbringing, ancestor,
+  descendant) plus health/medical care (diet, appetite, allergy,
+  therapy, therapist, hospital, clinic, patient, physician, surgeon,
+  prescription, medication, recovery, rehabilitation, wellness,
+  hygiene). Adds four more "-tion" shift-from-base-word pairs
+  (observe/observation, verify/verification, simulate/simulation,
+  calculate/calculation); a new noun/verb stress-shift pair
+  (survey); a second and third /ʒ/ example (measurement, measure); a
+  third French-origin final-stress loanword (questionnaire); a new
+  pattern flagging velar nasal /ŋ/ reduced to /n/ (sibling, upbringing);
+  a first "-cian" example showing the "-tion" rule extends to that
+  suffix spelling (physician); a fourth reduction-thread example
+  (family, plus laboratory as a fifth in the same batch); the longest
+  "-tion" word in the lexicon so far at six syllables (rehabilitation);
+  and a second "-ical" family example (empirical).
 - Part III — PTE High Frequency Lexicon: Batch 9 drafted, 60 more words
   (`book/Part03_Lexicon/words_301-330.md` + `words_331-360.md`, words
   301–360) — **first batch past the 300-word floor**, continuing toward
