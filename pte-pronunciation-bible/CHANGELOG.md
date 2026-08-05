@@ -8,6 +8,32 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 9 drafted, 60 more words
+  (`book/Part03_Lexicon/words_301-330.md` + `words_331-360.md`, words
+  301–360) — **first batch past the 300-word floor**, continuing toward
+  the 500-word ceiling per user direction ("继续下一个60个"). Matching
+  rows appended to all five `database/*.csv` files (re-verified as
+  well-formed CSV, 360 word rows total). Law/justice theme (law, legal,
+  illegal, legislation, justice, judge, court, crime, criminal, penalty,
+  regulation, authority) plus politics/civics (election, candidate,
+  campaign, democracy, citizen, constitution, parliament, senate,
+  diplomat) plus arts/literature (literature, novel, poetry, author,
+  narrative, fiction, character, theater, performance, exhibition,
+  gallery, sculpture, architecture, architect) plus sports (athlete,
+  athletic, championship, tournament, stadium, spectator) plus
+  travel/leisure (leisure, hobby, recreation, tourism, tourist,
+  destination, accommodation, itinerary, souvenir). Adds a third "-tion"
+  shift-from-base-verb pair (regulate→regulation), a second and third
+  "-ic" family shift pair (democracy/democratic, diplomat/diplomatic),
+  and a fourth (athlete/athletic); confirms "-ship" as stress-neutral —
+  the first negative data point in the suffix-stress family
+  (citizen/citizenship, championship); introduces this lexicon's first
+  /ʒ/ example (leisure, flagged with extra `[Hypothesis]` caution since
+  the substitution pattern isn't directly documented in Part IV); adds a
+  sixth and seventh spelling-mismatch example (character,
+  architecture/architect — Greek-origin "ch" = /k/); and a second
+  French-origin final-stress loanword (souvenir, alongside
+  entrepreneur).
 - Part III — PTE High Frequency Lexicon: Batch 8 drafted, 60 more words
   (`book/Part03_Lexicon/words_241-270.md` + `words_271-300.md`, words
   241–300) — **reaches 300 words, the original minimum target for this

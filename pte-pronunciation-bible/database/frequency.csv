@@ -299,3 +299,63 @@ database,High,"Read Aloud, Essay","author judgment: common technology-topic Read
 server,High,"Read Aloud, Essay","author judgment: common technology-topic Read Aloud vocabulary","Practice — not from a verified PTE frequency list"
 bandwidth,Medium,"Read Aloud, Retell Lecture","author judgment: common technology-topic Read Aloud vocabulary","Practice — not from a verified PTE frequency list"
 connectivity,High,"Read Aloud, Essay","author judgment: common technology-topic Read Aloud vocabulary","Practice — not from a verified PTE frequency list"
+law,Very High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+legal,Very High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+illegal,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+legislation,Medium-High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+legislature,Medium,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+justice,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+judge,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+judicial,Medium,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+court,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+crime,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+criminal,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+offense,Medium,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+penalty,Medium-High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+punishment,Medium,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+enforcement,Medium-High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+regulation,Very High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+regulate,High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+authority,Very High,"Read Aloud, Essay",author judgment: common law/justice-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+election,Very High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+candidate,Very High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+campaign,High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+democracy,High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+democratic,High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+citizen,Very High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+citizenship,Medium-High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+constitution,Medium-High,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+parliament,Medium,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+senate,Medium,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+diplomat,Medium,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+diplomatic,Medium,"Read Aloud, Essay",author judgment: common politics/civics-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+literature,High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+novel,Medium-High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+poetry,Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+author,Very High,"Read Aloud, Retell Lecture, Summarize Written Text",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+narrative,Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+fiction,Medium-High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+character,Very High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+theater,Medium-High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+performance,Very High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+perform,High,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+exhibition,Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+gallery,Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+sculpture,Low-Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+architecture,Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+architect,Medium,"Read Aloud, Retell Lecture",author judgment: common arts/literature-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+athlete,Medium-High,"Read Aloud, Describe Image",author judgment: common sports-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+athletic,Medium,"Read Aloud, Describe Image",author judgment: common sports-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+championship,Medium-High,"Read Aloud, Describe Image",author judgment: common sports-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+tournament,Medium,"Read Aloud, Describe Image",author judgment: common sports-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+stadium,Medium,"Read Aloud, Describe Image",author judgment: common sports-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+spectator,Medium,"Read Aloud, Describe Image",author judgment: common sports-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+leisure,Medium,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+hobby,Medium-High,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+recreation,Medium,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+tourism,High,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+tourist,Very High,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+destination,Very High,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+accommodation,High,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+itinerary,Medium,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list
+souvenir,Medium,"Read Aloud, Essay",author judgment: common travel/leisure-topic Read Aloud vocabulary,Practice — not from a verified PTE frequency list

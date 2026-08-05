@@ -299,3 +299,63 @@ database,"primary on first element (compound noun stress)",1,"none notable beyon
 server,"primary on syllable 1",1,"none notable beyond v/w and rhotic vowel errors","standard dictionary pronunciation; cross-check pending"
 bandwidth,"primary on first element (compound noun stress)",1,"none notable beyond final /θ/ substitution","standard dictionary pronunciation; cross-check pending"
 connectivity,"secondary on syllable 2, primary on syllable 4 (-ity rule)",4,"flattened to equal stress given word length","standard dictionary pronunciation; cross-check pending"
+law,primary stress (monosyllable),1,none especially notable at the segmental level,standard dictionary pronunciation; cross-check pending
+legal,primary on syllable 1,1,final syllabic /l/ weakened,standard dictionary pronunciation; cross-check pending
+illegal,"primary on syllable 2 (root retains stress with the ""il-"" prefix)",2,final syllabic /l/ weakened,standard dictionary pronunciation; cross-check pending
+legislation,"secondary on syllable 1, primary on syllable 3 (-tion rule)",3,diphthong /eɪ/ shortened; equal stress given word length,standard dictionary pronunciation; cross-check pending
+legislature,primary on syllable 1,1,diphthong /eɪ/ shortened; rhotic vowel under-produced,standard dictionary pronunciation; cross-check pending
+justice,primary on syllable 1,1,"medial ""-st-"" cluster",standard dictionary pronunciation; cross-check pending
+judge,primary stress (monosyllable),1,final single /dʒ/ coda deleted or given an inserted vowel,standard dictionary pronunciation; cross-check pending
+judicial,primary on syllable 2,2,final syllabic /l/ weakened,standard dictionary pronunciation; cross-check pending
+court,primary stress (monosyllable),1,rhotic vowel under-produced,standard dictionary pronunciation; cross-check pending
+crime,primary stress (monosyllable),1,"initial ""-kr-"" cluster; diphthong /aɪ/ shortened",standard dictionary pronunciation; cross-check pending
+criminal,primary on syllable 1,1,"initial ""-kr-"" cluster; final syllabic /l/ weakened",standard dictionary pronunciation; cross-check pending
+offense,primary on syllable 2,2,"final ""-ns"" cluster",standard dictionary pronunciation; cross-check pending
+penalty,primary on syllable 1,1,none especially notable at the segmental level,standard dictionary pronunciation; cross-check pending
+punishment,primary on syllable 1,1,"final ""-ʃmənt"" cluster simplified",standard dictionary pronunciation; cross-check pending
+enforcement,primary on syllable 2,2,"rhotic vowel under-produced; final ""-smənt"" cluster simplified",standard dictionary pronunciation; cross-check pending
+regulation,"secondary on syllable 1, primary on syllable 4 (-tion rule)",4,diphthong /eɪ/ shortened; equal stress given word length,standard dictionary pronunciation; cross-check pending
+regulate,primary on syllable 1 (shifts in regulation),1,medial /gj/ glide dropped,standard dictionary pronunciation; cross-check pending
+authority,primary on syllable 2,2,/θ/ produced as /s/; rhotic vowel under-produced,standard dictionary pronunciation; cross-check pending
+election,primary on syllable 2 (-tion rule),2,stress misapplied despite the regular -tion pattern,standard dictionary pronunciation; cross-check pending
+candidate,primary on syllable 1,1,"medial ""-nd-"" cluster",standard dictionary pronunciation; cross-check pending
+campaign,primary on syllable 2,2,diphthong /eɪ/ shortened,standard dictionary pronunciation; cross-check pending
+democracy,primary on syllable 2 (shifts in democratic),2,"medial ""-kr-"" cluster",standard dictionary pronunciation; cross-check pending
+democratic,"secondary on syllable 1, primary on syllable 3 (-ic rule, shift from democracy)",3,"medial ""-kr-"" cluster; applying democracy's stress instead of shifting",standard dictionary pronunciation; cross-check pending
+citizen,primary on syllable 1 (no shift to citizenship),1,medial /z/ possibly devoiced to /s/,standard dictionary pronunciation; cross-check pending
+citizenship,primary on syllable 1 (no shift from citizen; -ship is stress-neutral),1,"medial /z/ possibly devoiced to /s/; final ""-ʃɪp"" cluster",standard dictionary pronunciation; cross-check pending
+constitution,"secondary on syllable 1, primary on syllable 4 (-tion rule)",4,"medial ""-nst-"" cluster; equal stress given word length",standard dictionary pronunciation; cross-check pending
+parliament,primary on syllable 1,1,"rhotic vowel under-produced; final ""-mənt"" cluster",standard dictionary pronunciation; cross-check pending
+senate,primary on syllable 1,1,none especially notable at the segmental level,standard dictionary pronunciation; cross-check pending
+diplomat,primary on syllable 1 (shifts in diplomatic),1,"medial ""-pl-"" cluster",standard dictionary pronunciation; cross-check pending
+diplomatic,"secondary on syllable 1, primary on syllable 3 (-ic rule, shift from diplomat)",3,"medial ""-pl-"" cluster; applying diplomat's stress instead of shifting",standard dictionary pronunciation; cross-check pending
+literature,primary on syllable 1,1,rhotic vowel under-produced; over-articulating a natively compressed syllable,standard dictionary pronunciation; cross-check pending
+novel,primary on syllable 1,1,final syllabic /l/ weakened,standard dictionary pronunciation; cross-check pending
+poetry,primary on syllable 1,1,diphthong /oʊ/ shortened,standard dictionary pronunciation; cross-check pending
+author,primary on syllable 1,1,/θ/ produced as /s/; rhotic vowel under-produced,standard dictionary pronunciation; cross-check pending
+narrative,primary on syllable 1,1,final /v/ coda,standard dictionary pronunciation; cross-check pending
+fiction,primary on syllable 1 (-tion rule),1,none especially notable beyond confirming the -tion pattern,standard dictionary pronunciation; cross-check pending
+character,primary on syllable 1,1,"""ch"" mispronounced as /tʃ/ instead of /k/; rhotic vowel under-produced",standard dictionary pronunciation; cross-check pending
+theater,primary on syllable 1,1,/θ/ produced as /s/; two rhotic-adjacent vowels under-produced,standard dictionary pronunciation; cross-check pending
+performance,primary on syllable 2 (no shift from perform),2,"two rhotic vowels under-produced; final ""-ns"" cluster",standard dictionary pronunciation; cross-check pending
+perform,primary on syllable 2 (no shift to performance),2,two rhotic vowels under-produced,standard dictionary pronunciation; cross-check pending
+exhibition,"secondary on syllable 1, primary on syllable 3 (-tion rule)",3,"equal stress given word length, despite the regular -tion pattern",standard dictionary pronunciation; cross-check pending
+gallery,primary on syllable 1,1,none especially notable at the segmental level,standard dictionary pronunciation; cross-check pending
+sculpture,primary on syllable 1,1,"initial ""-sk-"" cluster; heavy medial ""-lptʃ-"" cluster",standard dictionary pronunciation; cross-check pending
+architecture,primary on syllable 1 (no shift to architect),1,"""ch"" mispronounced as /tʃ/; rhotic vowel under-produced",standard dictionary pronunciation; cross-check pending
+architect,primary on syllable 1 (no shift from architecture),1,"""ch"" mispronounced as /tʃ/; final ""-kt"" cluster",standard dictionary pronunciation; cross-check pending
+athlete,primary on syllable 1 (shifts in athletic),1,/θ/ produced as /s/,standard dictionary pronunciation; cross-check pending
+athletic,"primary on syllable 2 (-ic rule, shift from athlete)",2,/θ/ produced as /s/; applying athlete's stress instead of shifting,standard dictionary pronunciation; cross-check pending
+championship,primary on syllable 1 (-ship stress-neutral),1,"final ""-ʃɪp"" cluster",standard dictionary pronunciation; cross-check pending
+tournament,primary on syllable 1,1,"rhotic vowel under-produced; final ""-mənt"" cluster",standard dictionary pronunciation; cross-check pending
+stadium,primary on syllable 1,1,diphthong /eɪ/ shortened,standard dictionary pronunciation; cross-check pending
+spectator,primary on syllable 1,1,"initial ""-sp-"" cluster; diphthong /eɪ/ shortened; rhotic vowel under-produced",standard dictionary pronunciation; cross-check pending
+leisure,primary on syllable 1,1,/ʒ/ substituted with /ʃ/ or another approximation,standard dictionary pronunciation; cross-check pending
+hobby,primary on syllable 1,1,none especially notable at the segmental level,standard dictionary pronunciation; cross-check pending
+recreation,"secondary on syllable 1, primary on syllable 4 (-tion rule)",4,diphthong /eɪ/ shortened; equal stress given word length,standard dictionary pronunciation; cross-check pending
+tourism,primary on syllable 1 (no shift to tourist),1,rhotic vowel under-produced; medial /z/ possibly devoiced to /s/,standard dictionary pronunciation; cross-check pending
+tourist,primary on syllable 1 (no shift from tourism),1,"rhotic vowel under-produced; final ""-rɪst"" cluster",standard dictionary pronunciation; cross-check pending
+destination,"secondary on syllable 1, primary on syllable 4 (-tion rule)",4,diphthong /eɪ/ shortened; equal stress given word length,standard dictionary pronunciation; cross-check pending
+accommodation,"secondary on syllable 2, primary on syllable 5 (-tion rule)",5,"doubled letters (""cc"", ""mm"") misread as suggesting extra sounds; diphthong /eɪ/ shortened; equal stress given word length",standard dictionary pronunciation; cross-check pending
+itinerary,primary on syllable 2,2,diphthong /aɪ/ shortened; equal stress given word length,standard dictionary pronunciation; cross-check pending
+souvenir,"secondary on syllable 1, primary on the final syllable (French-origin final-stress pattern)",3,/v/ produced as /w/; stress misapplied to an earlier syllable,standard dictionary pronunciation; cross-check pending

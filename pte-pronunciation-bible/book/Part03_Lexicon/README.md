@@ -1,8 +1,9 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: **300 of 300–500 words drafted — the original minimum target is
-reached.** See `ROADMAP.md` Stage 5 for the decision on whether to stop
-at 300 or continue toward 500.
+Status: **360 of 300–500 words drafted.** The 300-word floor was reached
+at Batch 8; per user direction ("继续下一个60个"), the lexicon is
+continuing toward the 500-word ceiling. Batch 9 (words 301–360) is
+complete.
 
 **Batch size changed to 60 words per pass, per user direction (this
 session)**, effective Batch 7 onward. Batches 1–6 remain 30 words each,
@@ -133,10 +134,46 @@ Running cross-batch threads to keep extending in future batches:
 - **French-origin final-stress loanword**: *entrepreneur* (Batch 8) —
   final-syllable stress resembling the "-eer" pattern but from a
   different historical source, noted as a related-but-distinct case.
+- **Law/justice + politics/civics cluster** (Batch 9 part 1, 30 words):
+  *law, legal, illegal, legislation, legislature, justice, judge,
+  judicial, court, crime, criminal, offense, penalty, punishment,
+  enforcement, regulation, regulate, authority* / *election, candidate,
+  campaign, democracy, democratic, citizen, citizenship, constitution,
+  parliament, senate, diplomat, diplomatic*.
+- **Third confirmed "-tion" shift-from-base-verb pair**: *regulate*→
+  *regulation* (Batch 9), joining *organize*→*organization* (Batch 6)
+  and *publish*→*publication* (Batch 8).
+- **Second and third "-ic" family shift pairs beyond economy/economic**:
+  *democracy*/*democratic* and *diplomat*/*diplomatic* (Batch 9); a
+  fourth, *athlete*/*athletic*, follows in Batch 9 part 2.
+- **"-ship" confirmed stress-neutral**: *citizen*/*citizenship* (Batch 9)
+  is the first negative data point for the suffix-stress family — unlike
+  every other suffix tracked ("-tion", "-ic", "-ity", "-ical", "-ial",
+  "-ee", "-eer"), "-ship" does not shift or attract stress. Confirmed a
+  second time by *championship* (Batch 9 part 2).
+- **Arts/literature + sports + travel/leisure cluster** (Batch 9 part 2,
+  30 words): *literature, novel, poetry, author, narrative, fiction,
+  character, theater, performance, perform, exhibition, gallery,
+  sculpture, architecture, architect* / *athlete, athletic, championship,
+  tournament, stadium, spectator* / *leisure, hobby, recreation, tourism,
+  tourist, destination, accommodation, itinerary, souvenir*.
+- **First /ʒ/ example**: *leisure* (Batch 9) — Mandarin lacks a direct
+  phonemic equivalent; the substitution pattern is not directly
+  documented in Part IV, so it is flagged with extra `[Hypothesis]`
+  caution rather than treated as an established mistake.
+- **Sixth and seventh spelling-mismatch examples**: *character* and
+  *architecture*/*architect* (Batch 9) — Greek-origin "ch" pronounced
+  /k/, not /tʃ/, joining *process* (Batch 2), *knowledge* (Batch 3),
+  *vehicle*, *psychology* (Batch 7).
+- **Second French-origin final-stress loanword**: *souvenir* (Batch 9),
+  alongside *entrepreneur* (Batch 8).
+- **Related spelling-inconsistency cases**: *exhibition*/*exhibit*'s
+  "x" = /gz/ vs. /ks/ ambiguity, and *accommodation*'s doubled-letter
+  ("cc", "mm") spelling — both noted as related but distinct from the
+  true silent-letter thread above.
 
-Target: 300–500 words. **300 reached as of Batch 8** — decide whether to
-stop here or continue toward 500 before starting Batch 9. Every word must
-have a complete entry following
+Target: 300–500 words. **360 words complete as of Batch 9**, continuing
+toward the 500-word ceiling. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
 `database/*.csv` file. This is the highest per-unit verification cost in
 the book (IPA + stress + Chinese learner error notes per word) — build it
@@ -179,6 +216,6 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 6 | 151–180 | Draft (`words_151-180.md`) |
 | 7 | 181–240 (60 words) | Draft (`words_181-210.md` + `words_211-240.md`) |
 | 8 | 241–300 (60 words) | Draft (`words_241-270.md` + `words_271-300.md`) — **300-word floor reached** |
-| 9 | 301–360 (60 words, if continuing to 500) | Not started — awaiting decision on 300 vs 500 target |
+| 9 | 301–360 (60 words) | Draft (`words_301-330.md` + `words_331-360.md`) |
 
 (Batch size is 60 words from Batch 7 onward.)

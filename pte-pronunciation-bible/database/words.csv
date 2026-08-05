@@ -299,3 +299,63 @@ database,noun,"a structured set of data held in a computer",数据库,"databases
 server,noun,"a computer that provides data to other computers",服务器,"servers (pl.)",Medium,""
 bandwidth,noun,"the capacity for data transfer; available time or resources",带宽,"",High,"compound noun stress; first word-final /θ/ example"
 connectivity,noun,"the state of being connected",连接性；连通性,"connect (v.); connection (n.); connective (adj.)",High,"fourth -ity suffix stress example"
+law,noun,a system of rules enforced by a governing authority,法律,legal (adj.); lawyer (n.),Low,low-risk monosyllable; legal-topic anchor word
+legal,adjective,relating to the law,合法的,illegal (adj.); legally (adv.),Low,illegal below does not shift stress off the root
+illegal,adjective,contrary to or forbidden by law,非法的,legal (adj.); illegally (adv.),Medium,prefix-stability set alongside encourage/discourage (Batch 5)
+legislation,noun,laws considered collectively,立法；法规,legislature (n.); legislate (v.),High,-tion rule; contrast with legislature which does not shift
+legislature,noun,the legislative body of a country or state,立法机构,legislation (n.); legislate (v.),High,contrast case: does not follow the -tion shift
+justice,noun,fair treatment; the legal system,正义；司法,just (adj.); justify (v.),Low,
+judge,noun / verb,a public official who presides over a court,法官；评判,judgment (n.); judicial (adj.),Low,
+judicial,adjective,relating to a court of law or judgment,司法的,judge (n./v.); judiciary (n.),Medium,
+court,noun,a body that administers justice,法院,courts (pl.); courtroom (n.),Low,
+crime,noun,an action punishable by law,犯罪,criminal (adj./n.),Medium,
+criminal,adjective / noun,relating to crime; a person who commits a crime,犯罪的；罪犯,crime (n.),Medium,
+offense,noun,a violation of a rule or law,违法行为；冒犯,offensive (adj.); offend (v.),Medium,
+penalty,noun,a punishment for breaking a rule or law,处罚,penalize (v.),Low,
+punishment,noun,a penalty imposed for wrongdoing,惩罚,punish (v.),Medium,
+enforcement,noun,the act of compelling observance of a law,执法,enforce (v.),Medium,
+regulation,noun,a rule made by an authority,规定；监管,regulate (v.); regulatory (adj.),High,third -tion shift-from-base-verb pair after organize/organization and publish/publication
+regulate,verb,to control by rule,监管；调节,regulation (n.); regulatory (adj.),Medium,
+authority,noun,the power to give orders or make decisions,权威；当局,authorize (v.); authoritative (adj.),Medium,
+election,noun,a formal process of choosing a person for office,选举,elect (v.); electoral (adj.),Low,
+candidate,noun,a person running for office or applying for a job,候选人；候补者,candidacy (n.),Medium,
+campaign,noun / verb,an organized effort to achieve a goal,竞选；活动,campaigning (n.),Low,
+democracy,noun,a system of government by the whole population,民主,democratic (adj.); democrat (n.),Medium,-ic family shift pair alongside economy/economic (Batch 3)
+democratic,adjective,relating to or supporting democracy,民主的,democracy (n.),High,"second concrete -ic family shift pair in this lexicon, alongside economy/economic"
+citizen,noun,a legally recognized member of a state,公民,citizenship (n.),Medium,
+citizenship,noun,the status of being a citizen,公民身份,citizen (n.),Medium,"-ship is stress-neutral, unlike other suffixes tracked so far"
+constitution,noun,a body of fundamental principles governing a state,宪法,constitutional (adj.),High,
+parliament,noun,the legislative body of certain countries,议会,parliamentary (adj.),Medium,
+senate,noun,the upper house of certain legislatures,参议院,senator (n.),Low,
+diplomat,noun,an official who represents a country abroad,外交官,diplomatic (adj.); diplomacy (n.),Medium,
+diplomatic,adjective,relating to diplomacy; tactful,外交的；圆通的,diplomat (n.); diplomacy (n.),High,"-ic rule shift; three-item family with democracy/democratic, economy/economic"
+literature,noun,"written works, especially those of artistic merit",文学,literary (adj.),Medium,same compression pattern as temperature (Batch 7)
+novel,noun / adjective,a long fictional narrative; new and original,小说；新颖的,novelist (n.),Low,
+poetry,noun,literary work in verse form,诗歌,poem (n.); poet (n.); poetic (adj.),Medium,
+author,noun,a writer of a book or article,作者,authorship (n.),Medium,
+narrative,noun / adjective,a spoken or written account of events,叙事；故事,narrate (v.); narration (n.),Medium,compare cognitive (Batch 7) and competitive (Batch 8) for the same coda-/v/ risk
+fiction,noun,literature describing imaginary events,小说；虚构,fictional (adj.); nonfiction (n.),Low,
+character,noun,a person in a story; a set of qualities,角色；性格,characteristic (adj.); characterize (v.),Medium,sixth spelling-mismatch example; compare architecture/architect
+theater,noun,a building for dramatic performances,剧院；戏剧,theatrical (adj.),Medium,
+performance,noun,"an act of presenting a play, concert, etc.; how well something functions",表演；表现,perform (v.); performer (n.),Medium,no shift from perform
+perform,verb,to carry out an action or function; to present a show,表演；执行,performance (n.); performer (n.),Medium,no shift to performance
+exhibition,noun,a public display of art or items of interest,展览,exhibit (n./v.); exhibitor (n.),High,"x-spelling ambiguity in related word exhibit, a related but distinct case"
+gallery,noun,a room or building for displaying art,画廊,galleries (pl.),Low,
+sculpture,noun,a three-dimensional work of art,雕塑,sculptor (n.); sculpt (v.),High,
+architecture,noun,the art and science of designing buildings,建筑（学）,architect (n.); architectural (adj.),High,seventh spelling-mismatch example; no shift from architect
+architect,noun,a person who designs buildings,建筑师,architecture (n.); architectural (adj.),Medium,
+athlete,noun,a person who competes in sports,运动员,athletic (adj.); athletics (n.),Medium,
+athletic,adjective,relating to physical exercise or sports,运动的；健壮的,athlete (n.); athletics (n.),High,fourth concrete -ic family shift pair in this lexicon
+championship,noun,a competition to determine an overall winner,锦标赛,champion (n.),Medium,"-ship is stress-neutral, confirmed alongside citizenship"
+tournament,noun,a series of contests between a number of competitors,锦标赛；比赛,tournaments (pl.),Medium,
+stadium,noun,a large sports venue with tiered seating,体育场,stadiums (pl.),Medium,
+spectator,noun,a person who watches an event,观众,spectators (pl.); spectate (v.),High,
+leisure,noun,free time; freedom from work,休闲,leisurely (adj./adv.),High,first /ʒ/ example in this lexicon
+hobby,noun,an activity done regularly for pleasure,爱好,hobbies (pl.),Low,
+recreation,noun,activity done for enjoyment when not working,娱乐；消遣,recreational (adj.),High,
+tourism,noun,the business of travel for pleasure,旅游业,tourist (n.); tour (n./v.),Medium,no shift to tourist
+tourist,noun,a person traveling for pleasure,游客,tourism (n.); tour (n./v.),Medium,no shift from tourism
+destination,noun,the place to which someone is traveling,目的地,destined (adj.),High,
+accommodation,noun,lodging or living space,住宿,accommodate (v.),High,"doubled-letter spelling case, distinct from the true silent-letter thread"
+itinerary,noun,a planned route or schedule for a journey,行程,itinerant (adj.),High,
+souvenir,noun,an object kept as a reminder of a place or event,纪念品,souvenirs (pl.),Medium,second French-origin final-stress loanword after entrepreneur (Batch 8)

@@ -111,6 +111,7 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 6's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *employee*'s "-ee" stress pattern and *schedule*'s GA/RP variant | Part III, Batch 6 (`words_151-180.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 7's 60 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *vaccine*'s attested stress variation and *historical*'s "-ical" shift | Part III, Batch 7 (`words_181-210.md`, `words_211-240.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 8's 60 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *finance*/*financial* and *advertisement*'s attested GA/RP stress variation | Part III, Batch 8 (`words_241-270.md`, `words_271-300.md`) |
+| 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 9's 60 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *souvenir*'s French-origin final-stress pattern and *leisure*'s /ʒ/, this lexicon's first example of that phoneme | Part III, Batch 9 (`words_301-330.md`, `words_331-360.md`) |
 
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see
