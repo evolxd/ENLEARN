@@ -1,20 +1,32 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: In progress — Batches 1–2 drafted (60 of 300–500 words; see `ROADMAP.md` Stage 5)
+Status: In progress — Batches 1–3 drafted (90 of 300–500 words; see `ROADMAP.md` Stage 5)
 
-Batches 1–2 (`words_001-030.md`, `words_031-060.md`) cover 60 high-frequency
-academic/PTE words, each with a full lexicon entry and matching rows in all
-five `database/*.csv` files. IPA/stress are drawn from standard dictionary
-knowledge (Cambridge/Oxford direct fetch returned 403 this session, same
-limitation as elsewhere in this project) and need individual cross-check
-before Done. "AI Recognition Notes" and "PTE Frequency" fields are author
-judgment/reasoned extensions, explicitly tagged `Hypothesis`/`Practice` in
-the data — not verified PTE frequency-list or ASR-behavior data. See the
-sourcing note at the top of each batch file for full detail. Batch 2 also
-opens two running threads worth tracking across future batches: a
-coda-position /v/ pattern (first flagged in Batch 1's *comprehensive*, now
-seen again in *perspective* and *achieve*) and noun/verb stress pairs
-beyond *record*/*present* (*increase*/*decrease*, *impact*).
+Batches 1–3 (`words_001-030.md`, `words_031-060.md`, `words_061-090.md`)
+cover 90 high-frequency academic/PTE words, each with a full lexicon entry
+and matching rows in all five `database/*.csv` files. IPA/stress are drawn
+from standard dictionary knowledge (Cambridge/Oxford direct fetch returned
+403 this session, same limitation as elsewhere in this project) and need
+individual cross-check before Done. "AI Recognition Notes" and "PTE
+Frequency" fields are author judgment/reasoned extensions, explicitly
+tagged `Hypothesis`/`Practice` in the data — not verified PTE
+frequency-list or ASR-behavior data. See the sourcing note at the top of
+each batch file for full detail.
+
+Running cross-batch threads to keep extending in future batches:
+- **Coda-position /v/ pattern**: *comprehensive* (Batch 1) → *perspective*,
+  *achieve* (Batch 2) — still pending direct research confirmation.
+- **Noun/verb stress pairs** beyond Part II Ch.4's *record*/*present*:
+  *increase*/*decrease*, *impact* (Batch 2).
+- **"-tion"/"-ic" suffix-stress rule** (Part II Ch.4): 7 "-tion" words plus
+  one "-ic" word and a stress-shift pair (*economy*/*economic*, directly
+  mirroring Part II Ch.4's *photograph* family) in Batch 3 alone.
+- **Spelling-predicted mispronunciation** (Part II Ch.1): *process* (Batch
+  2, "o" read as /oʊ/ instead of /ɑː/), *knowledge* (Batch 3, silent "k").
+- **Word-final single-consonant deletion/epenthesis** (Part IV Ch.1
+  Mistake 3, distinct from the cluster-simplification Mistake 4): now
+  explicitly tracked separately starting in Batch 3 (*benefit*, *advantage*,
+  *knowledge*).
 
 Target: 300–500 words. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
@@ -50,6 +62,7 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 |---|---|---|
 | 1 | 1–30 | Draft (`words_001-030.md`) |
 | 2 | 31–60 | Draft (`words_031-060.md`) |
-| 3 | 61–90 | Not started |
+| 3 | 61–90 | Draft (`words_061-090.md`) |
+| 4 | 91–120 | Not started |
 
 (Add rows as batches are planned/started.)

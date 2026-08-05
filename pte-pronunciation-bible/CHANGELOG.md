@@ -8,6 +8,16 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 3 drafted, 30 more words
+  (`book/Part03_Lexicon/words_061-090.md`, words 61–90), same format and
+  sourcing caveats as prior batches, with matching rows appended to all
+  five `database/*.csv` files (re-verified as well-formed CSV, 90 word
+  rows total). Introduces the "-tion"/"-ic" suffix-stress rule as a
+  cross-cutting batch note (Part II Ch.4), including a stress-shift pair
+  (*economy*/*economic*) that directly mirrors Part II Ch.4's *photograph*
+  family example, and separates word-final single-consonant
+  deletion/epenthesis (Part IV Ch.1 Mistake 3) from cluster simplification
+  (Mistake 4) as a distinct tracked pattern going forward.
 - Part III — PTE High Frequency Lexicon: Batch 2 drafted, 30 more words
   (`book/Part03_Lexicon/words_031-060.md`, words 31–60), same format and
   sourcing caveats as Batch 1, with matching rows appended to all five
