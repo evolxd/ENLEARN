@@ -8,6 +8,21 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added
 
+- Part V — Question Strategy: all 10 chapters written in Draft status,
+  applying Part I's scoring model and Part II/IV's pronunciation and error
+  mechanisms to each PTE Academic item type:
+  - `01_read-aloud.md`, `02_repeat-sentence.md`, `03_describe-image.md`,
+    `04_retell-lecture.md`, `05_respond-to-situation.md` (speaking items —
+    this book's core focus)
+  - `06_summarize-written-text.md`, `07_write-email.md`, `08_essay.md`,
+    `09_reading.md` (writing/reading items, intentionally lighter-touch,
+    each with an explicit scope note)
+  - `10_listening.md` (connects directly back to Part II's connected-speech
+    mechanisms, applied to decoding rather than production)
+  Format/timing details throughout are secondary-sourced (primary Pearson
+  pages returned 403 this session) and flagged for re-verification. Ch.7
+  (Write Email) carries an unresolved PTE Academic vs PTE Core module-scope
+  question — see `book/Part05_Strategy/README.md` and `ROADMAP.md` Stage 4.
 - Part IV — Chinese Error Corpus: all 5 chapters written in Draft status,
   each cataloguing documented Mandarin-L1 error patterns with mechanism,
   examples, and correction targets, cross-referenced back to Part II

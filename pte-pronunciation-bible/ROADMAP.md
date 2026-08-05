@@ -65,16 +65,21 @@ Depends on Stage 2 terminology (needs Part II definitions in place first).
 
 Depends on Stage 1 (AI scoring model) and Stage 2 (pronunciation vocabulary).
 
-- [ ] Read Aloud
-- [ ] Repeat Sentence
-- [ ] Describe Image
-- [ ] Retell Lecture
-- [ ] Respond to Situation
-- [ ] Summarize Written Text
-- [ ] Write Email
-- [ ] Essay
-- [ ] Reading
-- [ ] Listening
+- [x] Read Aloud (Draft)
+- [x] Repeat Sentence (Draft)
+- [x] Describe Image (Draft)
+- [x] Retell Lecture (Draft)
+- [x] Respond to Situation (Draft)
+- [x] Summarize Written Text (Draft)
+- [x] Write Email (Draft — module-scope unresolved, see below)
+- [x] Essay (Draft)
+- [x] Reading (Draft)
+- [x] Listening (Draft)
+- [ ] Re-verify all format/timing figures (prep/response windows, word
+      counts, time limits) across Part V against the primary Pearson
+      test-format pages once accessible (403 on direct fetch this session)
+- [ ] Resolve whether Ch.7 Write Email belongs in PTE Academic or is
+      PTE-Core-only; update or remove the chapter accordingly
 
 ## Stage 5 — Part III: PTE High Frequency Lexicon (300–500 words)
 

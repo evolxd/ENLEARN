@@ -90,6 +90,19 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | "Comparison Between English and Mandarin Vowel Systems and the Challenges for Chinese Learners of English" (ResearchGate) | Part IV, Ch.5 |
 | 2026-08-05 | "Pronunciation Problems of Chinese Learners of English" (ERIC) | Part IV, Ch.5 |
 
+| 2026-08-05 | Gradding / AlfaPTE (Read Aloud format: passage length, prep/response timing) | Part V, Ch.1 |
+| 2026-08-05 | Gurully / onePTE (Repeat Sentence format, partial-credit Content model) | Part V, Ch.2 |
+| 2026-08-05 | PTE Panacea (2024 scoring change: AI+human Content review for Describe Image/Retell Lecture) | Part V, Ch.3, Ch.4 |
+| 2026-08-05 | LearnPTE / DreamEnglish (Describe Image format) | Part V, Ch.3 |
+| 2026-08-05 | Gurully / speakshark (Retell Lecture format) | Part V, Ch.4 |
+| 2026-08-05 | onePTE (Aug 2025 format update, new item types) | Part V, Ch.5 |
+| 2026-08-05 | Gurully / Sumlingo (Respond to a Situation format, scoring) | Part V, Ch.5 |
+| 2026-08-05 | PTE Nepal / Gurully (Summarize Written Text format, Form rule) | Part V, Ch.6 |
+| 2026-08-05 | EasyPTE / PTE Panacea (Write Email format — sourced as PTE Core specifically; module-scope caveat flagged in chapter) | Part V, Ch.7 |
+| 2026-08-05 | Language Academy / PTE Nepal (Essay format, scoring) | Part V, Ch.8 |
+| 2026-08-05 | Gradding / Sumlingo (Reading section item types, scoring) | Part V, Ch.9 |
+| 2026-08-05 | Study.com / Edubenchmark (Listening section item types, scoring, negative marking) | Part V, Ch.10 |
+
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see
 `book/Part01_AI/README.md`). Every `[Pearson]`-tagged claim in Part I was
