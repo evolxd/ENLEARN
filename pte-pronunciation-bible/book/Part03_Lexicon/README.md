@@ -1,8 +1,14 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: In progress — Batches 1–6 drafted (180 of 300–500 words; see `ROADMAP.md` Stage 5)
+Status: In progress — 240 of 300–500 words drafted; see `ROADMAP.md` Stage 5
 
-Batches 1–6 (`words_001-030.md` through `words_151-180.md`) cover 180
+**Batch size changed to 60 words per pass, per user direction (this
+session)**, effective Batch 7 onward. Batch 7 (`words_181-210.md` +
+`words_211-240.md`, split across two files for editing convenience but
+counted as one 60-word batch) covers words 181–240. Batches 1–6 remain
+30 words each, unchanged retroactively.
+
+Batches 1–7 (`words_001-030.md` through `words_211-240.md`) cover 240
 high-frequency academic/PTE words, each with a full lexicon entry and
 matching rows in all five `database/*.csv` files. IPA/stress are drawn
 from standard dictionary knowledge (Cambridge/Oxford direct fetch returned
@@ -73,6 +79,30 @@ Running cross-batch threads to keep extending in future batches:
   *graduate* (Batch 6), alongside *appropriate*/*approximate* (Batch 4).
 - More stress-stable non-shift pairs (Batch 6): *management*/*manage*,
   *participate*/*participant*.
+- **Science/tech/environment + health/psychology/history cluster**
+  (Batch 7, 60 words): *climate, species, ecosystem, sustainable,
+  emission, pollution, molecule, organism, artificial intelligence,
+  algorithm* / *medicine, treatment, diagnosis, disease, virus, vaccine,
+  psychology, behavior, emotion, memory* / *history, culture, century,
+  ancient, civilization, tradition, religion* — the widest topical spread
+  of any batch so far, matching Read Aloud's actual passage-topic variety.
+- **"-ity" joins the suffix-stress family** (Batch 7): *sustainability*,
+  *biodiversity* — first concrete data points, following the same
+  before-the-suffix stress pattern as "-tion"/"-ic".
+- **"-ical" confirmed as an extension of "-ic," not a new rule** (Batch 7):
+  *history* (stress 1) → *historical* (stress 2, shifts) is the first
+  concrete shift example; contrasted directly with *culture*/*cultural*
+  (no shift) to show "-al" alone doesn't trigger it.
+- **Medial-position /ð/ and third/fourth silent-letter examples** (Batch
+  7): *algorithm* (medial /ð/, vs. prior word-initial-only examples);
+  *psychology* (silent "p"), alongside *process* (Batch 2) and
+  *knowledge*/*vehicle* (Batches 3, 7).
+- **New near-minimal pair**: *quantity*/*quality* (Batch 7) — distinguished
+  by a single medial consonant, both extremely high-frequency in Describe
+  Image/Essay.
+- **z→s devoicing thread continues**: *organism*, *mechanism*, *disease*
+  (Batch 7, the last with /z/ in two positions) join *reasonable*,
+  *represent*, *organization*.
 
 Target: 300–500 words. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
@@ -89,9 +119,12 @@ References
 
 ## Structure
 
-Decision (recorded 2026-08-05): entries are batched into files of 30 words
-each (`words_001-030.md`, `words_031-060.md`, ...) rather than the
-originally planned 50, sized for one authoring pass per batch. Every entry
+Decision (recorded 2026-08-05, revised same day): entries were initially
+batched into files of 30 words each (Batches 1–6), then changed to 60
+words per pass per user direction, effective Batch 7 onward. A 60-word
+batch may be split across two `words_NNN-NNN.md` files for editing
+convenience (e.g. Batch 7 = `words_181-210.md` + `words_211-240.md`) but
+is tracked as a single batch in the Progress table below. Every entry
 must also be reflected as one row per relevant field in:
 
 - `database/words.csv`
@@ -112,6 +145,8 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 4 | 91–120 | Draft (`words_091-120.md`) |
 | 5 | 121–150 | Draft (`words_121-150.md`) |
 | 6 | 151–180 | Draft (`words_151-180.md`) |
-| 7 | 181–210 | Not started |
+| 7 | 181–240 (60 words) | Draft (`words_181-210.md` + `words_211-240.md`) |
+| 8 | 241–300 (60 words) | Not started |
 
-(Add rows as batches are planned/started.)
+(Add rows as batches are planned/started. Batch size is 60 words from
+Batch 7 onward.)

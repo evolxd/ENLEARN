@@ -8,6 +8,24 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 7 drafted, 60 words this
+  time (`book/Part03_Lexicon/words_181-210.md` +
+  `words_211-240.md`, words 181–240) — **batch size increased from 30 to
+  60 per user direction**, effective this batch onward (recorded in
+  `book/Part03_Lexicon/README.md`). Matching rows appended to all five
+  `database/*.csv` files (re-verified as well-formed CSV, 240 word rows
+  total). Widest topical spread yet: science/technology/environment
+  (climate, sustainability, artificial intelligence, algorithm) plus
+  health/psychology (medicine, diagnosis, psychology, behavior, emotion)
+  plus history/culture (history, civilization, tradition, religion).
+  Establishes "-ity" as a third confirmed suffix-stress rule alongside
+  "-tion"/"-ic" (*sustainability*, *biodiversity*), confirms "-ical"
+  extends the existing "-ic" rule rather than being a new one
+  (*history*→*historical* shifts, contrasted with *culture*/*cultural*
+  which doesn't), adds a medial-position /ð/ example (*algorithm*, vs.
+  prior word-initial-only cases), a third and fourth silent-letter example
+  (*psychology*, continuing *process*/*knowledge*/*vehicle*), and a new
+  near-minimal pair (*quantity*/*quality*).
 - Part III — PTE High Frequency Lexicon: Batch 6 drafted, 30 more words
   (`book/Part03_Lexicon/words_151-180.md`, words 151–180), same format and
   sourcing caveats as prior batches, with matching rows appended to all
