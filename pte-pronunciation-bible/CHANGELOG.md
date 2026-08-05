@@ -8,6 +8,19 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 5 drafted, 30 more words
+  (`book/Part03_Lexicon/words_121-150.md`, words 121–150) — the lexicon's
+  halfway point toward the 300-word floor. Same format and sourcing
+  caveats as prior batches, with matching rows appended to all five
+  `database/*.csv` files (re-verified as well-formed CSV, 150 word rows
+  total). Organized around an Essay discourse-connector theme, the
+  counterpart to Batch 4's Describe Image cluster. Adds three more
+  stress-stability non-shift checks (*argue*/*argument*,
+  *consequence*/*consequently*, *improve*/*improvement*) and a
+  prefix-stability check (*encourage*/*discourage*), introduces the
+  lexicon's first /ɔɪ/ diphthong example (*avoid*), and flags *address*
+  as a stress-variability caution rather than a confirmed stress pair —
+  explicitly distinguished from *increase/decrease*, *impact*, *contrast*.
 - Part III — PTE High Frequency Lexicon: Batch 4 drafted, 30 more words
   (`book/Part03_Lexicon/words_091-120.md`, words 91–120), same format and
   sourcing caveats as prior batches, with matching rows appended to all

@@ -1,8 +1,8 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: In progress — Batches 1–4 drafted (120 of 300–500 words; see `ROADMAP.md` Stage 5)
+Status: In progress — Batches 1–5 drafted (150 of 300–500 words, halfway to the 300 floor; see `ROADMAP.md` Stage 5)
 
-Batches 1–4 (`words_001-030.md` through `words_091-120.md`) cover 120
+Batches 1–5 (`words_001-030.md` through `words_121-150.md`) cover 150
 high-frequency academic/PTE words, each with a full lexicon entry and
 matching rows in all five `database/*.csv` files. IPA/stress are drawn
 from standard dictionary knowledge (Cambridge/Oxford direct fetch returned
@@ -43,6 +43,22 @@ Running cross-batch threads to keep extending in future batches:
   words (*proportion, percentage, majority, minority, average, overall,
   compare, contrast, similar, differ, equivalent, correspond, represent*)
   — the first batch organized around a single PTE item type's vocabulary.
+- **Essay discourse-connector cluster** (Batch 5): *thus, despite,
+  nevertheless, furthermore, moreover, in addition, regarding* — the
+  counterpart to Batch 4's Describe Image cluster, oriented toward Part V
+  Ch.8.
+- **Stress-stability non-shift checks** (extending Batch 4's *decline*):
+  *argue*/*argument*, *consequence*/*consequently*, *improve*/
+  *improvement* all keep the same stressed syllable across the word
+  family; *encourage*/*discourage* confirm that "en-"/"dis-" prefixes
+  don't move stress off the root either.
+- **First /ɔɪ/ diphthong example**: *avoid* (Batch 5) — none of the prior
+  120 words used this diphthong.
+- **Stress-variability caution vs. confirmed stress pairs**: *address*
+  (Batch 5) is flagged as uncertain/variable across dictionary sources,
+  explicitly distinguished from the confirmed stress-shift pairs
+  (*increase/decrease*, *impact*, *contrast*) — a reminder not to overstate
+  confidence where sources actually disagree.
 
 Target: 300–500 words. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
@@ -80,6 +96,7 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 2 | 31–60 | Draft (`words_031-060.md`) |
 | 3 | 61–90 | Draft (`words_061-090.md`) |
 | 4 | 91–120 | Draft (`words_091-120.md`) |
-| 5 | 121–150 | Not started |
+| 5 | 121–150 | Draft (`words_121-150.md`) |
+| 6 | 151–180 | Not started |
 
 (Add rows as batches are planned/started.)
