@@ -8,6 +8,24 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added
 
+- Part II — Pronunciation Foundations: all 9 chapters written in Draft
+  status (same bilingual format as Part I), each with the full six-section
+  template and evidence tags:
+  - `01_ipa.md`
+  - `02_consonants.md`
+  - `03_vowels.md`
+  - `04_word-stress.md`
+  - `05_sentence-rhythm.md`
+  - `06_connected-speech.md`
+  - `07_reduction.md`
+  - `08_linking.md`
+  - `09_incomplete-plosion.md`
+  Core IPA/phonetics facts are well-established linguistics, cross-checked
+  against the IPA chart and Cambridge/Oxford dictionaries. Several
+  general-phonetics and Mandarin-phonology claims are tagged `[Linguistics]`
+  with a placeholder note requesting a specific academic citation during
+  the Stage 7 verification pass — see `book/Part02_Pronunciation/README.md`
+  and `ROADMAP.md` Stage 2.
 - Part I — Understanding the PTE AI: all 5 chapters written in Draft status
   (bilingual: English prose with Chinese glosses on key terms), each with
   Learning Objectives, Theory, Examples, Exam Strategy, Exercises, Summary,

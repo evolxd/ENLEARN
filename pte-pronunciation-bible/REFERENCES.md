@@ -72,6 +72,11 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Sumlingo, "How PTE Academic Evaluates Different English Accents" | Part I, Ch.2 |
 | 2026-08-05 | Top Pro English, "Is Your Speaking Accent Really Stopping You from Scoring, or Is It Something Else?" | Part I, Ch.2 |
 
+| 2026-08-05 | International Phonetic Association, *IPA Chart* | Part II, Ch.1, 2, 9 |
+| 2026-08-05 | Cambridge Dictionary (IPA transcriptions, GA vs RP) | Part II, Ch.1, 2, 3, 4, 6, 8 |
+| 2026-08-05 | Oxford Learner's Dictionaries | Part II, Ch.1, 3, 4 |
+| 2026-08-05 | General phonetics literature (stress-timing, coarticulation/assimilation/elision, weak forms, unreleased stops, Mandarin phonology) — placeholder, specific academic citations not yet added | Part II, Ch.2, 5, 6, 7, 8, 9 |
+
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see
 `book/Part01_AI/README.md`). Every `[Pearson]`-tagged claim in Part I was

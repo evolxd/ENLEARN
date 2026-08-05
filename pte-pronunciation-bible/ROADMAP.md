@@ -34,15 +34,18 @@ first target for full-quality writing.
 Requires verified IPA against Cambridge/Oxford dictionary entries before
 publication.
 
-- [ ] IPA
-- [ ] Consonants
-- [ ] Vowels
-- [ ] Word Stress
-- [ ] Sentence Rhythm
-- [ ] Connected Speech
-- [ ] Reduction
-- [ ] Linking
-- [ ] Incomplete Plosion
+- [x] IPA (Draft)
+- [x] Consonants (Draft)
+- [x] Vowels (Draft)
+- [x] Word Stress (Draft)
+- [x] Sentence Rhythm (Draft)
+- [x] Connected Speech (Draft)
+- [x] Reduction (Draft)
+- [x] Linking (Draft)
+- [x] Incomplete Plosion (Draft)
+- [ ] Add specific academic citations for the general phonetics/Mandarin-
+      phonology claims flagged as placeholders in Ch.2, Ch.5, Ch.6, Ch.7,
+      Ch.8, Ch.9 References sections, before moving chapters to Done
 
 ## Stage 3 — Part IV: Chinese Error Corpus
 
