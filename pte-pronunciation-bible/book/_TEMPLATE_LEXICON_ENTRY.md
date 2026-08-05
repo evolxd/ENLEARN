@@ -17,7 +17,7 @@ dictionary source in REFERENCES.md before marking an entry Done.
 | Meaning | |
 | Chinese Translation | |
 | Common Mistakes | [General learner mistakes, not Chinese-specific] |
-| Chinese Learner Errors | [Specific to Mandarin/Cantonese L1 interference] |
+| Chinese Learner Errors | [Specific to Mandarin L1 interference] |
 | AI Recognition Notes | [`[Practice]`/`[Hypothesis]` — what the ASR model tends to mis-score, per STYLE_GUIDE.md §1] |
 | Related Words | |
 | Example | [One natural sentence, PTE-register] |

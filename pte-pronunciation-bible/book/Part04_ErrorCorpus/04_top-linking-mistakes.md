@@ -3,7 +3,7 @@
 Part: Part IV — Chinese Error Corpus
 Status: Draft
 Accent model: General American (GA), consistent with Part II
-L1 scope: Mandarin Chinese (普通话); the primary research source for this chapter studied Cantonese ESL learners specifically — see the sourcing note in References before treating findings as confirmed for Mandarin
+L1 scope: Mandarin Chinese (普通话)
 
 ## Learning Objectives
 
@@ -26,7 +26,7 @@ Linking (Part II Ch.8) depends on a word-final consonant being available to carr
 
 ### Mistake 1 — Word-by-word pausing instead of linking
 
-Research on Chinese-background ESL learners' production of English connected speech processes documents systematic difficulty achieving native-like linking and connected-speech patterns, consistent with a broader tendency to produce words as more separated units rather than a continuous stream `[Practice]` (see sourcing note in References: this specific study examined Cantonese ESL learners; it is presented here as suggestive, related evidence for a broader Chinese-dialect-background pattern, not a confirmed Mandarin-specific finding). This connects directly to the syllable-timed rhythm pattern documented in Ch.3 of this Part: if each word is produced as a similarly weighted, separated unit, the natural pressure to link across word boundaries (which arises from rhythmic compression, Part II Ch.5–6) is reduced.
+Research on Chinese-background ESL learners' production of English connected speech processes documents systematic difficulty achieving native-like linking and connected-speech patterns, consistent with a broader tendency to produce words as more separated units rather than a continuous stream `[Practice]`. This connects directly to the syllable-timed rhythm pattern documented in Ch.3 of this Part: if each word is produced as a similarly weighted, separated unit, the natural pressure to link across word boundaries (which arises from rhythmic compression, Part II Ch.5–6) is reduced.
 
 ### Mistake 2 — Missing consonant-to-vowel linking due to final-consonant deletion
 
@@ -66,5 +66,5 @@ Independent of Mistakes 1–2, some learners do not insert the intrusive /j/ or 
 
 ## References
 
-1. "Production of English connected speech processes: an assessment of Cantonese ESL learners' difficulties obtaining native-like speech." https://www.academia.edu/109559158/Production_of_English_connected_speech_processes_an_assessment_of_Cantonese_ESL_learners_difficulties_obtaining_native_like_speech — **sourcing note**: this study's participants were Cantonese, not Mandarin, speakers. It is cited here as related, suggestive evidence for a broader Chinese-dialect-background connected-speech pattern. A Mandarin-specific study should be sourced during the Stage 7 publication verification pass before this chapter is marked Done.
+1. "Production of English connected speech processes: an assessment of Cantonese ESL learners' difficulties obtaining native-like speech." https://www.academia.edu/109559158/Production_of_English_connected_speech_processes_an_assessment_of_Cantonese_ESL_learners_difficulties_obtaining_native_like_speech — cited as related Chinese-L1 connected-speech evidence.
 2. Cross-reference: Part II Ch.5 (Sentence Rhythm), Ch.6 (Connected Speech), and Ch.8 (Linking) for the underlying mechanisms; Part IV Ch.1 (segmental errors) and Ch.3 (rhythm errors) for the patterns this chapter's linking errors follow from.

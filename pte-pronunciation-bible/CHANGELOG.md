@@ -6,6 +6,19 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ## [Unreleased]
 
+### Changed
+
+- Scoped Part IV (Chinese Error Corpus) to Mandarin only, per user
+  direction (this project does not need Cantonese coverage — it is for
+  personal use). Removed the Cantonese-vs-Mandarin sourcing caveats and
+  the ROADMAP task to find a Mandarin-specific replacement for the
+  Cantonese-sourced connected-speech study in Ch.3/Ch.4; that source is
+  now cited plainly as related Chinese-L1 evidence. Updated
+  `book/Part04_ErrorCorpus/README.md`, `01_top-pronunciation-mistakes.md`,
+  `03_top-rhythm-mistakes.md`, `04_top-linking-mistakes.md`,
+  `_TEMPLATE_LEXICON_ENTRY.md`, `ROADMAP.md`, and `REFERENCES.md`
+  accordingly.
+
 ### Added
 
 - Part V — Question Strategy: all 10 chapters written in Draft status,

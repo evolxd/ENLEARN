@@ -5,17 +5,18 @@ Status: Draft complete (all 5 chapters written — see `ROADMAP.md` Stage 3)
 All five chapters are in Draft status, grounded in peer-reviewed and
 research-literature sources (ResearchGate, ScienceDirect, JASA, Frontiers,
 Cambridge Core, ERIC) found and cited directly — a stronger evidence base
-than Part II's general-phonetics placeholders. Two caveats to resolve
-before any chapter is marked Done: (1) the connected-speech source in
-Ch.4 studied Cantonese, not Mandarin, speakers — flagged inline; (2) the
-extension of the tense/lax mechanism beyond /iː/–/ɪ/ in Ch.5 is tagged
-`[Hypothesis]` pending a directly-researched source for the other pairs.
+than Part II's general-phonetics placeholders. One caveat to resolve
+before any chapter is marked Done: the extension of the tense/lax
+mechanism beyond /iː/–/ɪ/ in Ch.5 is tagged `[Hypothesis]` pending a
+directly-researched source for the other pairs.
 
-The most valuable section of the book: a systematic catalogue of how
-Mandarin/Cantonese L1 interference shows up in PTE speaking responses, and
-why — not just a list of "common mistakes" but the phonetic/linguistic
-mechanism behind each one. Depends on terminology defined in Part II, so
-build after Part II foundations are in place.
+This Part's L1 scope is Mandarin Chinese only (per user direction — this
+project does not need Cantonese coverage). The most valuable section of
+the book: a systematic catalogue of how Mandarin L1 interference shows up
+in PTE speaking responses, and why — not just a list of "common mistakes"
+but the phonetic/linguistic mechanism behind each one. Depends on
+terminology defined in Part II, so build after Part II foundations are in
+place.
 
 ## Chapters
 

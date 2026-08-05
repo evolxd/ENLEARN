@@ -3,7 +3,7 @@
 Part: Part IV — Chinese Error Corpus
 Status: Draft
 Accent model: General American (GA), consistent with Part II
-L1 scope: Mandarin Chinese (普通话); a few notes flag where Cantonese or regional dialect background changes the pattern
+L1 scope: Mandarin Chinese (普通话)
 
 ## Learning Objectives
 

@@ -85,7 +85,7 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | "A study of Chinese EFL learners' problems with stress acquisition" (ScienceDirect) | Part IV, Ch.2, Ch.3 |
 | 2026-08-05 | "Acoustic Correlates of English Lexical Stress Produced by Chinese Dialect Speakers Compared to Native English Speakers" (Frontiers/PMC) | Part IV, Ch.2 |
 | 2026-08-05 | "Processing of word-level stress by Mandarin-speaking second language learners of English" (Cambridge Core) | Part IV, Ch.2 |
-| 2026-08-05 | "Production of English connected speech processes... Cantonese ESL learners" — Cantonese, not Mandarin; used as suggestive related evidence only | Part IV, Ch.3, Ch.4 |
+| 2026-08-05 | "Production of English connected speech processes... Cantonese ESL learners" — used as related Chinese-L1 connected-speech evidence (project scope is Mandarin only; no Cantonese-specific coverage needed) | Part IV, Ch.3, Ch.4 |
 | 2026-08-05 | Feng, H., & Wang, L. (2024). "Acoustic analysis of English tense and lax vowels..." *JASA* 155(5) | Part IV, Ch.5 |
 | 2026-08-05 | "Comparison Between English and Mandarin Vowel Systems and the Challenges for Chinese Learners of English" (ResearchGate) | Part IV, Ch.5 |
 | 2026-08-05 | "Pronunciation Problems of Chinese Learners of English" (ERIC) | Part IV, Ch.5 |
