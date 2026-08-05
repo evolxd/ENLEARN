@@ -8,6 +8,26 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 8 drafted, 60 more words
+  (`book/Part03_Lexicon/words_241-270.md` + `words_271-300.md`, words
+  241–300) — **reaches 300 words, the original minimum target for this
+  Part.** Matching rows appended to all five `database/*.csv` files
+  (re-verified as well-formed CSV, 300 word rows total). Business/finance
+  theme (budget, investment, market, competition, currency, inflation,
+  entrepreneur) plus geography/media/technology (region, urban, rural,
+  journalism, broadcast, platform, network, software, hardware, database,
+  bandwidth). Introduces compound noun stress as a new pattern (stress on
+  the first element: NETwork, SOFTware, HARDware, DATAbase, BANDwidth,
+  share/stakeholder) — distinct from every suffix-stress rule tracked so
+  far since it applies to compounding, not suffixation. Adds a third
+  "-ial" shift example (industry→industrial), a fifth "-ity" example
+  (connectivity), a second "-tion" shift-from-base-verb pair
+  (publish→publication, repeating organize→organization), a third/fourth
+  GA-vs-variant stress caution (finance/financial, advertisement), and
+  this lexicon's first word-final-position /θ/ example (bandwidth,
+  completing a three-position set with word-initial and medial cases).
+  **Next step: confirm with the user whether to stop the lexicon at 300
+  words or continue toward the 500-word ceiling before starting Batch 9.**
 - Part III — PTE High Frequency Lexicon: Batch 7 drafted, 60 words this
   time (`book/Part03_Lexicon/words_181-210.md` +
   `words_211-240.md`, words 181–240) — **batch size increased from 30 to

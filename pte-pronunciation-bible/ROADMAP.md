@@ -95,11 +95,17 @@ notes per word). Data lives in `database/*.csv`; chapter prose in
 - [x] Batch 6 (words 151–180) — Draft, `words_151-180.md`
 - [x] Batch 7 (words 181–240, 60 words — batch size increased to 60 per
       user direction) — Draft, `words_181-210.md` + `words_211-240.md`
-- [ ] Individually cross-check Batches 1–7's IPA/stress against Cambridge
+- [x] Batch 8 (words 241–300, 60 words) — Draft, `words_241-270.md` +
+      `words_271-300.md` — **300-word floor of the 300–500 target reached**
+- [ ] Individually cross-check Batches 1–8's IPA/stress against Cambridge
       or Oxford Learner's Dictionaries (this session's direct fetch
       attempts returned 403) before marking any batch Done
-- [ ] Batch 8 (words 241–300, 60 words)
-- [ ] ... continue in batches of 60 until 300–500 words are covered
+- [ ] **Decision needed**: stop the lexicon at 300 words (floor reached)
+      or continue toward the 500-word ceiling — confirm with user before
+      starting Batch 9
+- [ ] Batch 9 (words 301–360, 60 words) — only if continuing past 300
+- [ ] ... continue in batches of 60 until 500 words are covered, if the
+      decision above is to continue
 
 ## Stage 6 — Part VI: Training System
 

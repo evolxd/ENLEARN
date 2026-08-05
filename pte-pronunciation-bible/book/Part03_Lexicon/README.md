@@ -1,14 +1,16 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: In progress — 240 of 300–500 words drafted; see `ROADMAP.md` Stage 5
+Status: **300 of 300–500 words drafted — the original minimum target is
+reached.** See `ROADMAP.md` Stage 5 for the decision on whether to stop
+at 300 or continue toward 500.
 
 **Batch size changed to 60 words per pass, per user direction (this
-session)**, effective Batch 7 onward. Batch 7 (`words_181-210.md` +
-`words_211-240.md`, split across two files for editing convenience but
-counted as one 60-word batch) covers words 181–240. Batches 1–6 remain
-30 words each, unchanged retroactively.
+session)**, effective Batch 7 onward. Batches 1–6 remain 30 words each,
+unchanged retroactively. Both 60-word batches (7 and 8) are each split
+across two `words_NNN-NNN.md` files for editing convenience but tracked
+as one batch each.
 
-Batches 1–7 (`words_001-030.md` through `words_211-240.md`) cover 240
+Batches 1–8 (`words_001-030.md` through `words_271-300.md`) cover 300
 high-frequency academic/PTE words, each with a full lexicon entry and
 matching rows in all five `database/*.csv` files. IPA/stress are drawn
 from standard dictionary knowledge (Cambridge/Oxford direct fetch returned
@@ -103,8 +105,38 @@ Running cross-batch threads to keep extending in future batches:
 - **z→s devoicing thread continues**: *organism*, *mechanism*, *disease*
   (Batch 7, the last with /z/ in two positions) join *reasonable*,
   *represent*, *organization*.
+- **Business/finance + geography/media/technology cluster** (Batch 8, 60
+  words, words 271–300 complete the 300-word floor): *budget, investment,
+  profit, revenue, market, competition, consumer, currency, inflation,
+  income, entrepreneur* / *region, urban, rural, municipal, journalism,
+  broadcast, publication, entertainment, platform, network, software,
+  hardware, database, server, bandwidth, connectivity*.
+- **New pattern — compound noun stress**: English compound nouns stress
+  their *first* element, e.g. **NET**work, **SOFT**ware, **HARD**ware,
+  **DATA**base, **BAND**width, *share*/*stakeholder* (Batch 8) —
+  distinct from every suffix-stress rule tracked so far, since it applies
+  to compounding, not suffixation. Contrasted with ordinary phrase stress
+  (a "green HOUSE" vs. a "GREENhouse").
+- **Third "-ial" shift + fifth "-ity" data point** (Batch 8): *industry*→
+  *industrial* (second "-ial" shift, after *history*/*historical*'s
+  "-ical"); *connectivity* (fourth "-ity" data point, after
+  *sustainability*, *biodiversity*).
+- **Second confirmed "-tion" shift-from-base-verb pair**: *publish*→
+  *publication* (Batch 8), repeating the *organize*→*organization*
+  pattern (Batch 6).
+- **Third/fourth GA-vs-variant stress caution**: *finance*/*financial*
+  and *advertisement* (Batch 8) join *controversial* (Batch 5) and
+  *vaccine* (Batch 7) as attested stress-variation words, not errors.
+- **First word-final-position /θ/ example**: *bandwidth* (Batch 8) —
+  after word-initial (*think*, *thus*) and medial (*algorithm*, Batch 7)
+  positions, completing a three-position set for this phoneme.
+- **French-origin final-stress loanword**: *entrepreneur* (Batch 8) —
+  final-syllable stress resembling the "-eer" pattern but from a
+  different historical source, noted as a related-but-distinct case.
 
-Target: 300–500 words. Every word must have a complete entry following
+Target: 300–500 words. **300 reached as of Batch 8** — decide whether to
+stop here or continue toward 500 before starting Batch 9. Every word must
+have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
 `database/*.csv` file. This is the highest per-unit verification cost in
 the book (IPA + stress + Chinese learner error notes per word) — build it
@@ -146,7 +178,7 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 5 | 121–150 | Draft (`words_121-150.md`) |
 | 6 | 151–180 | Draft (`words_151-180.md`) |
 | 7 | 181–240 (60 words) | Draft (`words_181-210.md` + `words_211-240.md`) |
-| 8 | 241–300 (60 words) | Not started |
+| 8 | 241–300 (60 words) | Draft (`words_241-270.md` + `words_271-300.md`) — **300-word floor reached** |
+| 9 | 301–360 (60 words, if continuing to 500) | Not started — awaiting decision on 300 vs 500 target |
 
-(Add rows as batches are planned/started. Batch size is 60 words from
-Batch 7 onward.)
+(Batch size is 60 words from Batch 7 onward.)
