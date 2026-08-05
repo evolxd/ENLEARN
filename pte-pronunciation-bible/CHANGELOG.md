@@ -8,6 +8,14 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 2 drafted, 30 more words
+  (`book/Part03_Lexicon/words_031-060.md`, words 31–60), same format and
+  sourcing caveats as Batch 1, with matching rows appended to all five
+  `database/*.csv` files (re-verified as well-formed CSV, 60 word rows
+  total). Batch 2 continues two cross-batch threads: a coda-position /v/
+  pattern (extending Batch 1's *comprehensive* to *perspective* and
+  *achieve*) and noun/verb stress pairs beyond Part II Ch.4's
+  *record*/*present* (*increase*/*decrease*, *impact*).
 - Part III — PTE High Frequency Lexicon: Batch 1 drafted, 30 words
   (`book/Part03_Lexicon/words_001-030.md`), each with a full 16-field
   lexicon entry, plus matching rows added to all five `database/*.csv`
