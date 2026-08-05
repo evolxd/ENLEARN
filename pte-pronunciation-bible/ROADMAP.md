@@ -20,11 +20,14 @@ This file tracks *build* stages — what gets written in what order.
 Conceptual chapters, lowest dependency on verified IPA/audio data. Good
 first target for full-quality writing.
 
-- [ ] Ch.1 How the PTE AI Scores You
-- [ ] Ch.2 Pronunciation vs Accent
-- [ ] Ch.3 Fluency
-- [ ] Ch.4 Content
-- [ ] Ch.5 Common Myths
+- [x] Ch.1 How the PTE AI Scores You (Draft)
+- [x] Ch.2 Pronunciation vs Accent (Draft)
+- [x] Ch.3 Fluency (Draft)
+- [x] Ch.4 Content (Draft)
+- [x] Ch.5 Common Myths (Draft)
+- [ ] Verify all Ch.1-5 `[Pearson]` claims against the primary Score Guide
+      PDF directly (blocked by 403 in the scaffold/draft session — see
+      `book/Part01_AI/README.md`) before moving chapters to Done
 
 ## Stage 2 — Part II: Pronunciation Foundations
 

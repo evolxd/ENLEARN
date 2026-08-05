@@ -60,4 +60,21 @@ the whole book instead of just per-chapter.
 
 | Date | Source | Used In |
 |---|---|---|
-| — | — | (none yet — scaffold stage) |
+| 2026-08-05 | Pearson, *PTE Academic Test Taker Score Guide* (July 2025) — 403 on direct fetch this session; content verified via secondary sources below | Part I, Ch.1–4 |
+| 2026-08-05 | Pearson PTE, "How does PTE Academic mark different accents?" — 403 on direct fetch this session; content verified via secondary sources below | Part I, Ch.2 |
+| 2026-08-05 | Gurully, "Guide for Oral Fluency of PTE Speaking Section to Score High" | Part I, Ch.1, Ch.3 |
+| 2026-08-05 | PTE Exam Preparation, "PTE Speaking Scoring Criteria – Importance of Pronunciation and Fluency" | Part I, Ch.1 |
+| 2026-08-05 | PTE Exam Preparation, "Oral Fluency Assessment in PTE Exam – Marking Scheme or Weightage of Marks" | Part I, Ch.3 |
+| 2026-08-05 | Gradding, "Read Aloud PTE: Practice Sample Questions with Expert Tips" | Part I, Ch.1, Ch.4 |
+| 2026-08-05 | Leap Scholar, "PTE Read Aloud: Tips, Examples & Free Practice Samples" | Part I, Ch.4 |
+| 2026-08-05 | onePTE, "New format PTE Academic tests" (Aug 2025 item-type update) | Part I, Ch.1 |
+| 2026-08-05 | PTE Smart, "Accent x PTE Academic – does my accent influence my score?" | Part I, Ch.2 |
+| 2026-08-05 | Sumlingo, "How PTE Academic Evaluates Different English Accents" | Part I, Ch.2 |
+| 2026-08-05 | Top Pro English, "Is Your Speaking Accent Really Stopping You from Scoring, or Is It Something Else?" | Part I, Ch.2 |
+
+**Outstanding verification task:** the two primary Pearson sources above
+returned HTTP 403 when fetched directly in this session (see
+`book/Part01_AI/README.md`). Every `[Pearson]`-tagged claim in Part I was
+cross-checked against 2+ independent secondary sources that quote the
+primary documents, but has not been confirmed against the primary PDF/
+article text directly. Re-verify before marking any Part I chapter Done.
