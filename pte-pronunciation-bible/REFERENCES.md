@@ -108,6 +108,7 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 3's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 3 (`words_061-090.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 4's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 4 (`words_091-120.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 5's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *address* given noted noun-form stress variability | Part III, Batch 5 (`words_121-150.md`) |
+| 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 6's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *employee*'s "-ee" stress pattern and *schedule*'s GA/RP variant | Part III, Batch 6 (`words_151-180.md`) |
 
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see

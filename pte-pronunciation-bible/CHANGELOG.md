@@ -8,6 +8,18 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 6 drafted, 30 more words
+  (`book/Part03_Lexicon/words_151-180.md`, words 151–180), same format and
+  sourcing caveats as prior batches, with matching rows appended to all
+  five `database/*.csv` files (re-verified as well-formed CSV, 180 word
+  rows total). Organized around an academic/workplace theme. Establishes
+  a second confirmed suffix-stress rule — "-ee"/"-eer" (stress lands *on*
+  the suffix, unlike "-tion"/"-ic" which pull stress to the syllable
+  *before* it) — with *employee* directly contrasted against
+  *employ*/*employer*/*employment*, and *career*/*volunteer* confirming
+  the pattern for "-eer." Adds a fourth data point for the adjective/verb
+  suffix-vowel alternation (*graduate*) and two more stress-stable
+  non-shift pairs (*management*/*manage*, *participate*/*participant*).
 - Part III — PTE High Frequency Lexicon: Batch 5 drafted, 30 more words
   (`book/Part03_Lexicon/words_121-150.md`, words 121–150) — the lexicon's
   halfway point toward the 300-word floor. Same format and sourcing

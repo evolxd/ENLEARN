@@ -1,8 +1,8 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: In progress — Batches 1–5 drafted (150 of 300–500 words, halfway to the 300 floor; see `ROADMAP.md` Stage 5)
+Status: In progress — Batches 1–6 drafted (180 of 300–500 words; see `ROADMAP.md` Stage 5)
 
-Batches 1–5 (`words_001-030.md` through `words_121-150.md`) cover 150
+Batches 1–6 (`words_001-030.md` through `words_151-180.md`) cover 180
 high-frequency academic/PTE words, each with a full lexicon entry and
 matching rows in all five `database/*.csv` files. IPA/stress are drawn
 from standard dictionary knowledge (Cambridge/Oxford direct fetch returned
@@ -59,6 +59,20 @@ Running cross-batch threads to keep extending in future batches:
   explicitly distinguished from the confirmed stress-shift pairs
   (*increase/decrease*, *impact*, *contrast*) — a reminder not to overstate
   confidence where sources actually disagree.
+- **Academic/workplace cluster** (Batch 6): *university, institution,
+  curriculum, assignment, lecture, seminar, graduate, degree, career,
+  employment/employee/employer, workplace, management, organization,
+  academic*, etc. — high-frequency across Read Aloud, Retell Lecture, and
+  Essay; thematically fitting since the book's own test is "PTE Academic."
+- **Second confirmed suffix-stress rule — "-ee"/"-eer"** (Batch 6):
+  unlike "-tion"/"-ic" (stress lands *before* the suffix), "-ee"/"-eer"
+  pull stress *onto* the suffix itself. *Employee* (shifted) contrasts
+  directly with *employ*/*employer*/*employment* (not shifted); *career*
+  and *volunteer* confirm the same pattern for "-eer."
+- Fourth data point for the adjective/verb suffix-vowel alternation:
+  *graduate* (Batch 6), alongside *appropriate*/*approximate* (Batch 4).
+- More stress-stable non-shift pairs (Batch 6): *management*/*manage*,
+  *participate*/*participant*.
 
 Target: 300–500 words. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
@@ -97,6 +111,7 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 3 | 61–90 | Draft (`words_061-090.md`) |
 | 4 | 91–120 | Draft (`words_091-120.md`) |
 | 5 | 121–150 | Draft (`words_121-150.md`) |
-| 6 | 151–180 | Not started |
+| 6 | 151–180 | Draft (`words_151-180.md`) |
+| 7 | 181–210 | Not started |
 
 (Add rows as batches are planned/started.)

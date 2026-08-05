@@ -92,10 +92,11 @@ notes per word). Data lives in `database/*.csv`; chapter prose in
 - [x] Batch 3 (words 61–90) — Draft, `words_061-090.md`
 - [x] Batch 4 (words 91–120) — Draft, `words_091-120.md`
 - [x] Batch 5 (words 121–150) — Draft, `words_121-150.md` (halfway to the 300 floor)
-- [ ] Individually cross-check Batches 1–5's IPA/stress against Cambridge
+- [x] Batch 6 (words 151–180) — Draft, `words_151-180.md`
+- [ ] Individually cross-check Batches 1–6's IPA/stress against Cambridge
       or Oxford Learner's Dictionaries (this session's direct fetch
       attempts returned 403) before marking any batch Done
-- [ ] Batch 6 (words 151–180)
+- [ ] Batch 7 (words 181–210)
 - [ ] ... continue in batches of 30 until 300–500 words are covered
 
 ## Stage 6 — Part VI: Training System
