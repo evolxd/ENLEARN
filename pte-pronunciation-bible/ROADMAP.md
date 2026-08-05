@@ -101,12 +101,12 @@ notes per word). Data lives in `database/*.csv`; chapter prose in
       `words_331-360.md` — user confirmed continuing past 300 toward 500
 - [x] Batch 10 (words 361–420, 60 words) — Draft, `words_361-390.md` +
       `words_391-420.md` — 420 of 500 words complete, 80 remain
-- [ ] Individually cross-check Batches 1–10's IPA/stress against
+- [x] Batch 11 (words 421–480, 60 words) — Draft, `words_421-450.md` +
+      `words_451-480.md` — 480 of 500 words complete, only 20 remain
+- [ ] Individually cross-check Batches 1–11's IPA/stress against
       Cambridge or Oxford Learner's Dictionaries (this session's direct
       fetch attempts returned 403) before marking any batch Done
-- [ ] Batch 11 (words 421–480, 60 words) — continue toward the 500-word
-      ceiling
-- [ ] Batch 12 (words 481–500+, final batch to close out the ceiling)
+- [ ] Batch 12 (words 481–500, final 20 words to close out the ceiling)
 
 ## Stage 6 — Part VI: Training System
 

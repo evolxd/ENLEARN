@@ -8,6 +8,33 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 11 drafted, 60 more words
+  (`book/Part03_Lexicon/words_421-450.md` + `words_451-480.md`, words
+  421–480) — **480 of the 300–500 target complete, only 20 words
+  remain**. Matching rows appended to all five `database/*.csv` files
+  (re-verified as well-formed CSV, 480 word rows total, no
+  duplicates). Air travel/transportation theme (airport, passenger,
+  luggage, departure, arrival, boarding, terminal, customs,
+  immigration, passport, transit, delay, route, traffic, congestion)
+  plus weather/natural disasters (weather, forecast, humidity,
+  precipitation, drought, flood, hurricane, thunderstorm, wind,
+  rainfall, storm, disaster, earthquake, wildfire, tornado) plus
+  careers/workplace (interview, resume, application, promotion,
+  recruit, recruitment, onboarding, teamwork, freelance, remote,
+  overtime, appraisal, feedback, mentor, internship) plus
+  computing/internet technology (password, username, upload, download,
+  browser, website, encryption, cybersecurity, malware, firewall,
+  cloud, streaming, subscription, app, notification). Adds a second
+  explicit medial /ð/ example (weather); sixteen more
+  compound-noun-stress examples, the largest single-batch addition to
+  that thread; the third through fifth velar-nasal /ŋ/ examples
+  (boarding, onboarding, streaming); a new heteronym-caution pattern
+  (resume, covering two unrelated words sharing one spelling, with the
+  CV sense also being a fourth French-origin final-stress loanword); a
+  third confirmation that "-ship" is stress-neutral (internship); a
+  sixth "-ity" data point in two words in one batch (humidity,
+  cybersecurity — the latter also this lexicon's longest compound
+  word); and a GA-vs-variant pronunciation caution (route).
 - Part III — PTE High Frequency Lexicon: Batch 10 drafted, 60 more words
   (`book/Part03_Lexicon/words_361-390.md` + `words_391-420.md`, words
   361–420) — **420 of the 300–500 target complete, 80 words remain**.

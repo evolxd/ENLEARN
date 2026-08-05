@@ -1,9 +1,9 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: **420 of 300–500 words drafted.** The 300-word floor was reached
+Status: **480 of 300–500 words drafted.** The 300-word floor was reached
 at Batch 8; per user direction, the lexicon is continuing toward the
-500-word ceiling. Batch 10 (words 361–420) is complete — 80 words
-remain to the 500-word ceiling.
+500-word ceiling. Batch 11 (words 421–480) is complete — only 20 words
+remain to close out the 500-word ceiling.
 
 **Batch size changed to 60 words per pass, per user direction (this
 session)**, effective Batch 7 onward. Batches 1–6 remain 30 words each,
@@ -212,9 +212,47 @@ Running cross-batch threads to keep extending in future batches:
   syllables) — an extreme case of the equal-stress risk.
 - **Second "-ical" family example**: *empirical* (Batch 10), joining
   *historical* (Batch 7).
+- **Air travel/transportation + weather/natural disasters cluster**
+  (Batch 11, 60 words): *airport, passenger, luggage, departure,
+  arrival, boarding, terminal, customs, immigration, passport, transit,
+  delay, route, traffic, congestion* / *weather, forecast, humidity,
+  precipitation, drought, flood, hurricane, thunderstorm, wind,
+  rainfall, storm, disaster, earthquake, wildfire, tornado*.
+- **Careers/workplace + computing/internet technology cluster**
+  (Batch 11, 60 words): *interview, resume, application, promotion,
+  recruit, recruitment, onboarding, teamwork, freelance, remote,
+  overtime, appraisal, feedback, mentor, internship* / *password,
+  username, upload, download, browser, website, encryption,
+  cybersecurity, malware, firewall, cloud, streaming, subscription,
+  app, notification*.
+- **Second explicit medial /ð/ example**: *weather* (Batch 11), joining
+  *algorithm* (Batch 7) for this phoneme in non-initial position.
+- **Sixteen more compound-noun-stress examples** (Batch 11): *airport,
+  passport, forecast, thunderstorm, rainfall, earthquake, wildfire,
+  teamwork, freelance, overtime, feedback, password, username,
+  download, website, malware, firewall* — the largest single-batch
+  addition to this thread so far.
+- **Third through fifth velar-nasal /ŋ/ examples**: *boarding*,
+  *onboarding*, *streaming* (Batch 11) join *sibling*, *upbringing*
+  (Batch 10) for this `[Hypothesis]`-tagged pattern.
+- **New pattern — heteronym caution**: *resume* (Batch 11) covers two
+  historically unrelated words sharing one spelling — the French-origin
+  noun "résumé" (a fourth French-origin final-stress loanword, after
+  *entrepreneur*, *souvenir*, *questionnaire*) and the native English
+  verb "resume" (to continue). Distinct from ordinary noun/verb
+  stress-shift pairs like *survey* (Batch 10), which share one root
+  meaning.
+- **Third confirmation of "-ship" as stress-neutral**: *internship*
+  (Batch 11), joining *citizenship*, *championship* (Batch 9).
+- **Sixth "-ity" data point**: *humidity* and *cybersecurity*
+  (Batch 11) — two more data points in the same batch, with
+  *cybersecurity* also being this lexicon's longest compound word.
+- **GA-vs-variant caution**: *route* (Batch 11) joins *finance*/
+  *financial*, *vaccine*, *advertisement*, *controversial* as an
+  attested pronunciation-variation case, not an error.
 
-Target: 300–500 words. **420 words complete as of Batch 10**, continuing
-toward the 500-word ceiling. Every word must have a complete entry following
+Target: 300–500 words. **480 words complete as of Batch 11**, only 20
+words remain to close out the 500-word ceiling. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
 `database/*.csv` file. This is the highest per-unit verification cost in
 the book (IPA + stress + Chinese learner error notes per word) — build it
@@ -259,5 +297,6 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 8 | 241–300 (60 words) | Draft (`words_241-270.md` + `words_271-300.md`) — **300-word floor reached** |
 | 9 | 301–360 (60 words) | Draft (`words_301-330.md` + `words_331-360.md`) |
 | 10 | 361–420 (60 words) | Draft (`words_361-390.md` + `words_391-420.md`) |
+| 11 | 421–480 (60 words) | Draft (`words_421-450.md` + `words_451-480.md`) |
 
 (Batch size is 60 words from Batch 7 onward.)
