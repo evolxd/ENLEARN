@@ -6,6 +6,25 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ## [Unreleased]
 
+### Added (Part VI)
+
+- Part VI — Training System: all four chapters drafted
+  (`book/Part06_Training/01_15-day-plan.md` through
+  `04_90-day-plan.md`), completing Stage 6. Each plan sequences Part II
+  (mechanism) and Part IV (matching Chinese-learner error) before
+  Part V (item-type strategy), scaled by length: the 15-Day Plan
+  triages to the highest-frequency errors and the first ~150–210
+  lexicon words; the 30-Day Plan covers Part II/IV/V fully and reaches
+  the lexicon's original 300-word floor; the 60-Day Plan adds a second
+  Part II/IV review pass, the full lexicon as it currently stands, and
+  three mock-test checkpoints; the 90-Day Plan adds a third,
+  data-driven review cycle and five mock-test checkpoints with
+  cross-checkpoint error comparison. All `[Hypothesis]`-tagged
+  pedagogical claims (spaced repetition, review-day placement, taper
+  weeks) are flagged as the author's general learning-science
+  reasoning, not Pearson-sourced. Updated `ROADMAP.md` Stage 6 and
+  `book/Part06_Training/README.md` to reflect completion.
+
 ### Added (Part III)
 
 - Part III — PTE High Frequency Lexicon: Batch 11 drafted, 60 more words

@@ -112,10 +112,17 @@ notes per word). Data lives in `database/*.csv`; chapter prose in
 
 Depends on all prior parts (references chapters from I, II, III, IV, V).
 
-- [ ] 15-Day Plan
-- [ ] 30-Day Plan
-- [ ] 60-Day Plan
-- [ ] 90-Day Plan
+- [x] 15-Day Plan (Draft) — triages toward Part II/IV mechanism +
+      the first ~150–210 lexicon words, given the short timeframe
+- [x] 30-Day Plan (Draft) — full Part II/IV/V coverage, lexicon
+      through the original 300-word floor (Batches 1–8)
+- [x] 60-Day Plan (Draft) — full lexicon as it currently stands
+      (Batches 1–16), a second Part II/IV review pass, 3 mock tests
+- [x] 90-Day Plan (Draft) — three review cycles (comprehensive,
+      targeted, intensive mock-cycling), 5 mock-test checkpoints
+- [ ] Re-check all four plans' lexicon batch references once Part III
+      reaches its final word count (currently 480/500, see
+      `book/Part03_Lexicon/README.md`)
 
 ## Stage 7 — Version 1.0 publication pass
 
