@@ -83,12 +83,16 @@ Depends on Stage 1 (AI scoring model) and Stage 2 (pronunciation vocabulary).
 
 Highest verification cost per unit (IPA + stress + Chinese learner error
 notes per word). Data lives in `database/*.csv`; chapter prose in
-`book/Part03_Lexicon/` renders from it. Build incrementally in batches
-(e.g., 50 words at a time) rather than all at once.
+`book/Part03_Lexicon/` renders from it. Build incrementally in batches of
+30 words at a time (adjusted down from the originally planned 50 — see
+`book/Part03_Lexicon/README.md`).
 
-- [ ] Batch 1 (words 1–50)
-- [ ] Batch 2 (words 51–100)
-- [ ] ... continue in batches of 50 until 300–500 words are covered
+- [x] Batch 1 (words 1–30) — Draft, `words_001-030.md`
+- [ ] Individually cross-check Batch 1's IPA/stress against Cambridge or
+      Oxford Learner's Dictionaries (this session's direct fetch attempts
+      returned 403) before marking Batch 1 Done
+- [ ] Batch 2 (words 31–60)
+- [ ] ... continue in batches of 30 until 300–500 words are covered
 
 ## Stage 6 — Part VI: Training System
 

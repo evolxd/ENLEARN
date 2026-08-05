@@ -103,6 +103,8 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Gradding / Sumlingo (Reading section item types, scoring) | Part V, Ch.9 |
 | 2026-08-05 | Study.com / Edubenchmark (Listening section item types, scoring, negative marking) | Part V, Ch.10 |
 
+| 2026-08-05 | Standard GA dictionary knowledge (no direct fetch source — Cambridge Dictionary returned 403 this session) for Part III Batch 1's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 1 (`words_001-030.md`) |
+
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see
 `book/Part01_AI/README.md`). Every `[Pearson]`-tagged claim in Part I was

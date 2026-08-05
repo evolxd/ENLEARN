@@ -6,6 +6,21 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ## [Unreleased]
 
+### Added (Part III)
+
+- Part III — PTE High Frequency Lexicon: Batch 1 drafted, 30 words
+  (`book/Part03_Lexicon/words_001-030.md`), each with a full 16-field
+  lexicon entry, plus matching rows added to all five `database/*.csv`
+  files (`words.csv`, `ipa.csv`, `stress.csv`, `errors.csv`,
+  `frequency.csv`) — verified to parse as well-formed CSV. Batch size set
+  to 30 words (adjusted down from the originally planned 50) for
+  practical single-pass authoring; recorded in
+  `book/Part03_Lexicon/README.md`. IPA/stress data is standard dictionary
+  knowledge pending individual Cambridge/Oxford cross-check (direct fetch
+  returned 403 this session); "AI Recognition Notes" and PTE-frequency
+  ratings are explicitly tagged as author judgment/`Hypothesis`, not
+  verified frequency-list or ASR-behavior data.
+
 ### Changed
 
 - Scoped Part IV (Chinese Error Corpus) to Mandarin only, per user
