@@ -1,10 +1,10 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: In progress — Batches 1–3 drafted (90 of 300–500 words; see `ROADMAP.md` Stage 5)
+Status: In progress — Batches 1–4 drafted (120 of 300–500 words; see `ROADMAP.md` Stage 5)
 
-Batches 1–3 (`words_001-030.md`, `words_031-060.md`, `words_061-090.md`)
-cover 90 high-frequency academic/PTE words, each with a full lexicon entry
-and matching rows in all five `database/*.csv` files. IPA/stress are drawn
+Batches 1–4 (`words_001-030.md` through `words_091-120.md`) cover 120
+high-frequency academic/PTE words, each with a full lexicon entry and
+matching rows in all five `database/*.csv` files. IPA/stress are drawn
 from standard dictionary knowledge (Cambridge/Oxford direct fetch returned
 403 this session, same limitation as elsewhere in this project) and need
 individual cross-check before Done. "AI Recognition Notes" and "PTE
@@ -16,17 +16,33 @@ each batch file for full detail.
 Running cross-batch threads to keep extending in future batches:
 - **Coda-position /v/ pattern**: *comprehensive* (Batch 1) → *perspective*,
   *achieve* (Batch 2) — still pending direct research confirmation.
-- **Noun/verb stress pairs** beyond Part II Ch.4's *record*/*present*:
-  *increase*/*decrease*, *impact* (Batch 2).
+- **Noun/verb stress-shift pairs** beyond Part II Ch.4's *record*/*present*:
+  *increase*/*decrease*, *impact* (Batch 2), *contrast* (Batch 4) — with
+  *decline* (Batch 4) flagged as a **non-example** (same stress in both
+  forms), useful for testing whether the rule is over-applied.
+- **Adjective/verb suffix-vowel alternation** (new pattern, Batch 4):
+  *appropriate*, *approximate* — same stress position, different final
+  vowel by grammatical role; distinct mechanism from the stress-shift
+  pairs above.
 - **"-tion"/"-ic" suffix-stress rule** (Part II Ch.4): 7 "-tion" words plus
-  one "-ic" word and a stress-shift pair (*economy*/*economic*, directly
-  mirroring Part II Ch.4's *photograph* family) in Batch 3 alone.
+  "-ic" words (*economic*, Batch 3; *dramatic*, Batch 4) and a stress-shift
+  pair (*economy*/*economic*, directly mirroring Part II Ch.4's
+  *photograph* family).
 - **Spelling-predicted mispronunciation** (Part II Ch.1): *process* (Batch
-  2, "o" read as /oʊ/ instead of /ɑː/), *knowledge* (Batch 3, silent "k").
+  2), *knowledge* (Batch 3).
 - **Word-final single-consonant deletion/epenthesis** (Part IV Ch.1
-  Mistake 3, distinct from the cluster-simplification Mistake 4): now
-  explicitly tracked separately starting in Batch 3 (*benefit*, *advantage*,
-  *knowledge*).
+  Mistake 3, distinct from cluster-simplification Mistake 4): *benefit*,
+  *advantage*, *knowledge* (Batch 3); *rapid*, *percentage*, *average*
+  (Batch 4).
+- **z→s devoicing** (new `[Hypothesis]`-tagged extension, Batch 4,
+  *reasonable*, *represent*): Mandarin's lack of a phonemic voiced/
+  voiceless fricative contrast — not directly researched in this book's
+  sources, flagged with extra caution.
+- **Describe Image data-description cluster** (Batch 4): trend words
+  (*dramatic, gradual, steady, rapid, decline, fluctuate*) and comparison
+  words (*proportion, percentage, majority, minority, average, overall,
+  compare, contrast, similar, differ, equivalent, correspond, represent*)
+  — the first batch organized around a single PTE item type's vocabulary.
 
 Target: 300–500 words. Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
@@ -63,6 +79,7 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 1 | 1–30 | Draft (`words_001-030.md`) |
 | 2 | 31–60 | Draft (`words_031-060.md`) |
 | 3 | 61–90 | Draft (`words_061-090.md`) |
-| 4 | 91–120 | Not started |
+| 4 | 91–120 | Draft (`words_091-120.md`) |
+| 5 | 121–150 | Not started |
 
 (Add rows as batches are planned/started.)

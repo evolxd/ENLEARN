@@ -106,6 +106,7 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Standard GA dictionary knowledge (no direct fetch source — Cambridge Dictionary returned 403 this session) for Part III Batch 1's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 1 (`words_001-030.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 2's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 2 (`words_031-060.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 3's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 3 (`words_061-090.md`) |
+| 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 4's 30 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding | Part III, Batch 4 (`words_091-120.md`) |
 
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see

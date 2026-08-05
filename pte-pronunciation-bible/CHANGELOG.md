@@ -8,6 +8,18 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 4 drafted, 30 more words
+  (`book/Part03_Lexicon/words_091-120.md`, words 91–120), same format and
+  sourcing caveats as prior batches, with matching rows appended to all
+  five `database/*.csv` files (re-verified as well-formed CSV, 120 word
+  rows total). Organized around a Describe Image data-description theme
+  (trend and comparison vocabulary) — the first batch built around a
+  single item type's vocabulary rather than general academic frequency.
+  Introduces a new pattern (adjective/verb suffix-vowel alternation:
+  *appropriate*, *approximate*), a confirmed stress-shift pair (*contrast*)
+  alongside a flagged non-example (*decline*, same stress in both forms),
+  and a new cautiously-tagged z→s devoicing extension (*reasonable*,
+  *represent*).
 - Part III — PTE High Frequency Lexicon: Batch 3 drafted, 30 more words
   (`book/Part03_Lexicon/words_061-090.md`, words 61–90), same format and
   sourcing caveats as prior batches, with matching rows appended to all
