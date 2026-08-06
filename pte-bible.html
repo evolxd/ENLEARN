@@ -510,9 +510,6 @@
       <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="9" r="6.5"/><path d="M17 17l-4-4" stroke-linecap="round"/></svg>
       <input id="global-search" type="text" placeholder="搜索词汇表 · Search 500 words…" autocomplete="off">
     </div>
-    <button class="settings-btn" id="settings-btn" aria-label="设置" title="ElevenLabs 发音设置">
-      <svg viewBox="0 0 20 20" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="2.5"/><path d="M10 1.5v2M10 16.5v2M18.5 10h-2M3.5 10h-2M15.6 4.4l-1.4 1.4M5.8 14.2l-1.4 1.4M15.6 15.6l-1.4-1.4M5.8 5.8L4.4 4.4" stroke-linecap="round"/></svg>
-    </button>
     <button class="theme-toggle" id="theme-toggle" aria-label="切换主题" title="切换主题">
       <svg id="theme-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="4"/><path d="M10 1.5v2M10 16.5v2M18.5 10h-2M3.5 10h-2M15.6 4.4l-1.4 1.4M5.8 14.2l-1.4 1.4M15.6 15.6l-1.4-1.4M5.8 5.8L4.4 4.4" stroke-linecap="round"/></svg>
     </button>
@@ -526,35 +523,6 @@
 
 <div class="modal-overlay" id="modal-overlay">
   <div class="modal" id="modal-content"></div>
-</div>
-
-<div class="config-panel-overlay" id="config-panel-overlay"></div>
-<div class="config-panel" id="config-panel">
-  <div class="config-panel-header">
-    <h2>ElevenLabs 设置</h2>
-    <button class="config-close" id="config-close" aria-label="关闭设置">
-      <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 5l10 10M15 5L5 15" stroke-linecap="round"/></svg>
-    </button>
-  </div>
-  <div class="config-panel-body">
-    <div class="config-section">
-      <label for="api-key-input">API Key</label>
-      <input id="api-key-input" type="password" placeholder="sk_..." autocomplete="off">
-      <div class="config-hint">从 https://elevenlabs.io 获取您的 API key</div>
-    </div>
-
-    <div class="config-section">
-      <label for="test-word-input">测试单词</label>
-      <input id="test-word-input" type="text" placeholder="输入单词，如 'accommodation'" value="accommodation">
-    </div>
-
-    <div class="config-actions">
-      <button class="btn" id="test-tts-btn">🔊 测试发音</button>
-      <button class="btn primary" id="save-api-key-btn">保存设置</button>
-    </div>
-
-    <div id="test-result" class="config-result"></div>
-  </div>
 </div>
 
 <script>
