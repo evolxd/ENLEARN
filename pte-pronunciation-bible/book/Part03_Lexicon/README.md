@@ -1,9 +1,9 @@
 # Part III — PTE High Frequency Lexicon
 
-Status: **480 of 300–500 words drafted.** The 300-word floor was reached
-at Batch 8; per user direction, the lexicon is continuing toward the
-500-word ceiling. Batch 11 (words 421–480) is complete — only 20 words
-remain to close out the 500-word ceiling.
+Status: **500 of 300–500 words drafted — the lexicon is complete.**
+Batch 12 (words 481–500) closes out the 500-word ceiling. Remaining
+work on this Part is verification only (see the cross-check item in
+`ROADMAP.md` Stage 5), not new word batches.
 
 **Batch size changed to 60 words per pass, per user direction (this
 session)**, effective Batch 7 onward. Batches 1–6 remain 30 words each,
@@ -250,9 +250,34 @@ Running cross-batch threads to keep extending in future batches:
 - **GA-vs-variant caution**: *route* (Batch 11) joins *finance*/
   *financial*, *vaccine*, *advertisement*, *controversial* as an
   attested pronunciation-variation case, not an error.
+- **Emotions/personality traits cluster** (Batch 12, the final 20
+  words): *anxious, anxiety, confident, confidence, enthusiastic,
+  enthusiasm, curious, curiosity, ambitious, ambition, humble,
+  humility, optimistic, optimism, resilient, resilience, empathy,
+  empathetic, gratitude, grateful*.
+- **New stress-shift mechanism — adjective-to-noun via "-ety"/"-ity"**:
+  *anxious*→*anxiety* and *humble*→*humility* (Batch 12) shift stress
+  from an adjective base, distinct from the "-tion" family's
+  verb-to-noun shifts. *curious*→*curiosity* is a third example and
+  also the seventh "-ity" data point.
+- **Three final "-ic" family shift pairs**: *enthusiasm*/
+  *enthusiastic*, *optimism*/*optimistic*, *empathy*/*empathetic*
+  (Batch 12) bring this lexicon's "-ic" shift-pair total to seven:
+  *economy*/*economic*, *democracy*/*democratic*, *diplomat*/
+  *diplomatic*, *athlete*/*athletic*, plus these three.
+- **Eighth and final "-ity" data point**: *humility* (Batch 12).
+- **Stress-stable "-ent"/"-ence" pairs**: *confident*/*confidence* and
+  *resilient*/*resilience* (Batch 12), alongside the stress-stable
+  *ambitious*/*ambition* pair — a coherent negative-data-point set
+  alongside "-ship" (Batches 9–11), showing not every derivational
+  suffix shifts stress.
+- **Sixth and seventh velar-nasal /ŋ/ examples**: *anxious* and
+  *anxiety* (Batch 12) close out this `[Hypothesis]`-tagged thread at
+  seven data points total, after *sibling*, *upbringing* (Batch 10),
+  *boarding*, *onboarding*, *streaming* (Batch 11).
 
-Target: 300–500 words. **480 words complete as of Batch 11**, only 20
-words remain to close out the 500-word ceiling. Every word must have a complete entry following
+Target: 300–500 words. **500 words complete as of Batch 12 — the
+lexicon has reached its ceiling.** Every word must have a complete entry following
 `book/_TEMPLATE_LEXICON_ENTRY.md`, with a matching row in each
 `database/*.csv` file. This is the highest per-unit verification cost in
 the book (IPA + stress + Chinese learner error notes per word) — build it
@@ -298,5 +323,6 @@ See `CONTRIBUTING.md` for the full authoring workflow.
 | 9 | 301–360 (60 words) | Draft (`words_301-330.md` + `words_331-360.md`) |
 | 10 | 361–420 (60 words) | Draft (`words_361-390.md` + `words_391-420.md`) |
 | 11 | 421–480 (60 words) | Draft (`words_421-450.md` + `words_451-480.md`) |
+| 12 | 481–500 (20 words) | Draft (`words_481-500.md`) — **500-word ceiling reached, lexicon complete** |
 
 (Batch size is 60 words from Batch 7 onward.)

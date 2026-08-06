@@ -27,6 +27,28 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ### Added (Part III)
 
+- Part III — PTE High Frequency Lexicon: Batch 12 drafted, the final 20
+  words (`book/Part03_Lexicon/words_481-500.md`, words 481–500) —
+  **the lexicon reaches its 500-word ceiling and is now complete**.
+  Matching rows appended to all five `database/*.csv` files
+  (re-verified as well-formed CSV, exactly 500 word rows total, no
+  duplicates). Emotions/personality traits theme (anxious, anxiety,
+  confident, confidence, enthusiastic, enthusiasm, curious, curiosity,
+  ambitious, ambition, humble, humility, optimistic, optimism,
+  resilient, resilience, empathy, empathetic, gratitude, grateful),
+  deliberately organized as adjective/noun pairs to close out several
+  cross-batch threads at once: a new stress-shift mechanism
+  (adjective-to-noun via "-ety"/"-ity": anxious/anxiety,
+  humble/humility, curious/curiosity — the latter also the seventh
+  "-ity" data point); the fifth, sixth, and seventh "-ic" family shift
+  pairs (enthusiasm/enthusiastic, optimism/optimistic,
+  empathy/empathetic), bringing that thread to seven total pairs; the
+  eighth and final "-ity" data point (humility); three stress-stable
+  "-ent"/"-ence" and related pairs (confident/confidence,
+  ambitious/ambition, resilient/resilience) as a negative-data-point
+  set alongside "-ship"; and the sixth/seventh velar-nasal /ŋ/
+  examples (anxious, anxiety), closing that thread at seven data
+  points.
 - Part III — PTE High Frequency Lexicon: Batch 11 drafted, 60 more words
   (`book/Part03_Lexicon/words_421-450.md` + `words_451-480.md`, words
   421–480) — **480 of the 300–500 target complete, only 20 words

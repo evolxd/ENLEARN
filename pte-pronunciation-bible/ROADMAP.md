@@ -103,10 +103,12 @@ notes per word). Data lives in `database/*.csv`; chapter prose in
       `words_391-420.md` — 420 of 500 words complete, 80 remain
 - [x] Batch 11 (words 421–480, 60 words) — Draft, `words_421-450.md` +
       `words_451-480.md` — 480 of 500 words complete, only 20 remain
-- [ ] Individually cross-check Batches 1–11's IPA/stress against
-      Cambridge or Oxford Learner's Dictionaries (this session's direct
-      fetch attempts returned 403) before marking any batch Done
-- [ ] Batch 12 (words 481–500, final 20 words to close out the ceiling)
+- [x] Batch 12 (words 481–500, 20 words) — Draft, `words_481-500.md`
+      — **500-word ceiling reached, lexicon complete**
+- [ ] Individually cross-check all 12 batches' (500 words) IPA/stress
+      against Cambridge or Oxford Learner's Dictionaries (this
+      session's direct fetch attempts returned 403) before marking
+      any batch Done — see Stage 7 for the verification pass
 
 ## Stage 6 — Part VI: Training System
 

@@ -479,3 +479,23 @@ streaming,primary on syllable 1,1,"dense initial ""-str-"" cluster; final velar 
 subscription,primary on syllable 2 (-tion rule),2,"dense ""-bskr-"" cluster",standard dictionary pronunciation; cross-check pending
 app,primary stress (monosyllable),1,final /p/ closure not fully released,standard dictionary pronunciation; cross-check pending
 notification,"secondary on syllable 1, primary on syllable 5 (-tion rule)",5,two diphthongs /oʊ/ and /eɪ/ shortened; equal stress given word length,standard dictionary pronunciation; cross-check pending
+anxious,primary on syllable 1 (shifts in anxiety),1,"velar nasal /ŋ/ produced as /n/; dense ""-ŋkʃ-"" cluster",standard dictionary pronunciation; cross-check pending
+anxiety,"primary on syllable 2 (shift from anxious, new -ety shift mechanism)",2,velar nasal /ŋ/ produced as /n/; medial /z/ possibly devoiced to /s/; diphthong /aɪ/ shortened,standard dictionary pronunciation; cross-check pending
+confident,primary on syllable 1 (no shift to confidence),1,"final ""-dənt"" cluster",standard dictionary pronunciation; cross-check pending
+confidence,primary on syllable 1 (no shift from confident),1,"final ""-dəns"" cluster",standard dictionary pronunciation; cross-check pending
+enthusiastic,"secondary on syllable 2, primary on syllable 4 (-ic rule, shift from enthusiasm)",4,/θ/ produced as /s/; medial /z/ possibly devoiced to /s/; dense consonant sequence before -ic,standard dictionary pronunciation; cross-check pending
+enthusiasm,primary on syllable 2 (shifts in enthusiastic),2,"/θ/ produced as /s/; medial /z/ at two positions possibly devoiced; final ""-æzəm"" cluster",standard dictionary pronunciation; cross-check pending
+curious,primary on syllable 1 (shifts in curiosity),1,/kj/ glide dropped; rhotic vowel under-produced,standard dictionary pronunciation; cross-check pending
+curiosity,"secondary on syllable 1, primary on syllable 3 (-ity rule, shift from curious)",3,/kj/ glide dropped; equal stress given word length,standard dictionary pronunciation; cross-check pending
+ambitious,primary on syllable 2 (no shift from ambition),2,"medial ""-mb-"" cluster",standard dictionary pronunciation; cross-check pending
+ambition,primary on syllable 2 (no shift from ambitious),2,"medial ""-mb-"" cluster",standard dictionary pronunciation; cross-check pending
+humble,primary on syllable 1 (shifts in humility),1,"final syllabic /l/ weakened; medial ""-mb-"" cluster",standard dictionary pronunciation; cross-check pending
+humility,"primary on syllable 2 (-ity rule, shift from humble)",2,/hj/ glide dropped; equal stress given word length,standard dictionary pronunciation; cross-check pending
+optimistic,"secondary on syllable 1, primary on syllable 4 (-ic rule, shift from optimism)",4,"dense ""-pt-""/""-mɪst-"" clusters; applying optimism's stress instead of shifting",standard dictionary pronunciation; cross-check pending
+optimism,primary on syllable 1 (shifts in optimistic),1,"medial /z/ possibly devoiced to /s/; final ""-mɪzəm"" cluster",standard dictionary pronunciation; cross-check pending
+resilient,primary on syllable 2 (no shift to resilience),2,"medial /z/ possibly devoiced to /s/; /lj/ glide dropped; final ""-jənt"" cluster",standard dictionary pronunciation; cross-check pending
+resilience,primary on syllable 2 (no shift from resilient),2,"medial /z/ possibly devoiced to /s/; /lj/ glide dropped; final ""-ns"" cluster",standard dictionary pronunciation; cross-check pending
+empathy,primary on syllable 1 (shifts in empathetic),1,"/θ/ produced as /s/; medial ""-mp-"" cluster",standard dictionary pronunciation; cross-check pending
+empathetic,"secondary on syllable 1, primary on syllable 3 (-ic rule, shift from empathy)",3,/θ/ produced as /s/; applying empathy's stress instead of shifting,standard dictionary pronunciation; cross-check pending
+gratitude,primary on syllable 1,1,"dense initial ""-gr-"" cluster; final ""-tuːd"" cluster",standard dictionary pronunciation; cross-check pending
+grateful,primary on syllable 1,1,"diphthong /eɪ/ shortened; final syllabic /l/ weakened; dense ""-tfəl"" cluster",standard dictionary pronunciation; cross-check pending
