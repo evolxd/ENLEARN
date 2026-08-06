@@ -23,6 +23,7 @@
       </div>
       <button class="btn" onclick="saveKey()">💾 保存</button>
       <button class="btn" onclick="download()">⬇️ 下载</button>
+      <button class="btn" onclick="exportCache()">📦 导出缓存</button>
       <div id="msg" class="message"></div>
     </div>
 
@@ -297,6 +298,54 @@
       }
 
       msg(`✅ 完成! 新下载 ${ok} 个，已缓存跳过 ${skipped} 个`, 'success');
+    }
+
+    async function exportCache() {
+      msg('⏳ 导出中...', 'success');
+      if (!audioDB) audioDB = await openAudioDB();
+
+      const audio = {};
+      const tx = audioDB.transaction('words', 'readonly');
+      const store = tx.objectStore('words');
+      const words = LEXICON.map(w => w.word);
+      let count = 0;
+
+      for (const word of words) {
+        const blob = await new Promise(resolve => {
+          const req = store.get(word);
+          req.onsuccess = () => resolve(req.result);
+          req.onerror = () => resolve(null);
+        });
+
+        if (blob) {
+          const reader = new FileReader();
+          await new Promise((resolve) => {
+            reader.onload = () => {
+              audio[word] = reader.result.split(',')[1];
+              count++;
+              resolve();
+            };
+            reader.readAsDataURL(blob);
+          });
+        }
+      }
+
+      const data = {
+        version: 1,
+        timestamp: new Date().toISOString(),
+        count: count,
+        audio: audio
+      };
+
+      const blob = new Blob([JSON.stringify(data)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'audio_cache.json';
+      a.click();
+      URL.revokeObjectURL(url);
+
+      msg(`✅ 已导出 ${count} 个音频文件 (audio_cache.json)`, 'success');
     }
 
     function msg(text, type) {
