@@ -498,6 +498,30 @@
   }
 
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .config-panel-overlay { position: fixed; inset: 0; background: rgba(10,14,16,0.5); display: none; z-index: 99; }
+  .config-panel-overlay.open { display: block; }
+  .config-panel { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%); background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); width: 90%; max-width: 480px; z-index: 100; display: none; max-height: 80vh; overflow-y: auto; }
+  .config-panel.open { display: block; }
+  .config-panel-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--surface); z-index: 101; }
+  .config-panel-header h2 { margin: 0; font-size: 18px; font-weight: 700; }
+  .config-close { background: var(--surface-2); border: none; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; color: var(--text); display: flex; align-items: center; justify-content: center; }
+  .config-close:hover { background: var(--border); }
+  .config-panel-body { padding: 20px 22px; }
+  .config-section { margin-bottom: 18px; }
+  .config-section label { display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-strong); margin-bottom: 8px; }
+  .config-section input { width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface-2); color: var(--text); font-family: var(--font-mono); font-size: 13px; }
+  .config-section input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .config-hint { font-size: 11.5px; color: var(--text-muted); margin-top: 5px; }
+  .config-actions { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+  .config-actions .btn { flex: 1; min-width: 140px; }
+  .config-result { margin: 16px 0; padding: 12px; border-radius: 8px; background: var(--accent-soft); color: var(--accent-strong); font-size: 13px; display: none; }
+  .config-result.success { background: var(--good-soft); color: var(--good); }
+  .config-result.error { background: var(--bad-soft); color: var(--bad); }
+  .config-result.show { display: block; }
+  .settings-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  .settings-btn:hover { border-color: var(--accent); }
+  @media (max-width: 520px) { .config-panel { width: 95%; max-width: none; } .config-actions { flex-direction: column; } .config-actions .btn { width: 100%; } }
 </style>
 
 <div class="app">
@@ -862,6 +886,57 @@ document.getElementById("global-search").addEventListener("input", e => {
   if (location.hash !== "#lexicon") { location.hash = "#lexicon"; }
   else { renderLexiconList(); document.getElementById("lex-search-input").value = e.target.value; }
 });
+
+/* ---------- 批量 TTS + IndexedDB 存储 ---------- */
+const TTS_WORD_GROUPS = [
+  {id:"batch1",words:["accommodate","address","analysis","annual","anxiety","apologies","architect","assessment","athlete","auxiliary"],text:"accommodate, address, analysis, annual, anxiety, apologies, architect, assessment, athlete, auxiliary"},
+  {id:"batch2",words:["beautiful","because","borough","business","calendar","candidate","category","ceiling","century","chaos"],text:"beautiful, because, borough, business, calendar, candidate, category, ceiling, century, chaos"},
+  {id:"batch3",words:["character","characteristic","chemistry","circumstance","citizen","claustrophobic","colleague","column","comfortable","commission"],text:"character, characteristic, chemistry, circumstance, citizen, claustrophobic, colleague, column, comfortable, commission"},
+  {id:"batch4",words:["commitment","committee","communicate","community","compassion","competent","competition","compliment","computer","concentrate"],text:"commitment, committee, communicate, community, compassion, competent, competition, compliment, computer, concentrate"},
+  {id:"batch5",words:["concussion","conference","confident","congratulations","conscious","consequence","considerable","considerate","consistency","constitute"],text:"concussion, conference, confident, congratulations, conscious, consequence, considerable, considerate, consistency, constitute"},
+  {id:"batch6",words:["consumption","contemporary","context","controversy","convenience","conversation","conversion","coordinate","crucial","curriculum","customer"],text:"consumption, contemporary, context, controversy, convenience, conversation, conversion, coordinate, crucial, curriculum, customer"}
+];
+
+const DB_NAME="PTEBibleTTS",DB_VERSION=1,STORE_NAME="audioCache";
+let db=null;
+
+async function initIndexedDB(){return new Promise((resolve,reject)=>{const request=indexedDB.open(DB_NAME,DB_VERSION);request.onerror=()=>reject(request.error);request.onsuccess=()=>{db=request.result;console.log("✓ IndexedDB initialized");resolve(db)};request.onupgradeneeded=(e)=>{const d=e.target.result;if(!d.objectStoreNames.contains(STORE_NAME)){d.createObjectStore(STORE_NAME,{keyPath:"word"}).createIndex("timestamp","timestamp",{unique:false})}}});}
+
+async function getAudioFromCache(word){if(!db)return null;return new Promise((resolve,reject)=>{const tx=db.transaction([STORE_NAME],"readonly");const s=tx.objectStore(STORE_NAME);const r=s.get(word);r.onerror=()=>reject(r.error);r.onsuccess=()=>resolve(r.result?r.result.blob:null)});}
+
+async function saveAudioToCache(word,blob){if(!db)return false;return new Promise((resolve,reject)=>{const tx=db.transaction([STORE_NAME],"readwrite");const s=tx.objectStore(STORE_NAME);const r=s.put({word,blob,timestamp:Date.now()});r.onerror=()=>reject(r.error);r.onsuccess=()=>{console.log(`✓ ${word}`);resolve(true)}});}
+
+async function detectSilence(ab,t=0.05,md=0.1){const sr=ab.sampleRate,ms=Math.floor(md*sr),data=ab.getChannelData(0);const sp=[];let ss=null;for(let i=0;i<data.length;i++){const is=Math.abs(data[i])<t;if(is&&ss===null){ss=i}else if(!is&&ss!==null){const d=i-ss;if(d>=ms){sp.push({start:ss/sr,end:i/sr,duration:d/sr})}ss=null}}return sp;}
+
+async function splitAudioByWords(ab,nw){const sp=await detectSilence(ab,0.03,0.08);if(sp.length===0){const d=ab.duration,sd=d/nw;return Array.from({length:nw},(_,i)=>({start:i*sd,end:(i+1)*sd}))}const pts=[0];for(const s of sp.slice(0,nw-1)){pts.push((s.start+s.end)/2)}pts.push(ab.duration);const segs=[];for(let i=0;i<nw;i++){segs.push({start:pts[i],end:pts[i+1]||ab.duration})}return segs;}
+
+async function extractAudioSegment(ab,st,et,w){const sr=ab.sampleRate,ss=Math.floor(st*sr),es=Math.floor(et*sr),len=es-ss;const oc=new OfflineAudioContext(1,len,sr);const src=oc.createBufferSource();src.buffer=ab;src.connect(oc.destination);src.start(0,st,et-st);const rb=await oc.startRendering();const wav=await audioBufferToWav(rb);const blob=new Blob([wav],{type:"audio/wav"});await saveAudioToCache(w,blob);return blob;}
+
+async function audioBufferToWav(ab){const nc=ab.numberOfChannels,sr=ab.sampleRate,data=[];for(let i=0;i<nc;i++){data.push(ab.getChannelData(i))}const inter=new Float32Array(ab.length*nc);let off=0;for(let i=0;i<ab.length;i++){for(let j=0;j<nc;j++){inter[off++]=data[j][i]}}const buf=new ArrayBuffer(44+inter.length*2);const v=new DataView(buf);const ws=(o,s)=>{for(let i=0;i<s.length;i++){v.setUint8(o+i,s.charCodeAt(i))}};ws(0,"RIFF");v.setUint32(4,36+inter.length*2,true);ws(8,"WAVE");ws(12,"fmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,nc,true);v.setUint32(24,sr,true);v.setUint32(28,sr*nc*2,true);v.setUint16(32,nc*2,true);v.setUint16(34,16,true);ws(36,"data");v.setUint32(40,inter.length*2,true);let o=44;for(let i=0;i<inter.length;i++){const s=Math.max(-1,Math.min(1,inter[i]));v.setInt16(o,s<0?s*0x8000:s*0x7FFF,true);o+=2}return buf;}
+
+async function downloadBatch(batch){if(!window.ELEVENLABS_API_KEY){console.warn("No API key");return false}console.log(`⏳ ${batch.id}...`);try{const r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${ELEVENLABS_VOICE_ID}`,{method:"POST",headers:{"Content-Type":"application/json","xi-api-key":window.ELEVENLABS_API_KEY},body:JSON.stringify({text:batch.text,model_id:"eleven_monolingual_v1",voice_settings:{stability:0.5,similarity_boost:0.75}})});if(!r.ok){throw new Error(`API ${r.status}`)}const ab=await r.arrayBuffer();const ac=new(window.AudioContext||window.webkitAudioContext)();const aub=await ac.decodeAudioData(ab);console.log(`✓ 分割 ${batch.words.length}...`);const segs=await splitAudioByWords(aub,batch.words.length);for(let i=0;i<batch.words.length;i++){await extractAudioSegment(aub,segs[i].start,segs[i].end,batch.words[i])}console.log(`✅ ${batch.id}`);return true}catch(e){console.error(`❌ ${batch.id}:`,e);return false}}
+
+async function downloadAllBatches(){if(!db){await initIndexedDB()}const res=[];for(const batch of TTS_WORD_GROUPS){const s=await downloadBatch(batch);res.push({batch:batch.id,success:s});await new Promise(r=>setTimeout(r,1500))}return res;}
+
+async function getTTSAudioUrl(word){word=word.toLowerCase();const cached=await getAudioFromCache(word);if(cached){return URL.createObjectURL(cached)}if(!window.ELEVENLABS_API_KEY){return null}try{const r=await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${ELEVENLABS_VOICE_ID}`,{method:"POST",headers:{"Content-Type":"application/json","xi-api-key":window.ELEVENLABS_API_KEY},body:JSON.stringify({text:word,model_id:"eleven_monolingual_v1",voice_settings:{stability:0.5,similarity_boost:0.75}})});if(r.ok){const blob=await r.blob();await saveAudioToCache(word,blob);return URL.createObjectURL(blob)}}catch(e){console.warn(`Audio failed "${word}":`,e)}return null}
+
+initIndexedDB().catch(console.error);
+(function(){const saved=localStorage.getItem('elevenlabs_api_key');if(saved){window.ELEVENLABS_API_KEY=saved;console.log('✓ API key loaded')}})();
+
+/* ---------- 配置面板交互 ---------- */
+function openConfigPanel(){const o=document.getElementById('config-panel-overlay');const p=document.getElementById('config-panel');o.classList.add('open');p.classList.add('open');const saved=localStorage.getItem('elevenlabs_api_key');if(saved){const masked=saved.slice(0,-4).replace(/./g,'*')+saved.slice(-4);document.getElementById('api-key-input').placeholder=`✓ 已保存: ${masked}`;document.getElementById('api-key-input').value=''}updateBatchStatus();}
+
+function closeConfigPanel(){document.getElementById('config-panel-overlay').classList.remove('open');document.getElementById('config-panel').classList.remove('open');}
+
+document.getElementById('settings-btn').addEventListener('click',openConfigPanel);document.getElementById('config-close').addEventListener('click',closeConfigPanel);document.getElementById('config-panel-overlay').addEventListener('click',(e)=>{if(e.target.id==='config-panel-overlay'){closeConfigPanel()}});
+
+document.getElementById('save-api-key-btn').addEventListener('click',()=>{const key=document.getElementById('api-key-input').value.trim();const result=document.getElementById('test-result');if(!key){result.textContent='❌ 请输入 API key';result.classList.remove('success');result.classList.add('error','show');return}window.ELEVENLABS_API_KEY=key;localStorage.setItem('elevenlabs_api_key',key);result.textContent='✅ 已保存!';result.classList.remove('error');result.classList.add('success','show');document.getElementById('api-key-input').value='';setTimeout(()=>result.classList.remove('show'),2000);});
+
+document.getElementById('test-tts-btn').addEventListener('click',async()=>{const word=document.getElementById('test-word-input').value.trim().toLowerCase();const result=document.getElementById('test-result');const btn=document.getElementById('test-tts-btn');if(!word){result.textContent='❌ 请输入单词';result.classList.remove('success');result.classList.add('error','show');return}if(!window.ELEVENLABS_API_KEY){const saved=localStorage.getItem('elevenlabs_api_key');if(!saved){result.textContent='❌ 请先保存 key';result.classList.remove('success');result.classList.add('error','show');return}window.ELEVENLABS_API_KEY=saved}btn.disabled=true;btn.textContent='⏳ 生成中...';result.textContent='⏳ 调用 API...';result.classList.remove('success','error');result.classList.add('show');try{const url=await getTTSAudioUrl(word);if(url){result.textContent=`✅ 完成! [${word}]`;result.classList.remove('error');result.classList.add('success','show');const audio=new Audio(url);audio.play().catch(e=>console.warn('Playback:',e))}else{result.textContent=`❌ 失败 [${word}]`;result.classList.remove('success');result.classList.add('error','show')}}catch(err){result.textContent=`❌ ${err.message}`;result.classList.remove('success');result.classList.add('error','show')}finally{btn.disabled=false;btn.textContent='🔊 测试发音'}});
+
+document.getElementById('download-all-btn').addEventListener('click',async()=>{if(!window.ELEVENLABS_API_KEY){const saved=localStorage.getItem('elevenlabs_api_key');if(!saved){alert('请先保存 API key');return}window.ELEVENLABS_API_KEY=saved}const btn=document.getElementById('download-all-btn');const result=document.getElementById('test-result');btn.disabled=true;btn.textContent='⏳ 下载中...';try{const res=await downloadAllBatches();const succ=res.filter(r=>r.success).length;result.textContent=`✅ 完成! ${succ}/${res.length} 批次`;result.classList.remove('error');result.classList.add('success','show');localStorage.setItem('tts_downloaded_batches',Date.now().toString());updateBatchStatus()}catch(err){result.textContent=`❌ ${err.message}`;result.classList.remove('success');result.classList.add('error','show')}finally{btn.disabled=false;btn.textContent='⬇️ 下载所有批次'}});
+
+function updateBatchStatus(){const el=document.getElementById('batch-status');const dl=localStorage.getItem('tts_downloaded_batches');if(dl){const d=new Date(parseInt(dl));el.innerHTML=`<div style="color:var(--good);font-size:13px;">✅ 已下载 (${d.toLocaleDateString()})</div>`}else{el.innerHTML='<div style="color:var(--text-muted);font-size:13px;">⏳ 未下载。需要首次下载所有批次</div>'}}
 
 /* ---------------- Router ---------------- */
 function route() {
