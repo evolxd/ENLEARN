@@ -158,12 +158,15 @@
       return await r.blob();
     }
 
+    let currentAudio = null;
     async function play(word) {
       const key = localStorage.getItem('api_key') || window.ELEVENLABS_API_KEY;
 
       const cached = await getCachedAudio(word);
       if (cached) {
-        new Audio(URL.createObjectURL(cached)).play();
+        if (currentAudio) currentAudio.pause();
+        currentAudio = new Audio(URL.createObjectURL(cached));
+        currentAudio.play().catch(e => msg('❌ 播放失败: ' + e.message, 'error'));
         return;
       }
 
@@ -173,9 +176,13 @@
       }
 
       try {
+        msg('⏳ 生成发音中...', 'success');
         const blob = await fetchWordAudio(word, key);
         await setCachedAudio(word, blob);
-        new Audio(URL.createObjectURL(blob)).play();
+        if (currentAudio) currentAudio.pause();
+        currentAudio = new Audio(URL.createObjectURL(blob));
+        currentAudio.play().catch(e => msg('❌ 播放失败: ' + e.message, 'error'));
+        msg('✅ 播放成功', 'success');
       } catch(e) {
         msg('❌ 生成失败: ' + e.message, 'error');
       }
