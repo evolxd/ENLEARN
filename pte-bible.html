@@ -92,25 +92,65 @@
       document.getElementById('apiKey').value = '';
     }
 
+    /* ---------- IndexedDB 音频缓存 ---------- */
+    let audioDB = null;
+    function openAudioDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open('PTEAudioCache', 1);
+        req.onupgradeneeded = () => req.result.createObjectStore('words');
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    }
+    async function getCachedAudio(word) {
+      if (!audioDB) audioDB = await openAudioDB();
+      return new Promise(resolve => {
+        const tx = audioDB.transaction('words', 'readonly');
+        const req = tx.objectStore('words').get(word);
+        req.onsuccess = () => resolve(req.result || null);
+        req.onerror = () => resolve(null);
+      });
+    }
+    async function setCachedAudio(word, blob) {
+      if (!audioDB) audioDB = await openAudioDB();
+      return new Promise(resolve => {
+        const tx = audioDB.transaction('words', 'readwrite');
+        tx.objectStore('words').put(blob, word);
+        tx.oncomplete = () => resolve(true);
+        tx.onerror = () => resolve(false);
+      });
+    }
+
+    async function fetchWordAudio(word, key) {
+      const r = await fetch('https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'xi-api-key': key},
+        body: JSON.stringify({text: word, model_id: 'eleven_monolingual_v1', voice_settings: {stability: 0.5, similarity_boost: 0.75}})
+      });
+      if (!r.ok) throw new Error('API ' + r.status);
+      return await r.blob();
+    }
+
     async function play(word) {
       const key = localStorage.getItem('api_key') || window.ELEVENLABS_API_KEY;
+
+      const cached = await getCachedAudio(word);
+      if (cached) {
+        new Audio(URL.createObjectURL(cached)).play();
+        return;
+      }
+
       if (!key) {
         msg('❌ 先保存 key', 'error');
         return;
       }
 
       try {
-        const r = await fetch('https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM', {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json', 'xi-api-key': key},
-          body: JSON.stringify({text: word, model_id: 'eleven_monolingual_v1', voice_settings: {stability: 0.5, similarity_boost: 0.75}})
-        });
-        if (r.ok) {
-          const blob = await r.blob();
-          new Audio(URL.createObjectURL(blob)).play();
-        }
+        const blob = await fetchWordAudio(word, key);
+        await setCachedAudio(word, blob);
+        new Audio(URL.createObjectURL(blob)).play();
       } catch(e) {
-        console.error(e);
+        msg('❌ 生成失败: ' + e.message, 'error');
       }
     }
 
@@ -121,30 +161,27 @@
         return;
       }
 
-      msg('⏳ 下载中...', 'success');
-      let ok = 0;
-      const groups = [
-        {text: 'accommodate, address, analysis, annual, anxiety, apologies, architect, assessment, athlete, auxiliary'},
-        {text: 'beautiful, because, borough, business, calendar, candidate, category, ceiling, century, chaos'},
-        {text: 'character, characteristic, chemistry, circumstance, citizen, claustrophobic, colleague, column, comfortable, commission'},
-        {text: 'commitment, committee, communicate, community, compassion, competent, competition, compliment, computer, concentrate'},
-        {text: 'concussion, conference, confident, congratulations, conscious, consequence, considerable, considerate, consistency, constitute'},
-        {text: 'consumption, contemporary, context, controversy, convenience, conversation, conversion, coordinate, crucial, curriculum, customer'}
-      ];
+      const words = LEXICON.map(w => w.word);
+      let ok = 0, skipped = 0;
 
-      for (const g of groups) {
+      for (let i = 0; i < words.length; i++) {
+        const word = words[i];
+        msg(`⏳ 下载中 ${i + 1}/${words.length}...`, 'success');
+
+        const cached = await getCachedAudio(word);
+        if (cached) { skipped++; continue; }
+
         try {
-          const r = await fetch('https://api.elevenlabs.io/v1/text-to-speech/21m00Tcm4TlvDq8ikWAM', {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'xi-api-key': key},
-            body: JSON.stringify({text: g.text, model_id: 'eleven_monolingual_v1', voice_settings: {stability: 0.5, similarity_boost: 0.75}})
-          });
-          if (r.ok) ok++;
-        } catch(e) {}
-        await new Promise(r => setTimeout(r, 1500));
+          const blob = await fetchWordAudio(word, key);
+          await setCachedAudio(word, blob);
+          ok++;
+        } catch(e) {
+          console.error(word, e);
+        }
+        await new Promise(r => setTimeout(r, 300));
       }
 
-      msg(`✅ 完成! ${ok}/6 批次`, 'success');
+      msg(`✅ 完成! 新下载 ${ok} 个，已缓存跳过 ${skipped} 个`, 'success');
     }
 
     function msg(text, type) {
