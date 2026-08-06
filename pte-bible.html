@@ -112,6 +112,25 @@
       document.getElementById('apiKey').value = '';
     }
 
+    function getOrPromptKey() {
+      let key = localStorage.getItem('api_key') || window.ELEVENLABS_API_KEY;
+      if (key) return key;
+
+      key = prompt('请输入 ElevenLabs API Key (sk_开头):');
+      if (!key) return null;
+
+      key = key.trim();
+      if (!key.startsWith('sk_')) {
+        msg('❌ Invalid key format', 'error');
+        return null;
+      }
+
+      localStorage.setItem('api_key', key);
+      window.ELEVENLABS_API_KEY = key;
+      msg('✅ Key 已保存', 'success');
+      return key;
+    }
+
     /* ---------- IndexedDB 音频缓存 ---------- */
     let audioDB = null;
     function openAudioDB() {
@@ -160,8 +179,6 @@
 
     let currentAudio = null;
     async function play(word) {
-      const key = localStorage.getItem('api_key') || window.ELEVENLABS_API_KEY;
-
       const cached = await getCachedAudio(word);
       if (cached) {
         if (currentAudio) currentAudio.pause();
@@ -170,10 +187,8 @@
         return;
       }
 
-      if (!key) {
-        msg('❌ 先保存 key', 'error');
-        return;
-      }
+      const key = getOrPromptKey();
+      if (!key) return;
 
       try {
         msg('⏳ 生成发音中...', 'success');
@@ -194,10 +209,10 @@
 
     function playAndWait(word) {
       return new Promise(async (resolve) => {
-        const key = localStorage.getItem('api_key') || window.ELEVENLABS_API_KEY;
         let blob = await getCachedAudio(word);
         if (!blob) {
-          if (!key) { msg('❌ 先保存 key', 'error'); resolve(); return; }
+          const key = getOrPromptKey();
+          if (!key) { resolve(); return; }
           try {
             blob = await fetchWordAudio(word, key);
             await setCachedAudio(word, blob);
@@ -258,11 +273,8 @@
     }
 
     async function download() {
-      const key = localStorage.getItem('api_key') || window.ELEVENLABS_API_KEY;
-      if (!key) {
-        msg('❌ 先保存 key', 'error');
-        return;
-      }
+      const key = getOrPromptKey();
+      if (!key) return;
 
       const words = LEXICON.map(w => w.word);
       let ok = 0, skipped = 0;
