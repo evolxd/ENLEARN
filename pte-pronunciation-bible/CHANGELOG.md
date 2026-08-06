@@ -6,6 +6,21 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ## [Unreleased]
 
+### Fixed (Part VI)
+
+- Re-checked all four Part VI training plans' Part III lexicon batch
+  references now that the lexicon is final (500 words, 12 batches, as
+  of the previous commit). The plans were originally written assuming
+  the lexicon might grow to as many as 16 batches, so several
+  contained stale placeholders: the 30-Day Plan's "remaining 200
+  words (Batches 9–16)" is now correctly "Batches 9–12"; the 60-Day
+  and 90-Day Plans' "sixteen batches (Batches 1–16)" and vague
+  "remaining lexicon batches through the current end of Part III"
+  phrasing now name Batch 12 (`words_481-500.md`) explicitly and move
+  it into the week where it actually fits given the real 12-batch
+  total. Updated `ROADMAP.md` Stage 6 and `Part06_Training/README.md`
+  to record this as resolved.
+
 ### Resolved (Part V)
 
 - Ch.7 Write Email's module-scope caution is resolved: confirmed via

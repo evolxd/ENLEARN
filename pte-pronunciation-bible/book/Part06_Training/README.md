@@ -5,10 +5,13 @@ Status: Draft (all four chapters drafted — see `ROADMAP.md` Stage 6)
 Structured study plans that reference chapters from every prior Part.
 Built last, since it assumes Parts I–V exist so it can point to specific
 chapters rather than re-explaining them (per `STYLE_GUIDE.md` §5, no
-duplicated explanation across chapters). Part III's lexicon is
-referenced by batch/word-range rather than a fixed final word count,
-since Part III may still grow past its current word count — see
-`book/Part03_Lexicon/README.md` for the up-to-date total.
+duplicated explanation across chapters). Part III's lexicon reached its
+final 500-word, 12-batch state on 2026-08-06 (see
+`book/Part03_Lexicon/README.md`); all four plans below were re-checked
+against that final batch count on the same date (see `ROADMAP.md`
+Stage 6) and reference specific batch numbers/word ranges rather than
+the earlier "through the current end of Part III" placeholders used
+while the lexicon was still growing.
 
 Each plan uses the same triage logic, scaled to its length: Part II
 (phonetic mechanism) and Part IV (the matching Chinese-learner error

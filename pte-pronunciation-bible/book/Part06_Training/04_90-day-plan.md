@@ -44,12 +44,12 @@ plus a final one-week taper (Week 13), for 90 days total. Structure:
 2. **Weeks 3–4 — Error corpus complete, lexicon begins (first pass).**
    Batches 1–7, roughly matching the 60-Day Plan's pace but with more
    built-in repetition per batch.
-3. **Weeks 5–6 — Lexicon continues, Part V begins.** Batches 8–11,
-   plus the first four Part V chapters.
+3. **Weeks 5–6 — Lexicon continues, Part V begins.** Batches 8–12,
+   completing the full 500-word lexicon, plus the first four Part V
+   chapters.
 4. **Weeks 7–8 — Second full review cycle.** A complete re-pass of
    Part II and Part IV (not just the weakest chapters, unlike the
-   60-Day Plan's targeted Phase 3) alongside the remaining lexicon
-   batches and Part V chapters.
+   60-Day Plan's targeted Phase 3) alongside Part V chapters.
 5. **Weeks 9–10 — Third review cycle, mechanism-focused.** A targeted
    (not full) re-pass driven entirely by accumulated mock-test error
    logs, plus full completion of Part V.
@@ -116,7 +116,7 @@ third cycle trusts the accumulated data to say what still does.
 | Week | Chapters / Materials |
 |---|---|
 | 5 | `words_211-240.md` through `words_331-360.md` (Batches 7 cont.–9); Part V Ch.1–2 |
-| 6 | `words_361-390.md` through `words_451-480.md` (Batches 10–11); Part V Ch.3–4 |
+| 6 | `words_361-390.md` through `words_481-500.md` (Batches 10–12, completing the 500-word lexicon); Part V Ch.3–4 |
 
 **Day 42 — Mock test #1.** End of Week 6. Establishes the baseline
 error log.
@@ -125,7 +125,7 @@ error log.
 
 | Week | Chapters / Materials |
 |---|---|
-| 7 | Full re-read: Part II Ch.1–9; remaining lexicon batches through the current end of Part III (see `book/Part03_Lexicon/README.md`) |
+| 7 | Full re-read: Part II Ch.1–9 |
 | 8 | Full re-read: Part IV Ch.1–5; Part V Ch.5–7 |
 
 **Day 56 — Mock test #2.** End of Week 8. Compare against mock #1.

@@ -10,9 +10,9 @@ By the end of this plan, you will be able to:
 
 - Apply every mechanism in Part II and every mistake pattern in Part
   IV from memory, without re-reading the source chapter
-- Correctly pronounce the full Part III lexicon as it exists at the
-  time of this plan (Batches 1–16, ~480–500 words — see
-  `book/Part03_Lexicon/README.md` for the current exact count)
+- Correctly pronounce the full Part III lexicon, all twelve batches
+  (Batches 1–12, 500 words — see `book/Part03_Lexicon/README.md` to
+  confirm this is still current, in case the lexicon grows further)
 - Apply Part V's strategy chapters fluently across all ten item types,
   with enough repetition that strategy application no longer requires
   conscious recall of the chapter
@@ -39,8 +39,8 @@ Four design choices distinguish this plan from the 30-Day Plan:
    tests need it. Phase 3 (Weeks 5–6) is a deliberate second pass of
    Part II/IV content, timed to land roughly a month after the first.
 2. **The full lexicon, not just the 300-word floor.** With 60 days,
-   all sixteen batches (Batches 1–16) fit comfortably with review
-   room to spare, reaching the book's 500-word ceiling rather than
+   all twelve batches (Batches 1–12) fit comfortably with review room
+   to spare, reaching the book's 500-word ceiling rather than
    stopping at the 300-word floor as the 30-Day Plan does.
 3. **Three mock tests, not two.** Three data points let you see
    whether an error is trending down, not just whether it appears
@@ -118,14 +118,14 @@ Week 4. Log every error against its Part IV chapter/mistake number.
 
 | Week | Chapters / Materials | Notes |
 |---|---|---|
-| 7 | Part V Ch.3–10 (Describe Image through Listening); `words_421-450.md` through `words_451-480.md` (Batch 11) | Heaviest content week — split across all seven days deliberately. |
+| 7 | Part V Ch.3–10 (Describe Image through Listening); `words_421-450.md` through `words_481-500.md` (Batches 11–12, completing the 500-word lexicon) | Heaviest content week — split across all seven days deliberately. |
 
 **Day 40 — Mock test #2.** Run at the end of Week 7. Compare its error
 log against Day 15's.
 
 | Week | Chapters / Materials | Notes |
 |---|---|---|
-| 8 | Remediation week: re-drill every mechanism appearing in both Day 15 and Day 40 error logs, using the relevant Part II/IV chapter directly. Finish any remaining lexicon batches (through the current end of Part III — see `book/Part03_Lexicon/README.md` for the latest batch count). | No new Part V material this week. |
+| 8 | Remediation week: re-drill every mechanism appearing in both Day 15 and Day 40 error logs, using the relevant Part II/IV chapter directly. Do a full spaced-repetition review pass across all twelve lexicon batches, prioritizing words flagged in your error log. | No new Part V material this week. |
 
 ### Final assessment
 

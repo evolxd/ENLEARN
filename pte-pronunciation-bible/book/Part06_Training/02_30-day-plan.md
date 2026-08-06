@@ -153,7 +153,7 @@ this plan unless the week's table says otherwise:
   replace them with new material.
 - Two full mock tests (Days 22 and 29) let you measure progress
   directly rather than relying on subjective confidence.
-- For the remaining 200 lexicon words (Batches 9–16) and a deeper,
+- For the remaining 200 lexicon words (Batches 9–12) and a deeper,
   more spaced study cycle, use the [60-Day Plan](./03_60-day-plan.md)
   or [90-Day Plan](./04_90-day-plan.md).
 

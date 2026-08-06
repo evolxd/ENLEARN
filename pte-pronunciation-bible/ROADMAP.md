@@ -132,13 +132,19 @@ Depends on all prior parts (references chapters from I, II, III, IV, V).
       the first ~150–210 lexicon words, given the short timeframe
 - [x] 30-Day Plan (Draft) — full Part II/IV/V coverage, lexicon
       through the original 300-word floor (Batches 1–8)
-- [x] 60-Day Plan (Draft) — full lexicon as it currently stands
-      (Batches 1–16), a second Part II/IV review pass, 3 mock tests
+- [x] 60-Day Plan (Draft) — full lexicon (Batches 1–12), a second
+      Part II/IV review pass, 3 mock tests
 - [x] 90-Day Plan (Draft) — three review cycles (comprehensive,
       targeted, intensive mock-cycling), 5 mock-test checkpoints
-- [ ] Re-check all four plans' lexicon batch references once Part III
-      reaches its final word count (currently 480/500, see
-      `book/Part03_Lexicon/README.md`)
+- [x] **Resolved (2026-08-06)**: re-checked all four plans' lexicon
+      batch references now that Part III is final at 500 words/12
+      batches. Fixed stale "Batches 1–16" / "sixteen batches" /
+      "through the current end of Part III" placeholders (written
+      while the lexicon was still growing) in all four plan files and
+      `Part06_Training/README.md` to reference the real 12-batch
+      range (e.g. 30-Day Plan's "remaining 200 words" is now correctly
+      Batches 9–12, not 9–16; 60-/90-Day Plans' full-lexicon-coverage
+      weeks now name Batch 12/`words_481-500.md` explicitly).
 
 ## Stage 7 — Version 1.0 publication pass
 

@@ -49,7 +49,7 @@ Three triage principles govern the day-by-day schedule below:
    each batch once and moving on.
 
 Given this triage, several things are deliberately **not** attempted in
-15 days: batches 6 (partial) through 16 of the Part III lexicon,
+15 days: batches 6 (partial) through 12 of the Part III lexicon,
 and a second full pass of Part II. If your exam is more than three
 weeks away, use the [30-Day Plan](./02_30-day-plan.md) instead — it
 covers the same material with room for full lexicon coverage.
