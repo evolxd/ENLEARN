@@ -99,6 +99,7 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Gurully / Sumlingo (Respond to a Situation format, scoring) | Part V, Ch.5 |
 | 2026-08-05 | PTE Nepal / Gurully (Summarize Written Text format, Form rule) | Part V, Ch.6 |
 | 2026-08-05 | EasyPTE / PTE Panacea (Write Email format — sourced as PTE Core specifically; module-scope caveat flagged in chapter) | Part V, Ch.7 |
+| 2026-08-06 | Gurully, "Difference Between PTE Core Vs PTE Academic" (confirms Write Email replaces Write Essay in PTE Core specifically; PTE Academic retains Write Essay); E2Language, "PTE Updates and Enhancements 2025" / "PTE in 2026" (documents the Aug 2025 PTE Academic update in detail — Respond to a Situation, Summarize Group Discussion, Write Essay 0–6 scoring — with no Write Email addition, corroborating PTE Core exclusivity) — **resolves the module-scope caution originally flagged in Part V Ch.7**; direct Cambridge/Pearson fetch still 403 this session, so this is a WebSearch cross-reference, not a primary-source confirmation | Part V, Ch.7 (resolution) |
 | 2026-08-05 | Language Academy / PTE Nepal (Essay format, scoring) | Part V, Ch.8 |
 | 2026-08-05 | Gradding / Sumlingo (Reading section item types, scoring) | Part V, Ch.9 |
 | 2026-08-05 | Study.com / Edubenchmark (Listening section item types, scoring, negative marking) | Part V, Ch.10 |

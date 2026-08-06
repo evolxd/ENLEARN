@@ -1,10 +1,12 @@
-# 7. Write Email（邮件写作）
+# 7. Write Email（邮件写作，PTE Core专属题型）
 
 Part: Part V — Question Strategy
 Status: Draft
 Accent model: Not applicable (writing task; no spoken/pronunciation component)
 
-**Scope note**: This is a writing item with no speaking or pronunciation component, included for completeness per the original Part V structure. It is necessarily lighter-touch than the speaking chapters in this Part. **Module caution**: the sources found for this chapter describe Write Email specifically as a **PTE Core** item type; this book is titled for PTE Academic, and this session could not confirm whether Write Email also appears in the current PTE Academic format. Verify which test module (PTE Academic vs PTE Core) you are actually sitting before relying on this chapter — Pearson offers both, and their item lists are not identical `[Hypothesis]`, flagged pending confirmation.
+**Scope note — resolved**: Write Email is confirmed `[Practice]` (cross-verified across multiple independent secondary sources, see References) to be a **PTE Core–only** item type. It is not part of PTE Academic, which this book is otherwise scoped to. PTE Academic's writing task is Write Essay — a 200–300 word formal argumentative essay, covered in [Ch.8](./08_essay.md) — not Write Email. If you are sitting **PTE Academic**, this chapter does not apply to your test and can be skipped; keep it only if you are separately preparing for **PTE Core**, or if Pearson later unifies the two formats. This chapter is retained as supplementary material precisely because Pearson runs both tests and a reader's actual registration may not match the book's primary PTE Academic scope — but it is not part of the book's core curriculum, unlike every other chapter in this Part.
+
+This is a writing item with no speaking or pronunciation component in any case, so it is necessarily lighter-touch than the speaking chapters in this Part.
 
 ## Learning Objectives
 
@@ -45,21 +47,23 @@ An effective structure: greeting → one paragraph describing the delay and its 
 - List the required bullet points explicitly before drafting, and check each is addressed before finalizing.
 - Match formality to the scenario — a professional complaint and a casual personal email call for different openings, closings, and vocabulary.
 - Organize distinct points into separate paragraphs rather than one continuous block.
-- Confirm your test module (PTE Academic vs PTE Core) actually includes this item type before investing significant preparation time here.
+- If you are sitting PTE Academic, skip this chapter — it does not appear on your test. Use [Ch.8 Essay](./08_essay.md) instead, which covers PTE Academic's actual writing task.
 
 ## Exercises
 
 1. Take an email prompt with three required points and draft a response, then check off each point explicitly against the final draft.
 2. Draft the same content twice at two different formality levels (formal vs semi-formal) and compare tone markers (greeting, closing, word choice).
-3. Verify, from your own test registration/module information, whether Write Email appears in the specific PTE test you are preparing for.
+3. If you are actually preparing for PTE Core, verify your specific test registration confirms Write Email's current format and word range, since Pearson's formats are updated periodically.
 
 ## Summary
 
 - Write Email requires covering all required bullet points, matching tone to the scenario, and using clear email structure and organization.
 - Missing a required point is reported to carry a significant Content penalty, making explicit point-checking the highest-priority strategy.
-- This chapter carries an unresolved module-scope caution: confirm whether this item type is part of your specific PTE test (Academic vs Core) before prioritizing it.
+- **This chapter is PTE Core–only.** PTE Academic test-takers should use [Ch.8 Essay](./08_essay.md) instead — this chapter is retained as supplementary material for readers also preparing for PTE Core.
 
 ## References
 
 1. EasyPTE. "PTE Core Write Email (WE) in 2025: Format, Scoring, Safe Templates, and Real Teacher Tips!" https://www.easypte.com/blogs/pte-core-write-email-format-scoring
-2. PTE Panacea. "PTE Core Write Email: Format, Tips, Scoring, and Strategies." https://ptepanacea.com/blog/detail/pte-core-write-email — both sources describe this item as part of PTE Core specifically; the PTE Academic/PTE Core scope question flagged in this chapter's header should be resolved during the Stage 7 publication verification pass, ideally against the primary Pearson test-format page for PTE Academic directly.
+2. PTE Panacea. "PTE Core Write Email: Format, Tips, Scoring, and Strategies." https://ptepanacea.com/blog/detail/pte-core-write-email
+3. Gurully. "Difference Between PTE Core Vs PTE Academic: What to Keep in Mind For 2026?" https://www.gurully.com/blog/pte-academic-vs-pte-core/ — confirms Write Email replaces Write Essay specifically in PTE Core, while PTE Academic retains Write Essay (200–300 words, formal argumentative essay).
+4. E2Language. "PTE Updates and Enhancements 2025" and "PTE in 2026: What's Changed and New Marking Standard." https://blog.e2language.com/ — documents the August 2025 PTE Academic update (added Respond to a Situation and Summarize Group Discussion; updated Write Essay scoring to a 0–6 scale) with no mention of Write Email being added to PTE Academic, corroborating that it remains PTE Core–exclusive. The module-scope question flagged in earlier drafts of this chapter is resolved by sources 3–4 as of this session (2026-08-06); see `REFERENCES.md`'s Source Log.

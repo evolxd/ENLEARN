@@ -6,6 +6,20 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ## [Unreleased]
 
+### Resolved (Part V)
+
+- Ch.7 Write Email's module-scope caution is resolved: confirmed via
+  WebSearch cross-reference against multiple independent sources
+  (direct Cambridge/Pearson fetch still 403) that Write Email is a
+  **PTE Core–only** item type, not part of PTE Academic. PTE Academic's
+  writing task is Write Essay (Ch.8), unchanged by this finding. Ch.7
+  is retitled and reframed as supplementary material for readers also
+  preparing for PTE Core, rather than core PTE Academic curriculum —
+  kept, not removed, since Pearson runs both tests and some readers
+  may need it. Updated the chapter itself, `Part05_Strategy/README.md`,
+  and `ROADMAP.md` Stage 4 accordingly; added corroborating sources to
+  the chapter's own References section.
+
 ### Verified (Part III)
 
 - Spot-check verification pass (2026-08-06) against the ~19

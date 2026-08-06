@@ -69,15 +69,21 @@ Depends on Stage 1 (AI scoring model) and Stage 2 (pronunciation vocabulary).
 - [x] Retell Lecture (Draft)
 - [x] Respond to Situation (Draft)
 - [x] Summarize Written Text (Draft)
-- [x] Write Email (Draft — module-scope unresolved, see below)
+- [x] Write Email (Draft — **module-scope resolved 2026-08-06**: confirmed
+      PTE Core–only, kept as supplementary content; see below)
 - [x] Essay (Draft)
 - [x] Reading (Draft)
 - [x] Listening (Draft)
 - [ ] Re-verify all format/timing figures (prep/response windows, word
       counts, time limits) across Part V against the primary Pearson
       test-format pages once accessible (403 on direct fetch this session)
-- [ ] Resolve whether Ch.7 Write Email belongs in PTE Academic or is
-      PTE-Core-only; update or remove the chapter accordingly
+- [x] **Resolved (2026-08-06)**: Ch.7 Write Email is PTE Core–only, not
+      part of PTE Academic. Confirmed via WebSearch cross-reference
+      against multiple independent sources (Cambridge fetch still 403 —
+      see `REFERENCES.md` Source Log). PTE Academic uses Write Essay
+      (Ch.8) instead. Chapter kept, retitled, and reframed as
+      supplementary rather than core curriculum — not removed, since
+      readers may also be preparing for PTE Core.
 
 ## Stage 5 — Part III: PTE High Frequency Lexicon (300–500 words)
 
