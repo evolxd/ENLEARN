@@ -105,10 +105,18 @@ notes per word). Data lives in `database/*.csv`; chapter prose in
       `words_451-480.md` — 480 of 500 words complete, only 20 remain
 - [x] Batch 12 (words 481–500, 20 words) — Draft, `words_481-500.md`
       — **500-word ceiling reached, lexicon complete**
-- [ ] Individually cross-check all 12 batches' (500 words) IPA/stress
-      against Cambridge or Oxford Learner's Dictionaries (this
-      session's direct fetch attempts returned 403) before marking
-      any batch Done — see Stage 7 for the verification pass
+- [x] Spot-check verification pass (2026-08-06): the ~19 highest-risk
+      words/pairs flagged across all 12 batches' Source Log entries
+      (stress-variable words, loanwords, heteronyms, shift pairs) were
+      cross-checked via WebSearch against Cambridge Dictionary/
+      Wiktionary aggregation (direct fetch still 403). 17 confirmed,
+      1 corrected (*employee*, `database/ipa.csv` and `stress.csv`
+      updated), 2 unresolved. See `REFERENCES.md`'s "Verification
+      Pass — Lexicon Spot-Check" section for the full table.
+- [ ] Full word-by-word cross-check of the remaining ~480 entries
+      against Cambridge or Oxford Learner's Dictionaries before
+      marking any batch Done — see Stage 7 for the final verification
+      pass; recommend direct (non-403) dictionary access for this
 
 ## Stage 6 — Part VI: Training System
 

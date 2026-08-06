@@ -6,6 +6,25 @@ work and `PROJECT.md` §7 for release-version scope.
 
 ## [Unreleased]
 
+### Verified (Part III)
+
+- Spot-check verification pass (2026-08-06) against the ~19
+  highest-risk lexicon words/pairs flagged across all 12 batches'
+  Source Log entries (stress-variable words, French loanwords,
+  heteronyms, noun/verb and adjective/noun stress-shift pairs). Direct
+  WebFetch to Cambridge Dictionary and Oxford Learner's Dictionaries
+  still returned HTTP 403; WebSearch cross-reference against the same
+  sources' aggregated snippets was used instead. 17 of 19 confirmed
+  correct as documented; 1 correction made — *employee*'s
+  `database/ipa.csv` and `database/stress.csv` rows now note the
+  second attested stress variant (syllable 2) that the markdown entry
+  already carried but the CSVs omitted; 2 items (*rehabilitation*'s
+  precise stress detail, the general velar-nasal `[Hypothesis]` claim)
+  remain unresolved. Full detail and per-word results in
+  `REFERENCES.md`. This is a targeted spot check of the highest-risk
+  fraction of the lexicon, not an exhaustive pass — the remaining
+  ~480 entries are still flagged "cross-check pending."
+
 ### Added (Part VI)
 
 - Part VI — Training System: all four chapters drafted

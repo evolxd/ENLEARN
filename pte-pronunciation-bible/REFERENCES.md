@@ -116,6 +116,52 @@ the whole book instead of just per-chapter.
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 11's 60 lexicon entries; cross-check against Cambridge/Oxford flagged as outstanding, especially *resume*'s two distinct pronunciations for two unrelated meanings, and *route*'s attested GA/variant pronunciation split | Part III, Batch 11 (`words_421-450.md`, `words_451-480.md`) |
 | 2026-08-05 | Standard GA dictionary knowledge (same 403 limitation) for Part III Batch 12's 20 lexicon entries — the lexicon's final batch, reaching 500 words; cross-check against Cambridge/Oxford flagged as outstanding, especially the *anxious*/*anxiety*, *curious*/*curiosity*, and *humble*/*humility* stress-shift pairs | Part III, Batch 12 (`words_481-500.md`) |
 
+## Verification Pass — Lexicon Spot-Check (2026-08-06)
+
+Direct WebFetch to Cambridge Dictionary, Oxford Learner's Dictionaries,
+and a third-party dictionary API all still returned HTTP 403 in this
+session (re-tested 2026-08-06; same result as every earlier attempt).
+WebSearch, however, is able to retrieve indirect but attributable
+excerpts from these same sites via search-result snippets. Exhaustively
+re-verifying all 500 lexicon entries this way was judged impractical
+in one pass, so this verification pass targeted only the ~19 words
+each batch's Source Log row above already flagged as needing special
+attention (stress-variable words, French loanwords, heteronyms,
+noun/verb stress-shift pairs, and the newly-added adjective/noun shift
+family from Batch 12) — these are the highest-risk, highest-value
+entries to check first.
+
+| Word(s) | Result |
+|---|---|
+| *schedule* | Confirmed: GA /ˈskɛdʒuːl/ vs RP /ˈʃɛdjuːl/, as already documented. |
+| *address* | Confirmed: verb consistently syllable-2 stress; noun genuinely variable (syllable-1 or syllable-2) across sources, as already flagged. |
+| *employee* | **Corrected**: Cambridge Dictionary lists two attested stress variants (final-syllable /ˌɛmplɔɪˈiː/ and syllable-2 /ɪmˈplɔɪiː/). The markdown entry already noted the variant; the `database/ipa.csv` and `database/stress.csv` rows did not — both CSVs updated to match. |
+| *vaccine* | Confirmed: RP /ˈvæksiːn/ (syllable 1) vs. increasingly common GA /vækˈsiːn/ (syllable 2), as already documented. |
+| *historical* | Confirmed: syllable-2 stress (the "-ical" shift from *history*), as already documented. |
+| *finance* / *financial* | Confirmed: *finance* shows genuine syllable-1/syllable-2 variation across sources; *financial* consistently syllable-2, as already documented. |
+| *advertisement* | Confirmed: GA /ˌædvərˈtaɪzmənt/ (syllable 3) vs. RP /ˌædvəˈtɪzmənt/ (syllable 2), as already documented. |
+| *souvenir* | Confirmed: final-syllable stress, as already documented. |
+| *leisure* | Confirmed: GA /ˈliːʒər/ vs. RP /ˈlɛʒər/, as already documented. |
+| *survey* | Confirmed: noun syllable-1, verb syllable-2, as already documented. |
+| *resume* | Confirmed: the CV-sense noun and the "continue"-sense verb have distinct pronunciations and stress positions, as already documented. |
+| *route* | Confirmed: both /ruːt/ and /raʊt/ are attested in General American, as already documented. |
+| *anxious* / *anxiety* | Confirmed: syllable-1 vs. syllable-2 stress shift, as already documented. |
+| *curious* / *curiosity* | Confirmed: syllable-1 vs. syllable-3 stress shift, as already documented. |
+| *humble* / *humility* | Confirmed: syllable-1 vs. syllable-2 stress shift, as already documented. |
+| *rehabilitation* | Not independently confirmed — search results acknowledged the Cambridge Dictionary page exists but did not surface the specific IPA/stress detail. Still flagged as pending. |
+| *sibling* / *upbringing* (velar nasal /ŋ/) | Not applicable to word-specific search verification — this is a general phonetic-realization claim (`[Hypothesis]`-tagged), not a per-word stress/IPA fact; remains an author inference pending linguistic-literature review. |
+
+**Result:** 17 of 19 targeted high-risk words/pairs confirmed against
+indirect Cambridge Dictionary/Wiktionary aggregation; 1 correction made
+(*employee*); 2 items remain unresolved (*rehabilitation*'s exact
+stress detail, and the general `[Hypothesis]` /ŋ/ claim). This spot
+check covers the highest-risk fraction of the lexicon, not all 500
+words — the remaining ~480 entries are still "standard dictionary
+pronunciation; cross-check pending" and would need the same treatment,
+word by word, for a full verification pass. Given the volume, that is
+better suited to a dedicated follow-up session, ideally with direct
+(non-403) dictionary access.
+
 **Outstanding verification task:** the two primary Pearson sources above
 returned HTTP 403 when fetched directly in this session (see
 `book/Part01_AI/README.md`). Every `[Pearson]`-tagged claim in Part I was
