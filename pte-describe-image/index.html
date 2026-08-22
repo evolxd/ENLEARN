@@ -88,6 +88,34 @@
     margin: 0 0 0.8rem;
     font-size: 0.98rem;
   }
+  .text p {
+    margin: 0 0 0.65rem;
+  }
+  .text p:last-child {
+    margin-bottom: 0;
+  }
+  .text p:nth-child(3) {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  mark.skel {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 0 0.15rem;
+  }
+  .legend {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .legend mark.skel {
+    padding: 0.05rem 0.4rem;
+  }
   .meta {
     display: flex;
     flex-direction: column;
@@ -112,6 +140,7 @@
 <header>
   <h1>PTE Describe Image — Practice Set</h1>
   <p>27 images, each with a model-answer description and narrated audio. Tap play to listen while you read.</p>
+  <div class="legend"><mark class="skel">highlighted</mark> phrases are reusable template language — memorize these, swap in new numbers and nouns for any image.</div>
 </header>
 <main>
 
@@ -119,7 +148,7 @@
       <div class="num">01</div>
       <img class="thumb" src="images/image1.png" alt="PTE describe image 1" loading="lazy">
       <div class="body">
-        <p class="text">The picture illustrates how to make a cup of instant coffee. First, hot water is poured from a kettle into a cup. Next, a packet of instant coffee is opened, and the coffee powder is added to the water. After that, some sugar and creamer are added with a spoon. The coffee is then stirred well until everything is mixed together. Finally, it is ready to drink and enjoy. Overall, this simple process shows how we can easily make delicious coffee at home.</p>
+        <div class="text"><p><mark class="skel">The picture illustrates</mark> how to make a cup of instant coffee.</p><p>First, hot water is poured from a kettle into a cup. Next, a packet of instant coffee is opened, and the coffee powder is added to the water. After that, some sugar and creamer are added with a spoon. The coffee is then stirred well until everything is mixed together. Finally, it is ready to drink and enjoy.</p><p><mark class="skel">Overall,</mark> this simple process shows how we can easily make delicious coffee at home.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item01.mp3"></audio>
@@ -130,7 +159,7 @@
       <div class="num">02</div>
       <img class="thumb" src="images/image2.png" alt="PTE describe image 2" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the top ten U.S. cities with the largest population increase from 2011 to 2012. New York City had the highest growth, with over 67,000 new residents. It far outpaced every other city on this entire list. The remaining cities ranged from Houston and Los Angeles at around 34,000 down to Fort Worth at about 16,000 new residents each single year. New York City clearly dominated population growth. Other major cities experienced more modest but steady increases during this same period.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the top ten U.S. cities with <mark class="skel">the largest</mark> population increase from 2011 to 2012.</p><p>New York City had <mark class="skel">the highest</mark> growth, with over 67,000 new residents. It <mark class="skel">far outpaced</mark> every other city on this entire list. The remaining cities <mark class="skel">ranged from</mark> Houston and Los Angeles at around 34,000 down to Fort Worth at about 16,000 new residents <mark class="skel">each</mark> single year. New York City <mark class="skel">clearly</mark> dominated population growth. Other major cities experienced more modest but steady increases during this same period.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item02.mp3"></audio>
@@ -141,7 +170,7 @@
       <div class="num">03</div>
       <img class="thumb" src="images/image3.png" alt="PTE describe image 3" loading="lazy">
       <div class="body">
-        <p class="text">This image shows a mother and daughter shopping for stationery items in a store. On the left, the little girl holds up a colorful patterned backpack, and both of them smile happily at the choice. Around them, the shelves display various school supplies and accessories. On the right, the girl proudly wears her new backpack along with matching colorful pencils, showing off her purchase. Overall, this captures a happy moment of a parent helping her child pick out school supplies for the new year.</p>
+        <div class="text"><p><mark class="skel">This image shows</mark> a mother and daughter shopping for stationery items in a store.</p><p>On the left, the little girl holds up a colorful patterned backpack, and both of them smile happily at the choice. Around them, the shelves display various school supplies and accessories. On the right, the girl proudly wears her new backpack along with matching colorful pencils, showing off her purchase.</p><p><mark class="skel">Overall,</mark> this captures a happy moment of a parent helping her child pick out school supplies for the new year.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item03.mp3"></audio>
@@ -152,7 +181,7 @@
       <div class="num">04</div>
       <img class="thumb" src="images/image4.png" alt="PTE describe image 4" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows Canada's population growth from 1978 to 2009. It has three lines: total growth, natural increase, and net international migration. Total growth went up and down between 250,000 and 480,000. It peaked around 1988. Natural increase stayed fairly stable. It slowly dropped from 200,000 to 130,000. Net international migration changed the most. It jumped sharply around 1988, then dropped, then rose again by 2009. Overall, this shows that international migration became more important for population growth than natural increase over time.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> Canada's population growth from 1978 to 2009.</p><p>It has three lines: total growth, natural increase, and net international migration. Total growth went up and down between 250,000 and 480,000. It <mark class="skel">peaked</mark> around 1988. Natural increase <mark class="skel">stayed</mark> fairly <mark class="skel">stable</mark>. It slowly <mark class="skel">dropped</mark> from 200,000 to 130,000. Net international migration changed the most. It jumped <mark class="skel">sharply</mark> around 1988, then <mark class="skel">dropped</mark>, then <mark class="skel">rose</mark> again by 2009.</p><p><mark class="skel">Overall,</mark> <mark class="skel">this shows that</mark> international migration became more important for population growth than natural increase <mark class="skel">over time</mark>.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item04.mp3"></audio>
@@ -163,7 +192,7 @@
       <div class="num">05</div>
       <img class="thumb" src="images/image5.png" alt="PTE describe image 5" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the number of U.S. households keeping different pets. The total is about 85 million households. Dogs and cats are clearly the top two pets, owned by tens of millions of households. Other animals like fish, birds, and reptiles are much less common, each kept by only a few million households. The least common pets are horses and saltwater fish, at about 2 million each. Overall, dogs and cats dominate pet ownership, while most other animals remain far less common in American homes.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the number of U.S. households keeping different pets.</p><p>The total is about 85 million households. Dogs and cats are <mark class="skel">clearly</mark> <mark class="skel">the top two</mark> pets, owned by tens of millions of households. Other animals like fish, birds, and reptiles are <mark class="skel">much less common</mark>, <mark class="skel">each</mark> kept by only a few million households. <mark class="skel">The least common</mark> pets are horses and saltwater fish, at about 2 million <mark class="skel">each</mark>.</p><p><mark class="skel">Overall,</mark> dogs and cats dominate pet ownership, <mark class="skel">while</mark> most other animals remain far less common in American homes.</p></div>
         <div class="meta">
           <span class="wc">85 words</span>
           <audio controls preload="none" src="audio/item05.mp3"></audio>
@@ -174,7 +203,7 @@
       <div class="num">06</div>
       <img class="thumb" src="images/image6.png" alt="PTE describe image 6" loading="lazy">
       <div class="body">
-        <p class="text">This pie chart shows pet ownership by region around the world. North America has the highest share at 40 percent. Europe follows with 25 percent, and Asia comes third at 15 percent. South America accounts for 10 percent. Africa and Oceania are the smallest regions, each making up only 5 percent of the total. Overall, North America clearly leads in global pet ownership, while Africa and Oceania have the smallest shares by far.</p>
+        <div class="text"><p><mark class="skel">This pie chart shows</mark> pet ownership by region around the world.</p><p>North America has <mark class="skel">the highest</mark> share at 40 percent. Europe follows with 25 percent, and Asia comes third at 15 percent. South America <mark class="skel">accounts for</mark> 10 percent. Africa and Oceania are <mark class="skel">the smallest</mark> regions, <mark class="skel">each</mark> making up only 5 percent of the total.</p><p><mark class="skel">Overall,</mark> North America <mark class="skel">clearly</mark> leads in global pet ownership, <mark class="skel">while</mark> Africa and Oceania have <mark class="skel">the smallest</mark> shares by far.</p></div>
         <div class="meta">
           <span class="wc">73 words</span>
           <audio controls preload="none" src="audio/item06.mp3"></audio>
@@ -185,7 +214,7 @@
       <div class="num">07</div>
       <img class="thumb" src="images/image7.png" alt="PTE describe image 7" loading="lazy">
       <div class="body">
-        <p class="text">This pie chart shows the number of households in millions who own different pets. Dogs are the most popular, owned by about 69 million households, making up 45 percent of the total. Cats come second at about 45 million households, or 29 percent. Other pets make up much smaller shares. Horses and saltwater are the least popular, at only about 3-4 million households, or 2 percent for each. Overall, dogs and cats dominate pet ownership, while other animals are kept in much smaller numbers.</p>
+        <div class="text"><p><mark class="skel">This pie chart shows</mark> the number of households in millions who own different pets.</p><p>Dogs are the most popular, owned by about 69 million households, making up 45 percent of the total. Cats come second at about 45 million households, or 29 percent. Other pets make up much smaller shares. Horses and saltwater are the least popular, at only about 3-4 million households, or 2 percent for <mark class="skel">each</mark>.</p><p><mark class="skel">Overall,</mark> dogs and cats dominate pet ownership, <mark class="skel">while</mark> other animals are kept in much smaller numbers.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item07.mp3"></audio>
@@ -196,7 +225,7 @@
       <div class="num">08</div>
       <img class="thumb" src="images/image8.png" alt="PTE describe image 8" loading="lazy">
       <div class="body">
-        <p class="text">This pie chart shows pet expenditure in the United States by category. Vet care and wellbeing takes the largest share at 47 percent. Food and litter follows closely at 41 percent. Together, these two categories make up nearly 90 percent of total spending. Services like grooming and boarding make up 10 percent. Pet purchase is the smallest category, at only 2 percent. Overall, vet care and food dominate pet spending, while pet purchase itself accounts for only a small fraction of total costs.</p>
+        <div class="text"><p><mark class="skel">This pie chart shows</mark> pet expenditure in the United States by category.</p><p>Vet care and wellbeing takes <mark class="skel">the largest</mark> share at 47 percent. Food and litter follows closely at 41 percent. Together, these two categories make up nearly 90 percent of total spending. Services like grooming and boarding make up 10 percent. Pet purchase is <mark class="skel">the smallest</mark> category, at only 2 percent.</p><p><mark class="skel">Overall,</mark> vet care and food dominate pet spending, <mark class="skel">while</mark> pet purchase itself <mark class="skel">accounts for</mark> only a small fraction of total costs.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item08.mp3"></audio>
@@ -207,7 +236,7 @@
       <div class="num">09</div>
       <img class="thumb" src="images/image9.png" alt="PTE describe image 9" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows which countries have the most cat owners in the year 2017. Russia has the highest share at 59 percent, far ahead of every other country listed. Most other countries range between 30 and 43 percent, including the United States, Argentina, Italy, and France. South Korea has the lowest share at only 9 percent,well below all the rest. Overall, Russia clearly dominates global cat ownership, while South Korea has the smallest share among the countries shown here.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> which countries have the most cat owners in the year 2017.</p><p>Russia has <mark class="skel">the highest</mark> share at 59 percent, <mark class="skel">far ahead of</mark> every other country listed. Most other countries range between 30 and 43 percent, including the United States, Argentina, Italy, and France. South Korea has <mark class="skel">the lowest</mark> share at only 9 percent,<mark class="skel">well below</mark> all the rest.</p><p><mark class="skel">Overall,</mark> Russia <mark class="skel">clearly</mark> dominates global cat ownership, <mark class="skel">while</mark> South Korea has <mark class="skel">the smallest</mark> share among the countries shown here.</p></div>
         <div class="meta">
           <span class="wc">79 words</span>
           <audio controls preload="none" src="audio/item09.mp3"></audio>
@@ -218,7 +247,7 @@
       <div class="num">10</div>
       <img class="thumb" src="images/image10.png" alt="PTE describe image 10" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the main barriers preventing adults from visiting museums or art galleries more often. Lack of time is the biggest barrier, at around 55 percent. Not available locally follows at about 30 percent. Transport problems and cost of entry are moderate reasons, each around 10 to 15 percent. Lack of information about events is the smallest barrier, at only about 5 percent. Overall, lack of time is clearly the main obstacle, while lack of information plays only a minor role.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the main barriers preventing adults from visiting museums or art galleries more often.</p><p>Lack of time is the biggest barrier, at around 55 percent. Not available locally follows at about 30 percent. Transport problems and cost of entry are moderate reasons, <mark class="skel">each</mark> around 10 to 15 percent. Lack of information about events is <mark class="skel">the smallest</mark> barrier, at only about 5 percent.</p><p><mark class="skel">Overall,</mark> lack of time is <mark class="skel">clearly</mark> the main obstacle, <mark class="skel">while</mark> lack of information plays only a minor role.</p></div>
         <div class="meta">
           <span class="wc">82 words</span>
           <audio controls preload="none" src="audio/item10.mp3"></audio>
@@ -229,7 +258,7 @@
       <div class="num">11</div>
       <img class="thumb" src="images/image11.png" alt="PTE describe image 11" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows mobile phone ownership among U.S. adults over time from 2002 to 2019. Cellphone ownership started around 60 percent in the early 2000s and rose steadily to about 95 percent by 2019. Smartphone ownership only appears from around 2011, starting near 35 percent, then climbing sharply to about 80 percent by 2019. Overall, both types of phone ownership increased over time, but smartphones grew much faster, closing the gap with cellphones in recent years.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> mobile phone ownership among U.S. adults <mark class="skel">over time</mark> from 2002 to 2019.</p><p>Cellphone ownership started around 60 percent in the early 2000s and <mark class="skel">rose</mark> <mark class="skel">steadily</mark> to about 95 percent by 2019. Smartphone ownership only appears from around 2011, starting near 35 percent, then climbing <mark class="skel">sharply</mark> to about 80 percent by 2019.</p><p><mark class="skel">Overall,</mark> both types of phone ownership <mark class="skel">increased</mark> <mark class="skel">over time</mark>, but smartphones grew much faster, closing the gap with cellphones in recent years.</p></div>
         <div class="meta">
           <span class="wc">76 words</span>
           <audio controls preload="none" src="audio/item11.mp3"></audio>
@@ -240,7 +269,7 @@
       <div class="num">12</div>
       <img class="thumb" src="images/image12.png" alt="PTE describe image 12" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the rise of smartphone ownership among U.S. adults from around 2004 all the way to 2023. Any cellphone ownership started around 60 percent and rose steadily to nearly 100 percent by 2023. Smartphone ownership only began around 2011, starting near 35 percent, then climbing sharply and steadily upward to about 90 percent by the year 2023. Overall, both types of phone ownership increased significantly over this entire period, with smartphones eventually catching up closely to overall cellphone ownership rates nationwide.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the rise of smartphone ownership among U.S. adults from around 2004 all the way to 2023.</p><p>Any cellphone ownership started around 60 percent and <mark class="skel">rose</mark> <mark class="skel">steadily</mark> to nearly 100 percent by 2023. Smartphone ownership only began around 2011, starting near 35 percent, then climbing <mark class="skel">sharply</mark> and <mark class="skel">steadily</mark> upward to about 90 percent by the year 2023.</p><p><mark class="skel">Overall,</mark> both types of phone ownership <mark class="skel">increased</mark> significantly over this entire period, with smartphones eventually catching up closely to overall cellphone ownership rates nationwide.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item12.mp3"></audio>
@@ -251,7 +280,7 @@
       <div class="num">13</div>
       <img class="thumb" src="images/image13.png" alt="PTE describe image 13" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows cell phone use in Anytowne from 1996 to 2002, broken down by men, women, and both sexes combined. The combined total started around 3,000 people in 1996 and rose with some fluctuation to about 3,700 by 2002, which was the highest point on the chart. Men and women stayed fairly close together throughout, both starting around 1,500 people. Overall, cell phone use increased over this period for both men and women, with the combined total reaching its highest level by 2002.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> cell phone use in Anytowne from 1996 to 2002, broken down by men, women, and both sexes combined.</p><p>The combined total started around 3,000 people in 1996 and <mark class="skel">rose</mark> with some fluctuation to about 3,700 by 2002, which was <mark class="skel">the highest</mark> point on the chart. Men and women <mark class="skel">stayed</mark> fairly close together throughout, both starting around 1,500 people.</p><p><mark class="skel">Overall,</mark> cell phone use <mark class="skel">increased</mark> <mark class="skel">over this period</mark> for both men and women, with the combined total r<mark class="skel">each</mark>ing its highest level by 2002.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item13.mp3"></audio>
@@ -262,7 +291,7 @@
       <div class="num">14</div>
       <img class="thumb" src="images/image14.png" alt="PTE describe image 14" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the percentage of population living in urban areas across different regions in 1950, 2007, and projected for 2030. North America had the highest urban percentage, rising from 64 percent in 1950 to about 87 percent by 2030. Africa had the lowest, starting at only 15 percent and rising to about 51 percent by 2030. Other regions like Europe, Asia, and Latin America also showed steady increases. Overall, urbanization increased across every region over time, with North America consistently leading and Africa remaining the least urbanized.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the percentage of population living in urban areas across different regions in 1950, 2007, and projected for 2030.</p><p>North America had <mark class="skel">the highest</mark> urban percentage, rising from 64 percent in 1950 to about 87 percent by 2030. Africa had <mark class="skel">the lowest</mark>, starting at only 15 percent and rising to about 51 percent by 2030. Other regions like Europe, Asia, and Latin America also showed steady increases.</p><p><mark class="skel">Overall,</mark> urbanization <mark class="skel">increased</mark> across every region <mark class="skel">over time</mark>, with North America <mark class="skel">consistently</mark> leading and Africa remaining the least urbanized.</p></div>
         <div class="meta">
           <span class="wc">88 words</span>
           <audio controls preload="none" src="audio/item14.mp3"></audio>
@@ -273,7 +302,7 @@
       <div class="num">15</div>
       <img class="thumb" src="images/image15.png" alt="PTE describe image 15" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the world biggest chocolate consumers, measured in pounds consumed per capita each year. Switzerland ranks highest, consuming about 20 pounds per person annually. Germany, Ireland, and the United Kingdom follow with amounts between 16 and 17 pounds. Most other countries range between 10 and 15 pounds. France has the lowest consumption on this list, at about 9 pounds per person each year. Overall, Switzerland clearly leads the world in chocolate consumption, while France has the smallest amount among the top ten countries.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the world biggest chocolate consumers, measured in pounds consumed per capita <mark class="skel">each</mark> year.</p><p>Switzerland ranks highest, consuming about 20 pounds per person annually. Germany, Ireland, and the United Kingdom follow with amounts between 16 and 17 pounds. Most other countries range between 10 and 15 pounds. France has <mark class="skel">the lowest</mark> consumption on this list, at about 9 pounds per person <mark class="skel">each</mark> year.</p><p><mark class="skel">Overall,</mark> Switzerland <mark class="skel">clearly</mark> leads the world in chocolate consumption, <mark class="skel">while</mark> France has <mark class="skel">the smallest</mark> amount among the top ten countries.</p></div>
         <div class="meta">
           <span class="wc">85 words</span>
           <audio controls preload="none" src="audio/item15.mp3"></audio>
@@ -284,7 +313,7 @@
       <div class="num">16</div>
       <img class="thumb" src="images/image16.png" alt="PTE describe image 16" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the average rainfall in inches for four different American cities. New York has the highest rainfall, at about 47 inches per year, far more than the other cities shown here. Dallas follows with about 34 inches, and Honolulu comes next with about 22 inches annually. Phoenix has by far the lowest rainfall of all, at only about 8 inches per year. Overall, New York receives significantly more rainfall than the other cities, while Phoenix remains the driest by a wide margin.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the average rainfall in inches for four different American cities.</p><p>New York has <mark class="skel">the highest</mark> rainfall, at about 47 inches per year, <mark class="skel">far more than</mark> the other cities shown here. Dallas follows with about 34 inches, and Honolulu comes next with about 22 inches annually. Phoenix has by far <mark class="skel">the lowest</mark> rainfall of all, at only about 8 inches per year.</p><p><mark class="skel">Overall,</mark> New York receives significantly more rainfall than the other cities, <mark class="skel">while</mark> Phoenix remains the driest by a wide margin.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item16.mp3"></audio>
@@ -295,7 +324,7 @@
       <div class="num">17</div>
       <img class="thumb" src="images/image17.png" alt="PTE describe image 17" loading="lazy">
       <div class="body">
-        <p class="text">This pie chart shows the population of European Union countries in 2007 by percentage. All other countries combined make up the largest share, at about 30 percent of the total EU population. Among individual countries, Germany has the highest share at about 17 percent, followed by France, the United Kingdom, and Italy, each between 12 and 13 percent. Poland has the smallest share among the countries listed, at only about 7 percent. Overall, Germany leads among individual countries, while the remaining smaller nations together still outweigh any single country.</p>
+        <div class="text"><p><mark class="skel">This pie chart shows</mark> the population of European Union countries in 2007 by percentage.</p><p>All other countries combined make up <mark class="skel">the largest</mark> share, at about 30 percent of the total EU population. Among individual countries, Germany has <mark class="skel">the highest</mark> share at about 17 percent, <mark class="skel">followed by</mark> France, the United Kingdom, and Italy, <mark class="skel">each</mark> between 12 and 13 percent. Poland has <mark class="skel">the smallest</mark> share among the countries listed, at only about 7 percent.</p><p><mark class="skel">Overall,</mark> Germany leads among individual countries, <mark class="skel">while</mark> the remaining smaller nations together still outweigh any single country.</p></div>
         <div class="meta">
           <span class="wc">89 words</span>
           <audio controls preload="none" src="audio/item17.mp3"></audio>
@@ -306,7 +335,7 @@
       <div class="num">18</div>
       <img class="thumb" src="images/image18.png" alt="PTE describe image 18" loading="lazy">
       <div class="body">
-        <p class="text">This scatter plot shows income levels by employment type and gender, comparing males and females across different job categories. The highest income appears among full-time working males, reaching over 2,000 dollars. The lowest income appears among some female workers, around 400 dollars. Overall, income varies widely within each employment category, with both males and females spread across the entire income range. This suggests that employment type alone does not fully explain income differences, since gender and individual variation also play a significant role.</p>
+        <div class="text"><p><mark class="skel">This scatter plot shows</mark> income levels by employment type and gender, comparing males and females across different job categories.</p><p><mark class="skel">The highest</mark> income appears among full-time working males, r<mark class="skel">each</mark>ing over 2,000 dollars. <mark class="skel">The lowest</mark> income appears among some female workers, around 400 dollars.</p><p><mark class="skel">Overall,</mark> income varies widely within <mark class="skel">each</mark> employment category, with both males and females spread across the entire income range. <mark class="skel">This suggests that</mark> employment type alone does not fully explain income differences, since gender and individual variation also play a significant role.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item18.mp3"></audio>
@@ -317,7 +346,7 @@
       <div class="num">19</div>
       <img class="thumb" src="images/image19.png" alt="PTE describe image 19" loading="lazy">
       <div class="body">
-        <p class="text">This image shows a busy outdoor market filled with fresh fruits and vegetables displayed neatly in green crates along both sides of a long walkway. Many people are browsing and shopping around, with some carrying bags while carefully examining the produce closely. Colorful items like apples, bananas, grapes, and tomatoes are arranged in rows, and blue umbrellas provide shade above several stalls throughout the busy market. Overall, this captures a lively scene of a traditional outdoor produce market with many shoppers and vendors.</p>
+        <div class="text"><p><mark class="skel">This image shows</mark> a busy outdoor market filled with fresh fruits and vegetables displayed neatly in green crates along both sides of a long walkway.</p><p>Many people are browsing and shopping around, with some carrying bags <mark class="skel">while</mark> carefully examining the produce closely. Colorful items like apples, bananas, grapes, and tomatoes are arranged in rows, and blue umbrellas provide shade above several stalls throughout the busy market.</p><p><mark class="skel">Overall,</mark> this captures a lively scene of a traditional outdoor produce market with many shoppers and vendors.</p></div>
         <div class="meta">
           <span class="wc">83 words</span>
           <audio controls preload="none" src="audio/item19.mp3"></audio>
@@ -328,7 +357,7 @@
       <div class="num">20</div>
       <img class="thumb" src="images/image20.png" alt="PTE describe image 20" loading="lazy">
       <div class="body">
-        <p class="text">This pie chart shows travel time to work in Ontario in 2016. The largest group traveled between 15 and 29 minutes, making up about 32 percent of workers. Less than 15 minutes and 30 to 44 minutes were also common, at 24 and 21 percent respectively. The smallest group traveled 45 to 59 minutes, at only about 10 percent, while over an hour accounted for about 12 percent. Overall, most people in Ontario had relatively short commutes, with only a small share facing very long travel times.</p>
+        <div class="text"><p><mark class="skel">This pie chart shows</mark> travel time to work in Ontario in 2016.</p><p><mark class="skel">The largest</mark> group traveled between 15 and 29 minutes, making up about 32 percent of workers. Less than 15 minutes and 30 to 44 minutes were also common, at 24 and 21 percent <mark class="skel">respectively</mark>. <mark class="skel">The smallest</mark> group traveled 45 to 59 minutes, at only about 10 percent, <mark class="skel">while</mark> over an hour <mark class="skel">accounted for</mark> about 12 percent.</p><p><mark class="skel">Overall,</mark> most people in Ontario had relatively short commutes, with only a small share facing very long travel times.</p></div>
         <div class="meta">
           <span class="wc">87 words</span>
           <audio controls preload="none" src="audio/item20.mp3"></audio>
@@ -339,7 +368,7 @@
       <div class="num">21</div>
       <img class="thumb" src="images/image21.png" alt="PTE describe image 21" loading="lazy">
       <div class="body">
-        <p class="text">This image shows a floor plan of a building layout. The main hall occupies the top section, spanning the full width of the building. Below that, the left side is divided into an office and a smaller kitchen area. The right side contains three separate rooms: a male toilet, a female toilet, and a handicapped accessible toilet, arranged one below another. Overall, this layout organizes the space into a large central hall, work and food areas on one side, and restroom facilities on the other side.</p>
+        <div class="text"><p><mark class="skel">This image shows</mark> a floor plan of a building layout.</p><p>The main hall occupies the top section, spanning the full width of the building. Below that, the left side is divided into an office and a smaller kitchen area. The right side contains three separate rooms: a male toilet, a female toilet, and a handicapped accessible toilet, arranged one below another.</p><p><mark class="skel">Overall,</mark> this layout organizes the space into a large central hall, work and food areas on one side, and restroom facilities on the other side.</p></div>
         <div class="meta">
           <span class="wc">86 words</span>
           <audio controls preload="none" src="audio/item21.mp3"></audio>
@@ -350,7 +379,7 @@
       <div class="num">22</div>
       <img class="thumb" src="images/image22.png" alt="PTE describe image 22" loading="lazy">
       <div class="body">
-        <p class="text">This image shows four steps related to food preparation and storage. In the top left, someone is washing their hands thoroughly under running water. In the top right, a person is cutting a piece of raw meat with a knife. The bottom left shows a whole roasted chicken cooking inside an oven. Finally, the bottom right displays a fully stocked refrigerator filled with fresh vegetables, fruits, and drinks. Overall, this illustrates the process of hygiene, meat preparation, cooking, and food storage in a kitchen.</p>
+        <div class="text"><p><mark class="skel">This image shows</mark> four steps related to food preparation and storage.</p><p>In the top left, someone is washing their hands thoroughly under running water. In the top right, a person is cutting a piece of raw meat with a knife. The bottom left shows a whole roasted chicken cooking inside an oven. Finally, the bottom right displays a fully stocked refrigerator filled with fresh vegetables, fruits, and drinks.</p><p><mark class="skel">Overall,</mark> <mark class="skel">this illustrates</mark> the process of hygiene, meat preparation, cooking, and food storage in a kitchen.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item22.mp3"></audio>
@@ -361,7 +390,7 @@
       <div class="num">23</div>
       <img class="thumb" src="images/image23.png" alt="PTE describe image 23" loading="lazy">
       <div class="body">
-        <p class="text">This image shows a fresh produce section inside a grocery store, with a fresh seafood counter visible in the background. Various colorful fruits, including plums, oranges, and other seasonal produce, are neatly arranged in bins with price tags underneath. Prices range from about 4 dollars to 6 dollars per pound. Organic fresh items are also displayed on shelves toward the left side. Overall, this shows a well organized supermarket produce area offering a wide variety of fresh fruits at different price points.</p>
+        <div class="text"><p><mark class="skel">This image shows</mark> a fresh produce section inside a grocery store, with a fresh seafood counter visible in the background.</p><p>Various colorful fruits, including plums, oranges, and other seasonal produce, are neatly arranged in bins with price tags underneath. Prices range from about 4 dollars to 6 dollars per pound. Organic fresh items are also displayed on shelves toward the left side.</p><p><mark class="skel">Overall,</mark> this shows a well organized supermarket produce area offering a wide variety of fresh fruits at different price points.</p></div>
         <div class="meta">
           <span class="wc">82 words</span>
           <audio controls preload="none" src="audio/item23.mp3"></audio>
@@ -372,7 +401,7 @@
       <div class="num">24</div>
       <img class="thumb" src="images/image24.png" alt="PTE describe image 24" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the breakdown of weekly household expenditure across many different categories. Housing costs are the highest expense, at about 280 dollars per week. Food, transport, and recreation also make up large portions of spending, ranging between 170 and 240 dollars. Most other categories, like education, clothing, and personal care, are much smaller in comparison. Tobacco products account for the lowest spending, at only about 15 dollars per week. Overall, housing dominates household spending, while tobacco represents the smallest expense category by far.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the breakdown of weekly household expenditure across many different categories.</p><p>Housing costs are <mark class="skel">the highest</mark> expense, at about 280 dollars per week. Food, transport, and recreation also make up large portions of spending, ranging between 170 and 240 dollars. Most other categories, like education, clothing, and personal care, are much smaller in comparison. Tobacco products account for <mark class="skel">the lowest</mark> spending, at only about 15 dollars per week.</p><p><mark class="skel">Overall,</mark> housing dominates household spending, <mark class="skel">while</mark> tobacco represents <mark class="skel">the smallest</mark> expense category by far.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item24.mp3"></audio>
@@ -383,7 +412,7 @@
       <div class="num">25</div>
       <img class="thumb" src="images/image25.png" alt="PTE describe image 25" loading="lazy">
       <div class="body">
-        <p class="text">This table shows the share of food, beverages, and tobacco in consumer spending from 2009 to 2012. Food and non-alcoholic beverages made up the largest portion, staying fairly stable around 24 to 25 percent each year. Alcoholic beverages and tobacco remained the smallest category, at only about 3 percent throughout the period. Combined, all three categories together ranged between about 27 and 28 percent of total spending. Overall, spending shares stayed relatively stable across these years, with food remaining the dominant category by far.</p>
+        <div class="text"><p><mark class="skel">This table shows</mark> the share of food, beverages, and tobacco in consumer spending from 2009 to 2012.</p><p>Food and non-alcoholic beverages <mark class="skel">made up</mark> <mark class="skel">the largest</mark> portion, staying fairly <mark class="skel">stable</mark> around 24 to 25 percent <mark class="skel">each</mark> year. Alcoholic beverages and tobacco <mark class="skel">remained</mark> <mark class="skel">the smallest</mark> category, at only about 3 percent throughout the period. Combined, all three categories together ranged between about 27 and 28 percent of total spending.</p><p><mark class="skel">Overall,</mark> spending shares <mark class="skel">stayed</mark> relatively <mark class="skel">stable</mark> across these years, with food remaining the dominant category by far.</p></div>
         <div class="meta">
           <span class="wc">84 words</span>
           <audio controls preload="none" src="audio/item25.mp3"></audio>
@@ -394,7 +423,7 @@
       <div class="num">26</div>
       <img class="thumb" src="images/image26.png" alt="PTE describe image 26" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the number of male and female participants across six different sports categories. Cricket has the highest male participation, with 9 participants, but the lowest female participation, at only 2 participants. Swimming is the only sport where female participants outnumber males, with 6 females compared to 5 males. Other sports like tennis, football, and running show male participants consistently outnumbering females throughout. Overall, male participation generally exceeds female participation across most sports, except in swimming, where females took the lead.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the number of male and female participants across six different sports categories.</p><p>Cricket has <mark class="skel">the highest</mark> male participation, with 9 participants, but <mark class="skel">the lowest</mark> female participation, at only 2 participants. Swimming is the only sport where female participants outnumber males, with 6 females <mark class="skel">compared to</mark> 5 males. Other sports like tennis, football, and running show male participants <mark class="skel">consistently</mark> outnumbering females throughout.</p><p><mark class="skel">Overall,</mark> male participation generally exceeds female participation across most sports, except in swimming, where females took the lead.</p></div>
         <div class="meta">
           <span class="wc">82 words</span>
           <audio controls preload="none" src="audio/item26.mp3"></audio>
@@ -405,7 +434,7 @@
       <div class="num">27</div>
       <img class="thumb" src="images/image27.png" alt="PTE describe image 27" loading="lazy">
       <div class="body">
-        <p class="text">This chart shows the mean salary of first degree graduates by gender from 2008 to 2013. Men consistently earned noticeably more than women throughout this entire five year period. The highest salary appears in 2012 to 2013 for men, reaching about 21,500 pounds. Women salaries stayed relatively flat around 19,000 pounds for most years, only rising slightly in the final year shown. Overall, a clear gender pay gap persisted across all five years, with men earning noticeably more than women each year.</p>
+        <div class="text"><p><mark class="skel">This chart shows</mark> the mean salary of first degree graduates by gender from 2008 to 2013.</p><p>Men <mark class="skel">consistently</mark> earned <mark class="skel">noticeably more</mark> than women throughout this entire five year period. <mark class="skel">The highest</mark> salary appears in 2012 to 2013 for men, r<mark class="skel">each</mark>ing about 21,500 pounds. Women salaries <mark class="skel">stayed</mark> relatively flat around 19,000 pounds for most years, only rising slightly in the final year shown.</p><p><mark class="skel">Overall,</mark> a clear gender pay gap persisted across all five years, with men earning <mark class="skel">noticeably more</mark> than women <mark class="skel">each</mark> year.</p></div>
         <div class="meta">
           <span class="wc">82 words</span>
           <audio controls preload="none" src="audio/item27.mp3"></audio>
