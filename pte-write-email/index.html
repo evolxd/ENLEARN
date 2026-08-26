@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTE Core Write Email 练习集</title>
+<style>
+  :root{
+    --ink:#1a2332;
+    --ink-soft:#5b6579;
+    --line:#e3e6ec;
+    --paper:#ffffff;
+    --bg:#f4f5f7;
+    --blue:#2f6fed;
+    --blue-deep:#1d4fc4;
+    --blue-tint:#eaf0fe;
+    --amber:#c8791a;
+    --amber-tint:#fdf1e0;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.6;
+  }
+
+  /* top bar */
+  .topbar{
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:20;
+  }
+  .topbar-inner{
+    max-width:1120px;margin:0 auto;padding:14px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;}
+  .brand .mark{
+    width:26px;height:26px;border-radius:7px;background:var(--blue);
+    color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;
+  }
+  .nav-links{display:flex;gap:6px;font-size:13px;}
+  .nav-links a{
+    color:var(--ink-soft);text-decoration:none;padding:7px 12px;border-radius:8px;
+  }
+  .nav-links a:hover{background:var(--bg);color:var(--ink);}
+  .nav-links a.current{background:var(--blue-tint);color:var(--blue-deep);font-weight:600;}
+
+  /* header */
+  .page-head{max-width:1120px;margin:0 auto;padding:36px 20px 8px;}
+  .page-head h1{font-size:26px;margin:0 0 6px;letter-spacing:-0.02em;}
+  .page-head p{margin:0;color:var(--ink-soft);font-size:14.5px;max-width:640px;}
+
+  /* layout */
+  .layout{
+    max-width:1120px;margin:0 auto;padding:24px 20px 64px;
+    display:grid;grid-template-columns:280px 1fr;gap:22px;align-items:start;
+  }
+  @media(max-width:860px){
+    .layout{grid-template-columns:1fr;}
+  }
+
+  /* list */
+  .qlist{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;position:sticky;top:70px;
+  }
+  @media(max-width:860px){ .qlist{position:static;} }
+  .qlist-head{
+    padding:14px 16px 10px;font-size:12px;font-weight:600;color:var(--ink-soft);
+    text-transform:uppercase;letter-spacing:.04em;
+  }
+  .qitem{
+    display:block;width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:12px 16px;border-top:1px solid var(--line);font-family:inherit;color:var(--ink);
+  }
+  .qitem:hover{background:var(--bg);}
+  .qitem.active{background:var(--blue-tint);}
+  .qitem .qi-top{display:flex;align-items:center;gap:8px;margin-bottom:3px;}
+  .qi-num{
+    font-size:11px;font-weight:700;color:var(--blue-deep);background:#fff;
+    border:1px solid var(--blue);border-radius:5px;padding:1px 6px;min-width:20px;text-align:center;
+  }
+  .qitem.active .qi-num{background:var(--blue);color:#fff;border-color:var(--blue);}
+  .qi-title{font-size:13.5px;font-weight:600;}
+  .qi-tag{font-size:11.5px;color:var(--ink-soft);margin-left:28px;}
+
+  /* detail card */
+  .card{
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 28px 28px;
+  }
+  .card-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;}
+  .badge{
+    background:var(--blue);color:#fff;font-size:12.5px;font-weight:700;
+    padding:4px 11px;border-radius:7px;
+  }
+  .card-head h2{font-size:19px;margin:0;flex:1;min-width:160px;}
+  .tagpill{
+    font-size:12px;color:var(--amber);background:var(--amber-tint);
+    padding:3px 10px;border-radius:20px;font-weight:600;
+  }
+
+  .prompt-box{
+    background:#fbfaf5;border:1px solid #ece6d3;border-radius:10px;
+    padding:14px 16px;font-size:14px;color:#4a4636;margin-bottom:22px;
+  }
+  .prompt-box .lbl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#9a8a4f;margin-bottom:6px;}
+
+  .split{display:grid;grid-template-columns:1fr;gap:22px;}
+
+  .answer-box{
+    border:1px solid var(--line);border-radius:10px;padding:18px 20px;
+    background:#fcfcfd;font-size:14.5px;white-space:pre-line;
+  }
+  .answer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+  .answer-head .lbl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);}
+  .wc{font-size:12px;color:var(--blue-deep);background:var(--blue-tint);padding:2px 9px;border-radius:20px;font-weight:600;}
+
+  .checklist{margin-top:20px;}
+  .checklist .lbl{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
+  .chk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;}
+  .chk{
+    display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-soft);
+    background:var(--bg);border-radius:8px;padding:7px 10px;
+  }
+  .chk svg{flex-shrink:0;color:#2a9d5c;}
+
+  .footnav{display:flex;justify-content:space-between;margin-top:22px;}
+  .navbtn{
+    border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 14px;
+    font-size:13px;color:var(--ink);cursor:pointer;font-family:inherit;
+  }
+  .navbtn:hover{background:var(--bg);}
+  .navbtn:disabled{opacity:.35;cursor:not-allowed;}
+
+  footer{
+    text-align:center;color:var(--ink-soft);font-size:12.5px;padding:20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="../" class="brand"><span class="mark">EN</span>ENLEARN</a>
+    <div class="nav-links">
+      <a href="../pte-describe-image/">Describe Image</a>
+      <a href="#" class="current">Write Email</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-head">
+  <h1>PTE Core &middot; Write Email 练习集</h1>
+  <p>点击左侧题目查看题干与参考答案，共 12 篇，每篇均在 50–120 词范围内，按官方 Score Guide 的 Content / Form / Organization 等维度写成。</p>
+</div>
+
+<div class="layout">
+
+  <nav class="qlist" id="qlist"></nav>
+
+  <main class="card" id="card"></main>
+
+</div>
+
+<footer>PTE Core Write Email &middot; 参考答案仅供练习使用</footer>
+
+<script>
+const DATA = [{"id": 1, "title": "Left a Bag at a Restaurant", "tag": "失物招领", "prompt": "You and your friends had dinner at a restaurant yesterday. You think you left a bag at the restaurant. Write an email to the restaurant manager. Cover: your situation (when, who you were with, where you sat) / what the bag looks like and what was in it / how to contact you.", "answer": "Dear Manager,\n\nI think I left a bag at your restaurant yesterday evening. I was there around 7 PM with three friends, and we sat at a table near the window.\n\nThe bag is black and medium-sized, made of leather. Inside there's my wallet, a notebook, and a pair of sunglasses.\n\nCould you check if it's been handed in to your lost and found? I'd really appreciate it if you could let me know either way.\n\nYou can reach me at 416-555-0123 or patrick@email.com, and I'm happy to come by anytime that works for you to pick it up.\n\nThanks very much for your help.\n\nBest regards,\nPatrick Chen"}, {"id": 2, "title": "Ask for Vacation", "tag": "请假", "prompt": "You need to take a vacation for 2 weeks and your manager Dani wants you to send her an email with all the details. Write about: Exact dates of the vacation / Reason for the leave / Who will cover for you during that time and where can they reach you if they have to.", "answer": "Dear Dani,\n\nI am writing to request a two-week vacation from June 15th to June 29th. I have finished my current projects, so this timing should not disrupt my workload.\n\nThe reason is a family visit. My parents live in another city and I have not seen them in a while, so I would like to spend this time with them.\n\nDuring my absence, Sarah has agreed to cover my responsibilities. She already knows my ongoing tasks well. If anything urgent comes up, you can reach her at sarah.johnson@company.com or 555-0124.\n\nI will make sure everything is handed over properly before I leave. Thank you for considering my request.\n\nBest regards,\nPatrick Chen"}, {"id": 3, "title": "Can't Help Move Furniture", "tag": "婉拒帮忙", "prompt": "Your friend Jim is moving furniture at the weekend. He originally asked you to help, but your boss asked you to work overtime. Explain that you can't go because of: Work / Transport / Family.", "answer": "Dear Jim,\n\nI'm really sorry, but I won't be able to help move furniture this weekend.\n\nMy boss asked me to work overtime on an urgent project due Monday, so I can't get out of it. On top of that, my family is using our car this weekend, so I wouldn't have a way to get there anyway.\n\nThere's also a family matter, my parents are visiting from out of town, and I'd already promised to spend the weekend with them.\n\nI feel bad about the timing, and I hope you find someone else in time. Happy to help with the next move.\n\nBest,\nPatrick Chen"}, {"id": 4, "title": "Decline Susan's Movie Invitation", "tag": "婉拒邀请", "prompt": "Write an email to Ms. Susan regarding her invitation to go out for a movie, thanking her for the invitation, expressing appreciation, apologizing for not being able to attend, and suggesting another time.", "answer": "Dear Ms. Susan,\n\nThank you so much for inviting me to the movie this weekend. It really means a lot that you thought of me.\n\nUnfortunately, I have to apologize because I won't be able to make it. I have a family commitment that I can't move, and I only found out about it after we had already talked about the movie.\n\nI don't want to miss out on spending time with you though, so would the following weekend work instead? I'm free Saturday or Sunday afternoon, and I'm happy to watch whatever you'd like to see.\n\nThanks again for thinking of me, and I hope we can still make this happen soon.\n\nBest regards,\nPatrick Chen"}, {"id": 5, "title": "Apartment Lighting Complaint", "tag": "投诉建议", "prompt": "You live on the second floor with no elevator. There is only one weak light bulb at the entrance and no light by the stairs. Write to express these difficulties, covering: Install more lights / Brighter lights / Motion sensing lighting.", "answer": "Dear Building Manager,\n\nI would like to raise a safety concern about the lighting in our building. I live on the second floor, and since there is no elevator, I use the stairs daily. There is only one weak bulb at the entrance and no light along the stairwell, which makes it hard to see after dark.\n\nMore light fixtures are needed along the stairs, not just at the entrance, and the existing bulb should be replaced with something brighter.\n\nIt might also be worth considering motion-sensor lights for the stairwell, which turn on automatically and solve the issue without wasting electricity.\n\nI'd appreciate it if this could be looked at soon.\n\nBest regards,\nPatrick Chen"}, {"id": 6, "title": "Report Noise & Hot Water Issue", "tag": "投诉建议", "prompt": "You are renting an apartment. The neighbor above you is noisy and the hot water system is not working well (not the first time). Write to Marvin, the building owner, covering: What problems you encounter / How you are affected / How to fix the problems.", "answer": "Dear Marvin,\n\nI wanted to flag two ongoing issues in my apartment that I'd appreciate your help with.\n\nFirst, the noise from the neighbor above me has become a regular problem, especially in the evenings. Second, the hot water system has stopped working again, and this isn't the first time.\n\nBoth issues affect me more than you'd expect. The noise makes it hard to sleep, and without hot water, simple things like showering become inconvenient.\n\nFor the noise, it would help if you could speak with my neighbor directly. As for the hot water, since it keeps recurring, it may need a proper repair rather than a quick fix.\n\nI'd appreciate hearing back soon.\n\nBest regards,\nPatrick Chen"}, {"id": 7, "title": "Sports Club Party Suggestions", "tag": "建议方案", "prompt": "You are a member of a sports club. Write to the club manager Mrs. Singh with suggestions on how to hold a party, covering: Music / Foods / Games.", "answer": "Dear Mrs. Singh,\n\nI wanted to share a few ideas for the upcoming club party, in case they're helpful for planning.\n\nFor music, something upbeat would set the right mood, maybe a playlist we build together as members. A basic speaker setup should be more than enough.\n\nOn the food side, it would be nice to offer a mix rather than one type of cuisine, and include a vegetarian option so no one feels left out.\n\nAs for games, a few simple sports-related activities could work well, maybe a short relay or team challenge, nothing too competitive, just something fun.\n\nHappy to help organize any of this if useful.\n\nBest regards,\nPatrick Chen"}, {"id": 8, "title": "Suggestions to Save Energy", "tag": "建议方案", "prompt": "Your company is trying to save energy. Write to the manager, Mrs. Smith, with suggestions on energy reduction, covering: Turning off the lights / Shutting down computers / Heating and air-conditioning.", "answer": "Dear Mrs. Smith,\n\nI wanted to share a few ideas that might help with the company's energy-saving goal.\n\nOne easy step would be reminding people to turn off lights in meeting rooms and empty offices, maybe with a small sign near the switch.\n\nComputers are another area worth looking at. If everyone shut theirs down at the end of the day instead of leaving them on standby, it would add up over time.\n\nFor heating and air-conditioning, adjusting the settings by a couple of degrees, and installing a programmable thermostat, could cut usage outside working hours without anyone noticing the difference.\n\nHappy to discuss further if useful.\n\nBest regards,\nPatrick Chen"}, {"id": 9, "title": "Welcome Note to New Neighbor", "tag": "邻里沟通", "prompt": "Write an email to your new neighbor John to resolve some of his problems, covering: Noise / Parking / Garbage.", "answer": "Dear John,\n\nWelcome to the building! I thought it might help to share some practical information now that you've settled in.\n\nOn noise, things are generally quiet here, but sound travels between units, so it's worth keeping music a bit lower after around 10 PM.\n\nFor parking, your assigned spot is number 12, near the entrance. If you have guests over, street parking is available, though it fills up fast on weekends.\n\nAs for garbage, collection is Tuesday and Friday mornings. Bins need to be out by 8 AM, and recyclables should be separated from general waste.\n\nLet me know if anything's unclear.\n\nBest,\nPatrick Chen"}, {"id": 10, "title": "Ask About Presentation Venue", "tag": "信息询问", "prompt": "You're going to give a presentation at your friend Jim's company, but you're not familiar with the venue. Write asking about: your situation and specific time / availability of technology equipment such as computers and projectors / number of participants.", "answer": "Dear Jim,\n\nI'm getting ready for the presentation at your company next Wednesday at 2 PM, but since I haven't been to the venue before, I had a couple of questions.\n\nCould you check whether the meeting room already has a computer and projector set up? I'd rather know in advance if I need to bring my own laptop or an adapter.\n\nIt would also help to know roughly how many people will be attending, just so I can prepare enough handouts and pitch the content at the right level.\n\nLet me know whenever you get a chance.\n\nThanks,\nPatrick Chen"}, {"id": 11, "title": "Restaurant Reservation for 20", "tag": "预订咨询", "prompt": "Write to a restaurant manager asking to reserve a table in Oscar's Kitchen for a friend's birthday party for twenty people next Friday, since online booking only allows six. Cover: the situation and specific time / birthday details and party plans / whether there is parking.", "answer": "Dear Manager,\n\nI'd like to book a table for twenty people at Oscar's Kitchen next Friday evening, but the online system only lets me reserve up to six, so I'm reaching out directly.\n\nIt's for a friend's birthday, and we're planning a relaxed dinner, though a couple of people may want to say a few words during the meal, so a quieter corner would be ideal if possible.\n\nOne more thing, is there parking available at the building? A few of us will be driving over.\n\nLet me know if this is doable and what the next steps are.\n\nThanks,\nPatrick Chen"}, {"id": 12, "title": "Birthday Party Invitation", "tag": "活动邀请", "prompt": "It is your son Alex's birthday next month. Write an email to his classmates' parents inviting them to the birthday party, covering: When and where / Food / Activities.", "answer": "Dear Parents,\n\nAlex's birthday is coming up next month, and we'd love for your child to join us to celebrate.\n\nThe party will be on Saturday, March 15th, from 2 to 5 PM at our place, 123 Maple Street.\n\nThere will be plenty to eat, pizza, sandwiches, fruit, and of course a birthday cake, along with drinks and snacks throughout the afternoon.\n\nFor activities, we've got a few games planned along with face painting and a small treasure hunt, so there should be plenty to keep the kids entertained.\n\nIt would help to know by next week if your child can make it.\n\nBest,\nPatrick Chen"}];
+
+let current = 0;
+
+function wordCount(str){
+  return str.trim().split(/\s+/).length;
+}
+
+function checkIcon(){
+  return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+}
+
+function renderList(){
+  const list = document.getElementById('qlist');
+  let html = '<div class="qlist-head">题目列表 · ' + DATA.length + ' 题</div>';
+  DATA.forEach((item, i) => {
+    html += `<button class="qitem${i===current?' active':''}" data-i="${i}">
+      <div class="qi-top"><span class="qi-num">${item.id}</span><span class="qi-title">${item.title}</span></div>
+      <div class="qi-tag">${item.tag}</div>
+    </button>`;
+  });
+  list.innerHTML = html;
+  list.querySelectorAll('.qitem').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      current = parseInt(btn.dataset.i,10);
+      render();
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+}
+
+function renderCard(){
+  const item = DATA[current];
+  const wc = wordCount(item.answer);
+  const card = document.getElementById('card');
+  card.innerHTML = `
+    <div class="card-head">
+      <span class="badge">Q${item.id}</span>
+      <h2>${item.title}</h2>
+      <span class="tagpill">${item.tag}</span>
+    </div>
+    <div class="prompt-box">
+      <div class="lbl">题目 Prompt</div>
+      ${item.prompt}
+    </div>
+    <div class="split">
+      <div class="answer-box">
+        <div class="answer-head">
+          <span class="lbl">参考答案</span>
+          <span class="wc">${wc} words</span>
+        </div>
+        ${item.answer}
+      </div>
+    </div>
+    <div class="checklist">
+      <div class="lbl">评分要点自查</div>
+      <div class="chk-grid">
+        <div class="chk">${checkIcon()} Content 三主题完整</div>
+        <div class="chk">${checkIcon()} Email Conventions</div>
+        <div class="chk">${checkIcon()} Form 50–120 词</div>
+        <div class="chk">${checkIcon()} Organization 段落清晰</div>
+        <div class="chk">${checkIcon()} Grammar 语法正确</div>
+        <div class="chk">${checkIcon()} Spelling 无拼写错误</div>
+      </div>
+    </div>
+    <div class="footnav">
+      <button class="navbtn" id="prevBtn" ${current===0?'disabled':''}>&larr; 上一题</button>
+      <button class="navbtn" id="nextBtn" ${current===DATA.length-1?'disabled':''}>下一题 &rarr;</button>
+    </div>
+  `;
+  document.getElementById('prevBtn').addEventListener('click', ()=>{ if(current>0){current--; render(); window.scrollTo({top:0,behavior:'smooth'});} });
+  document.getElementById('nextBtn').addEventListener('click', ()=>{ if(current<DATA.length-1){current++; render(); window.scrollTo({top:0,behavior:'smooth'});} });
+}
+
+function render(){
+  renderList();
+  renderCard();
+}
+
+render();
+</script>
+
+</body>
+</html>
