@@ -1,0 +1,1784 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#12141b">
+<title>PTE 排序题记忆卡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+  :root{
+    --bg:#eaeef2;--surface:#ffffff;--surface-2:#f4f6f9;
+    --ink:#1b2130;--ink-soft:#565f72;--ink-mute:#8b93a3;--line:#dce0e8;
+    --accent:#3d3dc8;--accent-soft:#ecebfb;--seq:#b06a08;
+    --sig-bg:#fbeccf;--sig-ink:#7c4d04;--good:#2f8f5b;--warn:#bf850e;
+    --shadow:0 1px 2px rgba(20,25,40,.05),0 6px 20px rgba(20,25,40,.06);
+    --font-ui:'Archivo',"PingFang SC","Microsoft YaHei","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-read:'Source Serif 4',Georgia,"Songti SC",serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#12141b;--surface:#1b1e27;--surface-2:#22262f;
+      --ink:#e7e9f0;--ink-soft:#a7aebe;--ink-mute:#747c8d;--line:#2c313d;
+      --accent:#9aa0f4;--accent-soft:#262648;--seq:#e0a942;
+      --sig-bg:#3b3016;--sig-ink:#f1cd8d;--good:#5cb98a;--warn:#d9a441;
+      --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.28);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12141b;--surface:#1b1e27;--surface-2:#22262f;
+    --ink:#e7e9f0;--ink-soft:#a7aebe;--ink-mute:#747c8d;--line:#2c313d;
+    --accent:#9aa0f4;--accent-soft:#262648;--seq:#e0a942;
+    --sig-bg:#3b3016;--sig-ink:#f1cd8d;--good:#5cb98a;--warn:#d9a441;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 6px 20px rgba(0,0,0,.28);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font-ui);line-height:1.6;-webkit-font-smoothing:antialiased;padding:clamp(16px,4vw,48px) 16px 72px}
+  .wrap{max-width:880px;margin:0 auto}
+
+  header.page{margin-bottom:24px}
+  .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h1{font-size:clamp(25px,5vw,36px);font-weight:700;letter-spacing:-.02em;line-height:1.15;text-wrap:balance;margin:.24em 0 .5em}
+  .lede{color:var(--ink-soft);max-width:64ch;font-size:15px}
+  .lede b{color:var(--ink)}
+  .rule{display:flex;gap:12px;align-items:flex-start;margin-top:16px;padding:13px 15px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);border-radius:10px;font-size:13.5px;color:var(--ink);max-width:70ch}
+  .rule b{color:var(--accent)}
+  .rule .k{font-family:var(--font-mono);font-weight:600;font-size:12px;background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:1px 6px;white-space:nowrap;margin-top:2px}
+  .rule code{font-family:var(--font-mono);font-size:11px;background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:0 4px}
+
+  .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0 14px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5}
+  .filters{display:flex;gap:6px;flex-wrap:wrap}
+  .filters button{font-family:var(--font-ui);font-size:13px;font-weight:600;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 13px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .filters button:hover{border-color:var(--accent)}
+  .filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  .tally{margin-left:auto;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-mute)}
+
+  .cards{display:flex;flex-direction:column;gap:16px}
+  .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--line);border-radius:14px;box-shadow:var(--shadow);overflow:hidden;transition:border-left-color .2s}
+  .card[data-status="review"]{border-left-color:var(--warn)}
+  .card[data-status="mastered"]{border-left-color:var(--good)}
+  .card.hidden{display:none}
+
+  .card__head{display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:16px 18px;font-family:inherit;color:inherit}
+  .card__head:focus-visible{outline:2px solid var(--accent);outline-offset:-3px;border-radius:12px}
+  .meta{display:flex;gap:8px;align-items:center;margin-bottom:9px;flex-wrap:wrap}
+  .chip{font-family:var(--font-mono);font-size:11.5px;font-weight:600;letter-spacing:.03em;padding:2px 8px;border-radius:6px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-soft)}
+  .chip--theme{background:transparent;color:var(--ink-mute)}
+  .chip--soft{background:transparent;color:var(--warn);border-color:color-mix(in srgb,var(--warn) 40%,transparent)}
+  .title-en{display:block;font-size:18px;font-weight:700;letter-spacing:-.01em;font-family:var(--font-read)}
+  .title-cn{display:block;font-size:13.5px;color:var(--ink-soft);margin-top:1px}
+  .hook{margin-top:10px;font-size:13px;color:var(--ink-soft);max-width:70ch}
+  .hook .lab{font-family:var(--font-mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-right:7px}
+  .hook b{color:var(--ink);font-family:var(--font-mono)}
+  .codes{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+  .code{font-family:var(--font-mono);font-size:12px;padding:3px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent);font-weight:600;letter-spacing:.02em}
+  .code b{letter-spacing:.12em}
+  .code--muted{background:var(--surface-2);color:var(--ink-mute)}
+  .expand-hint{margin-left:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--ink-mute);display:flex;align-items:center;gap:5px}
+  .expand-hint svg{transition:transform .25s}
+  .card.open .expand-hint svg{transform:rotate(180deg)}
+
+  .card__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s ease}
+  .card.open .card__body{grid-template-rows:1fr}
+  .card__body > .inner{overflow:hidden}
+  .bodypad{padding:4px 18px 18px;border-top:1px solid var(--line)}
+
+  .lab-line{font-size:11px;color:var(--ink-mute);margin:14px 0 6px;font-family:var(--font-mono);letter-spacing:.04em}
+  .seq{list-style:none;margin:0 0 4px}
+  .seq li{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .seq li:last-child{border-bottom:0}
+  .seq__num{flex:0 0 24px;height:24px;border-radius:7px;display:grid;place-items:center;font-family:var(--font-mono);font-weight:600;font-size:12.5px;background:color-mix(in srgb,var(--seq) 15%,transparent);color:var(--seq);border:1px solid color-mix(in srgb,var(--seq) 35%,transparent)}
+  .en{font-family:var(--font-read);font-size:15px;line-height:1.5;color:var(--ink)}
+  .cn{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+  mark.sig{background:var(--sig-bg);color:var(--sig-ink);padding:0 3px;border-radius:3px;font-style:normal;font-weight:600}
+  .en mark.sig{font-family:var(--font-read)}
+
+  .final{margin-top:16px;padding:15px 16px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 26%,transparent);border-radius:10px}
+  .final__head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .final h3{font-family:var(--font-mono);font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--accent)}
+  .final .order-code{font-family:var(--font-mono);font-size:13px;font-weight:600;letter-spacing:.16em;color:var(--accent)}
+  .ll-label{display:inline-block;font-family:var(--font-mono);font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-mute);margin-right:8px}
+  .derive{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+  .derive li{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:8px;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent)}
+  .derive .dk{flex:0 0 auto;font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.04em;color:var(--accent);background:var(--accent-soft);border-radius:5px;padding:3px 7px;margin-top:2px;white-space:nowrap}
+  .derive .dk.tail{color:var(--seq);background:color-mix(in srgb,var(--seq) 14%,transparent)}
+  .derive p{font-size:13px;line-height:1.7;color:var(--ink)}
+  .derive .q{font-family:var(--font-read)}
+  .lab-line.sub{margin:0 0 8px}
+  .assembled{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .assembled li{display:flex;gap:10px;align-items:flex-start;padding:8px 11px;border-radius:8px;background:var(--surface);border:1px solid var(--line)}
+  .assembled .ax{flex:0 0 21px;height:21px;border-radius:6px;display:grid;place-items:center;font-family:var(--font-mono);font-weight:600;font-size:11.5px;background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent)}
+  .assembled p{font-family:var(--font-read);font-size:14px;line-height:1.45;color:var(--ink)}
+  .pitfall,.mnemonic{margin-top:11px;font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+  .pitfall .ll-label{color:var(--warn)}
+
+  .card__foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:11px 18px;border-top:1px solid var(--line);background:var(--surface-2)}
+  .foot-lab{font-family:var(--font-mono);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-mute)}
+  .status-group{display:flex;gap:6px}
+  .status-group button{font-family:var(--font-ui);font-size:12.5px;font-weight:600;color:var(--ink-soft);background:var(--surface);border:1px solid var(--line);border-radius:7px;padding:5px 11px;cursor:pointer;transition:all .14s}
+  .status-group button:hover{border-color:var(--ink-mute)}
+  .status-group button[aria-pressed="true"][data-set="new"]{background:var(--ink-soft);border-color:var(--ink-soft);color:var(--surface)}
+  .status-group button[aria-pressed="true"][data-set="review"]{background:var(--warn);border-color:var(--warn);color:#1b2130}
+  .status-group button[aria-pressed="true"][data-set="mastered"]{background:var(--good);border-color:var(--good);color:#fff}
+
+  footer.note{margin-top:30px;font-size:12px;color:var(--ink-mute);font-family:var(--font-mono);text-align:center;line-height:1.7}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (max-width:560px){.seq li{gap:9px}.expand-hint span{display:none}.derive li{flex-direction:column;gap:5px}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="page">
+    <div class="eyebrow">PTE · Re-order Paragraphs</div>
+    <h1>排序题记忆卡</h1>
+    <p class="lede">每题核心是「定序核心」三步：<b>定首句 → 锁相邻对 → 定尾句</b>，顺序随之唯一确定。这套推法能迁移到新题；「正确顺序」码是背熟后的快速提取。共 41 题。</p>
+    <div class="rule">
+      <span class="k">三步定序</span>
+      <span><b>① 首句</b>：无代词回指、无 <code>However/For this reason/They/These</code> 类连接词、能引出话题的那句。<b>② 锁相邻对</b>：代词找先行词、连接词接上一句、词汇复现（a few ↔ far more）把两句钉死并定方向。<b>③ 尾句</b>：结果句 / 评价句 / 无后续指代。截图里的编号只是乱序展示的句号，<b>不是答案</b>。</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div class="filters" role="group" aria-label="按掌握度筛选">
+      <button data-filter="all" aria-pressed="true">全部</button>
+      <button data-filter="new" aria-pressed="false">未学</button>
+      <button data-filter="review" aria-pressed="false">需复习</button>
+      <button data-filter="mastered" aria-pressed="false">已掌握</button>
+    </div>
+    <div class="tally" id="tally"></div>
+  </div>
+
+  <div class="cards" id="cards">
+
+    <!-- Q1 -->
+    <article class="card" data-id="q1" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q1</span><span class="chip chip--theme">文化 · 历史</span></div>
+        <span class="title-en">Brazilian Folk Music Research</span>
+        <span class="title-cn">巴西民间音乐采集</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：时间锚 “Early in 1938” + 首次引入 the Mission。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-1-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The intention was to record as much music as possible as quickly as possible, before encroaching influences like radio and cinema began transforming the region's distinctive culture.</p><p class="cn">其意图是尽可能快、尽可能多地录下音乐，赶在广播、电影这类外来影响开始改变该地区独特文化之前。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Early in 1938, Mario de Andrade, the municipal secretary of culture here, dispatched a four-member Folklore Research Mission to the northeastern hinterlands of Brazil on a similar mission.</p><p class="cn">1938 年初，本地的市文化秘书 Mario de Andrade 派出一支四人的民俗调查队，前往巴西东北腹地执行一项类似的任务。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">They recorded whoever and whatever seemed to be interesting: piano carriers, cowboys, beggars, voodoo priests, quarry workers, fishermen, dance troupes and even children at play.</p><p class="cn">他们录下任何看起来有意思的人和事：抬钢琴的、牛仔、乞丐、巫毒祭司、采石工、渔民、舞团，甚至玩耍的孩子。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">But the Brazilian mission's collection ended up languishing in vaults here.</p><p class="cn">但这支巴西调查队的采集成果最终被束之高阁，尘封在库房里。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 1 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>时间状语 “Early in 1938” 起头、首次点出 the Mission。1 的 “The intention” 需先有任务、3 的 “They” 需先行词、4 的 “But” 是转折，均不能开头。</p></li>
+            <li><span class="dk">锁 2→1</span><p>1 的 “The intention” ＝ 第 2 句那支调查队的意图。</p></li>
+            <li><span class="dk">锁 1→3</span><p>3 的 “They” ＝ 四人调查队；他们照 1 的意图去录音。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“But … ended up languishing in vaults” 转折 + 结局，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>Early in 1938, Mario de Andrade … dispatched a four-member Folklore Research Mission to the northeastern hinterlands of Brazil on a similar mission.</p></li>
+            <li><span class="ax">1</span><p>The intention was to record as much music as possible as quickly as possible, before encroaching influences like radio and cinema began transforming the region's distinctive culture.</p></li>
+            <li><span class="ax">3</span><p>They recorded whoever and whatever seemed to be interesting: piano carriers, cowboys, beggars, voodoo priests, quarry workers, fishermen, dance troupes and even children at play.</p></li>
+            <li><span class="ax">4</span><p>But the Brazilian mission's collection ended up languishing in vaults here.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>派出调查队 → 意图抢录 → 见啥录啥 → 却尘封库房</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q2 -->
+    <article class="card" data-id="q2" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q2</span><span class="chip chip--theme">科技 · 能源</span></div>
+        <span class="title-en">Green Technology Engineering</span>
+        <span class="title-cn">绿色技术与工程人才</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句 “Engineers are much needed…”，无代词无连接词。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Engineers are much needed to develop greener technologies.</p><p class="cn">开发更环保的技术非常需要工程师。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The energy sector has a fantastic skills shortage at all levels, both now and looming over it for the next 10 years.</p><p class="cn">能源行业各个层级都存在巨大的技能人才缺口，现在如此，未来十年也将笼罩其上。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Not only are there some good career opportunities, but there's a lot of money going into the research side, too.</p><p class="cn">不仅有不错的职业机会，投入研究这一块的钱也很多。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">With the pressures of climate change and the energy gap, in the last few years funding from the research councils has probably doubled.</p><p class="cn">在气候变化和能源缺口的压力下，最近几年来自研究理事会的经费大概翻了一倍。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>主题句，提出“需要工程师”，无任何回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 给出“为何需要”——行业技能缺口。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“Not only … but …” 承接需求，列出吸引力：机会 + 研究经费。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>4 细化 3 的“经费”——“funding … has probably doubled”，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Engineers are much needed to develop greener technologies.</p></li>
+            <li><span class="ax">2</span><p>The energy sector has a fantastic skills shortage at all levels, both now and looming over it for the next 10 years.</p></li>
+            <li><span class="ax">3</span><p>Not only are there some good career opportunities, but there's a lot of money going into the research side, too.</p></li>
+            <li><span class="ax">4</span><p>With the pressures of climate change and the energy gap, in the last few years funding from the research councils has probably doubled.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>需要工程师 → 有人才缺口 → 机会又有钱 → 经费翻一倍</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q3 -->
+    <article class="card" data-id="q3" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q3</span><span class="chip chip--theme">管理</span></div>
+        <span class="title-en">Employee Motivation Management</span>
+        <span class="title-cn">员工激励管理</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：定义经理的工作，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-1-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">In order to do this, the manager should be able to motivate its employees.</p><p class="cn">为了做到这一点，经理应当能够激励其员工。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The job of a manager in the workplace is to get things done through the employees.</p><p class="cn">经理在职场中的工作，就是通过员工把事情做成。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">However, this easier said than done.</p><p class="cn">然而，这说起来容易做起来难。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Motivation practice and theory are difficult, complex subjects touching on several disciplines.</p><p class="cn">激励的实践与理论是艰深复杂的课题，牵涉多个学科。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 1 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>下定义、无回指；1 的 “this”、3 的 “However” 都要前文。</p></li>
+            <li><span class="dk">锁 2→1</span><p>1 的 “do this” ＝ 2 的“通过员工把事做成” → 于是要激励员工。</p></li>
+            <li><span class="dk">锁 1→3</span><p>3 的 “this [is] easier said than done”，this ＝ 激励员工。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>解释“为什么难”——激励理论艰深复杂，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>The job of a manager in the workplace is to get things done through the employees.</p></li>
+            <li><span class="ax">1</span><p>In order to do this, the manager should be able to motivate its employees.</p></li>
+            <li><span class="ax">3</span><p>However, this easier said than done.</p></li>
+            <li><span class="ax">4</span><p>Motivation practice and theory are difficult, complex subjects touching on several disciplines.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>靠员工做事 → 所以要激励 → 但知易行难 → 因为理论太复杂</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q4 -->
+    <article class="card" data-id="q4" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q4</span><span class="chip chip--theme">就业 · 能源</span></div>
+        <span class="title-en">Energy Research Career</span>
+        <span class="title-cn">能源研究的职业前景</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“新能源学者短缺”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-4-3-2</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Many countries are suffering a shortage of scholars of new energy.</p><p class="cn">许多国家正面临新能源领域学者短缺的问题。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Becoming an engineer not only means more opportunities in their career but will gain more money in their research.</p><p class="cn">成为工程师不仅意味着更多的职业机会，还能在科研中挣到更多钱。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">The money distributed in energy research will double.</p><p class="cn">投入能源研究的经费将会翻倍。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Especially engineers about new energy with the climate change.</p><p class="cn">尤其是气候变化背景下的新能源工程师。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 4 · 3 · 2</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>主题句：学者短缺。</p></li>
+            <li><span class="dk">锁 1→4</span><p>4 的 “Especially engineers …” 缩小 1 的 “scholars”——尤其缺工程师。</p></li>
+            <li><span class="dk">锁 4→3</span><p>由“缺人”转到“投钱”：研究经费将翻倍。</p></li>
+            <li><span class="dk tail">尾句 2</span><p>结论：当工程师 → 更多机会 + 更多钱。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Many countries are suffering a shortage of scholars of new energy.</p></li>
+            <li><span class="ax">4</span><p>Especially engineers about new energy with the climate change.</p></li>
+            <li><span class="ax">3</span><p>The money distributed in energy research will double.</p></li>
+            <li><span class="ax">2</span><p>Becoming an engineer not only means more opportunities in their career but will gain more money in their research.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>许多国家（缺学者）→ 工程师（尤其缺）→ 想要钱（经费翻倍）→ 想要更多钱（机会+收入）</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q5 -->
+    <article class="card" data-id="q5" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q5</span><span class="chip chip--theme">金融 · 历史</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Scottish Banking History</span>
+        <span class="title-cn">苏格兰银行发行史</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：普遍规则“多数国家只有政府能发钞”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-3-5-1-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">When this bank was founded in 1695, Scots coinage was in short supply and of uncertain value, compared with English, Dutch, Flemish or French coin.</p><p class="cn">这家银行 1695 年成立时，与英格兰、荷兰、佛兰德或法国的硬币相比，苏格兰货币供应不足、成色不定。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">In most countries it is only the government, through their central banks, who are permitted to issue currency.</p><p class="cn">在大多数国家，只有政府通过其中央银行才被允许发行货币。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">But in Scotland three banks are still allowed to issue banknotes.</p><p class="cn">但在苏格兰，至今仍有三家银行获准发行纸币。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">To face growth of trade it was deemed necessary to remedy this lack of an adequate currency.</p><p class="cn">为应对贸易增长，人们认为有必要弥补这种货币不足的状况。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">The first Scottish bank to do this was the Bank of Scotland.</p><p class="cn">第一家这么做（发行纸币）的苏格兰银行是苏格兰银行（Bank of Scotland）。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 3 · 5 · 1 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>普遍规则，无回指。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“But in Scotland …” 与 2 直接对比。</p></li>
+            <li><span class="dk">锁 3→5</span><p>“The first Scottish bank to do this” ＝ 发行纸币（3）。</p></li>
+            <li><span class="dk">锁 5→1</span><p>“this bank … founded in 1695” ＝ Bank of Scotland（5）。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“remedy this lack” ＝ 1 里“供应不足、成色不定”，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>In most countries it is only the government, through their central banks, who are permitted to issue currency.</p></li>
+            <li><span class="ax">3</span><p>But in Scotland three banks are still allowed to issue banknotes.</p></li>
+            <li><span class="ax">5</span><p>The first Scottish bank to do this was the Bank of Scotland.</p></li>
+            <li><span class="ax">1</span><p>When this bank was founded in 1695, Scots coinage was in short supply and of uncertain value, compared with English, Dutch, Flemish or French coin.</p></li>
+            <li><span class="ax">4</span><p>To face growth of trade it was deemed necessary to remedy this lack of an adequate currency.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>多数国家政府发钞 → 但苏格兰三家能发 → 第一家是苏银 → 1695年成立时缺钱 → 为贸易须补缺口</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q6 -->
+    <article class="card" data-id="q6" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q6</span><span class="chip chip--theme">国际 · 时政</span></div>
+        <span class="title-en">Foreign Aid Evolution</span>
+        <span class="title-cn">对外援助的演变</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>4</b> 句：时间锚“By the beginning in the 1990s…”，引入变化。</p>
+        <div class="codes"><span class="code">正确顺序 <b>4-2-3-1</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Although the system is far from perfect, it is certainly more transparent than it was when foreign aid routinely helped ruthless dictators stay in power.</p><p class="cn">尽管这套体系远非完美，但它确实比过去——对外援助常常帮助残暴独裁者维持权力的年代——要透明得多。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Scrutiny by the news media shamed many developed countries into curbing their bad practices.</p><p class="cn">新闻媒体的监督使许多发达国家因难堪而收敛了其不良做法。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Today, the projects of organizations like the World Bank are meticulously inspected by watchdog groups.</p><p class="cn">如今，像世界银行这类机构的项目会受到监督团体的严密审查。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">By the beginning in the 1990s, foreign aid began to slowly improve.</p><p class="cn">到了 1990 年代初，对外援助开始缓慢改善。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">4 · 2 · 3 · 1</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 4</span><p>时间锚 + 提出“开始改善”，无回指。</p></li>
+            <li><span class="dk">锁 4→2</span><p>2 讲“如何改善”——媒体监督逼各国收敛。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“Today …” 转到当下结果：项目受严密审查。</p></li>
+            <li><span class="dk tail">尾句 1</span><p>“Although … far from perfect … more transparent than …” 评价性收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">4</span><p>By the beginning in the 1990s, foreign aid began to slowly improve.</p></li>
+            <li><span class="ax">2</span><p>Scrutiny by the news media shamed many developed countries into curbing their bad practices.</p></li>
+            <li><span class="ax">3</span><p>Today, the projects of organizations like the World Bank are meticulously inspected by watchdog groups.</p></li>
+            <li><span class="ax">1</span><p>Although the system is far from perfect, it is certainly more transparent than it was when foreign aid routinely helped ruthless dictators stay in power.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>90年代起开始改善 → 媒体监督逼收敛 → 如今项目被严查 → 虽不完美但更透明</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q7 -->
+    <article class="card" data-id="q7" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q7</span><span class="chip chip--theme">社会评论</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Television's Impact on Society</span>
+        <span class="title-cn">电视对社会的影响</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：引入话题 + 罗列“过去的文明消遣”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-4-5-3</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Television hasn't been with us all that long, but we are already beginning to forget what the world was like without it. … We used to enjoy civilized pleasures. For instance, we used to have hobbies, … go outside for our amusements to theatres, cinemas, restaurants and sporting events.</p><p class="cn">电视进入我们生活的时间并不长，但我们已经开始忘记没有它的世界是什么样。……我们过去享受种种文明的乐趣：有爱好，招待朋友、也被朋友招待，出门到剧院、影院、餐馆和体育场找乐子。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">We even used to read books and listen to music … occasionally. All that belongs to the past. Now all our free time is regulated by the goggle box. We rush home or gulp down our meals to be in time for this or that programme.</p><p class="cn">我们甚至还偶尔读书、听音乐。那一切都属于过去了。如今我们所有的空闲时间都被那台电视机支配。我们赶回家、囫囵吞下饭，就为了赶上这个或那个节目。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Whole generations are growing up addicted to the telly. Food is left uneaten, homework undone and sleep is lost.</p><p class="cn">一代又一代人在对电视的沉迷中长大。饭没吃、作业没做、觉也没睡。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">We have even given up sitting at table and having a leisurely evening meal … A sandwich and a glass of beer will do—anything, providing it don't interfere with the programme. The monster demands and obtains absolute silence and attention.</p><p class="cn">我们甚至放弃了坐在餐桌前从容吃顿晚饭……一个三明治加一杯啤酒就行——什么都行，只要别耽误看节目。这头怪物要求并得到绝对的安静和专注。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">If any member of the family dares to open his mouth during a programme, he is quickly silenced.</p><p class="cn">节目播出时家里谁要是敢开口，立刻会被制止。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 4 · 5 · 3</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>引入“电视”并罗列过去的消遣，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“We even used to read books …” 续 1 的清单，随后转折“All that belongs to the past”。</p></li>
+            <li><span class="dk">锁 2→4</span><p>“We have even given up …” 延续“放弃”的主题，结尾抛出“absolute silence and attention”。</p></li>
+            <li><span class="dk">锁 4→5</span><p>5 具体化 4 的“绝对安静”——开口就被制止。</p></li>
+            <li><span class="dk tail">尾句 3</span><p>“Whole generations … addicted … Food … homework … sleep …” 总结性收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Television hasn't been with us all that long, but we are already beginning to forget what the world was like without it. …</p></li>
+            <li><span class="ax">2</span><p>We even used to read books and listen to music … All that belongs to the past. Now all our free time is regulated by the goggle box. …</p></li>
+            <li><span class="ax">4</span><p>We have even given up sitting at table and having a leisurely evening meal … The monster demands and obtains absolute silence and attention.</p></li>
+            <li><span class="ax">5</span><p>If any member of the family dares to open his mouth during a programme, he is quickly silenced.</p></li>
+            <li><span class="ax">3</span><p>Whole generations are growing up addicted to the telly. Food is left uneaten, homework undone and sleep is lost.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>过去有文明消遣 → 如今被电视支配 → 连晚饭都放弃、要绝对安静 → 谁开口就被制止 → 整代人沉迷、废寝忘食</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q8 -->
+    <article class="card" data-id="q8" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q8</span><span class="chip chip--theme">自然新闻</span></div>
+        <span class="title-en">Snake Removal Incident</span>
+        <span class="title-cn">蛇患清除事件</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句（公司出勤句）：唯一给出公司全称和事件起因，并首次点出 “a man”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-1-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">"He saw a <mark class="sig">'few'</mark> snakes and quickly crawled out," said a post on Big Country Snake Removal's Facebook page.</p><p class="cn">"他看到'几条'蛇就赶紧爬了出来，"该公司在其 Facebook 帖子上写道。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Big Country Snake Removal responded to a home in Albany, Texas, after <mark class="sig">a man</mark> who was trying to restore his cable, climbed under the house and saw some snakes.</p><p class="cn">Big Country Snake Removal 出勤前往得州 Albany 的一户人家，起因是一名男子想修有线电视线路，钻到屋子底下看到了一些蛇。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">"We arrived around lunchtime and as soon as I crawled under I could immediately see that there was <mark class="sig">far more than a 'few'</mark>," the post said.</p><p class="cn">"我们大约中午到场，我一钻进屋底，立刻就看出远不止'几条'，"帖子里说。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">The company <mark class="sig">ended up</mark> removing 45 rattlesnakes from beneath the house.</p><p class="cn">这家公司最终从屋子底下清出了 45 条响尾蛇。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 1 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>唯一给公司全称和事件起因，首次点出 <span class="q">a man</span>。1、3 依赖“帖子”背景，4 的 <span class="q">The company</span> 需先行词。</p></li>
+            <li><span class="dk">锁 2→1</span><p>1 的 <span class="q">He</span> ＝ 2 的 <span class="q">a man</span>（名词在前、代词在后）。</p></li>
+            <li><span class="dk">锁 1→3</span><p>同一条帖子的前后两句；1 说 <span class="q">a 'few'</span>，3 用 <span class="q">far more than a 'few'</span> 反打，方向锁死。</p></li>
+            <li><span class="dk tail">尾句 4</span><p><span class="q">ended up</span> + 数字 45，结局收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>Big Country Snake Removal responded to a home in Albany, Texas, after a man who was trying to restore his cable, climbed under the house and saw some snakes.</p></li>
+            <li><span class="ax">1</span><p>"He saw a 'few' snakes and quickly crawled out," said a post on Big Country Snake Removal's Facebook page.</p></li>
+            <li><span class="ax">3</span><p>"We arrived around lunchtime and as soon as I crawled under I could immediately see that there was far more than a 'few,'" the post said.</p></li>
+            <li><span class="ax">4</span><p>The company ended up removing 45 rattlesnakes from beneath the house.</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>别把信息最全的“背景句 2”当尾句；带引号的金句 1、3 是同一条帖子，靠 a few ↔ far more than a few 锁相邻。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>公司出勤 → 帖子说“就几条” → 到场远不止 → 清 45 条</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q9 -->
+    <article class="card" data-id="q9" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q9</span><span class="chip chip--theme">医疗科普</span></div>
+        <span class="title-en">Importance of Vaccination</span>
+        <span class="title-cn">疫苗接种的重要性</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句 “Vaccines are very important…”：无代词、无连接词、引出话题。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Vaccines are very important to this effort.</p><p class="cn">疫苗对这项工作（防控疾病）非常重要。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en"><mark class="sig">They</mark> protect children from getting and spreading diseases that can make them very sick.</p><p class="cn">它们（疫苗）保护儿童，使其不会染上并传播那些会让他们病得很重的疾病。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en"><mark class="sig">For this reason</mark>, we require children aged 2 months to 18 years old who are entering or attending child care, public school, or private school be vaccinated against certain diseases.</p><p class="cn">正因如此，我们要求 2 月龄至 18 岁、即将进入或正在就读托育机构、公立或私立学校的儿童接种针对某些疾病的疫苗。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">A healthy school setting gives all students the best chance to learn and grow.</p><p class="cn">一个健康的校园环境让所有学生都能获得最好的学习与成长机会。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>2 有 <span class="q">They</span>、3 有 <span class="q">For this reason</span>、4 是泛化结论，都需前文；只有 1 无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 的 <span class="q">They</span> ＝ 1 的 <span class="q">Vaccines</span>。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 的 <span class="q">For this reason</span> ＝ 因为疫苗能防病（2）。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>脱离细节、升华到“健康校园”，评价收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Vaccines are very important to this effort.</p></li>
+            <li><span class="ax">2</span><p>They protect children from getting and spreading diseases that can make them very sick.</p></li>
+            <li><span class="ax">3</span><p>For this reason, we require children aged 2 months to 18 years old … be vaccinated against certain diseases.</p></li>
+            <li><span class="ax">4</span><p>A healthy school setting gives all students the best chance to learn and grow.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>疫苗重要 → 它们防病 → 所以要求接种 → 校园才健康</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q10 -->
+    <article class="card" data-id="q10" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q10</span><span class="chip chip--theme">科技 · 材料</span></div>
+        <span class="title-en">Innovative Textile Development</span>
+        <span class="title-cn">新型纺织纤维</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：主题句“首次用小麦蛋白麸质做出可制衣纤维”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-1-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The fibers are as strong and soft as wool and silk.</p><p class="cn">这种纤维和羊毛、丝绸一样结实、柔软。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Fibers suitable for clothing have been made for the first time from the wheat protein gluten.</p><p class="cn">适合制衣的纤维首次由小麦蛋白麸质制成。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">But they are up to 30 times cheaper.</p><p class="cn">但它们最多能便宜到三十分之一。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Narenda Reddy and Yiqi Yang, who produced the fibers at the University of Nebraska in Lincoln, say that because they are biodegradable they might be used in biomedical applications such as surgical sutures.</p><p class="cn">在林肯市内布拉斯加大学制出这种纤维的 Narenda Reddy 和 Yiqi Yang 表示，由于可生物降解，它们或可用于外科缝线等生物医学用途。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 1 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>“for the first time” 引入新事物，无回指。</p></li>
+            <li><span class="dk">锁 2→1</span><p>1 的 “The fibers” ＝ 2 的纤维，描述其性能。</p></li>
+            <li><span class="dk">锁 1→3</span><p>“But … cheaper” 与 1 的“堪比羊毛丝绸”形成让步对比。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>点出研究者姓名 + 未来医学用途，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>Fibers suitable for clothing have been made for the first time from the wheat protein gluten.</p></li>
+            <li><span class="ax">1</span><p>The fibers are as strong and soft as wool and silk.</p></li>
+            <li><span class="ax">3</span><p>But they are up to 30 times cheaper.</p></li>
+            <li><span class="ax">4</span><p>Narenda Reddy and Yiqi Yang, who produced the fibers … say that because they are biodegradable they might be used in biomedical applications such as surgical sutures.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>麸质首次做纤维 → 堪比羊毛丝绸 → 但便宜得多 → 还可做手术缝线</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q11 -->
+    <article class="card" data-id="q11" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q11</span><span class="chip chip--theme">职场</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Workplace Performance Issues</span>
+        <span class="title-cn">职场绩效下滑</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>4</b> 句：主题句“经理发现员工绩效在下降”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>4-3-1-2-5</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">They go to work very early, from 7:00 to 8:00.</p><p class="cn">他们很早上班，七点到八点之间。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">And they went home very late, some even overwork.</p><p class="cn">而且他们很晚回家，有些人甚至超时工作。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Because of great demand, more and more employees are putting themselves into limit.</p><p class="cn">由于需求巨大，越来越多的员工把自己逼到极限。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Many managers find the employee's performance column is decreasing.</p><p class="cn">许多经理发现员工的绩效指标在下降。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">They (managers) should avoid this phenomenon, because this is not good for the company.</p><p class="cn">他们（经理）应当避免这种现象，因为这对公司不好。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">4 · 3 · 1 · 2 · 5</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 4</span><p>提出现象“绩效下降”，无回指。</p></li>
+            <li><span class="dk">锁 4→3</span><p>3 给原因：需求大 → 员工被逼到极限。</p></li>
+            <li><span class="dk">锁 3→1</span><p>1 的 “They” ＝ 员工；具体表现——很早上班。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“And they went home very late …” 以 And 直接续 1。</p></li>
+            <li><span class="dk tail">尾句 5</span><p>“should avoid this phenomenon” 提建议收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">4</span><p>Many managers find the employee's performance column is decreasing.</p></li>
+            <li><span class="ax">3</span><p>Because of great demand, more and more employees are putting themselves into limit.</p></li>
+            <li><span class="ax">1</span><p>They go to work very early, from 7:00 to 8:00.</p></li>
+            <li><span class="ax">2</span><p>And they went home very late, some even overwork.</p></li>
+            <li><span class="ax">5</span><p>They (managers) should avoid this phenomenon, because this is not good for the company.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>绩效在下降 → 因需求逼到极限 → 早上班 → 又晚回家 → 经理该避免</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q12 -->
+    <article class="card" data-id="q12" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q12</span><span class="chip chip--theme">职场 · 心理</span></div>
+        <span class="title-en">Job Satisfaction Factors</span>
+        <span class="title-cn">工作满意度的影响因素</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：一类员工（求稳、做简单活）——设“Some… Others…”结构的前半。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-4-3</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Numbers of staff who wish to turn up and do a simple job and go home is relatively happy if they believe their work is secure.</p><p class="cn">不少只想来上班、做份简单工作、然后回家的员工，只要相信工作稳定，就相对满足。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">However, any employee who wants to acquire more varied and responsible duties will not feel satisfied for long staying with the same and boring job.</p><p class="cn">然而，任何想要承担更多样、更有责任的职责的员工，长期困在同一份枯燥工作里就不会满意。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">If this opportunity does not exist, they are most likely to be demotivated.</p><p class="cn">如果没有这种机会，他们很可能会失去动力。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">People want to keep working hard only if there are opportunities for promotion to a more challenging job.</p><p class="cn">只有当存在晋升到更有挑战性岗位的机会时，人们才愿意持续努力工作。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 4 · 3</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>描述“求稳型”员工，无回指；2 的 “However” 需前文。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“However, any employee who wants …” 与 1 对照：另一类员工。</p></li>
+            <li><span class="dk">锁 2→4</span><p>4 把 2 概括成一般规律：有晋升机会才肯努力。</p></li>
+            <li><span class="dk tail">尾句 3</span><p>3 的 “this opportunity” ＝ 4 的晋升机会；没有 → 失去动力，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Numbers of staff who wish to turn up and do a simple job and go home is relatively happy if they believe their work is secure.</p></li>
+            <li><span class="ax">2</span><p>However, any employee who wants to acquire more varied and responsible duties will not feel satisfied for long staying with the same and boring job.</p></li>
+            <li><span class="ax">4</span><p>People want to keep working hard only if there are opportunities for promotion to a more challenging job.</p></li>
+            <li><span class="ax">3</span><p>If this opportunity does not exist, they are most likely to be demotivated.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>求稳的人图安稳 → 但求发展的人会腻 → 有晋升才肯拼 → 没机会就没动力</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q13 -->
+    <article class="card" data-id="q13" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q13</span><span class="chip chip--theme">文化 · 旅行</span></div>
+        <span class="title-en">Desert Music Festival</span>
+        <span class="title-cn">沙漠音乐节</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：定义“Festival in The Desert”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-3-2-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The 'Festival in The Desert' is a celebration of the musical heritage of the Touareg, a fiercely independent nomadic people.</p><p class="cn">"沙漠音乐节"是对图阿雷格人音乐传统的庆典——图阿雷格是一支极其独立的游牧民族。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Reaching it tests endurance, with miles of impermanent sand tracks to negotiate.</p><p class="cn">抵达那里考验耐力，要穿越数英里时有时无的沙路。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">It is held annually near Essakane, an oasis some 40 miles north-west of Timbuktu, the ancient city on the Niger River.</p><p class="cn">它每年在 Essakane 附近举办——那是一片绿洲，位于尼日尔河畔古城 Timbuktu 西北约 40 英里处。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">The reward of navigating this rough terrain comes in the form of a three-day feast of music and dance.</p><p class="cn">穿越这片崎岖地带的回报，是一场为期三天的音乐与舞蹈盛宴。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 3 · 2 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>定义音乐节，无回指。</p></li>
+            <li><span class="dk">锁 1→3</span><p>3 的 “It” ＝ 音乐节；讲在哪办。</p></li>
+            <li><span class="dk">锁 3→2</span><p>2 的 “Reaching it” ＝ 到 Essakane 那地方；讲路难走。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“this rough terrain” ＝ 2 的沙路；回报是三天盛宴，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>The 'Festival in The Desert' is a celebration of the musical heritage of the Touareg, a fiercely independent nomadic people.</p></li>
+            <li><span class="ax">3</span><p>It is held annually near Essakane, an oasis some 40 miles north-west of Timbuktu, the ancient city on the Niger River.</p></li>
+            <li><span class="ax">2</span><p>Reaching it tests endurance, with miles of impermanent sand tracks to negotiate.</p></li>
+            <li><span class="ax">4</span><p>The reward of navigating this rough terrain comes in the form of a three-day feast of music and dance.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>音乐节是啥 → 在哪办 → 路难走 → 回报是三天盛宴</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q14 -->
+    <article class="card" data-id="q14" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q14</span><span class="chip chip--theme">考古</span></div>
+        <span class="title-en">Archaeological Dating Methods</span>
+        <span class="title-cn">考古断代方法</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：地层法 → 相对断代，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The series of strata in an archaeological dig enables an excavator to date recovered objects relatively, if not absolutely.</p><p class="cn">考古发掘中的一层层地层，让发掘者能对出土物进行相对断代，即便不能给出绝对年代。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">However, when archaeologists want to know the absolute date of a site, they can often go beyond simple stratigraphy.</p><p class="cn">然而，当考古学家想知道遗址的绝对年代时，他们往往能超越单纯的地层学。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Historical records, coins, and other date-bearing objects can help — if they exist. But even prehistoric sites contain records written in nature's hand.</p><p class="cn">史料、钱币等带有年代信息的物件能帮上忙——前提是它们存在。但即便史前遗址，也含有大自然亲手写下的记录。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">For example, tree ring, Dendrochronology (literally, tree time) dates wooden artefacts by matching their ring patterns to known records, which, in some areas of the world, span several thousand years.</p><p class="cn">例如年轮学（字面意思"树木时间"），通过把木器的年轮纹路与已知记录对照来断代，这类记录在世界某些地区可跨越数千年。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>提出地层法（相对断代），无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“However … absolute date … go beyond simple stratigraphy” 与 1 的“相对”对比。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 列出“超越地层学”的手段，末句抛出“nature's hand”。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“For example, tree ring …” ＝ 3 的“大自然记录”的实例，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>The series of strata in an archaeological dig enables an excavator to date recovered objects relatively, if not absolutely.</p></li>
+            <li><span class="ax">2</span><p>However, when archaeologists want to know the absolute date of a site, they can often go beyond simple stratigraphy.</p></li>
+            <li><span class="ax">3</span><p>Historical records, coins, and other date-bearing objects can help — if they exist. But even prehistoric sites contain records written in nature's hand.</p></li>
+            <li><span class="ax">4</span><p>For example, tree ring, Dendrochronology … dates wooden artefacts by matching their ring patterns to known records …</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>地层法只能相对断代 → 想要绝对年代要另想办法 → 史料钱币、还有自然的记录 → 例如年轮</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q15 -->
+    <article class="card" data-id="q15" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q15</span><span class="chip chip--theme">环境</span></div>
+        <span class="title-en">Electronic Waste Growth</span>
+        <span class="title-cn">电子垃圾的增长</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：原因句“市场扩张、寿命变短”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The global market for electrical and electronic equipment continues to expand, while the lifespan of many products becomes shorter.</p><p class="cn">全球电气与电子设备市场持续扩张，而许多产品的使用寿命却越来越短。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The current global production of e-waste is estimated to be 20-25 million tonnes per year, with most e-waste being produced in Europe, the United States and Australasia.</p><p class="cn">目前全球电子垃圾产量估计为每年 2000 万–2500 万吨，其中大部分产自欧洲、美国和澳大拉西亚。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">In Europe e-waste is increasing at three to five percent a year, almost three times faster than the total waste stream.</p><p class="cn">在欧洲，电子垃圾以每年 3%–5% 的速度增长，几乎是垃圾总量增速的三倍。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Developing countries are also expected to triple their e-waste production over the next five years.</p><p class="cn">预计未来五年，发展中国家的电子垃圾产量也将增至三倍。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>给出根本原因（市场↑、寿命↓），无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 给当前全球总量数据。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“In Europe …” 聚焦 2 里点名的欧洲。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“Developing countries are also …” 用 also 与欧洲对照，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>The global market for electrical and electronic equipment continues to expand, while the lifespan of many products becomes shorter.</p></li>
+            <li><span class="ax">2</span><p>The current global production of e-waste is estimated to be 20-25 million tonnes per year, with most e-waste being produced in Europe, the United States and Australasia.</p></li>
+            <li><span class="ax">3</span><p>In Europe e-waste is increasing at three to five percent a year, almost three times faster than the total waste stream.</p></li>
+            <li><span class="ax">4</span><p>Developing countries are also expected to triple their e-waste production over the next five years.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>市场涨、寿命短 → 全球总量数据 → 欧洲增速快 → 发展中国家也要翻三倍</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q16 -->
+    <article class="card" data-id="q16" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q16</span><span class="chip chip--theme">生态</span></div>
+        <span class="title-en">Mink Ecology in Iceland</span>
+        <span class="title-cn">冰岛的水貂生态</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：美洲水貂自 1930 年代进入冰岛并立足，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-3-4-2</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The American mink has been present in Iceland since the 1930's and despite heavy hunting since 1939 the species has become well established.</p><p class="cn">美洲水貂自 1930 年代起就出现在冰岛，尽管 1939 年以来遭大量猎杀，该物种仍已牢固立足。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Iceland is therefore an ideal place to study undisturbed feeding behaviour and ecology of mink.</p><p class="cn">因此，冰岛是研究水貂未受干扰的觅食行为与生态的理想之地。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">The ecosystem in Iceland is simpler than in other areas where mink are found; the only other mammalian predator is the arctic fox.</p><p class="cn">冰岛的生态系统比水貂分布的其他地区更简单；唯一的另一种哺乳类捕食者是北极狐。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Direct competition between these species appears to be minimal although the arctic fox will sometimes chase mink and disturb them while foraging.</p><p class="cn">这两个物种之间的直接竞争似乎很小，尽管北极狐有时会追赶水貂、在其觅食时打扰它们。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 3 · 4 · 2</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>引入“美洲水貂在冰岛”，无回指。</p></li>
+            <li><span class="dk">锁 1→3</span><p>3 讲冰岛生态更简单，点出北极狐。</p></li>
+            <li><span class="dk">锁 3→4</span><p>4 的 “these species” ＝ 水貂与北极狐（3）。</p></li>
+            <li><span class="dk tail">尾句 2</span><p>“Iceland is therefore an ideal place …” therefore 承接“竞争小、少干扰”，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>The American mink has been present in Iceland since the 1930's and despite heavy hunting since 1939 the species has become well established.</p></li>
+            <li><span class="ax">3</span><p>The ecosystem in Iceland is simpler than in other areas where mink are found; the only other mammalian predator is the arctic fox.</p></li>
+            <li><span class="ax">4</span><p>Direct competition between these species appears to be minimal although the arctic fox will sometimes chase mink and disturb them while foraging.</p></li>
+            <li><span class="ax">2</span><p>Iceland is therefore an ideal place to study undisturbed feeding behaviour and ecology of mink.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>水貂在冰岛立足 → 生态简单只有北极狐 → 两者竞争很小 → 所以是研究理想地</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q17 -->
+    <article class="card" data-id="q17" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q17</span><span class="chip chip--theme">生物</span></div>
+        <span class="title-en">Sea Turtles Sense Touch</span>
+        <span class="title-cn">海龟外壳能感知触碰</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“海龟的骨质外壳能感知触碰”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The bony shell of a sea turtle can actually sense when something touches it.</p><p class="cn">海龟的骨质外壳其实能感知到有东西碰它。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">A series of thin nerves run along the shell and detect pressure changes associated with touch.</p><p class="cn">一系列细小的神经沿外壳分布，能检测与触碰相关的压力变化。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">The nerves do not contain pain receptors so scientists do not think sea turtles feel pain when touched on the shell, but these thin nerves could transmit information to other parts of the sea turtle's body.</p><p class="cn">这些神经不含痛觉感受器，所以科学家认为海龟外壳被碰时不会感到疼痛，但这些细神经可能把信息传给海龟身体的其他部位。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">In addition, researchers and scuba divers have observed sea turtles respond to the stimulation of being touched on the skin of their head and their flippers.</p><p class="cn">此外，研究人员和潜水员观察到，海龟头部和鳍状肢皮肤被触碰时也会有反应。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>提出“外壳能感知触碰”，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 解释机制：外壳上有细神经检测压力。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 的 “The nerves” ＝ 2 的细神经；进一步说明它们不含痛觉感受器。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“In addition …” 补充另一处证据（头部、鳍肢），收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>The bony shell of a sea turtle can actually sense when something touches it.</p></li>
+            <li><span class="ax">2</span><p>A series of thin nerves run along the shell and detect pressure changes associated with touch.</p></li>
+            <li><span class="ax">3</span><p>The nerves do not contain pain receptors so scientists do not think sea turtles feel pain when touched on the shell, but these thin nerves could transmit information to other parts of the sea turtle's body.</p></li>
+            <li><span class="ax">4</span><p>In addition, researchers and scuba divers have observed sea turtles respond to the stimulation of being touched on the skin of their head and their flippers.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>壳能感知触碰 → 靠细神经测压力 → 神经无痛觉但会传信息 → 此外头和鳍也有反应</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q18 -->
+    <article class="card" data-id="q18" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q18</span><span class="chip chip--theme">心理 · 教育</span><span class="chip chip--theme">6 句</span></div>
+        <span class="title-en">Gender-Typed Toys and Development</span>
+        <span class="title-cn">性别定型玩具与儿童发展</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“性别定型玩具 → 男女孩发展不同技能”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-6-5-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Gender-typed toy play leads to the promotion of different skills in boys and girls, with girls practicing communal roles and boys practicing agentic roles.</p><p class="cn">性别定型的玩具游戏使男孩、女孩发展出不同技能：女孩练习"群体协作"角色，男孩练习"自主能动"角色。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Whereas play with stereotypically masculine toys, such as blocks and toy soldiers, is generally associated with the development of spatial skills and more aggressive behavior, playing with stereotypically feminine toys, such as baby dolls and stuffed animals, is associated with more nurturing behavior.</p><p class="cn">玩偏"男性"的玩具（积木、玩具兵）通常与空间能力和更强的攻击性相关，而玩偏"女性"的玩具（娃娃、毛绒玩具）则与更多的照护行为相关。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">In general, strongly gender-typed toys are less supportive of the development of children's physical, cognitive, and artistic skills than are gender-neutral or moderately gender-typed toys.</p><p class="cn">总体而言，强性别定型的玩具对儿童体能、认知、艺术技能的发展，不如中性或适度定型的玩具那样有帮助。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Therefore, playing predominantly with same-gender-typed toys limits the development of children's action repertoires in accordance with gender stereotypes and thus contributes to the perpetuation of gender stereotypes.</p><p class="cn">因此，主要玩同性别定型玩具会按性别刻板印象限制儿童的行为储备，从而助长性别刻板印象的延续。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">This guides children's activities in accordance with gender stereotypes and thus restricts their individual development potential.</p><p class="cn">这会按性别刻板印象引导儿童的活动，从而限制其个人发展潜能。</p></div></li>
+          <li><span class="seq__num">6</span><div><p class="en">Play with sexualized dolls, such as Fashion Barbies, is even associated with a narrowing of perceived career options in girls.</p><p class="cn">玩性感化的娃娃（如时尚芭比）甚至与女孩对职业选择范围认知的收窄相关。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 6 · 5 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>主题句：性别定型玩具 → 男女孩不同技能，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“Whereas … masculine … feminine …” 展开 1 的“不同技能”。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 转到总体评价：强定型玩具不利于技能发展。</p></li>
+            <li><span class="dk">锁 3→6</span><p>“is even associated with …” even 递进，举更严重的一例（职业认知收窄）。</p></li>
+            <li><span class="dk">锁 6→5</span><p>5 的 “This” ＝ 上述整套定型模式；总述其限制个人潜能。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“Therefore … perpetuation of gender stereotypes” 最终结论，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Gender-typed toy play leads to the promotion of different skills in boys and girls …</p></li>
+            <li><span class="ax">2</span><p>Whereas play with stereotypically masculine toys … is associated with more nurturing behavior.</p></li>
+            <li><span class="ax">3</span><p>In general, strongly gender-typed toys are less supportive of the development of children's physical, cognitive, and artistic skills …</p></li>
+            <li><span class="ax">6</span><p>Play with sexualized dolls, such as Fashion Barbies, is even associated with a narrowing of perceived career options in girls.</p></li>
+            <li><span class="ax">5</span><p>This guides children's activities in accordance with gender stereotypes and thus restricts their individual development potential.</p></li>
+            <li><span class="ax">4</span><p>Therefore, playing predominantly with same-gender-typed toys limits the development of children's action repertoires … and thus contributes to the perpetuation of gender stereotypes.</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>5 和 4 都像结论：4 有 “Therefore” 是最终句，5（This…）在前。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>定型玩具→不同技能 → 男玩具/女玩具各练啥 → 总体不利于发展 → 甚至收窄职业认知 → 限制个人潜能 → 因此固化刻板印象</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q19 -->
+    <article class="card" data-id="q19" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q19</span><span class="chip chip--theme">心理实验</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Babies, Colour and Toy Choice</span>
+        <span class="title-cn">婴儿着装颜色与玩具选择实验</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：描述 Will 等人的实验设计，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-5-4-3</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The research by Will and colleagues dressed 6-month-old babies in different colored outfits that did not necessarily match their gender, so the participants had no way of knowing if the baby was in fact a boy or a girl.</p><p class="cn">Will 及同事的研究给 6 个月大的婴儿穿上不一定符合其性别的不同颜色的衣服，因此参与者无从知道婴儿实际是男孩还是女孩。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Sometimes, the infant was dressed in blue and was called Adam and sometimes it was dressed in pink and was called Beth.</p><p class="cn">有时婴儿穿蓝色、被叫作 Adam，有时穿粉色、被叫作 Beth。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Babies in pink or 'girls' were more likely to be given the doll and more people smiled at 'Beth' then at 'Adam'.</p><p class="cn">穿粉色（"女孩"）的婴儿更可能被递上娃娃，而且对"Beth"微笑的人比对"Adam"微笑的多。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">This study found that babies dressed in blue and thought to be boys were more likely to be given the train.</p><p class="cn">该研究发现，穿蓝色、被当作男孩的婴儿更可能被递上火车玩具。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">There were three toys in the room: a train (boy stereotype), a doll (girl stereotype) and a fish (neutral).</p><p class="cn">房间里有三个玩具：火车（男孩刻板）、娃娃（女孩刻板）和鱼（中性）。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 5 · 4 · 3</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>介绍实验设计，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 细化设计：蓝→Adam、粉→Beth。</p></li>
+            <li><span class="dk">锁 2→5</span><p>5 摆出三个待选玩具，为结果铺垫。</p></li>
+            <li><span class="dk">锁 5→4</span><p>4 讲结果之一：蓝衣/男孩 → 火车。</p></li>
+            <li><span class="dk tail">尾句 3</span><p>3 讲平行结果：粉衣/女孩 → 娃娃 + 更多微笑，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>The research by Will and colleagues dressed 6-month-old babies in different colored outfits …</p></li>
+            <li><span class="ax">2</span><p>Sometimes, the infant was dressed in blue and was called Adam and sometimes it was dressed in pink and was called Beth.</p></li>
+            <li><span class="ax">5</span><p>There were three toys in the room: a train (boy stereotype), a doll (girl stereotype) and a fish (neutral).</p></li>
+            <li><span class="ax">4</span><p>This study found that babies dressed in blue and thought to be boys were more likely to be given the train.</p></li>
+            <li><span class="ax">3</span><p>Babies in pink or 'girls' were more likely to be given the doll and more people smiled at 'Beth' then at 'Adam'.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>实验设计→看不出性别 → 蓝叫Adam粉叫Beth → 房里三个玩具 → 蓝的给火车 → 粉的给娃娃、还多微笑</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q20 -->
+    <article class="card" data-id="q20" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q20</span><span class="chip chip--theme">教育</span></div>
+        <span class="title-en">School Open Days</span>
+        <span class="title-cn">学校开放日</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“学校有多种方式让家长了解教育服务”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">School has different ways to let parents know how they provide education services.</p><p class="cn">学校有多种方式让家长了解他们如何提供教育服务。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">One of the common ways is open days.</p><p class="cn">常见方式之一是开放日。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">These are times when parents can know what works for their children will be doing at school.</p><p class="cn">在这些时候，家长可以了解孩子在学校将会做些什么。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Open days are good chances for parents to ask what they want to know.</p><p class="cn">开放日是家长提出想了解问题的好机会。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>“different ways” 主题句，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“One of the common ways is open days” ＝ 从 “ways” 里挑一个。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 的 “These” ＝ open days。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>继续讲开放日：家长可提问，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>School has different ways to let parents know how they provide education services.</p></li>
+            <li><span class="ax">2</span><p>One of the common ways is open days.</p></li>
+            <li><span class="ax">3</span><p>These are times when parents can know what works for their children will be doing at school.</p></li>
+            <li><span class="ax">4</span><p>Open days are good chances for parents to ask what they want to know.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>学校有多种方式 → 其一是开放日 → 这时能了解孩子在校做啥 → 还能当面提问</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q22 -->
+    <article class="card" data-id="q22" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q22</span><span class="chip chip--theme">心理 · 测评</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Personality Assessment Methods</span>
+        <span class="title-cn">人格测评方法之争</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>3</b> 句：主题句“有心理学家认为已有比 MBTI 更好的东西”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>3-1-2-5-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">They champion the notion of the Big Five personality traits — openness, conscientiousness, extroversion, agreeableness and neuroticism.</p><p class="cn">他们推崇"大五"人格特质的概念——开放性、尽责性、外向性、宜人性和神经质。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Of these, only one trait is closely shared with the MBTI — extroversion.</p><p class="cn">这五项里，只有一项与 MBTI 高度共通——外向性。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Some psychologists believe that independent, peer-reviewed research in the decades since the MBTI was devised has provided something better than Myers-Briggs.</p><p class="cn">一些心理学家认为，自 MBTI 问世以来数十年间独立的同行评审研究，已经提供了比迈尔斯-布里格斯更好的东西。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">As Adam Grant says, 'Going around telling people that they're neurotic and disagreeable will not win you any friends.'</p><p class="cn">正如 Adam Grant 所说："到处跟人说他们神经质又难相处，可交不到朋友。"</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">Myers-Briggs does not focus on neuroticism or, indeed, any similarly negative trait, which may point to one of the reasons why the criticisms lobbed at the test by modern science have yet to undermine its popularity.</p><p class="cn">迈尔斯-布里格斯并不关注神经质或任何类似的负面特质，这或许正是现代科学对它的批评至今未能撼动其流行度的原因之一。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">3 · 1 · 2 · 5 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 3</span><p>提出“有更好的东西”，无回指；1 的 “They” 需先行词。</p></li>
+            <li><span class="dk">锁 3→1</span><p>1 的 “They” ＝ 3 里那些心理学家；他们推崇“大五”。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 的 “Of these” ＝ 大五的五项特质。</p></li>
+            <li><span class="dk">锁 2→5</span><p>由“只有外向性共通”推知：MBTI 不碰神经质等负面特质 → 反而流行。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>Adam Grant 的引语佐证 5“不贴负面标签才讨喜”，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">3</span><p>Some psychologists believe that independent, peer-reviewed research … has provided something better than Myers-Briggs.</p></li>
+            <li><span class="ax">1</span><p>They champion the notion of the Big Five personality traits — openness, conscientiousness, extroversion, agreeableness and neuroticism.</p></li>
+            <li><span class="ax">2</span><p>Of these, only one trait is closely shared with the MBTI — extroversion.</p></li>
+            <li><span class="ax">5</span><p>Myers-Briggs does not focus on neuroticism or, indeed, any similarly negative trait, which may point to one of the reasons why the criticisms … have yet to undermine its popularity.</p></li>
+            <li><span class="ax">4</span><p>As Adam Grant says, 'Going around telling people that they're neurotic and disagreeable will not win you any friends.'</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>有人说有更好的 → 他们推崇大五 → 五项里只有外向性与MBTI共通 → MBTI不碰负面特质才流行 → Grant一句话佐证</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q23 -->
+    <article class="card" data-id="q23" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q23</span><span class="chip chip--theme">海洋生态</span></div>
+        <span class="title-en">Coral Reef Ecosystem Challenges</span>
+        <span class="title-cn">珊瑚礁生态面临的挑战</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>3</b> 句：主题句“珊瑚礁承载的海洋生命最多”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>3-1-2-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">But as well as being physically and biologically spectacular, coral reefs also sustain the livelihoods of over half a billion people.</p><p class="cn">但珊瑚礁除了在物理和生物层面蔚为壮观之外，还养活了超过五亿人的生计。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">What is more, this number is expected to double in coming decades while the area of high-quality reef is expected to halve.</p><p class="cn">更有甚者，未来数十年这一数字预计翻倍，而优质珊瑚礁的面积却预计减半。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Coral reefs support more marine life than any other ocean ecosystem and are, not surprisingly, a favorite pursuit for many divers.</p><p class="cn">珊瑚礁承载的海洋生物比任何其他海洋生态系统都多，难怪成为许多潜水者的心头好。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">In combination with the very real threat of climate change, which could lead to increased seawater temperatures and ocean acidification, we start to arrive at some quite frightening scenarios.</p><p class="cn">再叠加气候变化这一切实威胁——它可能导致海水升温和海洋酸化——我们便开始面对一些相当可怕的情景。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">3 · 1 · 2 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 3</span><p>主题句；1 的 “physically and biologically spectacular” 正回指 3。</p></li>
+            <li><span class="dk">锁 3→1</span><p>“But as well as being … spectacular, coral reefs also sustain the livelihoods …”。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 的 “this number” ＝ 1 的“五亿人”。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“In combination with … climate change … frightening scenarios” 叠加威胁收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">3</span><p>Coral reefs support more marine life than any other ocean ecosystem and are, not surprisingly, a favorite pursuit for many divers.</p></li>
+            <li><span class="ax">1</span><p>But as well as being physically and biologically spectacular, coral reefs also sustain the livelihoods of over half a billion people.</p></li>
+            <li><span class="ax">2</span><p>What is more, this number is expected to double in coming decades while the area of high-quality reef is expected to halve.</p></li>
+            <li><span class="ax">4</span><p>In combination with the very real threat of climate change … we start to arrive at some quite frightening scenarios.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>珊瑚礁物种最多 → 还养活五亿人 → 这数字要翻倍、礁却减半 → 再加气候变化 → 情景可怕</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q24 -->
+    <article class="card" data-id="q24" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q24</span><span class="chip chip--theme">自然 · 资源</span></div>
+        <span class="title-en">Fresh Water Resources</span>
+        <span class="title-cn">淡水资源</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：最宽泛的陈述“没有水，人、动物、植物无法生存”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-4-1-3</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Although a few plants and animals can make do with saltwater, all humans need a constant supply of fresh water if they are to stay fit and healthy.</p><p class="cn">虽然少数动植物能靠咸水凑合，但所有人若想保持强健健康，都需要持续的淡水供应。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Without water, people, animals and plants cannot live.</p><p class="cn">没有水，人、动物和植物都无法生存。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Of the total supply of water on the Earth, only about 3 percent of it is fresh, and most of that is stored as ice and snow at the poles, or is so deep under the surface of the Earth that we cannot get to it.</p><p class="cn">在地球全部水量中，只有约 3% 是淡水，而其中大部分以冰雪形式存于两极，或深埋地下、我们无法取用。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Everybody needs fresh water.</p><p class="cn">每个人都需要淡水。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 4 · 1 · 3</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>最宽泛（“水”），无回指。</p></li>
+            <li><span class="dk">锁 2→4</span><p>由“水”收窄到“淡水”：Everybody needs fresh water。</p></li>
+            <li><span class="dk">锁 4→1</span><p>1 展开 4：少数生物能用咸水，但人必须要淡水。</p></li>
+            <li><span class="dk tail">尾句 3</span><p>接“需要” → 讲“稀缺”：只有 3% 是淡水且难取用，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>Without water, people, animals and plants cannot live.</p></li>
+            <li><span class="ax">4</span><p>Everybody needs fresh water.</p></li>
+            <li><span class="ax">1</span><p>Although a few plants and animals can make do with saltwater, all humans need a constant supply of fresh water if they are to stay fit and healthy.</p></li>
+            <li><span class="ax">3</span><p>Of the total supply of water on the Earth, only about 3 percent of it is fresh, and most of that is stored as ice and snow at the poles, or is so deep under the surface of the Earth that we cannot get to it.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>没水活不了 → 人人要淡水 → 人尤其离不开淡水 → 可淡水只有3%还难取</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q25 -->
+    <article class="card" data-id="q25" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q25</span><span class="chip chip--theme">教育 · 理论</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Multiple Intelligence Theory</span>
+        <span class="title-cn">多元智能理论</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：常识入口“多数人熟悉三类学习方式”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-3-5-4-1</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Today there are nine intelligences, and the possibility of others may eventually expand the list.</p><p class="cn">如今有九种智能，未来还可能有别的智能加入这个清单。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Many of us are familiar with three broad categories in which people learn: visual learning, auditory learning, and kinesthetic learning.</p><p class="cn">我们许多人都熟悉人们学习的三大类：视觉型、听觉型和动觉型。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Beyond these three categories, many theories of and approaches toward human learning potential have been established.</p><p class="cn">在这三大类之外，还建立了许多关于人类学习潜能的理论和方法。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Gardner's early work in psychology and later in human cognition and human potential led to his development of the initial six intelligences.</p><p class="cn">加德纳早期在心理学、后来在人类认知与潜能方面的研究，促成他提出最初的六种智能。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">Among them is the theory of multiple intelligences developed by Howard Gardner, Ph.D., … at Harvard University.</p><p class="cn">其中就有由哈佛大学的 Howard Gardner 博士提出的多元智能理论。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 3 · 5 · 4 · 1</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>常识入口“三类学习方式”，无回指。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“Beyond these three categories …” these three ＝ 2 的三类。</p></li>
+            <li><span class="dk">锁 3→5</span><p>5 的 “Among them” ＝ 3 的“许多理论”。</p></li>
+            <li><span class="dk">锁 5→4</span><p>4 讲 Gardner（5 中人物）的早期工作 → 最初六种智能。</p></li>
+            <li><span class="dk tail">尾句 1</span><p>“Today there are nine …” 从六种发展到九种，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>Many of us are familiar with three broad categories in which people learn: visual learning, auditory learning, and kinesthetic learning.</p></li>
+            <li><span class="ax">3</span><p>Beyond these three categories, many theories of and approaches toward human learning potential have been established.</p></li>
+            <li><span class="ax">5</span><p>Among them is the theory of multiple intelligences developed by Howard Gardner, Ph.D., … at Harvard University.</p></li>
+            <li><span class="ax">4</span><p>Gardner's early work in psychology and later in human cognition and human potential led to his development of the initial six intelligences.</p></li>
+            <li><span class="ax">1</span><p>Today there are nine intelligences, and the possibility of others may eventually expand the list.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>熟悉三类学习方式 → 三类之外还有很多理论 → 其中有加德纳的多元智能 → 他先提六种 → 如今已到九种</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q26 -->
+    <article class="card" data-id="q26" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q26</span><span class="chip chip--theme">理财</span></div>
+        <span class="title-en">Young Adult Financial Management</span>
+        <span class="title-cn">年轻人的财务管理</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“很多人 20–30 岁就陷入财务危机”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Many people face serious financial crisis when they are only 20-30 years old.</p><p class="cn">许多人在仅 20–30 岁时就面临严重的财务危机。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">This is because they do not really pay attention to their daily spending, and has poured their spending on buying.</p><p class="cn">这是因为他们并不真正留意日常开销，把钱都倾注在购物上。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">This will lead to them paying piling credit card loan and monthly payments.</p><p class="cn">这会导致他们背上不断累积的信用卡贷款和每月还款。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Although they can have student loan, people should consider creating a budget to track their expenses, prioritize essential spending, and avoid unnecessary debt. Additionally, building an emergency fund and seeking financial advice can help …</p><p class="cn">尽管可以有助学贷款，人们仍应考虑做预算来追踪支出、优先必要开销、避免不必要的债务。此外，建立应急基金和寻求财务建议也有帮助。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>提出现象，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“This is because …” 给原因（不看开销、乱买）。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“This will lead to …” 给后果（信用卡债累积）。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“people should consider creating a budget …” 给对策，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Many people face serious financial crisis when they are only 20-30 years old.</p></li>
+            <li><span class="ax">2</span><p>This is because they do not really pay attention to their daily spending, and has poured their spending on buying.</p></li>
+            <li><span class="ax">3</span><p>This will lead to them paying piling credit card loan and monthly payments.</p></li>
+            <li><span class="ax">4</span><p>Although they can have student loan, people should consider creating a budget to track their expenses … seeking financial advice can help …</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>年轻就财务危机 → 因为乱花不记账 → 于是信用卡债累积 → 对策：做预算、控开销</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q27 -->
+    <article class="card" data-id="q27" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q27</span><span class="chip chip--theme">农业</span><span class="chip chip--soft">原文残缺</span></div>
+        <span class="title-en">Palm Oil Production</span>
+        <span class="title-cn">棕榈油的生产</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：起源句“棕榈油最初产于非洲”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Originally palm oil was produced in Africa.</p><p class="cn">棕榈油最初产于非洲。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The fruit of a golf size produces palm oil.</p><p class="cn">一种高尔夫球大小的果实产出棕榈油。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">With the increase of demand, other continents began to grow this fruit.</p><p class="cn">随着需求增加，其他大洲也开始种植这种果实。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">(原文残缺) As a result, the demand for oil fruit grew.</p><p class="cn">（原文残缺）结果，对油果的需求增长了。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>“Originally … in Africa” 起源，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 介绍果实本身（产油）。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“this fruit” ＝ 2 的果实；需求增加 → 别处也种。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“As a result …” 结果句收尾。</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>该题第 4 句在原截图中已残缺、存在多个版本，顺序仅供参考。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>最初产于非洲 → 高尔夫球大的果产油 → 需求增、别处也种 → 结果需求更大</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q28 -->
+    <article class="card" data-id="q28" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q28</span><span class="chip chip--theme">生活 · 维权</span></div>
+        <span class="title-en">Dealing With Bugs as a Tenant</span>
+        <span class="title-cn">租客如何应对虫害</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：“there are steps you can take” 抛出下文的步骤清单。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-4-1-3</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Alternatively, tenants have the option to tackle the issue themselves with appropriate methods and tools.</p><p class="cn">或者，租客也可以选择用合适的方法和工具自行处理问题。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">If you're dealing with bugs and the landlord isn't addressing the issue, there are steps you can take.</p><p class="cn">如果你正受虫害困扰而房东又不处理，你有一些可以采取的措施。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">This proactive approach ensures that tenants can maintain a healthy and pest-free living environment.</p><p class="cn">这种主动的做法能确保租客维持一个健康、无虫害的居住环境。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">You can report the problem to local government authorities, who can send professionals to handle it.</p><p class="cn">你可以向当地政府部门举报，他们会派专业人员来处理。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 4 · 1 · 3</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>“there are steps you can take” 总起，无回指。</p></li>
+            <li><span class="dk">锁 2→4</span><p>第一步：向政府举报。</p></li>
+            <li><span class="dk">锁 4→1</span><p>“Alternatively …” 第二种选择：自己动手。</p></li>
+            <li><span class="dk tail">尾句 3</span><p>“This proactive approach ensures …” 总评收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>If you're dealing with bugs and the landlord isn't addressing the issue, there are steps you can take.</p></li>
+            <li><span class="ax">4</span><p>You can report the problem to local government authorities, who can send professionals to handle it.</p></li>
+            <li><span class="ax">1</span><p>Alternatively, tenants have the option to tackle the issue themselves with appropriate methods and tools.</p></li>
+            <li><span class="ax">3</span><p>This proactive approach ensures that tenants can maintain a healthy and pest-free living environment.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>房东不管有办法 → 一是举报政府 → 二是自己动手 → 主动处理保环境</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q29 -->
+    <article class="card" data-id="q29" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q29</span><span class="chip chip--theme">健康研究</span></div>
+        <span class="title-en">Exercise and Mental Health Study</span>
+        <span class="title-cn">运动与心理健康研究</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：研究引入“一组研究者着手调查运动与心理健康的关系”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">A group of researchers set out to investigate the relationship between exercise and mental health.</p><p class="cn">一组研究者着手调查运动与心理健康之间的关系。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Participants were divided into two groups: one engaged in regular exercise, while the other remained sedentary.</p><p class="cn">受试者被分为两组：一组进行规律运动，另一组保持久坐。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Initially, there was no significant difference in mental health scores between the two groups.</p><p class="cn">起初，两组的心理健康得分没有显著差异。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Over time, the exercise group reported a notable improvement in mental well-being, suggesting a positive correlation between physical activity and mental health.</p><p class="cn">随着时间推移，运动组的心理健康状况明显改善，表明体育活动与心理健康之间存在正相关。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>研究引入，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 讲方法：分两组。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“Initially … between the two groups” the two groups ＝ 2。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“Over time …” 与 “Initially” 对照，给结论，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>A group of researchers set out to investigate the relationship between exercise and mental health.</p></li>
+            <li><span class="ax">2</span><p>Participants were divided into two groups: one engaged in regular exercise, while the other remained sedentary.</p></li>
+            <li><span class="ax">3</span><p>Initially, there was no significant difference in mental health scores between the two groups.</p></li>
+            <li><span class="ax">4</span><p>Over time, the exercise group reported a notable improvement in mental well-being, suggesting a positive correlation …</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>着手研究 → 分两组 → 起初无差异 → 后来运动组明显改善</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q30 -->
+    <article class="card" data-id="q30" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q30</span><span class="chip chip--theme">学习方法</span></div>
+        <span class="title-en">Study Environment Preferences</span>
+        <span class="title-cn">学习环境偏好</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：一类学生（要绝对安静）——“Some… Others…”的前半。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Some students say that they need complete quiet to read and study.</p><p class="cn">有些学生说他们需要绝对安静才能阅读和学习。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Others study best in crowded, noisy rooms because the noise actually helps them concentrate.</p><p class="cn">另一些人则在拥挤嘈杂的房间里学得最好，因为噪声其实帮助他们集中注意力。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">However, one general rule for all students is that the television seems to be more of a distraction than music or other background noise, so leave the TV off … Also, don't let yourself distracted by computer games, email, or internet surfing.</p><p class="cn">不过，对所有学生适用的一条通则是：电视似乎比音乐或其他背景噪声更让人分心，所以学习时把电视关掉……也别让电脑游戏、邮件或上网分散注意力。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">The point is, you should know the level of noise that is optimal for your own studying.</p><p class="cn">关键在于，你应当知道最适合自己学习的噪声水平。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>“Some students …” 一类人，无回指；设 Some/Others 对照。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“Others study best …” 另一类人。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“However, one general rule for all students …” 对所有人适用的例外。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“The point is …” 归纳收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Some students say that they need complete quiet to read and study.</p></li>
+            <li><span class="ax">2</span><p>Others study best in crowded, noisy rooms because the noise actually helps them concentrate.</p></li>
+            <li><span class="ax">3</span><p>However, one general rule for all students is that the television seems to be more of a distraction than music … so leave the TV off …</p></li>
+            <li><span class="ax">4</span><p>The point is, you should know the level of noise that is optimal for your own studying.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>有人要绝对安静 → 有人要嘈杂 → 但对谁都一样：关电视 → 关键是了解自己</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q31 -->
+    <article class="card" data-id="q31" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q31</span><span class="chip chip--theme">环保行动</span></div>
+        <span class="title-en">Electronic Waste Recycling Initiative</span>
+        <span class="title-cn">电子垃圾回收行动</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“回收电子垃圾是个艰巨挑战”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Recycling electronic waste such as old computers, TVs, and monitors is a daunting challenge considering how much technology we all use today.</p><p class="cn">考虑到如今大家用的科技产品之多，回收旧电脑、电视、显示器这类电子垃圾是一项艰巨的挑战。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The challenge didn't deter IU students, who persuaded the IT Services department to launch its Electronic Waste Collection Days program.</p><p class="cn">这项挑战并没有吓退印第安纳大学的学生，他们说服 IT 服务部门启动了"电子垃圾回收日"项目。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">On numerous dates throughout the year, students, faculty, and staff can drop off their old equipment to be completely recycled. Nothing ends up in a landfill.</p><p class="cn">一年中的许多天，学生、教师和职工都可以把旧设备送来彻底回收。没有任何东西最终进入垃圾填埋场。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Collection days netted more than 650,000 pounds of waste in 2010.</p><p class="cn">2010 年，回收日共收集了超过 65 万磅的废弃物。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>提出“回收是艰巨挑战”，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“The challenge didn't deter …” the challenge ＝ 1。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 描述 2 里启动的项目具体怎么运作。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“netted more than 650,000 pounds … in 2010” 数字成果收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Recycling electronic waste such as old computers, TVs, and monitors is a daunting challenge …</p></li>
+            <li><span class="ax">2</span><p>The challenge didn't deter IU students, who persuaded the IT Services department to launch its Electronic Waste Collection Days program.</p></li>
+            <li><span class="ax">3</span><p>On numerous dates throughout the year, students, faculty, and staff can drop off their old equipment … Nothing ends up in a landfill.</p></li>
+            <li><span class="ax">4</span><p>Collection days netted more than 650,000 pounds of waste in 2010.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>回收是难题 → 学生没被吓退、办了项目 → 项目怎么运作 → 2010年收了65万磅</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q32 -->
+    <article class="card" data-id="q32" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q32</span><span class="chip chip--theme">公司制度</span></div>
+        <span class="title-en">Company Leave Policy</span>
+        <span class="title-cn">公司休假制度</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>2</b> 句：程序第一步“申请休假需提前四周通知”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>2-1-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Upon returning, you will be assigned to the previous position if you leave for 60 days or less than 60 days.</p><p class="cn">返岗时，如果你休假不超过 60 天，将被安排回原岗位。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">You need to give four weeks' notice before you intend to ask for a leave.</p><p class="cn">你需要在打算申请休假前四周提出通知。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">If you leave for more than 60 days, you will be put in a comparable position.</p><p class="cn">如果你休假超过 60 天，将被安排到一个相当的岗位。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Employee should have same wage and benefits.</p><p class="cn">员工应享有相同的工资和福利。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">2 · 1 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 2</span><p>时间上最早的一步：先提前四周通知，无回指。</p></li>
+            <li><span class="dk">锁 2→1</span><p>接着讲返岗：≤60 天 → 回原岗。</p></li>
+            <li><span class="dk">锁 1→3</span><p>“If you leave for more than 60 days …” 与 1 的“≤60 天”并列对照。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“same wage and benefits” 兜底保障收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">2</span><p>You need to give four weeks' notice before you intend to ask for a leave.</p></li>
+            <li><span class="ax">1</span><p>Upon returning, you will be assigned to the previous position if you leave for 60 days or less than 60 days.</p></li>
+            <li><span class="ax">3</span><p>If you leave for more than 60 days, you will be put in a comparable position.</p></li>
+            <li><span class="ax">4</span><p>Employee should have same wage and benefits.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>先提前四周通知 → ≤60天回原岗 → &gt;60天给相当岗位 → 工资福利不变</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q33 -->
+    <article class="card" data-id="q33" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q33</span><span class="chip chip--theme">生活政务</span><span class="chip chip--soft">逻辑弱</span></div>
+        <span class="title-en">Bank Account Opening and Withdrawal Policy</span>
+        <span class="title-cn">银行开户与取款规定</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>3</b> 句 “ID is required to open a bank account”：开户的总述规则；2 的 “your ID” 回指它。</p>
+        <div class="codes"><span class="code">正确顺序 <b>3-2-1-5-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">You can <mark class="sig">deposit</mark> money into new account.</p><p class="cn">你可以往新账户里存钱。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">You can use your <mark class="sig">ID or driver's license</mark>.</p><p class="cn">你可以使用身份证件或驾照。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en"><mark class="sig">ID is required</mark> to open a bank account.</p><p class="cn">开设银行账户需要身份证件。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">If you want to <mark class="sig">withdraw</mark> money, you can go to the ATM.</p><p class="cn">如果你想取钱，可以去 ATM 机。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en"><mark class="sig">Withdrawing money means</mark> to remove money from a bank account.</p><p class="cn">取钱指的是从银行账户中把钱取出。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">3 · 2 · 1 · 5 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">分两组</span><p>标题即线索：<span class="q">开户</span>（3·2·1）在前、<span class="q">取款</span>（5·4）在后。</p></li>
+            <li><span class="dk">首句 3</span><p>开户组的总述规则；2 的 <span class="q">your ID</span> 回指 3 的 <span class="q">ID</span>（3→2：先说要证件、再说用哪种）。1 的 <span class="q">new account</span> 表明账户已开好，排在后。</p></li>
+            <li><span class="dk">锁 5→4</span><p>5 给 <span class="q">withdrawing money</span> 下定义，4 讲怎么做（去 ATM）——先定义、后操作。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“go to the ATM” 是最具体的收尾动作。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">3</span><p>ID is required to open a bank account.</p></li>
+            <li><span class="ax">2</span><p>You can use your ID or driver's license.</p></li>
+            <li><span class="ax">1</span><p>You can deposit money into new account.</p></li>
+            <li><span class="ax">5</span><p>Withdrawing money means to remove money from a bank account.</p></li>
+            <li><span class="ax">4</span><p>If you want to withdraw money, you can go to the ATM.</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>本题英文写得差、逻辑弱，不同版本有出入。别被定义句 5 骗到开头。可靠的只有两条锁：<span class="q">ID</span>→<span class="q">your ID</span>（3→2）、定义→操作（5→4）。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>开户要证件 → 用哪种证件 → 存钱 → 取款是啥 → 去 ATM 取</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q34 -->
+    <article class="card" data-id="q34" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q34</span><span class="chip chip--theme">教育 · 托管</span><span class="chip chip--theme">5 句</span><span class="chip chip--soft">逻辑弱</span></div>
+        <span class="title-en">School Child Care Services</span>
+        <span class="title-cn">学校的托管服务</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>3</b> 句：总述“学校有课前/课后托管”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>3-2-1-4-5</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Preschool children can go to early care.</p><p class="cn">学龄前儿童可以去早托。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Some schools have early school services.</p><p class="cn">有些学校提供课前托管服务。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Schools have child care before/after school.</p><p class="cn">学校提供课前/课后托管。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">In addition, some schools also provide after school services.</p><p class="cn">此外，有些学校还提供课后托管服务。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">Schools charge based on the services they provide.</p><p class="cn">学校按其提供的服务收费。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">3 · 2 · 1 · 4 · 5</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 3</span><p>总述“课前/课后托管”，无回指。</p></li>
+            <li><span class="dk">锁 3→2</span><p>先说“课前”这一类：Some schools have early school services。</p></li>
+            <li><span class="dk">锁 2→1</span><p>1 补“早托”的细节（学龄前儿童）。</p></li>
+            <li><span class="dk">锁 1→4</span><p>“In addition … also … after school services” 用 In addition 转到“课后”那一类。</p></li>
+            <li><span class="dk tail">尾句 5</span><p>“Schools charge based on the services …” 收费说明收尾。</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>本题句子过于零碎，1 与 2 的先后可有争议；靠 3(总)→2/1(课前)→4(课后)→5(收费) 的“总—分—收费”结构记。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>有课前课后托管 → 课前服务 → 学龄前早托 → 此外还有课后 → 按服务收费</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q35 -->
+    <article class="card" data-id="q35" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q35</span><span class="chip chip--theme">职场 · 环境</span><span class="chip chip--theme">5 句</span></div>
+        <span class="title-en">Green Environment and Productivity</span>
+        <span class="title-cn">绿色环境对员工生产力的影响</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“研究者发现生产力与能否看到绿色相关”。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-5-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Researchers found that employee productivity is related to their ability to see greenery in office and the natural environment outside.</p><p class="cn">研究者发现，员工的生产力与他们能否在办公室看到绿植及窗外的自然环境有关。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">Poor lighting and no greenery will cause low efficiency and lack of concentration.</p><p class="cn">采光差、没有绿色，会导致效率低下和注意力不集中。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">A study in the United States found that adding green plants to office spaces could reduce employees' sick leave and improve workplace efficiency.</p><p class="cn">美国一项研究发现，往办公空间里添加绿植能减少员工病假、提升工作效率。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Another study found that artificial green plants, such as high-resolution images and TV displays, can have the same effect even if there are no windows.</p><p class="cn">另一项研究发现，即便没有窗户，人造绿植——比如高清图片和电视显示——也能产生同样效果。</p></div></li>
+          <li><span class="seq__num">5</span><div><p class="en">Some places do not have windows, and are unable to have green plants.</p><p class="cn">有些场所没有窗户，也无法摆放绿植。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 5 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>主题句：生产力与“看到绿色”相关，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 说反面：没绿色 → 效率低。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 给正面证据（美国研究：加绿植 → 少病假、增效率）。</p></li>
+            <li><span class="dk">锁 3→5</span><p>5 提出局限：有些地方没窗、放不了绿植。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“Another study … even if there are no windows” 正是 5 的解法，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Researchers found that employee productivity is related to their ability to see greenery in office and the natural environment outside.</p></li>
+            <li><span class="ax">2</span><p>Poor lighting and no greenery will cause low efficiency and lack of concentration.</p></li>
+            <li><span class="ax">3</span><p>A study in the United States found that adding green plants to office spaces could reduce employees' sick leave and improve workplace efficiency.</p></li>
+            <li><span class="ax">5</span><p>Some places do not have windows, and are unable to have green plants.</p></li>
+            <li><span class="ax">4</span><p>Another study found that artificial green plants … can have the same effect even if there are no windows.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>生产力与绿色相关 → 没绿色效率低 → 加绿植少病假 → 但有的地方没窗 → 人造绿植也管用</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q36 -->
+    <article class="card" data-id="q36" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q36</span><span class="chip chip--theme">地质</span></div>
+        <span class="title-en">Tectonic Plate Movement and Its Effects</span>
+        <span class="title-cn">板块运动及其影响</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>4</b> 句：背景句“地幔占地球体积84%，长期看像液体”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>4-3-2-1</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">The movement also creates gaps in tectonic plates, which reduce the pressure on the mantle beneath it, allowing it to melt and push through.</p><p class="cn">这种运动还会在板块中形成缝隙，减小下方地幔所受的压力，使地幔得以熔化并涌出。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The buildup and sudden release of friction from this movement can cause earthquakes.</p><p class="cn">这种运动积累并骤然释放的摩擦力，可能引发地震。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">This leads the tectonic plates on top to slowly jostle one another.</p><p class="cn">这导致上层的板块彼此缓慢地相互挤推。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">The mantle makes up 84 percent of Earth's volume, and though it's solid rock, over the course of millions of years, it behaves like a liquid.</p><p class="cn">地幔占地球体积的 84%，虽然是固态岩石，但在数百万年的尺度上，其行为像液体。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">4 · 3 · 2 · 1</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 4</span><p>背景铺垫（地幔像液体），无回指。</p></li>
+            <li><span class="dk">锁 4→3</span><p>3 的 “This” ＝ 地幔的流动行为 → 导致板块挤推。</p></li>
+            <li><span class="dk">锁 3→2</span><p>2 的 “this movement” ＝ 板块挤推；其一后果：地震。</p></li>
+            <li><span class="dk tail">尾句 1</span><p>“The movement <b>also</b> creates gaps …” also 承接 2 之后的“另一后果”，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">4</span><p>The mantle makes up 84 percent of Earth's volume, and though it's solid rock, over the course of millions of years, it behaves like a liquid.</p></li>
+            <li><span class="ax">3</span><p>This leads the tectonic plates on top to slowly jostle one another.</p></li>
+            <li><span class="ax">2</span><p>The buildup and sudden release of friction from this movement can cause earthquakes.</p></li>
+            <li><span class="ax">1</span><p>The movement also creates gaps in tectonic plates, which reduce the pressure on the mantle beneath it, allowing it to melt and push through.</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>1 里的 <b>also</b> 是关键——它必须排在“已给过一个后果（2 地震）”之后。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>地幔像液体 → 导致板块挤推 → 一后果是地震 → 还会裂开让地幔涌出</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q37 -->
+    <article class="card" data-id="q37" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q37</span><span class="chip chip--theme">教育理念</span></div>
+        <span class="title-en">Teaching and Learning Relationship</span>
+        <span class="title-cn">教与学的关系</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“传统教育关注教、而非学”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Traditional education focuses on teaching, not learning.</p><p class="cn">传统教育关注的是"教"，而不是"学"。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">It incorrectly assumes that for every ounce of teaching there is an ounce of learning by those who are taught.</p><p class="cn">它错误地假设：每付出一分"教"，被教的人就会有一分"学"。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">However, most of what we learn before, during, and after attending schools is learned without its being taught to us.</p><p class="cn">然而，我们在上学之前、期间和之后所学的大部分东西，都是在没人教的情况下学到的。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">A child learns such fundamental things as how to walk, talk, eat, dress, and so on without being taught these things.</p><p class="cn">孩子学会走路、说话、吃饭、穿衣等最基本的事，都无需被专门教。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>主题句，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 的 “It” ＝ 传统教育；点出其错误假设。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“However …” 反驳该假设：多数东西没人教也学会。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“A child learns … without being taught” 举例佐证 3，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Traditional education focuses on teaching, not learning.</p></li>
+            <li><span class="ax">2</span><p>It incorrectly assumes that for every ounce of teaching there is an ounce of learning by those who are taught.</p></li>
+            <li><span class="ax">3</span><p>However, most of what we learn before, during, and after attending schools is learned without its being taught to us.</p></li>
+            <li><span class="ax">4</span><p>A child learns such fundamental things as how to walk, talk, eat, dress, and so on without being taught these things.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>传统教育重教不重学 → 错以为教多少就学多少 → 然而多数东西没人教也会 → 例如孩子学走路说话</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q38 -->
+    <article class="card" data-id="q38" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q38</span><span class="chip chip--theme">职场</span><span class="chip chip--soft">碎片题 · 原文缺失</span></div>
+        <span class="title-en">Work-Life Boundaries Blur</span>
+        <span class="title-cn">弹性办公让工作生活无边界</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：弹性办公时间让家庭与工作的界限变模糊（原文残缺，据中文标注还原）。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（原截图仅有中文提示，英文缺失）</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Flexible working (hours) blur the boundary between family and work.</p><p class="cn">弹性（工作）时间让家庭和工作的界限变模糊。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The worker … work into family time.</p><p class="cn">员工延长工作时间，工作侵入家庭时间。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">The work also … the result is worrying about work.</p><p class="cn">工作还……这样的结果就是会担心工作。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Employees … workers also check (the concept) more anxiously whether it was done well.</p><p class="cn">员工……这些人也会更焦虑地检查工作有没有做好。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>提出现象：弹性办公 → 界限模糊。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 具体化：工作侵占家庭时间。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“The work also … the result …” 后果：一直担心工作。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>员工更焦虑地反复检查工作，收尾。</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>原截图英文残缺，此卡按中文标注还原，顺序（原标注即 1-2-3-4）供参考。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>弹性办公界限糊 → 工作侵入家庭 → 结果总担心工作 → 反复焦虑检查</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q39 -->
+    <article class="card" data-id="q39" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q39</span><span class="chip chip--theme">生活 · 维权</span><span class="chip chip--soft">碎片题 · 原文缺失</span></div>
+        <span class="title-en">Bed Bugs — What Tenants Can Do</span>
+        <span class="title-cn">臭虫：租客能做什么</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：有臭虫、房东不管，可打 311 投诉（原文残缺，据中文标注还原）。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（原截图以中文提示为主，英文缺失）</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">If you have bed bugs and the landlord does nothing, you can call 311 to complain.</p><p class="cn">有臭虫、房东不管的话，可以打 311 投诉。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">If you want to deal with it yourself, you need to find a professional.</p><p class="cn">如果自己要想办法处理，就要找专业人员。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">These professionals are called exterminators.</p><p class="cn">这些专业人员叫作 exterminator（灭虫师）。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">You need to know what you want and manage the exterminator's output.</p><p class="cn">你要知道自己想要什么，并管理灭虫人员的产出（工作成果）。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>房东不管 → 打 311，第一条路。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“自己处理 → 找专业人员”，第二条路。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“These professionals are called exterminators” 回指 2 的专业人员。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>与灭虫师打交道的注意事项，收尾。</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>原截图英文残缺，此卡按中文标注还原（标注确认为 1→2→3→4）。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>房东不管打311 → 自己弄要找专业 → 他们叫灭虫师 → 要盯着他们干得好不好</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q40 -->
+    <article class="card" data-id="q40" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q40</span><span class="chip chip--theme">语言学习</span><span class="chip chip--soft">碎片题 · 原文残缺</span></div>
+        <span class="title-en">Learning Sign Language</span>
+        <span class="title-cn">手语学习</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“手语手势往往学起来比教起来更难”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（原截图为残句）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Sign gestures are often more difficult to learn than to teach.</p><p class="cn">手语手势往往学起来比教起来更难。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">The complexity lies in the fact that … involves facial (expression and) body posture.</p><p class="cn">其复杂之处在于……涉及面部（表情）和身体姿态。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">They use facial expression and body language to … during communication.</p><p class="cn">交流时他们用面部表情和肢体语言来……</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">But don't worry. Now AI has made learning … easier.</p><p class="cn">但别担心，如今 AI 已让学习……变得更容易。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>提出“难学”，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“The complexity …” the complexity ＝ 1 的“难”。</p></li>
+            <li><span class="dk">锁 2→3</span><p>3 继续展开面部表情、肢体语言的作用。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“But don't worry. Now AI …” 转折收尾。</p></li>
+          </ol>
+          <p class="pitfall"><span class="ll-label">易错</span>原截图为残句，细节缺失；抓“难 → 为何难 → 展开 → 但AI能帮忙”的骨架即可。</p>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>手语难学 → 因为涉及表情体态 → 交流靠表情肢体 → 但别怕，AI来帮忙</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q41 -->
+    <article class="card" data-id="q41" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q41</span><span class="chip chip--theme">心理 · 教育</span></div>
+        <span class="title-en">Toys and Gender Stereotypes</span>
+        <span class="title-cn">玩具与性别刻板印象</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：主题句“玩具不仅是娱乐，还能带来技能发展”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-4-3</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Toys are not only for entertainment, but also bring skill developments.</p><p class="cn">玩具不仅是娱乐，还能带来技能上的发展。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">However, toys do more than just for fun.</p><p class="cn">然而，玩具的作用不止是好玩。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">For example, they buy cars for boys and dolls for girls.</p><p class="cn">比如，他们给男孩买小汽车，给女孩买娃娃。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">Parents often buy toys based on gender stereotypes.</p><p class="cn">家长常常按性别刻板印象来买玩具。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 4 · 3</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>主题句“玩具＝娱乐＋技能”，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>“However, toys do more than just for fun” 承 1，转向“不止好玩”这一面。</p></li>
+            <li><span class="dk">锁 2→4</span><p>由“作用不止好玩”落到具体现象：家长按性别刻板买玩具。</p></li>
+            <li><span class="dk tail">尾句 3</span><p>“For example, they buy cars for boys and dolls for girls” ＝ 4 的实例，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Toys are not only for entertainment, but also bring skill developments.</p></li>
+            <li><span class="ax">2</span><p>However, toys do more than just for fun.</p></li>
+            <li><span class="ax">4</span><p>Parents often buy toys based on gender stereotypes.</p></li>
+            <li><span class="ax">3</span><p>For example, they buy cars for boys and dolls for girls.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>玩具能练技能 → 作用不止好玩 → 家长按性别买 → 比如男车女娃</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+    <!-- Q43 -->
+    <article class="card" data-id="q43" data-status="new">
+      <button class="card__head" aria-expanded="false">
+        <div class="meta"><span class="chip">Q43</span><span class="chip chip--theme">农业 · 科研</span></div>
+        <span class="title-en">Proteins and Plant Growth</span>
+        <span class="title-cn">蛋白质与植物生长</span>
+        <p class="hook"><span class="lab">首句</span>第 <b>1</b> 句：发现句“研究者发现蛋白质能调控植物生长”，无回指。</p>
+        <div class="codes"><span class="code">正确顺序 <b>1-2-3-4</b></span><span class="expand-hint"><span>展开</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></span></div>
+      </button>
+      <div class="card__body"><div class="inner"><div class="bodypad">
+        <p class="lab-line">题目原句（按题号，乱序）· 逐句直译</p>
+        <ol class="seq">
+          <li><span class="seq__num">1</span><div><p class="en">Researchers find proteins can regulate plant growth.</p><p class="cn">研究者发现蛋白质能够调控植物生长。</p></div></li>
+          <li><span class="seq__num">2</span><div><p class="en">They can help plant roots adapt to climate.</p><p class="cn">它们能帮助植物根系适应气候。</p></div></li>
+          <li><span class="seq__num">3</span><div><p class="en">Understanding this process helps researchers find that some grains can live in drought.</p><p class="cn">理解这一过程，帮助研究者发现某些谷物能在干旱中存活。</p></div></li>
+          <li><span class="seq__num">4</span><div><p class="en">In the future this can be applied to crops across the world so they can adapt to drought.</p><p class="cn">未来这可以应用到全世界的作物上，使它们能适应干旱。</p></div></li>
+        </ol>
+        <div class="final">
+          <div class="final__head"><h3>定序核心</h3><span class="order-code">1 · 2 · 3 · 4</span></div>
+          <ol class="derive">
+            <li><span class="dk">首句 1</span><p>发现句，无回指。</p></li>
+            <li><span class="dk">锁 1→2</span><p>2 的 “They” ＝ 蛋白质。</p></li>
+            <li><span class="dk">锁 2→3</span><p>“Understanding this process …” this process ＝ 蛋白质帮根系适应气候。</p></li>
+            <li><span class="dk tail">尾句 4</span><p>“In the future this can be applied …” 展望应用，收尾。</p></li>
+          </ol>
+          <p class="lab-line sub">段落内容（编号＝题目原句号）</p>
+          <ol class="assembled">
+            <li><span class="ax">1</span><p>Researchers find proteins can regulate plant growth.</p></li>
+            <li><span class="ax">2</span><p>They can help plant roots adapt to climate.</p></li>
+            <li><span class="ax">3</span><p>Understanding this process helps researchers find that some grains can live in drought.</p></li>
+            <li><span class="ax">4</span><p>In the future this can be applied to crops across the world so they can adapt to drought.</p></li>
+          </ol>
+          <p class="mnemonic"><span class="ll-label">顺口溜</span>蛋白质能调控生长 → 帮根系适应气候 → 由此发现有谷物抗旱 → 未来可推广到全球作物</p>
+        </div>
+      </div></div></div>
+      <div class="card__foot"><span class="foot-lab">掌握度</span><div class="status-group" role="group" aria-label="标记掌握度"><button data-set="new" aria-pressed="true">未学</button><button data-set="review" aria-pressed="false">需复习</button><button data-set="mastered" aria-pressed="false">已掌握</button></div></div>
+    </article>
+
+  </div>
+
+  <footer class="note">共 41 题 · 逐题「定序核心」推导 · 掌握度自动存本地<br>Q21、Q42 无题目截图；Q27 / Q33 / Q34 / Q38 / Q39 / Q40 原文残缺或逻辑弱，已标注</footer>
+</div>
+
+<script>
+(function(){
+  var KEY='pte-ro-status-v2';
+  var store={};
+  try{store=JSON.parse(localStorage.getItem(KEY)||'{}')||{};}catch(e){store={};}
+  var cards=Array.prototype.slice.call(document.querySelectorAll('.card'));
+  var tally=document.getElementById('tally');
+  var filterBtns=Array.prototype.slice.call(document.querySelectorAll('.filters button'));
+  var activeFilter='all';
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(store));}catch(e){}}
+  function applyStatus(card){
+    var id=card.getAttribute('data-id');
+    var st=store[id]||'new';
+    card.setAttribute('data-status',st);
+    card.querySelectorAll('.status-group button').forEach(function(b){
+      b.setAttribute('aria-pressed',b.getAttribute('data-set')===st?'true':'false');
+    });
+  }
+  function applyFilter(){
+    var shown=0;
+    cards.forEach(function(card){
+      var st=card.getAttribute('data-status');
+      var match=activeFilter==='all'||st===activeFilter;
+      card.classList.toggle('hidden',!match);
+      if(match)shown++;
+    });
+    var mastered=cards.filter(function(c){return c.getAttribute('data-status')==='mastered';}).length;
+    tally.textContent=shown+' / '+cards.length+' 题 · '+mastered+' 已掌握';
+  }
+  cards.forEach(function(card){
+    applyStatus(card);
+    var head=card.querySelector('.card__head');
+    head.addEventListener('click',function(){
+      var open=card.classList.toggle('open');
+      head.setAttribute('aria-expanded',open?'true':'false');
+    });
+    card.querySelectorAll('.status-group button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var id=card.getAttribute('data-id');
+        var set=btn.getAttribute('data-set');
+        store[id]=(store[id]===set&&set!=='new')?'new':set;
+        save();applyStatus(card);applyFilter();
+      });
+    });
+  });
+  filterBtns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      activeFilter=btn.getAttribute('data-filter');
+      filterBtns.forEach(function(b){b.setAttribute('aria-pressed',b===btn?'true':'false');});
+      applyFilter();
+    });
+  });
+  applyFilter();
+})();
+</script>
+</body>
+</html>
