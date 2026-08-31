@@ -130,10 +130,7 @@
 
   /* ---- method guide ---- */
   .guide{margin:20px 0 4px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
-  .guide>summary{list-style:none;cursor:pointer;padding:15px 18px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:10px;font-family:var(--font-read)}
-  .guide>summary::-webkit-details-marker{display:none}
-  .guide>summary::after{content:"\25B8";margin-left:auto;color:var(--ink-mute);transition:transform .2s}
-  .guide[open]>summary::after{transform:rotate(90deg)}
+  .guide__head{padding:14px 18px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:10px;font-family:var(--font-read)}
   .guide .g-tag{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:5px;padding:3px 7px}
   .guide__body{padding:2px 18px 20px;border-top:1px solid var(--line)}
   .guide h3{font-family:var(--font-read);font-size:15px;font-weight:700;margin:20px 0 7px;color:var(--ink);text-wrap:balance}
@@ -172,8 +169,8 @@
     </div>
   </header>
 
-  <details class="guide" open>
-    <summary><span class="g-tag">解题总纲</span>PTE 排序题：一次全做对的方法</summary>
+  <section class="guide">
+    <div class="guide__head"><span class="g-tag">解题总纲</span>PTE 排序题：一次全做对的方法</div>
     <div class="guide__body">
 
       <p><b>一句话：</b>段落是一条逻辑链——<b>定首句 → 一环扣一环锁下去 → 定尾句</b>。顺序是<b>推</b>出来的，不是"读起来顺"猜出来的。失分几乎都在<b>第 1、2 位</b>；中间和结尾往往自动成立。</p>
@@ -252,7 +249,7 @@
       </div>
 
     </div>
-  </details>
+  </section>
 
   <div class="toolbar">
     <div class="filters" role="group" aria-label="按掌握度筛选">
