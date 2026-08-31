@@ -128,6 +128,33 @@
 
   footer.note{margin-top:30px;font-size:12px;color:var(--ink-mute);font-family:var(--font-mono);text-align:center;line-height:1.7}
 
+  /* ---- method guide ---- */
+  .guide{margin:20px 0 4px;border:1px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+  .guide>summary{list-style:none;cursor:pointer;padding:15px 18px;font-weight:700;font-size:16px;display:flex;align-items:center;gap:10px;font-family:var(--font-read)}
+  .guide>summary::-webkit-details-marker{display:none}
+  .guide>summary::after{content:"\25B8";margin-left:auto;color:var(--ink-mute);transition:transform .2s}
+  .guide[open]>summary::after{transform:rotate(90deg)}
+  .guide .g-tag{font-family:var(--font-mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-soft);border-radius:5px;padding:3px 7px}
+  .guide__body{padding:2px 18px 20px;border-top:1px solid var(--line)}
+  .guide h3{font-family:var(--font-read);font-size:15px;font-weight:700;margin:20px 0 7px;color:var(--ink);text-wrap:balance}
+  .guide h3:first-child{margin-top:12px}
+  .guide p{font-size:13.5px;line-height:1.72;color:var(--ink);margin:6px 0}
+  .guide ol,.guide ul{padding-left:20px;display:flex;flex-direction:column;gap:5px;margin:7px 0}
+  .guide li{font-size:13.5px;line-height:1.7;color:var(--ink)}
+  .guide b{color:var(--ink)}
+  .guide .w{color:var(--warn);font-weight:600}
+  .guide code{font-family:var(--font-mono);font-size:11.5px;background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:0 4px}
+  .guide .tw{overflow-x:auto;margin:8px 0}
+  .guide table{width:100%;border-collapse:collapse;font-size:12.5px}
+  .guide th,.guide td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top;white-space:nowrap}
+  .guide td:first-child{white-space:normal}
+  .guide th{background:var(--surface-2);font-family:var(--font-mono);font-size:10.5px;font-weight:600;letter-spacing:.03em}
+  .guide .me{margin-top:16px;padding:12px 14px;border-radius:10px;background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 26%,transparent)}
+  .guide .me h3{margin-top:0;color:var(--accent)}
+  .guide .step{list-style:none;padding-left:0;counter-reset:s}
+  .guide .step>li{display:flex;gap:10px}
+  .guide .step>li::before{counter-increment:s;content:counter(s);flex:0 0 20px;height:20px;margin-top:1px;border-radius:6px;display:grid;place-items:center;font-family:var(--font-mono);font-size:11px;font-weight:600;background:color-mix(in srgb,var(--accent) 15%,transparent);color:var(--accent)}
+
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
   @media (max-width:560px){.seq li{gap:9px}.expand-hint span{display:none}.derive li{flex-direction:column;gap:5px}}
 </style>
@@ -144,6 +171,88 @@
       <span><b>① 首句</b>：无代词回指、无 <code>However/For this reason/They/These</code> 类连接词、能引出话题的那句。<b>② 锁相邻对</b>：代词、<code>this·these·such＋名词</code> 都要往前找先行词；连接词接上一句；词汇复现（a few ↔ far more）把两句钉死并定方向。<b>③ 尾句</b>：结果句 / 评价句 / 无后续指代。截图里的编号只是乱序展示的句号，<b>不是答案</b>。</span>
     </div>
   </header>
+
+  <details class="guide" open>
+    <summary><span class="g-tag">解题总纲</span>PTE 排序题：一次全做对的方法</summary>
+    <div class="guide__body">
+
+      <p><b>一句话：</b>段落是一条逻辑链——<b>定首句 → 一环扣一环锁下去 → 定尾句</b>。顺序是<b>推</b>出来的，不是"读起来顺"猜出来的。失分几乎都在<b>第 1、2 位</b>；中间和结尾往往自动成立。</p>
+
+      <h3>一、找首句：排除法（谁都不依赖前文，谁就是首句）</h3>
+      <ol>
+        <li><b>有代词、却无先行词</b> → 出局：it / they / them / he / she / his / this / that / these / those / such</li>
+        <li><b>this·these·such·that ＋ 名词</b>（<code>this effort</code> / <code>this number</code> / <code>these times</code> / <code>such things</code>）→ 是回指，出局</li>
+        <li><b>承接性连接词开头</b> → 出局：However / But / Therefore / For this reason / As a result / Also / Instead / In addition / Furthermore / On the other hand / Meanwhile</li>
+        <li><b>"the ＋ 特指名词"指向还没登场的东西</b>（<code>The company</code> / <code>The nerves</code> / <code>The movement</code> / <code>The study</code>）→ 需先行词，出局</li>
+        <li><b>专有名词的简称 / 第二次提及</b> → 全称、首次提及的那句排在前</li>
+      </ol>
+      <p>剩下的那句（通常<b>最概括、信息最"空"</b>，只是抛出话题或背景）＝首句。</p>
+      <p class="w">⚠ 首句不一定"读起来最重要"。像目标句 / 评价句（"A healthy school setting gives all students the best chance…"）也能作首句——只要后面有句子用 <code>this</code> 回指它。</p>
+
+      <h3>二、锁相邻对：定完首句就"机械追踪"，别再凭语感</h3>
+      <p>每一步只问一个问题：<b>剩下的句子里，哪一句往回勾住了我刚放下的这句？</b>勾子只有四种：</p>
+      <ul>
+        <li><b>代词回指</b>：They / It / This / These / Such → 往前找它指代的名词（名词必须在前）</li>
+        <li><b>this·these·such ＋ 名词 回指</b>：<code>this reason</code>（前句给了理由）、<code>this fruit</code>（前句提了果实）、<code>these species</code>（前句提了两个物种）</li>
+        <li><b>词汇复现 / 同义替换</b>：<code>a few</code> ↔ <code>far more than a few</code>；<code>ID</code> ↔ <code>your ID</code>；<code>the mission</code> ↔ <code>they</code></li>
+        <li><b>逻辑连接词</b>：For this reason / As a result（前句是因）、However / But（前句是对立面）、For example（前句是总述）、One of… / Another…（前句提了"多种/已给一个"）、also / In addition / even（前句已给过一条同类）</li>
+      </ul>
+      <p>方向也被勾子锁死：<b>名词在前、代词在后</b>；<b>因在前、果在后</b>；<b>总述在前、举例在后</b>；<b>说法在前、反驳在后</b>；<b>一般论断在前、解释它的句子在后</b>。</p>
+
+      <h3>三、定尾句：往回勾、但没有句子勾它</h3>
+      <ul>
+        <li><b>结果 / 结论</b>：ended up / in the end / finally / the result is / 以数字收尾（"…removing 45 rattlesnakes" / "netted more than 650,000 pounds"）</li>
+        <li><b>评价 / 拔高</b>：The point is… / we start to arrive at… / contributes to the perpetuation of…</li>
+        <li>带 <b>Therefore</b> 的最终总结（若两句都像结论，带 Therefore 的那句在后）</li>
+      </ul>
+      <p class="w">⚠ 定义句（"Withdrawing money means…" / "X means…"）直觉像首句，实际常被放在相关内容之后。</p>
+
+      <h3>四、连接词信号总表（看到就知道前后关系）</h3>
+      <div class="tw"><table>
+        <tr><th>信号词</th><th>说明前一句是</th><th>位置倾向</th></tr>
+        <tr><td>However / But / Yet</td><td>对立面</td><td>中后段</td></tr>
+        <tr><td>For this reason / As a result / Therefore / Thus</td><td>原因</td><td>中后段 / 结尾</td></tr>
+        <tr><td>For example / For instance</td><td>总述</td><td>紧跟总述</td></tr>
+        <tr><td>One of… / Another…</td><td>"多种" / 已给一个</td><td>中段</td></tr>
+        <tr><td>In addition / also / What is more / even</td><td>已给过一条同类</td><td>中后段</td></tr>
+        <tr><td>Especially</td><td>上一句的范围（此处缩小）</td><td>紧跟被缩小的那句</td></tr>
+        <tr><td>this / these / such ＋ 名词</td><td>该名词刚出现过</td><td>紧跟</td></tr>
+        <tr><td>Today / Now / In the future</td><td>时间对照（前面有"过去/以前"）</td><td>转折 / 结尾</td></tr>
+        <tr><td>Initially / At first ↔ Over time / Later</td><td>阶段对照</td><td>成对出现</td></tr>
+      </table></div>
+
+      <h3>五、六种题型套路（记住结构，秒排）</h3>
+      <ol>
+        <li><b>研究 / 实验型</b>：研究目的 → 方法(分组) → 起初结果 → 后来结果 / 结论　<span style="opacity:.6">(Q29 · Q19)</span></li>
+        <li><b>现象-原因-后果-对策</b>：提出现象 → This is because(原因) → This will lead to(后果) → should…(对策)　<span style="opacity:.6">(Q26)</span></li>
+        <li><b>总-分-分-收</b>：主题句 → 一方面 → 另一方面(However / also) → The point is…　<span style="opacity:.6">(Q30 · Q12)</span></li>
+        <li><b>新闻型</b>：引语金句 + 出处 → 背景 → 细节 / 续引 → 结果数字　<span style="opacity:.6">(Q8)</span></li>
+        <li><b>定义 / 规则型</b>：一般规则 → But 特例 → 首例是… → 具体情形 → 兜底　<span style="opacity:.6">(Q5)</span></li>
+        <li><b>历史演变型</b>：时间锚(Early in 1938 / By the 1990s) → 怎么做 → 如今 → 评价　<span style="opacity:.6">(Q1 · Q6)</span></li>
+      </ol>
+
+      <h3>六、考场 30 秒流程</h3>
+      <ol class="step">
+        <li>快速读完全部句子，<b>圈出每句的：代词 / this+名词 / 连接词 / 数字 / 专有名词</b></li>
+        <li>用"一、排除法"找出<b>唯一</b>首句</li>
+        <li>从首句开始，<b>每次只找"勾住上一句"的那句</b>，一环一环往下接</li>
+        <li>剩最后一句自然落尾</li>
+        <li><b>交卷前只检查第 1↔2 的接缝</b>：第 2 句里有没有一个词<b>字面</b>指向第 1 句？没有就重排</li>
+        <li>通读一遍：代词都有先行词、时间 / 因果都顺 → 提交</li>
+      </ol>
+
+      <div class="me">
+        <h3>七、你的个人易错点（从复盘图看出）</h3>
+        <p>你能挑对首句和尾句，<b>但第 2 位常错</b>——锁完首句就停止追踪、改回语感。具体两种：</p>
+        <ul>
+          <li>把带 <b>this ＋ 名词</b> 的回指句当成独立总纲，放错位。<span style="opacity:.7">Q9 把 "Vaccines are very important to this effort" 放到了末尾——其实 this effort 指句 4，必须紧跟句 4。</span></li>
+          <li>把"具体情况句"排在"一般论断句"前面。<span style="opacity:.7">Q2 把"能源行业缺人"放在"需要工程师"前面——应是先论断、后解释。</span></li>
+        </ul>
+        <p><b>对策：</b>见到 <code>this / these / such</code> 立刻往前找先行词；记住"一般论断 → 下一句解释它"，别倒过来。</p>
+      </div>
+
+    </div>
+  </details>
 
   <div class="toolbar">
     <div class="filters" role="group" aria-label="按掌握度筛选">
