@@ -182,6 +182,29 @@
   }
   .nav-links a:hover { background: #f4f5f7; color: #1a2332; }
   .nav-links a.current { background: #eaf0fe; color: #1d4fc4; font-weight: 600; }
+
+  details.answer { margin: 0 0 0.8rem; }
+  details.answer > summary {
+    list-style: none;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+    margin: 0 auto 0.2rem;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.88rem;
+    font-weight: 600;
+    user-select: none;
+  }
+  details.answer > summary::-webkit-details-marker { display: none; }
+  details.answer > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  details.answer .s-hide, details.answer[open] .s-show { display: none; }
+  details.answer[open] .s-hide { display: inline; }
+  details.answer[open] > summary { margin-bottom: 0.8rem; }
+  details.answer .text { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -197,7 +220,7 @@
 <header>
   <h1>PTE Describe Image — Practice Set</h1>
   <p>27 images, each with a model-answer description.</p>
-  <div class="legend"><mark class="skel">highlighted</mark> phrases are ONE fixed skeleton shared by all 27 answers — intro / highest / lowest / in addition / conclusion. Memorize it once, then just swap in the numbers and nouns for any image.</div>
+  <div class="legend"><mark class="skel">highlighted</mark> phrases are ONE fixed skeleton shared by all 27 answers — intro / highest / lowest / in addition / conclusion. Memorize it once, then just swap in the numbers and nouns for any image. Answers are hidden by default — try describing the image yourself first, then tap Show answer.</div>
 </header>
 <main>
 
@@ -205,7 +228,7 @@
       <div class="num">01</div>
       <img class="thumb" src="images/image1.png" alt="PTE describe image 1" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This picture shows clear information about</mark> how to make a cup of instant coffee.</p><p><mark class="skel">According to this image,</mark> first, you pour hot water into a cup, open the coffee packet, and pour in the powder.</p><p><mark class="skel">Then,</mark> you add sugar and some creamer or milk, and stir everything together with a spoon.</p><p><mark class="skel">Finally,</mark> you can see a person enjoying and drinking the coffee.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> the steps for preparing a cup of instant coffee.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This picture shows clear information about</mark> how to make a cup of instant coffee.</p><p><mark class="skel">According to this image,</mark> first, you pour hot water into a cup, open the coffee packet, and pour in the powder.</p><p><mark class="skel">Then,</mark> you add sugar and some creamer or milk, and stir everything together with a spoon.</p><p><mark class="skel">Finally,</mark> you can see a person enjoying and drinking the coffee.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> the steps for preparing a cup of instant coffee.</p></div></details>
         <div class="meta">
           <span class="wc">80 words</span>
         </div>
@@ -215,7 +238,7 @@
       <div class="num">02</div>
       <img class="thumb" src="images/image2.png" alt="PTE describe image 2" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the top ten U.S. cities with the largest population increase from 2011 to 2012.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in New York City, which is about 67,000 people.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in Fort Worth, which is about 16,000 people.</p><p><mark class="skel">In addition,</mark> the values for Houston, Los Angeles, and several other cities <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> U.S. city population growth.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the top ten U.S. cities with the largest population increase from 2011 to 2012.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in New York City, which is about 67,000 people.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in Fort Worth, which is about 16,000 people.</p><p><mark class="skel">In addition,</mark> the values for Houston, Los Angeles, and several other cities <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> U.S. city population growth.</p></div></details>
         <div class="meta">
           <span class="wc">86 words</span>
         </div>
@@ -225,7 +248,7 @@
       <div class="num">03</div>
       <img class="thumb" src="images/image3.png" alt="PTE describe image 3" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This picture shows clear information about</mark> a mother and daughter shopping for stationery items in a store.</p><p><mark class="skel">According to this image,</mark> we can see on the left side that the little girl holds up a colorful patterned backpack.</p><p><mark class="skel">On the other hand,</mark> we can see on the right side that she proudly wears her new backpack and holds several colored pencils.</p><p><mark class="skel">In addition,</mark> both the girl and her mother smile happily, with shelves of school supplies around them.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> a happy moment of back-to-school shopping.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This picture shows clear information about</mark> a mother and daughter shopping for stationery items in a store.</p><p><mark class="skel">According to this image,</mark> we can see on the left side that the little girl holds up a colorful patterned backpack.</p><p><mark class="skel">On the other hand,</mark> we can see on the right side that she proudly wears her new backpack and holds several colored pencils.</p><p><mark class="skel">In addition,</mark> both the girl and her mother smile happily, with shelves of school supplies around them.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> a happy moment of back-to-school shopping.</p></div></details>
         <div class="meta">
           <span class="wc">93 words</span>
         </div>
@@ -235,7 +258,7 @@
       <div class="num">04</div>
       <img class="thumb" src="images/image4.png" alt="PTE describe image 4" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This line graph shows clear information about</mark> Canada's population growth from 1978 to 2009, shown as three lines.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in total growth around 1988, which is about 480,000.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in total growth, which is about 250,000.</p><p><mark class="skel">In addition,</mark> natural increase stays fairly stable, while net international migration changes the most.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> Canada's population growth.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This line graph shows clear information about</mark> Canada's population growth from 1978 to 2009, shown as three lines.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in total growth around 1988, which is about 480,000.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in total growth, which is about 250,000.</p><p><mark class="skel">In addition,</mark> natural increase stays fairly stable, while net international migration changes the most.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> Canada's population growth.</p></div></details>
         <div class="meta">
           <span class="wc">80 words</span>
         </div>
@@ -245,7 +268,7 @@
       <div class="num">05</div>
       <img class="thumb" src="images/image5.png" alt="PTE describe image 5" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the number of U.S. households keeping pets.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in dogs, which is about 63 million households.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in horses and saltwater fish, which is about 2 million households each.</p><p><mark class="skel">In addition,</mark> the total number of households is around 85 million.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> pet ownership in the United States.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the number of U.S. households keeping pets.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in dogs, which is about 63 million households.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in horses and saltwater fish, which is about 2 million households each.</p><p><mark class="skel">In addition,</mark> the total number of households is around 85 million.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> pet ownership in the United States.</p></div></details>
         <div class="meta">
           <span class="wc">80 words</span>
         </div>
@@ -255,7 +278,7 @@
       <div class="num">06</div>
       <img class="thumb" src="images/image6.png" alt="PTE describe image 6" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> pet ownership by region around the world.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> proportion in North America, which is 40 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> proportion in Africa and Oceania, which is only 5 percent each.</p><p><mark class="skel">In addition,</mark> the values for Europe and Asia <mark class="skel">fall in between</mark>, at 25 and 15 percent respectively.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> global pet ownership.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> pet ownership by region around the world.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> proportion in North America, which is 40 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> proportion in Africa and Oceania, which is only 5 percent each.</p><p><mark class="skel">In addition,</mark> the values for Europe and Asia <mark class="skel">fall in between</mark>, at 25 and 15 percent respectively.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> global pet ownership.</p></div></details>
         <div class="meta">
           <span class="wc">80 words</span>
         </div>
@@ -265,7 +288,7 @@
       <div class="num">07</div>
       <img class="thumb" src="images/image7.png" alt="PTE describe image 7" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> the number of households, in millions, that own different pets.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> share in dogs, which is about 69 million households, or 45 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> share in horses, which is about 4 million households, or 2 percent.</p><p><mark class="skel">In addition,</mark> the value for cats falls in between, at about 45 million households.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> pet ownership by type.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> the number of households, in millions, that own different pets.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> share in dogs, which is about 69 million households, or 45 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> share in horses, which is about 4 million households, or 2 percent.</p><p><mark class="skel">In addition,</mark> the value for cats falls in between, at about 45 million households.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> pet ownership by type.</p></div></details>
         <div class="meta">
           <span class="wc">86 words</span>
         </div>
@@ -275,7 +298,7 @@
       <div class="num">08</div>
       <img class="thumb" src="images/image8.png" alt="PTE describe image 8" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> pet expenditure in the United States by category.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> share in vet care and wellbeing, which is 47 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> share in pet purchase itself, which is only 2 percent.</p><p><mark class="skel">In addition,</mark> the values for food and litter and for services <mark class="skel">fall in between</mark>, at 41 and 10 percent.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> pet spending by category.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> pet expenditure in the United States by category.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> share in vet care and wellbeing, which is 47 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> share in pet purchase itself, which is only 2 percent.</p><p><mark class="skel">In addition,</mark> the values for food and litter and for services <mark class="skel">fall in between</mark>, at 41 and 10 percent.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> pet spending by category.</p></div></details>
         <div class="meta">
           <span class="wc">85 words</span>
         </div>
@@ -285,7 +308,7 @@
       <div class="num">09</div>
       <img class="thumb" src="images/image9.png" alt="PTE describe image 9" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> which countries have the most cat owners in 2017.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> proportion in Russia, which is about 59 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> proportion in South Korea, which is only about 9 percent.</p><p><mark class="skel">In addition,</mark> the values for the United States, France, China, and Japan <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> cat ownership by country.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> which countries have the most cat owners in 2017.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> proportion in Russia, which is about 59 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> proportion in South Korea, which is only about 9 percent.</p><p><mark class="skel">In addition,</mark> the values for the United States, France, China, and Japan <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> cat ownership by country.</p></div></details>
         <div class="meta">
           <span class="wc">80 words</span>
         </div>
@@ -295,7 +318,7 @@
       <div class="num">10</div>
       <img class="thumb" src="images/image10.png" alt="PTE describe image 10" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the main barriers preventing adults from visiting museums or art galleries more often.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> barrier in lack of time, which is about 55 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> barrier in lack of information about events, which is only about 5 percent.</p><p><mark class="skel">In addition,</mark> the values for not available locally, transport, and cost of entry <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> barriers to museum attendance.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the main barriers preventing adults from visiting museums or art galleries more often.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> barrier in lack of time, which is about 55 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> barrier in lack of information about events, which is only about 5 percent.</p><p><mark class="skel">In addition,</mark> the values for not available locally, transport, and cost of entry <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> barriers to museum attendance.</p></div></details>
         <div class="meta">
           <span class="wc">90 words</span>
         </div>
@@ -305,7 +328,7 @@
       <div class="num">11</div>
       <img class="thumb" src="images/image11.png" alt="PTE describe image 11" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This line graph shows clear information about</mark> mobile phone ownership among U.S. adults from 2002 to 2019.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in cellphone ownership in 2019, which is about 95 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in smartphone ownership around 2011, which is about 35 percent.</p><p><mark class="skel">In addition,</mark> cellphone ownership starts around 60 percent, while smartphone ownership climbs sharply to about 80 percent by 2019.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> mobile phone ownership.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This line graph shows clear information about</mark> mobile phone ownership among U.S. adults from 2002 to 2019.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in cellphone ownership in 2019, which is about 95 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in smartphone ownership around 2011, which is about 35 percent.</p><p><mark class="skel">In addition,</mark> cellphone ownership starts around 60 percent, while smartphone ownership climbs sharply to about 80 percent by 2019.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> mobile phone ownership.</p></div></details>
         <div class="meta">
           <span class="wc">88 words</span>
         </div>
@@ -315,7 +338,7 @@
       <div class="num">12</div>
       <img class="thumb" src="images/image12.png" alt="PTE describe image 12" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This line graph shows clear information about</mark> the rise of smartphone ownership among U.S. adults from around 2004 to 2023.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in cellphone ownership in 2023, which is nearly 100 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> values for smartphone ownership, which only began around 2011.</p><p><mark class="skel">In addition,</mark> cellphone ownership started around 60 percent, and smartphone ownership climbed steadily to about 90 percent by 2023.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> smartphone ownership.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This line graph shows clear information about</mark> the rise of smartphone ownership among U.S. adults from around 2004 to 2023.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in cellphone ownership in 2023, which is nearly 100 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> values for smartphone ownership, which only began around 2011.</p><p><mark class="skel">In addition,</mark> cellphone ownership started around 60 percent, and smartphone ownership climbed steadily to about 90 percent by 2023.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> smartphone ownership.</p></div></details>
         <div class="meta">
           <span class="wc">88 words</span>
         </div>
@@ -325,7 +348,7 @@
       <div class="num">13</div>
       <img class="thumb" src="images/image13.png" alt="PTE describe image 13" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This line graph shows clear information about</mark> cell phone use in Anytowne from 1996 to 2002, by men, women, and both sexes combined.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in the combined total in 2002, which is about 3,700 people.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in men and women in 1996, which is about 1,500 people each.</p><p><mark class="skel">In addition,</mark> the combined total started at around 3,000 in 1996, and men and women stayed fairly close together.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> cell phone use in Anytowne.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This line graph shows clear information about</mark> cell phone use in Anytowne from 1996 to 2002, by men, women, and both sexes combined.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in the combined total in 2002, which is about 3,700 people.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in men and women in 1996, which is about 1,500 people each.</p><p><mark class="skel">In addition,</mark> the combined total started at around 3,000 in 1996, and men and women stayed fairly close together.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear trend of</mark> cell phone use in Anytowne.</p></div></details>
         <div class="meta">
           <span class="wc">99 words</span>
         </div>
@@ -335,7 +358,7 @@
       <div class="num">14</div>
       <img class="thumb" src="images/image14.png" alt="PTE describe image 14" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the percentage of population living in urban areas across regions in 1950, 2007, and projected for 2030.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> percentage in North America, which is about 87 percent by 2030.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> percentage in Africa, which is only about 15 percent in 1950.</p><p><mark class="skel">In addition,</mark> the values for Europe, Asia, and Latin America <mark class="skel">fall in between</mark>, with steady increases.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> urbanization by region.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the percentage of population living in urban areas across regions in 1950, 2007, and projected for 2030.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> percentage in North America, which is about 87 percent by 2030.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> percentage in Africa, which is only about 15 percent in 1950.</p><p><mark class="skel">In addition,</mark> the values for Europe, Asia, and Latin America <mark class="skel">fall in between</mark>, with steady increases.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> urbanization by region.</p></div></details>
         <div class="meta">
           <span class="wc">92 words</span>
         </div>
@@ -345,7 +368,7 @@
       <div class="num">15</div>
       <img class="thumb" src="images/image15.png" alt="PTE describe image 15" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the world's biggest chocolate consumers, in pounds consumed per capita each year.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in Switzerland, which is about 20 pounds per person annually.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in France, which is around 9 pounds.</p><p><mark class="skel">In addition,</mark> the values for Germany, Ireland, and the U.K. <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> chocolate consumption by country.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the world's biggest chocolate consumers, in pounds consumed per capita each year.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in Switzerland, which is about 20 pounds per person annually.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in France, which is around 9 pounds.</p><p><mark class="skel">In addition,</mark> the values for Germany, Ireland, and the U.K. <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> chocolate consumption by country.</p></div></details>
         <div class="meta">
           <span class="wc">82 words</span>
         </div>
@@ -355,7 +378,7 @@
       <div class="num">16</div>
       <img class="thumb" src="images/image16.png" alt="PTE describe image 16" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the average rainfall in inches among four American cities.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in New York, which is about 48 inches.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in Phoenix, which is about 8 inches.</p><p><mark class="skel">In addition,</mark> the values for Dallas and Honolulu <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> the average rainfall across the four cities.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the average rainfall in inches among four American cities.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in New York, which is about 48 inches.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in Phoenix, which is about 8 inches.</p><p><mark class="skel">In addition,</mark> the values for Dallas and Honolulu <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> the average rainfall across the four cities.</p></div></details>
         <div class="meta">
           <span class="wc">78 words</span>
         </div>
@@ -365,7 +388,7 @@
       <div class="num">17</div>
       <img class="thumb" src="images/image17.png" alt="PTE describe image 17" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> the population of European Union countries in 2007, by percentage.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> share in Germany, which is about 17 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> share in Poland, which is only about 7 percent.</p><p><mark class="skel">In addition,</mark> the values for France, the U.K., and Italy <mark class="skel">fall in between</mark>, at 12 to 13 percent each.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> EU population distribution.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> the population of European Union countries in 2007, by percentage.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> share in Germany, which is about 17 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> share in Poland, which is only about 7 percent.</p><p><mark class="skel">In addition,</mark> the values for France, the U.K., and Italy <mark class="skel">fall in between</mark>, at 12 to 13 percent each.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> EU population distribution.</p></div></details>
         <div class="meta">
           <span class="wc">83 words</span>
         </div>
@@ -375,7 +398,7 @@
       <div class="num">18</div>
       <img class="thumb" src="images/image18.png" alt="PTE describe image 18" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This scatter plot shows clear information about</mark> income levels by employment type and gender across four job categories.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value for both males and females, which is about 2,000 dollars.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value for both males and females, which is about 500 dollars.</p><p><mark class="skel">In addition,</mark> income varies mainly by employment type, rather than by gender alone.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> income distribution by gender.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This scatter plot shows clear information about</mark> income levels by employment type and gender across four job categories.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value for both males and females, which is about 2,000 dollars.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value for both males and females, which is about 500 dollars.</p><p><mark class="skel">In addition,</mark> income varies mainly by employment type, rather than by gender alone.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> income distribution by gender.</p></div></details>
         <div class="meta">
           <span class="wc">84 words</span>
         </div>
@@ -385,7 +408,7 @@
       <div class="num">19</div>
       <img class="thumb" src="images/image19.png" alt="PTE describe image 19" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This picture shows clear information about</mark> a busy outdoor market with produce stalls on both sides of a walkway.</p><p><mark class="skel">According to this image,</mark> we can see on the left side a wide variety of fruits and vegetables arranged neatly, with many shoppers gathered closely there.</p><p><mark class="skel">On the other hand,</mark> we can see on the right side noticeably less produce and far fewer customers.</p><p><mark class="skel">In addition,</mark> the two sides of the walkway look very different in how busy they are.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> the two sides of a busy outdoor market.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This picture shows clear information about</mark> a busy outdoor market with produce stalls on both sides of a walkway.</p><p><mark class="skel">According to this image,</mark> we can see on the left side a wide variety of fruits and vegetables arranged neatly, with many shoppers gathered closely there.</p><p><mark class="skel">On the other hand,</mark> we can see on the right side noticeably less produce and far fewer customers.</p><p><mark class="skel">In addition,</mark> the two sides of the walkway look very different in how busy they are.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> the two sides of a busy outdoor market.</p></div></details>
         <div class="meta">
           <span class="wc">96 words</span>
         </div>
@@ -395,7 +418,7 @@
       <div class="num">20</div>
       <img class="thumb" src="images/image20.png" alt="PTE describe image 20" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> travel time to work in Ontario in 2016.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> proportion in 15 to 29 minutes, which is 32 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> proportion in 45 to 59 minutes, which is only about 10 percent.</p><p><mark class="skel">In addition,</mark> the values for less than 15 minutes and 30 to 44 minutes <mark class="skel">fall in between</mark>, at 24 and 21 percent.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> commute time in Ontario.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This pie chart shows clear information about</mark> travel time to work in Ontario in 2016.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> proportion in 15 to 29 minutes, which is 32 percent.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> proportion in 45 to 59 minutes, which is only about 10 percent.</p><p><mark class="skel">In addition,</mark> the values for less than 15 minutes and 30 to 44 minutes <mark class="skel">fall in between</mark>, at 24 and 21 percent.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> commute time in Ontario.</p></div></details>
         <div class="meta">
           <span class="wc">90 words</span>
         </div>
@@ -405,7 +428,7 @@
       <div class="num">21</div>
       <img class="thumb" src="images/image21.png" alt="PTE describe image 21" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This picture shows clear information about</mark> the floor plan of a building layout.</p><p><mark class="skel">According to this image,</mark> we can see the main hall at the top, spanning the full width of the building.</p><p><mark class="skel">On the other hand,</mark> we can see an office and a kitchen on the left side below.</p><p><mark class="skel">In addition,</mark> three separate toilets are arranged one below another on the right side.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> a building floor plan.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This picture shows clear information about</mark> the floor plan of a building layout.</p><p><mark class="skel">According to this image,</mark> we can see the main hall at the top, spanning the full width of the building.</p><p><mark class="skel">On the other hand,</mark> we can see an office and a kitchen on the left side below.</p><p><mark class="skel">In addition,</mark> three separate toilets are arranged one below another on the right side.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> a building floor plan.</p></div></details>
         <div class="meta">
           <span class="wc">77 words</span>
         </div>
@@ -415,7 +438,7 @@
       <div class="num">22</div>
       <img class="thumb" src="images/image22.png" alt="PTE describe image 22" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This picture shows clear information about</mark> four simple steps to prepare food safely.</p><p><mark class="skel">According to this image,</mark> step one is clean, showing someone washing their hands under running water, and step two is separate, showing raw meat being cut on its own board.</p><p><mark class="skel">Then,</mark> step three is cook, showing a whole roasted chicken in the oven.</p><p><mark class="skel">Finally,</mark> step four is chill, showing a fully stocked refrigerator.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> food hygiene, preparation, and storage.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This picture shows clear information about</mark> four simple steps to prepare food safely.</p><p><mark class="skel">According to this image,</mark> step one is clean, showing someone washing their hands under running water, and step two is separate, showing raw meat being cut on its own board.</p><p><mark class="skel">Then,</mark> step three is cook, showing a whole roasted chicken in the oven.</p><p><mark class="skel">Finally,</mark> step four is chill, showing a fully stocked refrigerator.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> food hygiene, preparation, and storage.</p></div></details>
         <div class="meta">
           <span class="wc">80 words</span>
         </div>
@@ -425,7 +448,7 @@
       <div class="num">23</div>
       <img class="thumb" src="images/image23.png" alt="PTE describe image 23" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This picture shows clear information about</mark> a fresh produce section inside a large grocery store, with a seafood counter visible in the background.</p><p><mark class="skel">According to this image,</mark> we can see various colorful fruits, including plums and oranges, neatly arranged in bins.</p><p><mark class="skel">On the other hand,</mark> we can see price tags under the bins, ranging from about 4 to 6 dollars per pound.</p><p><mark class="skel">In addition,</mark> organic fresh items are displayed toward the left side of the store.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> a grocery store produce section.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This picture shows clear information about</mark> a fresh produce section inside a large grocery store, with a seafood counter visible in the background.</p><p><mark class="skel">According to this image,</mark> we can see various colorful fruits, including plums and oranges, neatly arranged in bins.</p><p><mark class="skel">On the other hand,</mark> we can see price tags under the bins, ranging from about 4 to 6 dollars per pound.</p><p><mark class="skel">In addition,</mark> organic fresh items are displayed toward the left side of the store.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear description of</mark> a grocery store produce section.</p></div></details>
         <div class="meta">
           <span class="wc">90 words</span>
         </div>
@@ -435,7 +458,7 @@
       <div class="num">24</div>
       <img class="thumb" src="images/image24.png" alt="PTE describe image 24" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the breakdown of weekly household expenditure across many different categories.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> expense in housing costs, which is about 280 dollars per week.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> expense in tobacco products, which is only about 15 dollars per week.</p><p><mark class="skel">In addition,</mark> the values for food, transport, and recreation <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> weekly household expenditure.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the breakdown of weekly household expenditure across many different categories.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> expense in housing costs, which is about 280 dollars per week.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> expense in tobacco products, which is only about 15 dollars per week.</p><p><mark class="skel">In addition,</mark> the values for food, transport, and recreation <mark class="skel">fall in between</mark>.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> weekly household expenditure.</p></div></details>
         <div class="meta">
           <span class="wc">82 words</span>
         </div>
@@ -445,7 +468,7 @@
       <div class="num">25</div>
       <img class="thumb" src="images/image25.png" alt="PTE describe image 25" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This table shows clear information about</mark> the share of food, beverages, and tobacco in consumer spending from 2009 to 2012.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in food and non-alcoholic beverages, which is about 24 to 25 percent each year.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in alcoholic beverages and tobacco, which is only about 3 percent throughout.</p><p><mark class="skel">In addition,</mark> the values stay fairly stable from 2009 to 2012.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> food and tobacco spending shares.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This table shows clear information about</mark> the share of food, beverages, and tobacco in consumer spending from 2009 to 2012.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in food and non-alcoholic beverages, which is about 24 to 25 percent each year.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in alcoholic beverages and tobacco, which is only about 3 percent throughout.</p><p><mark class="skel">In addition,</mark> the values stay fairly stable from 2009 to 2012.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> food and tobacco spending shares.</p></div></details>
         <div class="meta">
           <span class="wc">91 words</span>
         </div>
@@ -455,7 +478,7 @@
       <div class="num">26</div>
       <img class="thumb" src="images/image26.png" alt="PTE describe image 26" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the number of male and female participants across six different sports categories.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in male cricket participation, which is 9 participants.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in female cricket participation, which is only 2 participants.</p><p><mark class="skel">In addition,</mark> swimming is the only sport where females outnumber males, with 6 compared to 5.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> sports participation by gender.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This bar chart shows clear information about</mark> the number of male and female participants across six different sports categories.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in male cricket participation, which is 9 participants.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in female cricket participation, which is only 2 participants.</p><p><mark class="skel">In addition,</mark> swimming is the only sport where females outnumber males, with 6 compared to 5.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> sports participation by gender.</p></div></details>
         <div class="meta">
           <span class="wc">85 words</span>
         </div>
@@ -465,7 +488,7 @@
       <div class="num">27</div>
       <img class="thumb" src="images/image27.png" alt="PTE describe image 27" loading="lazy">
       <div class="body">
-        <div class="text"><p><mark class="skel">This line graph shows clear information about</mark> the mean salary of first degree graduates by gender in the United Kingdom from 2008 to 2013.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in men's salary in 2012 to 2013, which is about 21,500 pounds.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in women's salary, which stays relatively flat around 19,000 pounds.</p><p><mark class="skel">In addition,</mark> men consistently earned noticeably more than women each year.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> graduate salaries by gender.</p></div>
+        <details class="answer"><summary><span class="s-show">Show answer</span><span class="s-hide">Hide answer</span></summary><div class="text"><p><mark class="skel">This line graph shows clear information about</mark> the mean salary of first degree graduates by gender in the United Kingdom from 2008 to 2013.</p><p><mark class="skel">According to this image,</mark> <mark class="skel">we can find the highest</mark> value in men's salary in 2012 to 2013, which is about 21,500 pounds.</p><p><mark class="skel">On the other hand,</mark> <mark class="skel">we can find the lowest</mark> value in women's salary, which stays relatively flat around 19,000 pounds.</p><p><mark class="skel">In addition,</mark> men consistently earned noticeably more than women each year.</p><p><mark class="skel">In conclusion,</mark> this picture <mark class="skel">provides a clear comparison of</mark> graduate salaries by gender.</p></div></details>
         <div class="meta">
           <span class="wc">90 words</span>
         </div>
