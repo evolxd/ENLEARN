@@ -39,7 +39,52 @@ aside>.small{border-top:1px solid var(--line);padding-top:18px;margin-top:22px;l
 @media(max-width:760px){header{padding:18px 20px}.brand{font-size:15px}.home-link{font-size:11px}main{padding:28px 18px}.intro{display:block}.intro h1{font-size:34px}.intro p{font-size:14px}.flow{width:auto;margin-top:23px;padding:20px 23px;box-shadow:none}.flow strong{font-size:21px}.flow p{margin:10px 0}.learning-strip{margin:26px 0;grid-template-columns:repeat(2,1fr);gap:18px;padding:18px 0}.learning-strip>div,.learning-strip>div:first-child{padding-left:8px}.learning-strip>div:nth-child(2){border:0}.learning-strip b{font-size:23px}.layout{grid-template-columns:1fr;gap:22px}.group-list{display:flex;overflow:auto;padding:2px 2px 10px;scroll-snap-type:x proximity}.group-list button{min-width:137px;text-align:left;white-space:normal;scroll-snap-align:start;border:1px solid var(--line);background:#fff;font-size:12px;flex-shrink:0}.group-list button>span:first-child{display:inline-block;margin-right:7px}.group-list button>span:last-child{display:block;margin-top:3px}aside>.small{display:none}.panel{padding:19px 15px;border-radius:19px}.panel-top h2{font-size:21px}.parent-access{padding:12px;gap:9px}.parent-access p{min-width:170px}.player{padding:16px 13px}.player .primary{width:100%;font-size:14px}.stage{font-size:10px}.play-status{font-size:15px}.controls.secondary a{margin:6px 0 0;width:100%}.review-header{align-items:baseline;gap:5px}.word-list{grid-template-columns:1fr}.word-card{padding:17px}footer{display:block}footer span{display:block;margin:6px 0}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 @media print{.learning-strip,.home-link{display:none!important}body{background:#fff}.panel{box-shadow:none}.panel,main{padding:0}.layout{display:block}}
-</style><style>.layout{grid-template-columns:240px minmax(0,1fr)}.layout>*{min-width:0}@media(max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}}html,body{overflow-x:hidden}.def{margin-top:6px;font-size:14px;line-height:1.5;color:var(--ink);background:#eef3e8;border-left:3px solid var(--green);padding:6px 6px 6px 10px;border-radius:0 8px 8px 0;display:flex;gap:8px;align-items:center;justify-content:space-between}.def-play{flex:none;padding:3px 10px;font-size:12px;border-radius:99px;background:#fff}</style></head><body><header><div class="brand">✳ WORD GARDEN <small>一键听写</small></div><a class="home-link" href="../">返回 ENLEARN ↗</a></header><main><div class="intro"><div><div class="eyebrow">LISTEN · WRITE · CHECK</div><h1>每天十个词，<br><em>让进步悄悄生长。</em></h1><p>五年级词汇花园 · 选一组，听一听，写下来。<br>从读懂一个单词，到说出自己的句子。</p></div><div class="flow"><span class="flow-label">YOUR DAILY PRACTICE</span><strong>听懂 · 写下 · 记住</strong><p>中文词义 → 英文单词<br>英文例句 → 中文例句</p><span>每段间隔 2 秒，留一点思考时间。</span></div></div><div class="learning-strip"><div><b>11</b><span>组听写练习</span></div><div><b>10</b><span>个词 / 每组</span></div><div><b>中 / EN</b><span>双语音频与例句</span></div><div><b>5</b><span>格书写练习</span></div></div><div class="layout"><aside><p class="eyebrow">选择一组 · 11次听写</p><nav class="group-list" id="groupList" aria-label="听写分组"></nav><p class="small">先复习，再在纸上听写。<br>学习卡与原有词汇继续保留。</p></aside><div><section class="panel"><div class="panel-top"><div><h2 id="groupTitle"></h2><span class="count">10个词 · 40段朗读 · 一条完整音频</span></div></div><p id="startupStatus" role="status">正在加载听写系统。如果这行文字一直显示，请在 Safari 中打开或刷新此网页。</p><section class="parent-access" aria-labelledby="parentAccessTitle">
+</style><style>.layout{grid-template-columns:240px minmax(0,1fr)}.layout>*{min-width:0}@media(max-width:760px){.layout{grid-template-columns:minmax(0,1fr)}}html,body{overflow-x:hidden}.def{margin-top:6px;font-size:14px;line-height:1.5;color:var(--ink);background:#eef3e8;border-left:3px solid var(--green);padding:6px 6px 6px 10px;border-radius:0 8px 8px 0;display:flex;gap:8px;align-items:center;justify-content:space-between}.def-play{flex:none;padding:3px 10px;font-size:12px;border-radius:99px;background:#fff}.study{margin:18px 0;border-radius:18px;padding:20px 22px;background:linear-gradient(135deg,#fff8ea,#f1f6e8);border:1px solid #ecd9b0}
+.study-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.study-head h3{margin:2px 0 0;font-size:20px}
+.study-stage{margin:14px 0 10px;padding:18px 20px;border-radius:14px;background:#fff;border:1px solid var(--line);text-align:center}
+.st-word{font-family:Georgia,serif;font-size:clamp(34px,6vw,52px);font-weight:800;line-height:1.15;color:var(--green);border-radius:10px}
+.st-ipa{color:var(--muted);margin-top:2px;min-height:1.4em}
+.st-line{margin-top:8px;padding:5px 10px;border-radius:9px;min-height:1.5em;transition:background .2s}
+.st-def{font-size:15px}.st-ex{font-size:16px;font-style:italic}.st-exzh{font-size:14px;color:var(--muted)}
+#stZh{font-size:22px;font-weight:700}
+.study-stage .on{background:#ffe9bd;box-shadow:0 0 0 2px #f0c46a inset}
+#studyBar{width:100%;height:8px;accent-color:var(--orange)}
+.study-main{margin-top:12px}.study-main .primary{background:var(--orange);color:#fff;border:none;font-weight:700;min-height:50px;padding:10px 22px}
+.study-opts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-top:12px;font-size:14px}
+.study-opts select{font-size:14px;padding:3px 6px;border-radius:8px;border:1px solid var(--line)}
+@media print{.study{display:none!important}}
+</style></head><body><header><div class="brand">✳ WORD GARDEN <small>一键听写</small></div><a class="home-link" href="../">返回 ENLEARN ↗</a></header><main><div class="intro"><div><div class="eyebrow">LISTEN · WRITE · CHECK</div><h1>每天十个词，<br><em>让进步悄悄生长。</em></h1><p>五年级词汇花园 · 选一组，听一听，写下来。<br>从读懂一个单词，到说出自己的句子。</p></div><div class="flow"><span class="flow-label">YOUR DAILY PRACTICE</span><strong>听懂 · 写下 · 记住</strong><p>中文词义 → 英文单词<br>英文例句 → 中文例句</p><span>每段间隔 2 秒，留一点思考时间。</span></div></div><div class="learning-strip"><div><b>11</b><span>组听写练习</span></div><div><b>10</b><span>个词 / 每组</span></div><div><b>中 / EN</b><span>双语音频与例句</span></div><div><b>5</b><span>格书写练习</span></div></div><div class="layout"><aside><p class="eyebrow">选择一组 · 11次听写</p><nav class="group-list" id="groupList" aria-label="听写分组"></nav><p class="small">先复习，再在纸上听写。<br>学习卡与原有词汇继续保留。</p></aside><div><section class="panel"><div class="panel-top"><div><h2 id="groupTitle"></h2><span class="count">10个词 · 40段朗读 · 一条完整音频</span></div></div><p id="startupStatus" role="status">正在加载听写系统。如果这行文字一直显示，请在 Safari 中打开或刷新此网页。</p><section class="study" id="study" aria-labelledby="studyTitle">
+  <div class="study-head"><div><p class="eyebrow">STUDY ROOM · 无需密码</p><h3 id="studyTitle">一键诵读 · 边听边看边记</h3></div><span class="small" id="studyCount">0 / 10</span></div>
+  <div class="study-stage" id="studyStage" aria-live="off">
+    <div class="st-word" id="stWord" lang="en">点下面的按钮开始</div>
+    <div class="st-ipa" id="stIpa" lang="en"></div>
+    <div class="st-line" id="stZh"></div>
+    <div class="st-line st-def" id="stDef" lang="en"></div>
+    <div class="st-line st-ex" id="stEx" lang="en"></div>
+    <div class="st-line st-exzh" id="stExZh"></div>
+  </div>
+  <progress id="studyBar" max="10" value="0"></progress>
+  <div class="controls study-main">
+    <button id="studyGo" class="primary">▶ 一键诵读本组</button>
+    <button id="studyPause" disabled>⏸ 暂停</button>
+    <button id="studyPrev" disabled>← 上一词</button>
+    <button id="studyAgain" disabled>↻ 重读本词</button>
+    <button id="studyNext" disabled>下一词 →</button>
+    <button id="studyStop" disabled>■ 停止</button>
+  </div>
+  <div class="study-opts">
+    <span class="small">每词朗读：</span>
+    <label><input type="checkbox" id="oZh" checked> 中文词义</label>
+    <label><input type="checkbox" id="oDef" checked> 英文释义</label>
+    <label><input type="checkbox" id="oEx" checked> 英文例句</label>
+    <label><input type="checkbox" id="oExZh"> 例句中文</label>
+    <label>单词 <select id="oRep"><option value="1">读1遍</option><option value="2">读2遍</option><option value="3">读3遍</option></select></label>
+    <label>语速 <select id="oRate"><option value="0.8">慢</option><option value="1">正常</option><option value="1.2">快</option></select></label>
+    <label>循环 <select id="oLoop"><option value="1">1遍</option><option value="2">2遍</option><option value="3">3遍</option><option value="0">一直循环</option></select></label>
+  </div>
+  <p class="small" id="studyMsg" role="status" aria-live="polite">选一组，点“一键诵读”：先读单词，再读词义、英文释义和例句，屏幕同步显示。不影响听写锁。</p>
+</section>
+<section class="parent-access" aria-labelledby="parentAccessTitle">
   <h3 id="parentAccessTitle">家长密码</h3>
   <p>听写结束后，在这里输入密码查看答案。</p>
   <button type="button" id="unlock" aria-haspopup="dialog" hidden>输入家长密码 · 查看答案</button>
@@ -707,4 +752,68 @@ $('printBlank').onclick=()=>printSheet(false);$('printStudy').onclick=()=>printS
 window.DictationV2={start,stop,selectGroup,previewWord,update,derive,getState:()=>({selected,active,locked:locked(),generation}),getCues};
 })();
 
-</script></body></html>
+</script><script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id),M=window.DICTATION_AUDIO,KEY='bc5-study-opts';
+const player=new Audio();player.preload='auto';let loadedSrc='';
+const S={run:0,playing:false,paused:false,wi:0};
+const opts={zh:true,def:true,ex:true,exzh:false,rep:1,rate:1,loop:1};
+try{Object.assign(opts,JSON.parse(offlineStorage.getItem(KEY)||'{}'));}catch(e){}
+function saveOpts(){try{offlineStorage.setItem(KEY,JSON.stringify(opts));}catch(e){}}
+const map={oZh:['zh','b'],oDef:['def','b'],oEx:['ex','b'],oExZh:['exzh','b'],oRep:['rep','n'],oRate:['rate','n'],oLoop:['loop','n']};
+for(const [id,[k,t]] of Object.entries(map)){const e=$(id);if(t==='b')e.checked=!!opts[k];else e.value=String(opts[k]);e.onchange=()=>{opts[k]=t==='b'?e.checked:Number(e.value);if(k==='rate'&&S.playing)player.playbackRate=opts.rate;if(k==='exzh'&&S.playing)$('stExZh').textContent=opts.exzh?(wordOf(group().ids[S.wi]).cn||''):'';saveOpts();};}
+const group=()=>{const b=[...document.querySelectorAll('#groupList button')];const i=b.findIndex(x=>x.classList.contains('active'));return M.sessions[i<0?0:i];};
+const locked=()=>document.documentElement.classList.contains('locked');
+const wordOf=id=>words.find(w=>w.id===id);
+const msg=t=>{$('studyMsg').textContent=t;};
+function lines(id){const w=wordOf(id),p=pronunciation[w.en];return {word:w.en,ipa:p?'/'+p.ipa+'/':'',zh:w.zh,def:EN_DEFS[id]||'',ex:w.ex||'',exzh:w.cn||''};}
+const ST={word:'stWord',zh:'stZh',def:'stDef',ex:'stEx',exzh:'stExZh'};
+function show(id){const l=lines(id);$('stWord').textContent=l.word;$('stIpa').textContent=l.ipa;$('stZh').textContent=l.zh;$('stDef').textContent=l.def;$('stEx').textContent=l.ex;$('stExZh').textContent=opts.exzh?l.exzh:'';mark(null);}
+function mark(kind){for(const e of $('studyStage').querySelectorAll('.on'))e.classList.remove('on');if(kind&&ST[kind])$(ST[kind]).classList.add('on');}
+function steps(id){const m=M.words[String(id)],seg=n=>m.segments.find(s=>s.step===n),L=[];
+ for(let r=0;r<opts.rep;r++)L.push({kind:'word',src:m.url,start:seg(1).start,end:seg(1).end});
+ if(opts.zh)L.push({kind:'zh',src:m.url,start:seg(0).start,end:seg(0).end});
+ if(opts.def&&EN_DEFS[id])L.push({kind:'def',src:'audio/def-'+id+'.mp3',start:0,end:null});
+ if(opts.ex){L.push({kind:'ex',src:m.url,start:seg(2).start,end:seg(2).end});if(opts.exzh)L.push({kind:'exzh',src:m.url,start:seg(3).start,end:seg(3).end});}
+ return L;}
+function ui(){const on=S.playing;$('studyGo').disabled=on;$('studyGo').textContent=on?'▶ 诵读中…':'▶ 一键诵读本组';['studyPause','studyPrev','studyAgain','studyNext','studyStop'].forEach(i=>$(i).disabled=!on);$('studyPause').textContent=S.paused?'▶ 继续':'⏸ 暂停';}
+function counter(){const n=group().ids.length;$('studyCount').textContent=`${S.playing?S.wi+1:0} / ${n}`;$('studyBar').max=n;$('studyBar').value=S.playing?S.wi+1:0;}
+const sleep=(ms,run)=>new Promise(res=>{let left=ms;const t=setInterval(()=>{if(run!==S.run){clearInterval(t);res();return;}if(S.paused)return;left-=50;if(left<=0){clearInterval(t);res();}},50);});
+function playStep(st,run){return new Promise(res=>{let done=false,tm;const fin=()=>{if(done)return;done=true;clearInterval(tm);player.removeEventListener('ended',fin);res();};
+ const go=()=>{if(run!==S.run){fin();return;}try{player.currentTime=st.start;}catch(e){}player.playbackRate=opts.rate;const p=player.play();if(p&&p.catch)p.catch(()=>{msg('播放失败，请检查网络后重试。');S.run++;S.playing=false;ui();fin();});};
+ tm=setInterval(()=>{if(run!==S.run){player.pause();fin();return;}if(S.paused)return;if(st.end!=null&&player.currentTime>=st.end-0.03){player.pause();fin();}},30);
+ player.addEventListener('ended',fin);
+ if(loadedSrc===st.src&&player.readyState>=1)go();else{loadedSrc=st.src;player.src=st.src;const h=()=>{player.removeEventListener('loadedmetadata',h);go();};player.addEventListener('loadedmetadata',h);player.load();}
+});}
+async function runStudy(from){
+ if(locked()){msg('本组正在听写、待家长核对，诵读会显示答案。请先输入家长密码解锁。');$('unlock').click();return;}
+ try{document.getElementById('audio').pause();}catch(e){}
+ const run=++S.run;S.playing=true;S.paused=false;ui();
+ const ids=group().ids;let round=1,start=from||0;
+ while(run===S.run){
+  for(S.wi=start;S.wi<ids.length;S.wi++){
+   if(run!==S.run)return;const id=ids[S.wi];show(id);counter();
+   const L=steps(id);
+   for(let k=0;k<L.length;k++){mark(L[k].kind);msg(`第${round}遍 · ${wordOf(id).en}`);await playStep(L[k],run);if(run!==S.run)return;await sleep(500,run);}
+   mark(null);await sleep(800,run);
+  }
+  start=0;
+  if(opts.loop!==0&&round>=opts.loop)break;
+  round++;
+ }
+ if(run===S.run){S.playing=false;S.paused=false;ui();mark(null);msg('本组诵读完成。可以再来一遍，或去做听写。');$('studyBar').value=$('studyBar').max;}
+}
+function halt(text){S.run++;S.playing=false;S.paused=false;try{player.pause();}catch(e){}ui();mark(null);counter();if(text)msg(text);}
+function jump(d){if(!S.playing)return;const n=group().ids.length,t=Math.min(n-1,Math.max(0,S.wi+d));S.run++;try{player.pause();}catch(e){}S.playing=false;runStudy(t);}
+$('studyGo').onclick=()=>runStudy(0);
+$('studyStop').onclick=()=>halt('已停止。');
+$('studyPause').onclick=()=>{if(!S.playing)return;S.paused=!S.paused;if(S.paused)player.pause();else{const p=player.play();if(p&&p.catch)p.catch(()=>{});}ui();msg(S.paused?'已暂停。':'继续诵读。');};
+$('studyPrev').onclick=()=>jump(-1);$('studyNext').onclick=()=>jump(1);$('studyAgain').onclick=()=>jump(0);
+document.getElementById('audio').addEventListener('play',()=>{if(S.playing)halt('已切换到听写，诵读已停止。');});
+window.addEventListener('pagehide',()=>halt());
+new MutationObserver(()=>{if(S.playing)halt('已换组，诵读已停止。');show(group().ids[0]);counter();}).observe($('groupList'),{childList:true});
+show(group().ids[0]);counter();ui();
+})();
+</script>
+</body></html>
