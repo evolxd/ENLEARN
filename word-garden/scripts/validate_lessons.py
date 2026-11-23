@@ -82,7 +82,9 @@ for s in sess:
     f = os.path.join(ROOT, s['url'])
     if not os.path.exists(f) or os.path.getsize(f) < 1500: bad('A7', f'missing {s["url"]}'); continue
     if abs(dur(f) - s['duration']) > 0.2: bad('A8', f'{s["url"]} duration {dur(f):.2f} vs manifest {s["duration"]:.2f}')
-    if len(s['cues']) != 40: bad('A8', f'{s["url"]} has {len(s["cues"])} cues')
+    if len(s['cues']) != 60: bad('A8', f'{s["url"]} has {len(s["cues"])} cues')
+    for c1, c2 in zip(s['cues'], s['cues'][1:]):
+        if c1['step'] == 3 and c1['item'] == c2['item'] and abs((c2['start'] - c1['end']) - 10.0) > 0.05: bad('A8', f'{s["url"]} example gap is not 10 s'); break
 if rates:
     med = statistics.median(rates)
     ref = [len(re.findall(r"[A-Za-z']+", DEFS[str(i)])) / dur(os.path.join(ROOT, f'audio/def-{i}.mp3')) for i in (181, 184, 188, 191, 195, 198) if os.path.exists(os.path.join(ROOT, f'audio/def-{i}.mp3'))]

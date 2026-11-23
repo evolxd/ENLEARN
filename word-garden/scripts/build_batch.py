@@ -64,18 +64,14 @@ async def main():
         encode(buf, os.path.join(OUT, f'word-{id_}.mp3'))
         meta['words'][str(id_)] = {'url': f'audio/word-{id_}.mp3', 'segments': cues}
     for gi, (title, ids) in enumerate(D.GROUPS):
-        buf, cues, t = b'', [], 0.0
-        for item, id_ in enumerate(ids):
-            c, b, t = lay(pcm[id_], t)
-            for x in c:
-                x['item'] = item; x['wordId'] = id_
-            cues += c; buf += b
-        gid = first_gid + gi
-        path = os.path.join(OUT, f'group-{gid}.mp3'); encode(buf, path)
-        meta['sessions'].append({'title': title, 'ids': ids, 'id': gid, 'url': f'audio/group-{gid}.mp3', 'duration': t, 'sampleCount': len(buf) // 2, 'cues': cues, 'bytes': os.path.getsize(path)})
+        meta['sessions'].append(('pending', title, ids, first_gid + gi))
     return meta
 
 meta = asyncio.run(main())
+sys.path.insert(0, HERE)
+import groups
+# group audio is built from the word audio just written (layout: see groups.py)
+meta['sessions'] = [groups.build_session(ROOT, meta['words'], title, ids, gid) for (_p, title, ids, gid) in meta['sessions']]
 
 t = open(PAGE, encoding='utf-8', newline='').read()
 anchor = None
