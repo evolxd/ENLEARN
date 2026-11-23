@@ -1,14 +1,15 @@
 """Group (dictation) audio layout, shared by build_batch.py and rebuild_groups.py.
 
-Per word:  zh meaning | word | EN example | ZH example | 10 s silence | EN example again | ZH example again
-Cue steps: 0 zh meaning, 1 word, 2 EN example, 3 ZH example, 4 EN example (repeat), 5 ZH example (repeat).
+Per word:  zh meaning | word | 5 s | word again | 5 s | EN example | ZH example | 10 s silence | EN example again | ZH example again
+Cue steps: 0 zh meaning, 1 word, 2 EN example, 3 ZH example, 4 EN example (repeat), 5 ZH example (repeat), 6 word (repeat).
 Single-word files (word-<id>.mp3) keep steps 0-3 only; their segments are the source for the group audio.
 """
 import base64, os, subprocess
 SR = 22050
 GS = 2.0 / 0.87          # normal gap between steps
 EX_GAP = 10.0            # silence between the first and second reading of the example
-LANG = {0: 'zh', 1: 'en', 2: 'en', 3: 'zh', 4: 'en', 5: 'zh'}
+WORD_GAP = 5.0           # silence after the dictated word, and after its repeat
+LANG = {0: 'zh', 1: 'en', 2: 'en', 3: 'zh', 4: 'en', 5: 'zh', 6: 'en'}
 
 def silence(sec):
     return bytes(2 * round(SR * sec))
@@ -25,13 +26,13 @@ def cut(pcm, seg):
 
 def lay_word(pieces, t0):
     """pieces: 4 pcm clips (steps 0-3). Returns cues, pcm, end time."""
-    order = [0, 1, 2, 3, 4, 5]
-    src = {0: pieces[0], 1: pieces[1], 2: pieces[2], 3: pieces[3], 4: pieces[2], 5: pieces[3]}
+    order = [0, 1, 6, 2, 3, 4, 5]
+    src = {0: pieces[0], 1: pieces[1], 6: pieces[1], 2: pieces[2], 3: pieces[3], 4: pieces[2], 5: pieces[3]}
     cues, buf, t = [], b'', t0
     for step in order:
         s = src[step]; dur = len(s) / 2 / SR
         cues.append({'step': step, 'lang': LANG[step], 'start': t, 'end': t + dur})
-        gap = EX_GAP if step == 3 else GS
+        gap = EX_GAP if step == 3 else WORD_GAP if step in (1, 6) else GS
         buf += s + silence(gap); t += dur + gap
     return cues, buf, t
 
