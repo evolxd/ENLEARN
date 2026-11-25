@@ -84,14 +84,14 @@ blocks = ''
 by_lesson = {}
 for r in ROWS:
     by_lesson.setdefault((r[0] - ROWS[0][0]) // 20, []).append(r)
-for li, (num, label) in enumerate(D.LESSONS):
+for li, (num, label, *_gl) in enumerate(D.LESSONS):
     ents = []
     for (id_, en, zh, ex, exzh, d, chunks, ipa, sounds, tip, memory, pattern) in by_lesson[li]:
         assert len(chunks.split('·')) == len(sounds.split('·')), en
         ents.append({"id": id_, "g": g_index + li, "en": en, "zh": zh, "chunks": chunks, "ipa": ipa, "sounds": sounds, "tip": tip, "memory": memory, "ex": ex, "cn": exzh, "pattern": pattern})
     assert 'lesson%dEntries' % num not in t, num
     blocks += ("<script> const lesson%dEntries=" % num + json.dumps(ents, ensure_ascii=False, indent=1) +
-        '; groups.push("第%d课 Lesson %d（拓展）"); lesson%dEntries.forEach(({chunks,ipa,sounds,tip,memory,pattern,...w})=>{words.push(w);pronunciation[w.en]={chunks,ipa,tip,memory};chunkSounds[w.en]=sounds;});  </script>' % (num, num, num))
+        '; groups.push(%s); lesson%dEntries.forEach(({chunks,ipa,sounds,tip,memory,pattern,...w})=>{words.push(w);pronunciation[w.en]={chunks,ipa,tip,memory};chunkSounds[w.en]=sounds;});  </script>' % (json.dumps(_gl[0] if _gl else "第%d课 Lesson %d（拓展）" % (num, num), ensure_ascii=False), num))
 t = t[:b] + blocks + t[b:]
 i = t.find('window.DICTATION_AUDIO='); j = t.find(';</script>', i)
 m = json.loads(t[i + len('window.DICTATION_AUDIO='):j])
